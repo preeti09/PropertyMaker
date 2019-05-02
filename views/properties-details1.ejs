@@ -1,0 +1,637 @@
+<% include header %>
+<% include banner %>
+
+<!-- Properties details page start -->
+<div class="properties-details-page mb-50">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+
+                    <!-- Properties detail slider start -->
+                    <div class="properties-detail-slider simple-slider mb-40">
+                        <% if(propertyResult[0].ImageGallery) {
+                            var images = propertyResult[0].ImageGallery.split(',');
+                        
+                        %>
+                        <div id="carousel-custom" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-outer">
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+                                    
+                                    <% for(var i= 0; i < images.length; i++){ 
+                                    if(i == images.length-1){
+                                    %>
+                                    <div class="item active">
+                                        <% }else {%>
+                                        <div class="item">
+                                        <% } %> 
+                                        <div class="item-center">   
+                                            <img src="<%= images[i] %>" class="thumb-preview" alt="Chevrolet Impala">
+                                        </div>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#carousel-custom" role="button" data-slide="prev">
+                                    <span class="slider-mover-left no-bg t-slider-r pojison" aria-hidden="true">
+                                        <i class="fa fa-angle-left"></i>
+                                    </span>
+                                <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-custom" role="button" data-slide="next">
+                                    <span class="slider-mover-right no-bg t-slider-l pojison" aria-hidden="true">
+                                        <i class="fa fa-angle-right"></i>
+                                    </span>
+                                <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators thumbs visible-lg visible-md">
+                                <% for(var i= 0; i < images.length; i++){ %>
+                                <li data-target="#carousel-custom" data-slide-to="<%= i %>" class=""><img src="<%= images[i] %>" alt="Chevrolet Impala"></li>
+                                <% } %>
+                                
+                            </ol>
+                        </div>
+                        <% } %>
+                    </div>
+                    <!-- Properties detail slider end -->
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <!-- Properties details section start -->
+                    <div class="properties-details-section sidebar-widget">
+
+                        <div class="main-title-2">
+                            <div class="property-name">
+                                <h1 class="mar-b-0"><span><%= propertyResult[0].Title %></span></h1>
+                                <div class="title-builder">
+                                    <span>by </span><a href="#" class="more-link no-ajaxy">Builder Name</a>
+                                </div>
+                            </div>
+                            
+                            <% if(propertyResult[0].AgentsId != sess_val){
+                                var active = '';
+                                 if(Favourite_Property.length > 0 && Favourite_Property[0].status == 1){
+                                     active = 'active';
+                                 }   
+                                
+                            %>
+                            <div class="short-list <%= active %>" Propid="<%= propertyResult[0].Propid %>">
+                                <i class="fa fa-heart" ></i>
+                            </div>
+                            <% } %>
+                        </div>
+
+                        <div class="max-width project-section">
+                            <div class="location-wrap mb-30">
+                                <h4>
+                                    <i class="fa fa-map-marker clrGreen" aria-hidden="true"></i>&nbsp;
+                                    <span class="va-middle proj-address">
+                                    <a href="/mumbai/property-sale-dombivali-50030" target="_blank" class="reset-a no-ajaxy"><%= propertyResult[0].GeoLocation %>, <%= propertyResult[0].City %></a>
+                                    <span class="js-header-tabs">
+                                        <a href="#neighbourhood" data-tracking="viewOnMap" class="show-map more-link map-link">&nbsp;(show on map)</a>
+                                    </span>
+                                    </span>
+                                </h4>
+                            </div>
+                            <div class="row mb-30">
+                                <div class="col-sm-4">
+                                    <div class="project-spec">
+                                        <h4><span>1, 2 BHK</span></h4>
+                                        <span class="gray-clr">Apartment</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="project-spec">
+                                        <h4><span><%= propertyResult[0].Area %></span></h4>
+                                        <span class="gray-clr">Carpet Area</span> <a class="clrGreen" data-toggle="tooltip" data-placement="top" title="1 sq M = 10.76 sq ft"><i class="fa fa-exclamation-circle" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="project-spec">
+                                        <h4><span>₹ <%= propertyResult[0].AskingPrice %></span></h4>
+                                        <span class="gray-clr">Builder price</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <ul class="social-list clearfix share-post mb-30">
+                            <li>
+                                <h4>Share with</h4>
+                            </li>
+                            <li>
+                                <a href="#" class="facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            </li>
+                            <li>
+                                <a href="#" class="twitter">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            </li>
+                            <li>
+                                <a href="#" class="google">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            </li>
+                        </ul>
+                        <!-- Property description start -->
+                        <div class="Property-description">
+                            <nav class="navbar nav-smooth_scroll mb-50 row">
+                                <div id="Navbar">
+                                    <ul class="nav navbar-nav">
+                                        <% if(Apartments_Projects_Houses.length > 0){%>
+                                        <li><a href="#Overview">Overview</a></li>
+                                        <% } if(propertyResult[0].VideoUrl || propertyResult[0].VideoGallery){ %>
+                                        <li><a href="#Video">Video</a></li>
+                                        <% } if(Floor_Plans.length > 0){ %>
+                                        <li><a href="#FloorPlan">Floor Plan</a></li>
+                                        <% } if(Amenities.length > 0){ %>
+                                        <li><a href="#Amenities">Amenities</a></li>
+                                        <% } if(Specifications.length > 0){ %>
+                                        <li><a href="#Specifications">Specifications</a></li>
+                                        <li><a href="#Specifications">Price Trends</a></li>
+                                        <% } %>    
+                                        <li><a href="#neighbourhood">Location</a></li>
+                                        <% if(Apartments_Projects_Houses.length > 0 && Apartments_Projects_Houses[0].Brochure_Url){%>
+                                        <li><a href="#Brochure">Brochure</a></li>
+                                        <% } %>
+                                    </ul>
+                                </div>
+                            </nav>
+                            <div class="with-nav-tabs">
+                                <div class="">
+                                    <% if(Apartments_Projects_Houses.length > 0){%>
+                                    <div id="Overview" class="mb-50">
+                                        <div class="main-title-2">
+                                            <h1 class="clrGreen"><span>Overview</span></h1>
+                                        </div>
+                                        <div class="row mb-30">
+                                            <div class="col-md-4 col-sm-6 mb-30">
+                                                <div class="project-spec">
+                                                    <h4><span><%= propertyResult[0].Facing %></span></h4>
+                                                    <span class="gray-clr">Facing of all the Flats</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-6 mb-30">
+                                                <div class="project-spec">
+                                                    <h4><span><%= Apartments_Projects_Houses[0].Site_Area %></span></h4>
+                                                    <span class="gray-clr">Site Area</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-6 mb-30">
+                                                <div class="project-spec">
+                                                    <h4><span><%= Apartments_Projects_Houses[0].Total_Units %></span></h4>
+                                                    <span class="gray-clr">Total Units</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4 col-sm-6 mb-30">
+                                                <div class="project-spec">
+                                                    <h4><span><%= Apartments_Projects_Houses[0].Total_Floors %></span></h4>
+                                                    <span class="gray-clr">Total Floors</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-6 mb-30">
+                                                <div class="project-spec">
+                                                    <h4><span><%= Apartments_Projects_Houses[0].Total_Towers %></span></h4>
+                                                    <span class="gray-clr">Total Towers</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-6 mb-30">
+                                                <div class="project-spec">
+                                                    <h4><span><%= Apartments_Projects_Houses[0].FloorNo %></span></h4>
+                                                    <span class="gray-clr">Floor No</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-6 mb-30">
+                                                <div class="project-spec">
+                                                    <h4><span><%= Apartments_Projects_Houses[0].Launch_Date %></span></h4>
+                                                    <span class="gray-clr">Launch Date</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-6 mb-30">
+                                                <div class="project-spec">
+                                                    <h4><span><%= Apartments_Projects_Houses[0].Posession_Date %></span></h4>
+                                                    <span class="gray-clr">Possession Date</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-6 mb-30">
+                                                <div class="project-spec">
+                                                    <h4><span>Yes</span></h4>
+                                                    <span class="gray-clr">Furnished</span>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="col-md-12">
+                                                <div class="">
+                                                    <h4><strong>Description of the Property</strong></h4>
+                                                    <p class="gray-clr"><%= Apartments_Projects_Houses[0].Prop_Desc %></p>
+                                                    
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <% } if(propertyResult[0].VideoUrl || propertyResult[0].VideoGallery.split(',')[0]){ %>
+                                    <div id="Video" class="mb-50">
+                                        <!-- Inside properties start  -->
+                                        <div class="inside-properties">
+                                            <!-- Main Title 2 -->
+                                            <div class="main-title-2">
+                                                <h1 class="clrGreen"><span>Video </span></h1>
+                                            </div>
+                                            <% if(propertyResult[0].VideoUrl){ %>
+                                            <iframe src="<%= propertyResult[0].VideoUrl %>" allowfullscreen=""></iframe>    
+                                            <% }else{ %>
+                                                <video width="800" height="500" controls>
+                                              <source src="<%= propertyResult[0].VideoGallery.split(',')[0] %>" type="video/mp4">
+                                              Your browser does not support the video tag.
+                                            </video>    
+                                            <%    
+                                            }
+                                            %>
+                                        </div>
+                                    </div>
+                                    <% } if(Floor_Plans.length > 0){ %>
+                                    <div id="FloorPlan" class="mb-50">
+                                        <div class="">
+                                            <!-- Properties condition start -->
+                                            <div class="properties-condition">
+                                                <div class="main-title-2">
+                                                    <h1 class="clrGreen"><span>Floor Plans</span></h1>
+                                                </div>
+                                                <% for(var i =0; i < Floor_Plans.length; i++){ %>
+                                                <div class="row mb-30">
+                                                    <div class="col-md-4 col-sm-6 mb-30">
+                                                        <div class="project-spec">
+                                                            <h4><span><%= Floor_Plans[i].Title %></span></h4>
+                                                            <span class="gray-clr">Title</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6 mb-30">
+                                                        <div class="project-spec">
+                                                            <h4><span><%= Floor_Plans[i].Bed_No %></span></h4>
+                                                            <span class="gray-clr">No of Bed rooms</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6 mb-30">
+                                                        <div class="project-spec">
+                                                            <h4><span><%= Floor_Plans[i].Bath_No %></span></h4>
+                                                            <span class="gray-clr">No of Bath Rooms</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6 mb-30">
+                                                        <div class="project-spec">
+                                                            <h4><span><%= Floor_Plans[i].Super_Built_Area %></span></h4>
+                                                            <span class="gray-clr">Super Built up area</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6 mb-30">
+                                                        <div class="project-spec">
+                                                            <h4><span><%= Floor_Plans[i]['Plinth Area'] %></span></h4>
+                                                            <span class="gray-clr">Carpet Area</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6 mb-30">
+                                                        <div class="project-spec">
+                                                            <h4><span><% if(Floor_Plans[i].Car_Park){ %>yes<% }else{ %>No<% } %></span></h4>
+                                                            <span class="gray-clr">Car parking</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6 mb-30">
+                                                        <div class="project-spec">
+                                                            <h4><span><% if(Floor_Plans[i].Balcony){ %>yes<% }else{ %>No<% } %></span></h4>
+                                                            <span class="gray-clr">Balconies</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6 mb-30">
+                                                        <div class="project-spec">
+                                                            <h4><span><% if(Floor_Plans[i].Undivided_Share){ %>yes<% }else{ %>No<% } %></span></h4>
+                                                            <span class="gray-clr">Undivided Share</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-6 mb-30">
+                                                        <div class="project-spec">
+                                                            <h4><span><%= Floor_Plans[i].Facing %></span></h4>
+                                                            <span class="gray-clr">Facing</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="col-md-4 col-sm-6 mb-30">
+                                                        <div class="project-spec">
+                                                            <h4><span><img src="<%= Floor_Plans[i].ImageUrl %>" class="img-thumbnail" alt="Chevrolet Impala"></span></h4>
+                                                            <span class="gray-clr">Floor plan image</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <% } %>
+                                            </div>
+                                            <!-- Properties condition end -->
+                                        </div>
+                                    </div>
+                                    <% } if(Amenities.length > 0){ %>
+                                    <div id="Amenities" class="mb-50">
+                                        <div class="">
+                                            <!-- Properties amenities start -->
+                                            <div class="properties-amenities">
+                                                <div class="main-title-2">
+                                                    <h1 class="clrGreen"><span>Amenities</span></h1>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="">
+                                                        <ul class="amenities">
+                                                            <% if(Amenities[0].Gym) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Gym
+                                                            </li>
+                                                            <% } if(Amenities[0].Swimming_Pool) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Swimming_Pool
+                                                            </li>
+                                                            <% } if(Amenities[0].Children_Play_Area) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Children’s play area
+                                                            </li>
+                                                            <% } if(Amenities[0].Club_House) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Club house
+                                                            </li>
+                                                            <% } if(Amenities[0].Multipurpose_Room) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Multipurpose room
+                                                            </li>
+                                                            <% } if(Amenities[0].Sports_Facility) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Sports facility
+                                                            </li>
+                                                            <% } if(Amenities[0].Rainwater_Harvesting) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Rain water harvesting
+                                                            </li>
+                                                            <% } if(Amenities[0].Intercom) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Intercom
+                                                            </li>
+                                                            <% } if(Amenities[0]['24_7_Security']) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>24*7 Security
+                                                            </li>
+                                                            <% } if(Amenities[0].Jogging_Track) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Jogging Track
+                                                            </li>
+                                                            <% } if(Amenities[0].Power_Backup) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Power Backup
+                                                            </li>
+                                                            <% } if(Amenities[0].Landscaped_Garden) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Landscaped gardens
+                                                            </li>
+                                                            <% } if(Amenities[0].Indoor_Games) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Indoor games
+                                                            </li>
+                                                            <% } if(Amenities[0].Shopping_Mall) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Shopping Mall
+                                                            </li>
+                                                            <% } if(Amenities[0].RO_Water_Purifier) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>RO Water Purifier
+                                                            </li>
+                                                            <% } if(Amenities[0].Tennis_Court) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Tennis Court
+                                                            </li>
+                                                            <% } if(Amenities[0].Cricket) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i>Cricket
+                                                            </li>
+                                                            <% } if(Amenities[0].Badminton_Court) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i> Badminton Court
+                                                            </li>
+                                                            <% } if(Amenities[0].Basketball_Court) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i> Basketball Court
+                                                            </li>
+                                                            <% } if(Amenities[0].Lift) {%>
+                                                            <li class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <i class="fa fa-check-square"></i> Lift
+                                                            </li>
+                                                            <% } %>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Properties amenities end -->
+                                        </div>
+                                    </div>
+                                    <% } if(Specifications.length > 0){ %>
+                                    <div id="Specifications" class="mb-50">
+                                        <div>
+                                            <div class="main-title-2">
+                                                <h1 class="clrGreen"><span>Specifications:</span></h1>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12" id="door-spec">
+                                                <div class="mb-30">
+                                                    <h4>Door:</h4>
+                                                    <ul>
+                                                        <li>Main <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Main_Door %></span></li>
+                                                        <li>Internal <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Internal_Doors %></span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12" id="Floore-spec">
+                                                <div class="mb-30">
+                                                    <h4>Flooring:</h4>
+                                                    <ul>
+                                                        <li>Kitchen <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Kitchen_flooring %></span></li>
+                                                        <li>Living <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Living_Flooring %></span></li>
+                                                        <li>Dining <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Dining_Flooring %></span></li>
+                                                        <li>Bedroom <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Master_Bed_Flooring %></span></li>
+                                                        <li>Other Bedrooms <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Other_Bed_Flooring %></span></li>
+                                                        <li>Toilets <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Toilet_Flooring %></span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12" id="Walls-spec">
+                                                <div class="mb-30">
+                                                    <h4>Walls:</h4>
+                                                    <ul>
+                                                        <li>Brick <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Brick %></span></li>
+                                                        <li>Exterior <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Exterior %></span></li>
+                                                        <li>Toilets <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Toilet_Wall %></span></li>
+                                                        <li>Kitchen <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Kitchen_Wall %></span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12" id="Others-spec">
+                                                <div class="mb-30">
+                                                    <h4>Others:</h4>
+                                                    <ul>
+                                                        <li>Windows <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Windows %></span></li>
+                                                        <li>Frame Structure <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Frame_Structure %></span></li>
+                                                        <li>Wiring <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Wiring %></span></li>
+                                                        <li>Switches <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Switches %></span></li>
+                                                        <li>Kitchen Counter <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Kitchen_Counter %></span></li>
+                                                        <li>Cupboards(Type of Material) <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Cupboards_Material %></span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12" id="Fittings-spec">
+                                                <div class="mb-30">
+                                                    <h4>Fittings:</h4>
+                                                    <ul>
+                                                        <li>Kitchen <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Kitchen_Fittings %></span></li>
+                                                        <li>Toilets <span class="gray-clr col-xs-6 float-right"><%= Specifications[0].Toilets_Fittings %></span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% } if(Apartments_Projects_Houses.length > 0 && Apartments_Projects_Houses[0].Brochure_Url){%>
+                                    <div class="download-brochure mb-50" id="Brochure">
+                                        <div class="form-group send-btn mb-0">
+                                            <!--<button type="submit" class="button-md button-theme">Download brochure</button>-->
+                                            <a href="<%= Apartments_Projects_Houses[0].Brochure_Url %>" class="button-md button-theme" download>Download brochure</a>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Property description end -->
+                    </div>
+                    <!-- Properties details section end -->
+
+
+                    <!-- Location start -->
+                    <div class="location sidebar-widget" id="neighbourhood">
+                        <div class="location">
+                            <!-- Main Title 2 -->
+                            <div class="main-title-2">
+                                <h1 class="clrGreen"><span>Location</span></h1>
+                            </div>
+                            <div id="map" class="contact-map"></div>
+                        </div>
+                    </div>
+                    <!-- Location end -->
+
+
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 position-sticky">
+                    <!-- Sidebar start -->
+                    <div class="sidebar right">
+
+                        <!-- Search contents sidebar start -->
+                        <div class="main-title-2 contactUs">
+                            <p>Interested to buy property in</p>
+                            <h1><span>Builder Name</span></h1>
+                        </div>
+                        <div class="sidebar-widget hidden-sm hidden-xs">
+
+                            <form method="GET">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" placeholder="Name" class="form-control" name="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" class="form-control" placeholder="Email" name="">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Mobile Number</label>
+                                    <input id="phone" class="form-control" placeholder="xxx xxx xxxx" type="tel">
+                                </div>
+
+                                <div class="form-group mb-0">
+                                    <button class="search-button"><i class="fa fa-phone" aria-hidden="true"></i> Get Call Back</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Search contents sidebar end -->
+
+                        <!-- Social media start -->
+                        <div class="social-media sidebar-widget clearfix">
+                            <!-- Main Title 2 -->
+                            <div class="main-title-2">
+                                <h1><span>Social</span> Media</h1>
+                            </div>
+                            <!-- Social list -->
+                            <ul class="social-list">
+                                <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#" class="rss-bg"><i class="fa fa-rss"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- Social media end -->
+
+                        <div class="clearfix"></div>
+
+                    </div>
+                    <!-- Sidebar end -->
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Properties details page end -->
+
+<!-- Property CTA -->
+<section id="FooterCTA">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+            <div class="footerForm">
+            <div class="main-title-2">
+                <h1><span class="clrGreen">Have any Questions?</span></h1>
+                <p>Connect with our property Expert!</p>
+            </div>
+                <form method="GET">
+                    <div class="col-sm-4">
+                        <div class="form-group text-left">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Name" class="form-control" name="">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group text-left">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Email" name="">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group text-left">
+                            <label for="phone">Mobile Number</label>
+                            <input id="mobile" class="form-control" placeholder="xxx xxx xxxx" type="tel">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group mb-0">
+                            <button class="search-button"><i class="fa fa-phone" aria-hidden="true"></i> Get Call Back</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END -->
+<% include footer %>
+<% include script %>    
+<script>
+    var propertyResult =<%-JSON.stringify(propertyResult)%>
+</script>

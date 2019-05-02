@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <!-- External CSS libraries -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-submenu.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/css/leaflet.css" type="text/css">
+    <link rel="stylesheet" href="/css/map.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/linearicons/style.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/gotham-book/font.css">
+    <link rel="stylesheet" type="text/css"  href="/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css"  href="/css/dropzone.css">
+    <link rel="stylesheet" type="text/css"  href="/css/magnific-popup.css">
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="/css/skins/default.css">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon" >
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" type="text/css" href="/css/ie10-viewport-bug-workaround.css">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.min.js"></script>
+    <script type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+    
+<body>
+
+<div class="page_loader"></div>
+
+<!-- Main header start -->
+    <header class="main-header fixed-top">
+            <div class="container-fluid">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navigation" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="/" class="logo">
+                            <img src="/img/logos/logo.png" alt="logo">
+                        </a>
+                       
+                        <div class="form-group mr-0">
+<!--
+                            <input type="text" class="input-text" name="SelectCity" placeholder="Select City">
+                            <span class="input-group-addon"><i class="fa fa-play" aria-hidden="true"></i></span>
+-->                         
+                            <span class="buy-in">Buy in</span>
+                            <select class="selectpicker" name="byInCity" onchange="byInCity(this.value)" id="byInCity">
+                                <option value="" data-hidden="true">City</option>
+                                <% for(var i=0; i < cities.length; i++){ %>
+                                    <option value="<%= cities[i].Name %>"><%= cities[i].Name %> </option>
+                                <% } %>
+                                <!--<option value="Amaravati">Amaravati </option>
+                                <option value="Vijayawada">Vijayawada </option>
+                                <option value="Guntur">Guntur </option>-->
+                            </select>
+
+                        </div>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="navbar-collapse collapse pull-right" role="navigation" aria-expanded="true" id="app-navigation">
+                        
+                        <ul class="nav navbar-nav margin-right">
+                            <li><a href="/buy">Buy</a></li>
+                            <li><a href="/price-trends">Price Trends</a></li>
+                            <li><a href="http://avenue.in/blog/">Blog</a></li>
+                            <li class="dropdown">
+                                <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
+                                    More<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/faq">FAQ</a></li>
+                                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                                    <li><a href="/term-of-services">Terms of Service</a></li>
+                                    <li><a href="tel:+91-9533- 894-894"><i class="fa fa-phone"></i>+91-9533- 894-894</a></li>
+                                    <li><a href="tel:Support@avenue.in"><i class="fa fa-envelope"></i>Support@avenue.in</a></li>
+                                </ul>
+                            </li>
+                            <% if(sess_val) {%>
+                            <li><a href="/login/logout" class="sign-in">Logout <span class="fa fa-user"></span></a></li>
+                            <% }else{ %>
+                                <li><a href="javascript:void(0)" onclick="$('#login_modal').modal('show')" class="sign-in" data-target="#login_modal">Login <span class="fa fa-user"></span></a></li>
+                            <% } %>
+                            <li class="hidden-sm hidden-md hidden-lg">
+                                <a href="/submit-property" class="button">
+                                    Submit Property
+                                </a>
+                            </li>
+                        </ul>
+                        <!--<ul class="top-social-media">
+                            <li>
+                                <a href="signup.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
+                            </li>
+                        </ul>-->
+                        <ul class="nav navbar-nav navbar-right rightside-navbar">
+                            <li>
+                                <a href="/submit-property"  class="button">
+                                    Submit Property
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+<!-- Main header end -->

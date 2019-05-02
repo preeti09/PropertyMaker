@@ -1,0 +1,449 @@
+<% include header %>
+  <!-- <link rel="stylesheet" href="./static/vendor-assets/leaflet/leaflet-1.3.1/leaflet.css">
+  <link rel="stylesheet" href="./static/vendor-assets/leaflet/Leaflet.fullscreen/leaflet.fullscreen.css">
+  <script type="text/javascript" src="./static/vendor-assets/leaflet/leaflet-1.3.1/leaflet.js"></script>
+  <script type="text/javascript" src="./static/vendor-assets/leaflet/Leaflet.fullscreen/Leaflet.fullscreen.min.js"></script>
+  <script type="text/javascript" src="./static/js/main.js"></script> -->
+
+
+
+
+  <link rel="stylesheet" href="./static/vendor-assets/leaflet/leaflet-1.4.0/leaflet.css">
+  <script type="text/javascript" src="./static/vendor-assets/leaflet/leaflet-1.4.0/leaflet.js"></script>
+ 
+  <link rel="stylesheet" href="./static/vendor-assets/leaflet/Leaflet.fullscreen/leaflet.fullscreen.css">
+  <script type="text/javascript" src="./static/vendor-assets/leaflet/Leaflet.fullscreen/Leaflet.fullscreen.min.js"></script>
+
+  <script type="text/javascript" src="./static/js/main.js"></script>
+
+<div class="main margin-TOP-15">
+    
+    <nav id="filterwrapper" class="filterwrapper amplots mobHide">
+      <div id="sidebar" class="bg-light">
+        <div class="row">
+            <div class="col-sm-12">
+              <span class="pull-right">
+                <div class="mapcontrol filter-toggle filter-open text-center btn btn-success hidden">Options&nbsp;<i class="fa fa-filter" aria-hidden="true"></i></div>
+                <div class="mapcontrol filter-toggle filter-close text-center btn btn-danger">Close&nbsp;<i class="fa fa-close" aria-hidden="true"></i></div>
+              </span>
+              <span>
+                <div id="reset" onclick="location.reload()" class="text-center mapcontrol btn btn-primary"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+              </span>
+            </div>
+        </div>
+        <div class="row rowgap">
+            <div class="col-sm-12">
+                <div id="plotNoDiv" class="top-border">
+                    <h5> Plot No </h5>
+                    <div class="form-group custom-search mb-0">
+                      <input type="text" class="input-text" name="area" id="plotNoTextbox" placeholder="Enter a Plot No to Search" autocomplete="off" onkeyup="javascript:handle_plotno_textbox_keyup(event)">
+                      <a class="fa fa-search s-icon" href="#" onclick="javascript:search_plot()" ></a>
+                      <ul id="autocomplete-plots" class="input-group-append dropdown-menu" role="listbox" style="display: block; padding: 0.2rem; border: 0; margin: 1px; border-radius: 0; width: 100%; font-size: 0.85rem; border: 0.001rem grey dashed; display: none;"></ul>
+                    </div>
+                    <div class="alert alert-info">
+                        Search for plot here
+                      </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div id="" class="top-border">
+                    <h5> Village List </h5>
+                    <div class="form-group mb-0" id="village_list">
+                      
+                  </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div id="" class="top-border">
+                  <h5>Legend</h5>
+                  <div id="legend">
+                      <div class="legenddata">
+                        <ul class="list-unstyled zones">
+                          <li>
+                            <hr class="red-line">
+                            <h6> Townships </h6>
+                          </li>
+                          <li>
+                            <hr class="green-line">
+                            <h6> Sectors </h6>
+                          </li>
+                          <li>
+                            <hr class="pink-line">
+                            <h6> Colonies </h6>
+                          </li>
+                          <h6> Residential </h6>
+                          <li>
+                            <label data-content="low rise developments within the existing villages">
+                            <div class="legendIcon R1"></div>
+                            Village Planning Zone
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="Land left empty for future Residential planning">
+                            <div class="legendIcon R1"></div>
+                            Residential Vacant
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="Residential Land being returned to farmers in form of plots">
+                            <div class="legendIcon R3"></div>
+                            Residential Returnable
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="Land proposed to be a highly dense settlement with highrise building structures">
+                            <div class="legendIcon R4"></div>
+                            High Density Zone
+                            </label>
+                          </li>
+                          <h6> Commercial </h6>
+                          <li>
+                            <label data-content="Land left empty for future Commercial planning mainly for mixed residential and commercial purposes, which can have up to 30% GFA used for commercial purpose.">
+                            <div class="legendIcon C1"></div>
+                            Commercial Vacant
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="Commercial land that will be returned to the land owners under the Andhra Pradesh Land Pooling (Formulation and Implementation) Rules, 2015.">
+                            <div class="legendIcon C2"></div>
+                            Commercial Returnable
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="Commercial activity hubs planned at Neighbourhood level like petrol pumps and other small eastablishments">
+                            <div class="legendIcon C3"></div>
+                            Neighbourhood Centre
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="Commercial activity hubs planned at a whole Township level which is medium rise and provides a continous shopping experience.">
+                            <div class="legendIcon C4"></div>
+                            Town Centre
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="Commercial activity hubs planned at a whole Township level which is medium rise and provides a continous shopping experience.">
+                            <div class="legendIcon C5"></div>
+                            Regional Centre Zone
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="Commercial activity hub planned to be the core of city and featuring a high rise development">
+                            <div class="legendIcon C6"></div>
+                            Central Business District
+                            </label>
+                          </li>
+                          <h6> Industrial </h6>
+                          <li>
+                            <label data-content="Industrial Areas planned for non-pollutive indutries and buisnesses that engage in high technology, research and development (R&amp;D), high value added and knowledge intensive activities.">
+                            <div class="legendIcon I1"></div>
+                            Business Park Zone
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="Industrial Areas planned for activities predominantly related to transport, logistics, goods distribution and storage for regional, national and international transit.">
+                            <div class="legendIcon I2"></div>
+                            Logistics Zone
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="Industrial Areas planned for activities including light manufacturing/industry which are non-polluting.">
+                            <div class="legendIcon I3"></div>
+                            Non Polluting Industry Zone
+                            </label>
+                          </li>
+                          <h6> Open Space And Recreation </h6>
+                          <li>
+                            <label data-content="Open Areas planned for providing recreational and leisure facilities and activities in selected areas that have unique features (including visual corridors, environmentally sensitive areas, buffer areas, or along significant routes).">
+                            <div class="legendIcon P1"></div>
+                            Passive Greens
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="Open Areas planned to provide parks that offer active recreational and sporting activities. Construction and construction activities not affecting the green cover and other recreational activities are allowed.">
+                            <div class="legendIcon P2"></div>
+                            Active Greens
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="Areas which should be conserved and protected including but not limited to environmentally sensitive areas such as steep slopes and rivers which are rich in nature and biodiversity.">
+                            <div class="legendIcon P3"></div>
+                            Water Bodies
+                            </label>
+                          </li>
+                          <h6> Institutional Facilities </h6>
+                          <li>
+                            <label data-content="This zone is planned for institutions such as State Legislature, Secretariat, High Court of Judicature, Heads of Department offices, Raj Bhawan, Head of Department office, Government of India offices, International missions / Consulates and Government Complex related residential facilities with other allied activities.">
+                            <div class="legendIcon S1"></div>
+                            Government Zone
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="This zone is planned for institutional projects like University, Colleges, Schools, Hospitals and so on.">
+                            <div class="legendIcon S2"></div>
+                            Educational Zone
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="This zone is planned to enable the development authority in developing market driven necessary urban projects">
+                            <div class="legendIcon S3"></div>
+                            Special Zone
+                            </label>
+                          </li>
+                          <h6> Infrastructure Reserve </h6>
+                          <li>
+                            <label data-content="This zone is planned for Bus Terminal, Metro Depot as well as large scale Infrastructure utilities like Water Treatment Plant, Sewage Treatment Plant, and Electrical Substations etc.">
+                            <div class="legendIcon U1"></div>
+                            Utilities
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="This zone is planned for Major Arterial road, Arterial, sub-arterial road, and Collector roads.">
+                            <div class="legendIcon U2"></div>
+                            Road
+                            </label>
+                          </li>
+                          <li>
+                            <label data-content="This zone is planned for group Housing which will include both residential and commercial projects.">
+                            <div class="legendIcon Z"></div>
+                            Soil
+                            </label>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </nav>
+    <nav id="filterwrapper" class="filterwrapper active amplots tabHide">
+        <div id="sidebar" class="bg-light">
+          <div class="row">
+              <div class="col-sm-12">
+                  <span class="pull-right">
+                    <div class="mapcontrol filter-toggle filter-open text-center btn btn-success">Options&nbsp;<i class="fa fa-filter" aria-hidden="true"></i></div>
+                    <div class="mapcontrol filter-toggle filter-close text-center btn btn-danger hidden">Close&nbsp;<i class="fa fa-close" aria-hidden="true"></i></div>
+                  </span>
+                  <span>
+                    <div id="reset" onclick="location.reload()" class="text-center mapcontrol btn btn-primary"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+                  </span>
+              </div>
+          </div>
+          <div class="row rowgap">
+              <div class="col-sm-12">
+                  <div id="plotNoDiv" class="top-border">
+                      <h5> Plot No </h5>
+                      <div class="form-group custom-search mb-0">
+                        <input type="text" class="input-text" name="area" id="plotNoTextbox" placeholder="Enter a Plot No to Search" autocomplete="off" onkeyup="javascript:handle_plotno_textbox_keyup(event)">
+                        <a class="fa fa-search s-icon" href="#" onclick="javascript:search_plot()" ></a>
+                        <ul id="autocomplete-plots" class="input-group-append dropdown-menu" role="listbox" style="display: block; padding: 0.2rem; border: 0; margin: 1px; border-radius: 0; width: 100%; font-size: 0.85rem; border: 0.001rem grey dashed; display: none;"></ul>
+                      </div>
+                      <div class="alert alert-info">
+                          Search for plot here
+                        </div>
+                  </div>
+              </div>
+              <div class="col-sm-12">
+                  <div id="" class="top-border">
+                      <h5> Village List </h5>
+                      <div class="form-group mb-0" id="village_list">
+                        
+                    </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div id="" class="top-border">
+                    <h5>Legend</h5>
+                    <div id="legend">
+                        <div class="legenddata">
+                          <ul class="list-unstyled zones">
+                            <li>
+                              <hr class="red-line">
+                              <h6> Townships </h6>
+                            </li>
+                            <li>
+                              <hr class="green-line">
+                              <h6> Sectors </h6>
+                            </li>
+                            <li>
+                              <hr class="pink-line">
+                              <h6> Colonies </h6>
+                            </li>
+                            <h6> Residential </h6>
+                            <li>
+                              <label data-content="low rise developments within the existing villages">
+                              <div class="legendIcon R1"></div>
+                              Village Planning Zone
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="Land left empty for future Residential planning">
+                              <div class="legendIcon R1"></div>
+                              Residential Vacant
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="Residential Land being returned to farmers in form of plots">
+                              <div class="legendIcon R3"></div>
+                              Residential Returnable
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="Land proposed to be a highly dense settlement with highrise building structures">
+                              <div class="legendIcon R4"></div>
+                              High Density Zone
+                              </label>
+                            </li>
+                            <h6> Commercial </h6>
+                            <li>
+                              <label data-content="Land left empty for future Commercial planning mainly for mixed residential and commercial purposes, which can have up to 30% GFA used for commercial purpose.">
+                              <div class="legendIcon C1"></div>
+                              Commercial Vacant
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="Commercial land that will be returned to the land owners under the Andhra Pradesh Land Pooling (Formulation and Implementation) Rules, 2015.">
+                              <div class="legendIcon C2"></div>
+                              Commercial Returnable
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="Commercial activity hubs planned at Neighbourhood level like petrol pumps and other small eastablishments">
+                              <div class="legendIcon C3"></div>
+                              Neighbourhood Centre
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="Commercial activity hubs planned at a whole Township level which is medium rise and provides a continous shopping experience.">
+                              <div class="legendIcon C4"></div>
+                              Town Centre
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="Commercial activity hubs planned at a whole Township level which is medium rise and provides a continous shopping experience.">
+                              <div class="legendIcon C5"></div>
+                              Regional Centre Zone
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="Commercial activity hub planned to be the core of city and featuring a high rise development">
+                              <div class="legendIcon C6"></div>
+                              Central Business District
+                              </label>
+                            </li>
+                            <h6> Industrial </h6>
+                            <li>
+                              <label data-content="Industrial Areas planned for non-pollutive indutries and buisnesses that engage in high technology, research and development (R&amp;D), high value added and knowledge intensive activities.">
+                              <div class="legendIcon I1"></div>
+                              Business Park Zone
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="Industrial Areas planned for activities predominantly related to transport, logistics, goods distribution and storage for regional, national and international transit.">
+                              <div class="legendIcon I2"></div>
+                              Logistics Zone
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="Industrial Areas planned for activities including light manufacturing/industry which are non-polluting.">
+                              <div class="legendIcon I3"></div>
+                              Non Polluting Industry Zone
+                              </label>
+                            </li>
+                            <h6> Open Space And Recreation </h6>
+                            <li>
+                              <label data-content="Open Areas planned for providing recreational and leisure facilities and activities in selected areas that have unique features (including visual corridors, environmentally sensitive areas, buffer areas, or along significant routes).">
+                              <div class="legendIcon P1"></div>
+                              Passive Greens
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="Open Areas planned to provide parks that offer active recreational and sporting activities. Construction and construction activities not affecting the green cover and other recreational activities are allowed.">
+                              <div class="legendIcon P2"></div>
+                              Active Greens
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="Areas which should be conserved and protected including but not limited to environmentally sensitive areas such as steep slopes and rivers which are rich in nature and biodiversity.">
+                              <div class="legendIcon P3"></div>
+                              Water Bodies
+                              </label>
+                            </li>
+                            <h6> Institutional Facilities </h6>
+                            <li>
+                              <label data-content="This zone is planned for institutions such as State Legislature, Secretariat, High Court of Judicature, Heads of Department offices, Raj Bhawan, Head of Department office, Government of India offices, International missions / Consulates and Government Complex related residential facilities with other allied activities.">
+                              <div class="legendIcon S1"></div>
+                              Government Zone
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="This zone is planned for institutional projects like University, Colleges, Schools, Hospitals and so on.">
+                              <div class="legendIcon S2"></div>
+                              Educational Zone
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="This zone is planned to enable the development authority in developing market driven necessary urban projects">
+                              <div class="legendIcon S3"></div>
+                              Special Zone
+                              </label>
+                            </li>
+                            <h6> Infrastructure Reserve </h6>
+                            <li>
+                              <label data-content="This zone is planned for Bus Terminal, Metro Depot as well as large scale Infrastructure utilities like Water Treatment Plant, Sewage Treatment Plant, and Electrical Substations etc.">
+                              <div class="legendIcon U1"></div>
+                              Utilities
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="This zone is planned for Major Arterial road, Arterial, sub-arterial road, and Collector roads.">
+                              <div class="legendIcon U2"></div>
+                              Road
+                              </label>
+                            </li>
+                            <li>
+                              <label data-content="This zone is planned for group Housing which will include both residential and commercial projects.">
+                              <div class="legendIcon Z"></div>
+                              Soil
+                              </label>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </nav>
+
+  <div id="mapcontainer">
+      <div id="mapcanvas" class="price-map" style="height:452px; width:100%"> </div>
+      <div class="map-options mobHide">
+          <div id="filter-toggle-div" style="margin-left:5px;">
+            <div style="border:solid  #398439; padding: 1px 10px; color: #ffffff; margin-top:10px;" class="filter-toggle filter-open text-center btn btn-success hidden">Options&nbsp;<i class="fa fa-filter" aria-hidden="true"></i></div>
+            <div style="border:solid #d9534f; padding: 1px 10px; color: #ffffff; margin-top:10px;" class="filter-toggle filter-close text-center btn btn-danger">Close&nbsp;<i class="fa fa-close" aria-hidden="true"></i></div>
+            <!-- <div style="border:solid #337ab7; padding: 1px 10px; color: #ffffff; margin-top:10px;" id="fullzoom" class="text-center mapcontrol btn btn-primary"><i class="fa fa-arrows-alt" aria-hidden="true"></i></div> -->
+            <div style="border:solid #337ab7; padding: 1px 10px; color: #ffffff; margin-top:10px;" id="reset"  onclick="location.reload()" class="text-center mapcontrol btn btn-primary"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+          </div>
+        </div>
+        <div class="map-options tabHide">
+            <div id="filter-toggle-div" style="margin-left:5px;">
+              <div style="border:solid  #398439; padding: 1px 10px; color: #ffffff; margin-top:10px;" class="filter-toggle filter-open text-center btn btn-success">Options&nbsp;<i class="fa fa-filter" aria-hidden="true"></i></div>
+              <div style="border:solid #d9534f; padding: 1px 10px; color: #ffffff; margin-top:10px;" class="filter-toggle filter-close text-center btn btn-danger hidden">Close&nbsp;<i class="fa fa-close" aria-hidden="true"></i></div>
+              <!-- <div style="border:solid #337ab7; padding: 1px 10px; color: #ffffff; margin-top:10px;" id="fullzoom" class="text-center mapcontrol btn btn-primary"><i class="fa fa-arrows-alt" aria-hidden="true"></i></div> -->
+              <div style="border:solid #337ab7; padding: 1px 10px; color: #ffffff; margin-top:10px;" id="reset"  onclick="location.reload()" class="text-center mapcontrol btn btn-primary"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+            </div>
+        </div>
+  </div>
+</div>
+
+
+<% include script %>
+<% include footer %>
+$('.filterwrapper')
+<script>
+  initmap();
+  get_village_list();
+</script>
+

@@ -1,0 +1,257 @@
+
+<% include header %>
+
+<div class="container bredcrumb-area">
+    <ul class="list-inline bredcrumb text-right content-area">
+        <li><a href="/">Home</a> / </li>
+        <li><a href="#">Submit Request</a></li>
+    </ul>
+</div>
+<section class="filter-content content-area submit-property">
+    <%- locals.flash %>
+    <span class="alert alert-danger properyTitleMsg" style="display: none;">Title is already exists!</span>
+
+
+    <div class="container toggle-header">
+        <div id="tabs">
+            <ul class="nav navbar-nav activeClass">
+                <li class="active"><a class="filtr-button filtr" data-filter="1" onclick="tabClick(1);">Basic info</a></li>
+            </ul>
+        </div>
+    </div>
+    <hr />
+
+    <div class="featured-properties submit-property-details">
+        <div class="container">
+            <div class="row">
+                <form id="save-property-details" method="post"
+                    onkeypress="return event.keyCode != 13;">
+                    <div class="filtr-container">
+                        <div class="col-md-12 col-xs-12  filtr-item" data-category="1">
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Buy/Sell</h4>
+
+                                    <select class="selectpicker BuyOrSell" onchange="ChangeSubmitRequestText()" name="BuyOrSell" id="BuyOrSell" >
+                                        <option value="">Select</option>
+                                        <option value="buy">Buy</option>
+                                        <option value="sell">Sell</option>
+                                    </select>
+                                </div>
+                                <input name="Email" id="Email" type="hidden" value="<%if(subscribe_email){%> <%=subscribe_email%><%}%>">
+
+                               <!--  <div class="col-sm-6 col-xs-12">
+                                    <h4>Type of property</h4>
+                                    <select class="selectpicker propertyType" id="Type" onchange="changePropertyType(this.value,1)"
+                                        name="propertyType">
+                                        <option value="" data-hidden="true">Select</option>
+                                        <% var propertyTypeData = [];
+                                                for(var i=0; i< propertyType.length; i++ ){ 
+                                                propertyTypeData[propertyType[i].ID] = propertyType[i].Type; 
+                                            %>
+                                        <option value="<%= propertyType[i].ID %> ">
+                                            <%= propertyType[i].Type %>
+                                        </option>
+                                        <% } %>
+                                    </select>
+                                    <input type="hidden" name="propertyTypeData" value="<%= JSON.stringify(propertyTypeData); %>">
+                                </div> -->
+                               
+                               
+                               
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Type of property</h4>
+                                    <select class="selectpicker propertyType" id="propertyType" onchange="changePropertyType(this.value,1)"
+                                        name="propertyType">
+                                       <option value="" data-hidden="true">Select</option>
+                                       <% var propertyTypeData = [];
+                                                for(var i=0; i< propertyType.length; i++ ){ 
+                                                propertyTypeData[propertyType[i].ID] = propertyType[i].Type; 
+                                            %>
+                                        <option value="<%= propertyType[i].ID %>" >
+                                            <%= propertyType[i].Type %>
+                                        </option>
+                                        <% } %>
+                                    </select>
+                                    <input type="hidden" name="propertyTypeData" value="<%= JSON.stringify(propertyTypeData); %>"> 
+                                </div> 
+
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Property category</h4>
+                                <select class="selectpicker PropertyTypeChildID"                    name="PropertyTypeChildID" id="PropertyTypeChildID"
+                                    onchange="changePropertyCategory(this.value)">
+                                        <option value="">Select</option>
+                                    </select>
+                                </div>
+
+                          
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>City</h4>
+                                    <!--<div class="form-group">
+                                        <input type="text" name="City" class="input-text" placeholder="City">
+                                    </div>-->
+                                    <select class="selectpicker city" name="CityID" id="CityID" onchange="changeCity(this.value)">
+                                        <option value="">Select</option>
+                                        <% for(var i=0; i< cities.length; i++ ){ 
+                                        %>
+                                        <option value="<%= cities[i].ID %>" city="<%= cities[i].Name %>">
+                                            <%= cities[i].Name %>
+                                        </option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Area/Village</h4>
+                                    <div class="form-group">
+                                        <input type="text" id="area" class="input-text areaId" name="area" placeholder="Area"
+                                            autocomplete="off">
+                                        <input type="hidden" id="areaId" class="input-text" name="areaId">
+                                    </div>
+                                </div>
+                              
+                                <div class="col-sm-6 col-xs-12 ">
+                                    <h4>Extent</h4>
+                                    <div class="form-group">
+                                    <input type="text" class="input-text" onkeyup="$('#previewExtent').text($(this).val());$('#extentIcon').html('<img src=\'/img/extent.jpg\' Width=\'14\',height=\'16\'>')"
+                                    name="extent" placeholder="Extent">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Facing</h4>
+                                    <div class="form-group">
+                                        <div class="checkbox inline">
+                                            <input type="checkbox" onchange="facingChange()" value="true" name="north"
+                                                id="north"><label for="north">N</label>
+                                        </div>
+                                        <div class="checkbox inline">
+                                            <input type="checkbox" onchange="facingChange()" value="true" name="east"
+                                                id="east"><label for="east">E</label>
+                                        </div>
+                                        <div class="checkbox inline">
+                                            <input type="checkbox" onchange="facingChange()" value="true" name="south"
+                                                id="south"><label for="south">S</label>
+                                        </div>
+                                        <div class="checkbox inline">
+                                            <input type="checkbox" onchange="facingChange()" value="true" name="west"
+                                                id="west"><label for="west">W</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4 id="change">Price</h4>
+                                    <div class="form-group">
+                                        <input type="text" id="price" class="input-text price" name="price" onkeyup="numberFormat(this)" placeholder="Price">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-12 col-xs-12">
+                                <!-- <div class="col-sm-6 col-xs-12"> -->
+                                    <h4>Detailed information</h4>
+                                    <div class="form-group">
+                                        <textarea  name="description" class="input-text" placeholder="Detailed information about your requirement"></textarea>
+                                    </div>
+                                </div>
+                            <!--     <div class="col-sm-6 col-xs-12">
+                                
+                                        <h4>Message Box</h4>
+                                        <div class="form-group">
+                                            <textarea  name="message" class="input-text" placeholder="Leave a comment here"></textarea>
+                                        </div>
+                                    </div> -->
+                                  
+                            </div>
+                        </div>
+                    </div>
+                    <div id="save-property-details_msg"></div>
+                    <div class="btn-container col-sm-12 content-area">
+                        <div class="form-group text-center">
+                            <button type="button" onclick="SubmitRequest('save-property-details');" class="button transparent submit-button">save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="ValidationError" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body" id="errorPopup">
+                <ul id="messageBox" style="margin-left:16px">
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+<% include script %>
+<% include footer %>
+
+<script>
+  
+    var UnitsOfArea = <%-JSON.stringify(UnitsOfArea)%>;
+    var validator = formValidation('save-property-details');
+    
+    function tabClick(str){
+        
+        var valid = true;
+        var current = parseInt($('.activeClass li.active').find('a').attr('data-filter'));
+        if(str > current){
+            $('div.filtr-item[data-category="' + current +
+            '"]').find("input,select").each(function () {
+            if (!validator.element(this) && valid) {
+                valid = false;
+            }
+        });    
+        }
+        if (!valid) {
+            event.stopImmediatePropagation();
+        } else {
+
+        if (str == 1) {
+        $('.back-step').hide();
+        }
+        if (str < 5) {
+        $('.next-step').show();
+        }
+        if (str >= 2) {
+        $('.back-step').show();
+        }
+
+        if(str == 5) {
+        $('.next-step').hide();
+        }
+
+            var city = '';
+            var state = '';
+            var district = '';
+            for (var i = 0; i < cities.length; i++) {
+                if (cities[i].ID == $('#CityID').val()) {
+                    city = cities[i].Name;
+                    state = cities[i].State;
+                    district = cities[i].District;
+                }
+            }
+            var address = '';
+            if ($('#surveyNo').val()) {
+                address += $('#surveyNo').val() + ' ,';
+            }
+            if ($('#locality').val()) {
+                address += $('#locality').val() + ' ,';
+            }
+            address += $('#area').val()+', '+district+', '+city+' ,'+ state;
+            geocode(address);
+
+        }
+    }
+
+
+
+</script>

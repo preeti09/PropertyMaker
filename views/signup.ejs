@@ -1,0 +1,207 @@
+<% include header %>
+<% include banner %>
+<div class="content-area ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Form content box start -->
+                <div class="">
+                    <!-- details -->
+                    <div class="details">
+                        <!-- Main title -->
+                        <div class="main-title">
+                            <h1><span>Signup</span></h1>
+                        </div>
+                        <!-- Form start-->
+                        <!--<form action="/registration/save" id="signup" method="Post">
+                            <div class="form-group">
+                                <input type="text" name="fullname" class="input-text" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" class="input-text" placeholder="Email Address" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" id="password" class="input-text" placeholder="Password" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="confirm_Password" class="input-text" placeholder="Confirm Password" equalto="#password" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="button-md button-theme btn-block">Signup</button>
+                            </div>
+                            <div class="login">
+                                    <a href="javascript:void(0)" onclick="Facebooklogin()" class="fb btn">
+                                        <i class="fa fa-facebook fa-fw"></i> 
+                                        Login with Facebook
+                                    </a>
+                                    <a href="javascript:void(0)" class="google btn" id="googlebtn">
+                                        <i class="fa fa-google fa-fw"></i> 
+                                        Login with Google+
+                                    </a>
+                                </div>
+                        </form>-->
+                        <div id="login_alertMsg" style="display:none"></div>
+                        <%- locals.flash %>
+                        <form action="/registration/save" id="signup" method="Post">
+                            <div class="row clearfix mb30">
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <select class="selectpicker" name="UserTypeID"> 
+                                        <option value="">Are you</option>    
+                                        <% for(var i=0; i< UserType.length; i++){ %>
+                                            <option value="<%= UserType[i].ID %>" ><%= UserType[i].Type %></option>
+                                        <% } %>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="Name" class="form-control" placeholder="Name*" type="text" value="" required>
+                                        
+                                    </div>
+                                    <!-- form-group// -->
+                                    <!--<div class="form-group">
+                                        <input name="lastname" class="form-control" placeholder="Last name*" type="text">
+                                    </div>-->
+                                    <!-- form-group// -->
+                                    <div class="form-group">
+                                        <input name="Email" class="form-control" placeholder="Email ID*" type="email" value="">
+                                    </div>
+                                    <!-- form-group// -->
+                                    <div class="form-group">
+                                        <input name="Password" id="Password" class="form-control" placeholder="Your password*" type="password" required>
+                                    </div>
+                                    <!-- form-group// -->
+                                    <div class="form-group">
+                                        <input name="confirm-password" class="form-control" placeholder="Confirm password*" equalto="#Password" type="password">
+                                    </div>
+                                    <!-- form-group// -->
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="row clearfix">
+                                        <div class="col-sm-3">
+                                            <select class="selectpicker" onchange="changeCountryCode(this.value)" name="ISDCode" required>
+                                            <option value="">Select</option>    
+                                            <% for(var i=0; i< Countries.length; i++){ %>
+                                                <option value="<%= Countries[i].ISDCode %>">+<%= Countries[i].ISDCode %> <%= Countries[i].CountryName %></option>
+                                            <% } %>
+                                            </select>
+                                        </div>
+                      
+                                        <div class="pdl0 col-sm-9">
+                                            <div class="form-group">
+                                                <input name="PhoneNumber" class="form-control phonedigitonly" placeholder="Phone number*" type="tel" required>
+                                                <div class="text-right checkbox">
+                                                    <input type="checkbox" id="WhatsAppNumber" name="WhatsAppNumber" value="1">
+                                                    <label for="WhatsAppNumber">I have Whatsapp</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-3">
+                                            <select class="selectpicker" name="ISDCode" required>
+                                                <option value="">Select</option>    
+                                                <% for(var i=0; i< Countries.length; i++){ %>
+                                                    <option value="<%= Countries[i].ISDCode %>">+<%= Countries[i].ISDCode %> <%= Countries[i].CountryName %></option>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="pdl0 col-sm-9">
+                                            <div class="form-group">
+                                                <input name="SecondPhoneNumber" class="form-control phonedigitonly" placeholder="Second phone number (optional)" type="tel">
+                                                <div class="text-right checkbox checkbox-theme checkbox-circle">
+                                                    <input type="checkbox" id="SecondWhatsAppNumber" name="SecondWhatsAppNumber" value="1">
+                                                    <label for="SecondWhatsAppNumber">I have Whatsapp</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-4">
+                                        <select class="selectpicker" id="Country" name="Country"> 
+                                        <option value="">Country</option>    
+                                        <% for(var i=0; i< Countries.length; i++){ %>
+                                            <option value="<%= Countries[i].CountryName %>"><%= Countries[i].CountryName %></option>
+                                        <% } %>
+                                        </select>
+                                        </div>
+                                        <div class="col-sm-4 pdl0">
+                                            <div class="form-group">
+                                                <input name="State" id="State" class="form-control" placeholder="State*" type="text" required>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-sm-4 pdl0">
+                                            <div class="form-group">
+                                                <input name="City" id="City" class="form-control" placeholder="City*" type="text" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="Address" class="form-control" placeholder="Address*" type="text">
+                                    </div>
+<!--                                     form-group// -->
+                                </div>
+                            </div>
+                            <div class="form-group text-center login">
+                                <button type="submit" class="btn btn-primary">Signup</button>
+                            </div>
+                            <div class="form-group text-center"><label class="or">or</label></div>
+                            <div class="row clearfix login">
+                                
+                                <div class="col-sm-6">
+                                    <a href="javascript:void(0)" onclick="Facebooklogin()" class="fb btn">
+                                        <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                                    </a>
+                                </div>
+                                <div class="col-sm-6">    
+                                    <a href="javascript:void(0)" class="google btn" id="googlebtn">
+                                        <i class="fa fa-google fa-fw">
+                                        </i> Login with Google+
+                                    </a>
+                                </div>
+                                
+                                <!--<div class="col-sm-6">
+                                    <div class="form-group facebook">
+                                        <button type="button" class="btn">Login with 
+                                                        <i class="fa fa-facebook"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group google">
+                                        <button type="button" class="btn">Login with
+                                                     <i class="fa fa-google-plus"></i>
+                                                    </button>
+                                    </div>
+                                </div>-->
+                            </div>
+                            <div class="form-group text-center clearfix mt15">
+                                <label>Already member?</label><a href="/login" data-toggle="modal"> Login now!</a>
+                            </div>
+                            <div class="form-group text-center clearfix mt15">
+                                <label>Note: We need a local (Indian) number in case we need to pass on any notifications.</label>
+                            </div>
+                        </form>
+                        
+                        <!-- Form end-->
+                    </div>
+                    <!-- Footer -->
+                    <div class="footer">
+                        <span>
+                            I want to <a href="/login">return to login</a>
+                        </span>
+                    </div>
+                </div>
+                <!-- Form content box end -->
+            </div>
+        </div>
+    </div>
+</div>
+<% include script %>
+<% include footer %>
+<script>
+    $('#signup').validate();
+    var States = <%-JSON.stringify(States)%>;
+    var Countries = <%-JSON.stringify(Countries)%>;
+    autocomplete(document.getElementById("State"),States ,'Name');
+
+</script>

@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <title>Avenir Realty LLP - Amaravati Real Estate Advisors</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <!-- External CSS libraries -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        
+        <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-submenu.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="css/leaflet.css" type="text/css">
+        <link rel="stylesheet" href="css/map.css" type="text/css">
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" type="text/css" href="fonts/linearicons/style.css">
+        <link rel="stylesheet" type="text/css"  href="css/jquery.mCustomScrollbar.css">
+        <link rel="stylesheet" type="text/css"  href="css/dropzone.css">
+        <link rel="stylesheet" type="text/css"  href="css/magnific-popup.css">
+        <link rel="stylesheet" type="text/css"  href="css/intlTelInput.css">
+        <link rel="stylesheet" type="text/css"  href="css/datepicker.css">
+        <!-- Custom stylesheet -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" id="style_sheet" href="css/skins/default.css">
+        <!-- Favicon icon -->
+        <link rel="shortcut icon" href="img/Avenue-FavIcon.png" type="image/x-icon" >
+        <!-- Google fonts -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link rel="stylesheet" type="text/css" href="css/ie10-viewport-bug-workaround.css">
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script defer src="js/ie-emulation-modes-warning.js"></script>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/html5shiv.min.js"></script>
+        <script type="text/javascript" src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="page_loader"></div>
+        <!-- Main header start -->
+        <header class="main-header fixed-top darkHeader innerpage">
+            <div class="container-fluid">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header">
+                        <a href="index.html" class="logo">
+                            <img src="img/logo.png" alt="logo">
+                        </a> 
+                        <div class="check-filter-search">
+                            <ul class="list-inline text-right">
+                                <li><a class="fa fa-refresh" href="#"></a></li>
+                                <li><a class="fa fa-heart" href="#"></a></li>
+                            </ul>
+                            <div class="form-group">
+                                <select class="selectpicker" name="city">
+                                    <option value="Select" data-hidden="true">Choose City</option>
+                                    <option value="1">Amaravati </option>
+                                    <option value="2">Vijaywada </option>
+                                    <option value="3">Guntur </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="input-text" name="filterAreaProperty" placeholder="Area, Locality">
+                                <a class="fa fa-search" href="#"></a>
+                            </div>
+                            <div>
+                                    <a class="filtertoggle" aria-expanded="true" href="#" data-toggle="collapse" data-target="#filtertab">
+                                        hide advanced filters 
+                                        <span class="caret"></span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="dropdown" data-dir="rtl" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Price Trends</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="agent-listing-row.html">Terms of Service</a></li>
+                        <li><a href="tel:support@avenue.in"><i class="fa fa-envelope"></i>support@avenue.in</a></li>
+                        <li class="dtpHide"><a href="#"><i class="fa fa-phone"></i>+91.9533.894.894</a></li>
+                        <li class="dtpHide">
+                            <a href="submit-property.html">
+                                <i class="flaticon-symbol-1"></i>Sell Property
+                            </a>
+                        </li>
+                        <li class="dtpHide">
+                            <a href="#" data-toggle="modal" data-target="#loginPopup">
+                                <i class="fa fa-user"></i>Login
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="navbar-collapse collapse pull-right" role="navigation" aria-expanded="true" id="app-navigation">
+                        <ul class="nav navbar-nav rightside-navbar">
+                            <li>
+                                <a href="submit-property.html" class="button">
+                                    Sell Property
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/" class="button transparent">
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav margin-right">
+                            <li><a href="#">+91.9533.894.894</a></li>
+                            <li><a href="#">Price Trends</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <!-- <li class="dropdown">
+                                <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
+                                    More<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="agent-listing-row.html">Terms of Service</a></li>
+                                    <li><a href="tel:+91-9533- 894-894"><i class="fa fa-phone"></i>+91-9533- 894-894</a></li>
+                                    <li><a href="tel:Support@avenue.in"><i class="fa fa-envelope"></i>Support@avenue.in</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="signup.html" class="sign-in">Login <span class="fa fa-user"></span></a></li>
+                            <li class="hidden-sm hidden-md hidden-lg">
+                                <a href="submit-property.html" class="button">
+                                    Submit Property
+                                </a>
+                            </li> -->
+                        </ul>
+                        <!--<ul class="top-social-media">
+                            <li>
+                                <a href="signup.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
+                            </li>
+                        </ul>-->
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- Main header end -->
+
+<div class="clearfix innerfirst"></div>
+<div class="container bredcrumb-area">
+    <ul class="list-inline bredcrumb text-right content-area">
+            <li><a href="/">Home</a> / </li>
+            <li><a href="#">Submit property</a></li>
+    </ul>
+</div>
+<section class="filter-content content-area submit-property">
+    <div class="container toggle-header">
+      <div>
+        <ul class="nav navbar-nav activeClass">                                                 
+            <li class="active"><a class="filtr-button filtr" data-filter="1">Basic info</a></li>
+            <li><a data-filter="2" class="filtr-button filtr">Aditional Info</a></li>
+            <li><a data-filter="3" class="filtr-button filtr">specifications</a></li>
+            <li><a data-filter="4" class="filtr-button filtr">map</a></li>
+            <li><a data-filter="5" class="filtr-button filtr">gallery</a></li>
+        </u>
+      </div>
+    </div>
+    <hr/>
+<div class="featured-properties">
+        <div class="container">
+            <div class="row">
+                <div class="filtr-container">
+                    <div class="col-md-6 col-sm-7 col-xs-12  filtr-item" data-category="1">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Title</h4>
+                                <div class="form-group">
+                                    <input type="text" name="full-name" class="input-text" placeholder="Property title">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Type of property</h4>
+                                <select class="selectpicker" name="typeProperty">
+                                    <option value="Select" data-hidden="true">Residential</option>
+                                    <option value="1">lorem </option>
+                                    <option value="2">lorem </option>
+                                    <option value="3">lorem </option>
+                                </select>
+                            </div> 
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Property category</h4>
+                                <select class="selectpicker" name="PropertyCat">
+                                    <option value="Select" data-hidden="true">Select</option>
+                                    <option value="1">lorem </option>
+                                    <option value="2">lorem </option>
+                                    <option value="3">lorem </option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>City</h4>
+                                <div class="form-group">
+                                    <input type="text" name="City" class="input-text" placeholder="City">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Area</h4>
+                                <div class="form-group">
+                                    <input type="text" name="Area" class="input-text" placeholder="Area">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Locality</h4>
+                                <div class="form-group">
+                                    <input type="text" name="Locality" class="input-text" placeholder="Locality">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Extent</h4>
+                                <div class="form-group">
+                                    <input type="text" name="Extent" class="input-text" placeholder="Extent">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Asking price</h4>
+                                <div class="form-group">
+                                    <input type="text" name="askingPrice" class="input-text" placeholder="Asking price">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Search price</h4>
+                                <div class="input-select">
+                                    <div class="form-group col-xs-7 pd0">
+                                        <input type="text" class="input-text" name="searchPrice" placeholder="Search price">
+                                    </div>
+                                    <div class="form-group col-xs-5 pd0">
+                                        <select class="selectpicker" name="city">
+                                            <option value="INR/sq ft" data-hidden="true">INR/sq ft</option>
+                                            <option value="1">lorem </option>
+                                            <option value="2">lorem </option>
+                                            <option value="3">lorem </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Display price</h4>
+                                <div class="form-group">
+                                    <div class="radio-btn">
+                                        <label>Yes</label> <input class="radio" type="radio" name="1" placeholder="">
+                                        <label>No</label> <input class="radio" type="radio" name="1">
+                                    </div>
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Survey number</h4>
+                                <div class="form-group">
+                                    <input type="text" name="surveyNumber" class="input-text" placeholder="Survey number">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Facing</h4>
+                                <select class="selectpicker" name="Facing">
+                                    <option value="Facing" data-hidden="true">Facing</option>
+                                    <option value="1">lorem </option>
+                                    <option value="2">lorem </option>
+                                    <option value="3">lorem </option>
+                                </select>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Abutting road with</h4>
+                                <div class="form-group">
+                                    <input type="text" name="abuttingRoad" class="input-text" placeholder="Abutting road with">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Name of the owner</h4>
+                                <div class="form-group">
+                                    <input type="text" name="ownerName" class="input-text" placeholder="Name of the owner">
+                                </div>
+                            </div>       
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-7 col-xs-12  filtr-item posAbs" data-category="2">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Name of the apartment</h4>
+                                <div class="form-group">
+                                    <input type="text" name="Name" class="input-text" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Site area</h4>
+                                <div class="form-group">
+                                    <input type="text" name="siteArea" class="input-text" placeholder="Area">
+                                </div>
+                            </div> 
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Total units</h4>
+                                <div class="form-group">
+                                    <input type="text" name="totalUnits" class="input-text" placeholder="Total units">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Total flors</h4>
+                                <div class="form-group">
+                                    <input type="text" name="totalFlors" class="input-text" placeholder="Total flors">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Floor number</h4>
+                                <div class="form-group">
+                                    <input type="text" name="floorNumber" class="input-text" placeholder="Floor number">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Status</h4>
+                                <div class="form-group">
+                                    <select class="selectpicker" name="Status">
+                                        <option value="Ready to move" data-hidden="true">Ready to move</option>
+                                        <option value="1">lorem </option>
+                                        <option value="2">lorem </option>
+                                        <option value="3">lorem </option>
+                                    </select>
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Cupboards</h4>
+                                <div class="form-group">
+                                    <div class="radio-btn">
+                                        <label>Yes</label> <input class="radio" type="radio" name="1">
+                                        <label>No</label> <input class="radio" type="radio" name="1">
+                                    </div>
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Brochure</h4>
+                                <div class="form-group">
+                                    <input type="file" name="Brochure" class="input-text">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Launch date</h4>
+                                <div class="input-group date form-group" data-toggle="datepicker">
+                                    <input type="text" class="form-control" placeholder="mm /dd / yyyy">
+                                    <div class="input-group-addon">
+                                        <span class="fa fa-calendar-o icon"></span>
+                                    </div>
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Possesion date</h4>
+                                <div class="input-group date form-group" data-toggle="datepicker">
+                                    <input type="text" class="form-control" placeholder="mm /dd / yyyy">
+                                    <div class="input-group-addon">
+                                        <span class="fa fa-calendar-o icon"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="heading">Different sizes of plots</h4>    
+                            </div>   
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Title</h4>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Title">
+                                </div>
+                            </div>             
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Bedrooms (optional)</h4>
+                                <select class="selectpicker" name="Facing">
+                                    <option value="Facing" data-hidden="true">Facing</option>
+                                    <option value="1">lorem </option>
+                                    <option value="2">lorem </option>
+                                    <option value="3">lorem </option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Bathrooms (optional)</h4>
+                                <select class="selectpicker" name="Facing">
+                                    <option value="Facing" data-hidden="true">Facing</option>
+                                    <option value="1">lorem </option>
+                                    <option value="2">lorem </option>
+                                    <option value="3">lorem </option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Super built up area</h4>
+                                <div class="form-group">
+                                    <input type="text" name="supBuiltup" class="input-text" placeholder="Super built up area">
+                                </div>
+                            </div>        
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Plinth area</h4>
+                                <div class="form-group">
+                                    <input type="text" name="plinthArea" class="input-text" placeholder="Plinth area">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Facing</h4>
+                                <div class="form-group">
+                                    <input type="text" name="Facing" class="input-text" placeholder="Facing">
+                                </div>
+                            </div> 
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Undivided share</h4>
+                                <div class="form-group">
+                                    <div class="radio-btn">
+                                        <label>Yes</label> <input class="radio" type="radio" name="undivided">
+                                        <label>No</label> <input class="radio" type="radio" name="undivided">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <h4>Car parking</h4>
+                                <div class="form-group">
+                                    <div class="radio-btn">
+                                        <label>Yes</label> <input class="radio" type="radio" name="parking">
+                                        <label>No</label> <input class="radio" type="radio" name="parking">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-xs-12">
+                                <h4>Balconies</h4>
+                                <div class="form-group">
+                                    <div class="radio-btn">
+                                        <label>Yes</label> <input class="radio" type="radio" name="1">
+                                        <label>No</label> <input class="radio" type="radio" name="1">
+                                    </div>
+                                </div>
+                            </div>      
+                            <div class="col-sm-12 col-xs-12">
+                                <h4>Images</h4>
+                                <div class="form-group imageplus">
+                                    <span class="add-img-container">Click to<br>add photos</span>
+                                    <input type="file" name="addPhotos" class="input-text fa" placeholder="Click to
+                                    add photos">
+                                </div>
+                            </div>      
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-7 col-xs-12  filtr-item posAbs" data-category="3">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="heading">Doors</h4>    
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Main" class="input-text" placeholder="Main">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Internal" class="input-text" placeholder="Internal">
+                                </div>
+                            </div>       
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="heading">Walls</h4>    
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Brick" class="input-text" placeholder="Brick">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Exterior" class="input-text" placeholder="Exterior">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Toilets" class="input-text" placeholder="Toilets">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Kitchen" class="input-text" placeholder="Kitchen">
+                                </div>
+                            </div>       
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="heading">Flooring</h4>    
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Kitchen" class="input-text" placeholder="Kitchen">
+                                </div>
+                            </div> 
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Living" class="input-text" placeholder="Living">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Dining" class="input-text" placeholder="Dining">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Master" class="input-text" placeholder="Master">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Bedroom" class="input-text" placeholder="Bedroom">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Other bedrooms" class="input-text" placeholder="Other bedrooms">
+                                </div>
+                            </div>       
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="heading">Other</h4>    
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Windows" class="input-text" placeholder="Windows">
+                                </div>
+                            </div> 
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="frameStructure" class="input-text" placeholder="Frame structure">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Wiring" class="input-text" placeholder="Wiring">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Switches" class="input-text" placeholder="Switches">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="kitchenCounter" class="input-text" placeholder="Kitchen counter">
+                                </div>
+                            </div>       
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Cupboards" class="input-text" placeholder="Cupboards (type of material)">
+                                </div>
+                            </div> 
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="heading">Fittings</h4>    
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Kitchen" class="input-text" placeholder="Kitchen">
+                                </div>
+                            </div> 
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <input type="text" name="Toilets" class="input-text" placeholder="Toilets">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-xs-12">
+                                <h4 class="heading">Amenities</h4>    
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="form-group mt15">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="Gym"><label for="Gym">Gym</label>
+                                    </div>
+                                </div>
+                            </div>  
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="form-group mt15">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="SwimmingPool"><label for="SwimmingPool">Swimming
+                                                pool</label>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="form-group mt15">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="ChildrenPlayground"><label for="ChildrenPlayground">Children
+                                                playground</label>
+                                    </div>
+                                </div>
+                            </div>   
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="form-group mt15">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="Gym"><label for="Gym">Gym</label>
+                                    </div>
+                                </div>
+                            </div>  
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="form-group mt15">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="SwimmingPool"><label for="SwimmingPool">Swimming
+                                                pool</label>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="form-group mt15">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="ChildrenPlayground"><label for="ChildrenPlayground">Children
+                                                playground</label>
+                                    </div>
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
+                    <div class="col-xs-12  filtr-item posAbs" data-category="4">
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <h4>Geo location</h4>
+                            <div class="form-group">
+                                <input name="searchLocation" class="input-text" placeholder="Search location">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <h4 class="mobHide">&nbsp</h4>
+                                <button type="button" class="button transparent">get location</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-xs-12">  
+                            <div class="map">
+                                <div id="map" class="contact-map"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-7 col-xs-12  filtr-item posAbs" data-category="5">
+                        <div class="row">
+                            <div class="col-sm-12 col-xs-12">
+                                <h4>Add photos</h4>
+                                <div class="form-group imageplus">
+                                    <span class="add-img-container">Click to<br>add photos</span>
+                                    <input type="file" name="addPhotos" class="input-text fa" placeholder="Click to
+                                    add photos">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-xs-12">
+                                <h4>Add videos</h4>
+                                <div class="form-group">
+                                    <input type="text" name="videoLink" class="input-text" placeholder="Add a video link">
+                                </div>
+                                <div class="form-group imageplus">
+                                    <span class="add-img-container">+ add atleast<br>1 video</span>
+                                    <input type="file" name="addPhotos" class="input-text fa" placeholder="Click to
+                                    add photos">
+                                </div>
+                            </div> 
+                            <div class="col-sm-12 col-xs-12">
+                                <h4>Detailed information</h4>
+                                <div class="form-group">
+                                    <textarea name="DetailInfo" class="input-text" placeholder="Detailed information"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-5 col-xs-12 pull-right onmaphiden">
+                        <h4>Property preview</h4>
+                        <!-- Properties details section start -->
+                        <div class="Properties-details-section sidebar-widget">
+                            <!-- Properties detail slider start -->
+                            <div class="properties-detail-slider simple-slider">
+                                <div id="carousel-custom" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-outer">
+                                        <!-- Wrapper for slides -->
+                                        <div class="carousel-inner">
+                                            <div class="item active">
+                                                <img src="http://placehold.it/710x473" class="thumb-preview" alt="Chevrolet Impala">
+                                            </div>
+                                            <div class="item">
+                                                <img src="http://placehold.it/710x473" class="thumb-preview" alt="Chevrolet Impala">
+                                            </div>
+                                            <div class="item">
+                                                <img src="http://placehold.it/710x473" class="thumb-preview" alt="Chevrolet Impala">
+                                            </div>
+                                            <div class="item">
+                                                <img src="http://placehold.it/710x473" class="thumb-preview" alt="Chevrolet Impala">
+                                            </div>
+                                        </div>
+                                        <!-- Controls -->
+                                        <a class="left carousel-control" href="#carousel-custom" role="button" data-slide="prev">
+                                            <span class="slider-mover-left no-bg t-slider-r pojison" aria-hidden="true">
+                                                <i class="fa fa-angle-left"></i>
+                                            </span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="right carousel-control" href="#carousel-custom" role="button" data-slide="next">
+                                            <span class="slider-mover-right no-bg t-slider-l pojison" aria-hidden="true">
+                                                <i class="fa fa-angle-right"></i>
+                                            </span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators thumbs visible-lg visible-md">
+                                        <li data-target="#carousel-custom" data-slide-to="0" class=""><img src="http://placehold.it/90x60" alt="Chevrolet Impala"></li>
+                                        <li data-target="#carousel-custom" data-slide-to="1" class=""><img src="http://placehold.it/90x60" alt="Chevrolet Impala"></li>
+                                        <li data-target="#carousel-custom" data-slide-to="2" class=""><img src="http://placehold.it/90x60" alt="Chevrolet Impala"></li>
+                                        <li data-target="#carousel-custom" data-slide-to="3" class=""><img src="http://placehold.it/90x60" alt="Chevrolet Impala"></li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <!-- Properties detail slider end -->           
+                            <!-- Property description start -->
+                            <div class="panel-box properties-panel-box Property-description">
+                                    <h3 class="title">
+                                        <a href="properties-details.html">Experion</a>
+                                    </h3>
+                                    <!-- Property address -->
+                                    <h4 class="property-address">
+                                        <a href="properties-details.html">
+                                            <i class="lnr lnr-map-marker"></i>Electronic City Phase 2, Bangalore
+                                        </a>
+                                    </h4>
+                                    <div class="property-price">
+                                            <div>₹ 98 Cr - ₹ 4.23 Cr</div>
+                                    </div>
+                                    <h5><span class="lnr lnr-checkmark-circle"></span>ready to move in</h5>    
+                                    <!-- Facilities List -->
+                                    <div class="property-content">
+                                        <ul class="facilities-list clearfix">
+                                            <li>
+                                                <i class="flaticon-social"></i>
+                                                <span>400 ft<sup>2</sup></sup></span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-bed"></i>
+                                                <span>4</span>
+                                            </li>
+                                            <li>
+                                                <i class="flaticon-holidays"></i>
+                                                <span>2 </span>
+                                            </li>
+                                        </ul>
+                                    </div> 
+                            </div>
+                            <!-- Property description end -->
+                        </div>
+                        <!-- Properties details section end -->
+                        </div>
+                </div>
+                <div class="btn-container col-sm-12 content-area">
+                    <div class="form-group text-center">
+                        <button type="button" class="button transparent">save</button>
+                        <button type="button" class="button next-step">next step</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Featured properties end -->
+</section>
+<footer class="main-footer clearfix">
+    <div class="container">
+        <!-- Footer info-->
+        <div class="footer-info">
+            <div class="row footertop">
+                <!-- Footer top -->
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <h5>BUILDERS</h5>
+                    <p><a href="#">Prestige Group</a></p>
+                    <p><a href="#">Sobha Limited</a></p>
+                    <p><a href="#">DLF</a></p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <h5>buy property</h5>   
+                    <p><a href="#">Amarati</a></p>
+                    <p><a href="#">Guntur</a></p>
+                    <p><a href="#">Vijaywada</a></p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <h5>properties in india</h5>
+                    <p><a href="#">Apartments For Sale In India</a></p>
+                    <p><a href="#">Villas in India</a></p>
+                    <p><a href="#">New Apartments For Sale In India</a></p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <h5>additional links</h5>
+                    <p><a href="#">Additional Link One</a></p>
+                    <p><a href="#">Additional Link Two</a></p>
+                    <p><a href="#">Additional Link Thre</a></p>
+                </div>
+            </div>
+            <div class="row footerbottom">
+                <!-- Footer top -->
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <h5>ABOUT</h5>
+                    <p>We offer professional advisory services for Real Estate investors in Amaravati, CRDA Area - Andhra Pradesh. "Transparency, Reliability & Professionalism" are our promise to you. We will be your partner through out the investment process. We function on the fundamentals of trust, transparency and expertise. We guide home / land buyers right from the start of their search to the very end. Shortlist your favorite properties and allow us to arrange site visits. Our work does not end here. We assist you with property loans and property registrations.</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <h5>contact us</h5>   
+                    <ul class="personal-info">
+                        <li>
+                            <i class="lnr lnr-map-marker"></i>
+                            <h4>ITI College Road, Prasanthi Nagar, Vijayawada</h4>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-o"></i>
+                            <h4>Email: <a href="mailto:sales@hotelempire.com">support@avenue.in</a></h4>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            <h4>Phone: <a href="tel:+91-9533-894-894">+91.9533.894.894</a></h4>
+                        </li>
+<!--
+                        <li>
+                            <i class="fa fa-fax"></i>
+                            Fax: +55 4XX-634-7071
+                        </li>
+-->
+                        </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <h5>GET IN TOUCH</h5>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <input class="nsu-field btn-block" id="nsu-email-0" type="text" name="email" placeholder="Enter your email to subscribe" required="">
+                            <a class="fa fa-check" href="#"></a>
+                        </div>
+                    </form>
+                    <ul class="social-list list-inline clearfix">
+                            <li>
+                                <a href="https://facebook.com/"  target="_blank" class="facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/supportavenue" target="_blank" class="twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/+avenuein" target="_blank" class="linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <!--<li>
+                                <a href="#" class="google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="rss">
+                                    <i class="fa fa-rss"></i>
+                                </a>
+                            </li>-->
+                        </ul>
+                </div>
+                <div class="col-xs-12 text-center copyp">
+                        <p>&copy; 2018 <a href="#">Avenir Realty LLP</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer end -->
+<div id="loginPopup" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body" id="login">
+              <div class="white-bg">
+                  <article>
+                      <h4 class="modal-title">WELCOME !<span>Login to your account</span></h4>
+                      <form>
+                      <div class="form-group">
+                          <input name="" class="form-control" placeholder="Username or email*" type="email">
+                      </div> <!-- form-group// -->
+                      <div class="form-group">
+                          <input class="form-control pwd" placeholder="Your password*" type="password">
+                          <!--<a href="#" class="fa fa-eye show"></a>-->
+                      </div> <!-- form-group// -->
+                      <div class="form-group clearfix">
+                            <!-- <label class="small">Forgot password?</label><a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#loginPopup').modal('hide')"> Reset</a> -->
+                            <!--<a href="register.html">Register Now</a>-->
+                        <div class="checkbox">
+                            <input type="checkbox" id="loginmail"><label for="loginmail">Remember me</label>
+                        </div>
+                      </div>
+                      <div class="form-group text-center">
+                        <button type="submit" class="btn btn-block">LOGIN</button>
+                      </div>
+                      <div class="text-center">
+                            <p>Are you new here ? <a href="#" data-toggle="modal" data-target="#registerPopup" onclick="$('#loginPopup, #resetPopup').modal('hide')">
+                                <strong>Register now!</strong></a></p>
+                      </div>
+                          <!-- form-group// -->
+                          
+                      <div class="text-center"><label class="or">or</label></div>
+                      <div class="form-group text-center">
+                            <p>Forgot Password? 
+                                <a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#loginPopup').modal('hide')">
+                                    <strong>Click here</strong>
+                                </a> to get it back.</a></p>
+                      </div>
+                      <div class="row clearfix">
+                          <div class="col-xs-12">
+                              <div class="form-group facebook">
+                                  <button type="button" class="btn btn-block">Login with 
+                                      <i class="fa fa-facebook"></i></button>
+                              </div>
+                              <div class="form-group google">
+                                  <button type="button" class="btn btn-block">Login with
+                                   <i class="fa fa-google-plus"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- <div class="form-group text-center clearfix mt15">
+                          <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                       </div> -->
+                      </form>
+                  </article>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+<div id="resetPopup" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body" id="login">
+            <div class="white-bg">
+                <article>
+                    <h4 class="modal-title">FORGOT PASSWORD?<span>Enter your email</span></h4>
+                    <form>
+                    <div class="form-group">
+                        <input name="" class="form-control" placeholder="Email" type="email">
+                    </div> <!-- form-group// -->
+                    <div class="form-group text-center">
+                    <button type="submit" class="btn btn-block">reset password</button>
+                    </div>
+                    <div class="text-center">
+                        <p>Are you new here ? <a href="#" data-toggle="modal" data-target="#registerPopup" onclick="$('#loginPopup, #resetPopup').modal('hide')">
+                            <strong>Register now!</strong></a></p>
+                    </div>
+                        <!-- form-group// -->
+                    <!-- <div class="form-group text-center clearfix mt15">
+                        <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                    </div> -->
+                    </form>
+                </article>
+            </div>
+        </div>
+        </div>
+    
+    </div>
+    </div>
+<div id="registerPopup" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body" id="login">
+            <div class="white-bg">
+                <article>
+                    <h4 class="modal-title">WELCOME !<span>Create your account</span></h4>
+                    <form>
+                    <div class="form-group">
+                        <input name="" class="form-control" placeholder="Username" type="text">
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                            <input name="" class="form-control" placeholder="Email" type="email">
+                        </div> <!-- form-group// -->
+                    <div class="form-group">
+                        <input class="form-control pwd" placeholder="Password" type="password">
+                        <!--<a href="#" class="fa fa-eye show"></a>-->
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                            <input class="form-control pwd" placeholder="Confirm Password" type="password">
+                        </div> <!-- form-group// -->
+                    <div class="form-group text-center">
+                    <button type="submit" class="btn btn-block">REGISTER</button>
+                    </div>
+                    <div class="text-center">
+                        <p>Already member ? <a data-toggle="modal" data-target="#loginPopup" onclick="$('#registerPopup').modal('hide')">
+                            <strong>Login now!</strong></a></p>
+                    </div>
+                        <!-- form-group// -->
+                        
+                    <div class="text-center"><label class="or">or</label></div>
+                    <div class="form-group text-center">
+                        <p>Forgot Password? 
+                            <a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#registerPopup').modal('hide')">
+                                <strong>Click here</strong>
+                            </a> to get it back.</a></p>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-xs-12">
+                            <div class="form-group facebook">
+                                <button type="button" class="btn btn-block">Register with 
+                                    <i class="fa fa-facebook"></i></button>
+                            </div>
+                            <div class="form-group google">
+                                <button type="button" class="btn btn-block">Register with
+                                <i class="fa fa-google-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group text-center clearfix mt15">
+                        <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                    </div> -->
+                    </form>
+                </article>
+            </div>
+        </div>
+        </div>
+    
+    </div>
+    </div>
+<script defer  src="js/jquery-2.2.0.min.js"></script>
+<script defer src="js/bootstrap.min.js"></script>
+<script src="js/datepicker.js"></script>
+<script defer src="js/bootstrap-submenu.js"></script>
+<script defer src="js/rangeslider.js"></script>
+<script defer src="js/jquery.mb.YTPlayer.js"></script>
+<script defer src="js/wow.min.js"></script>
+<script defer src="js/bootstrap-select.min.js"></script>
+<script defer src="js/jquery.easing.1.3.js"></script>
+<script defer src="js/jquery.scrollUp.js"></script>
+<script defer src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/leaflet.js"></script>
+<script defer src="js/parallax.min.js"></script>
+<script src="js/leaflet-providers.js"></script>
+<script src="js/leaflet.markercluster.js"></script>
+<script src="js/dropzone.js"></script>
+<script defer src="js/jquery.filterizr.js"></script>
+<script defer src="js/jquery.magnific-popup.min.js"></script>
+<script defer src="js/jquery.nicescroll.min.js"></script>
+<script defer src="js/intlTelInput.min.js"></script>
+<script src="js/maps.js"></script>
+<script src="js/app.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script defer src="js/ie10-viewport-bug-workaround.js"></script>
+<!-- Custom javascript -->
+<script defer src="js/ie10-viewport-bug-workaround.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
+<script>
+        function LoadMap(propertes) {
+            var defaultLat = 40.7110411;
+            var defaultLng = -74.0110326;
+            var mapOptions = {
+                center: new google.maps.LatLng(defaultLat, defaultLng),
+                zoom: 15,
+                scrollwheel: false,
+                styles: [
+                    {
+                        featureType: "administrative",
+                        elementType: "labels",
+                        stylers: [
+                            {visibility: "off"}
+                        ]
+                    },
+                    {
+                        featureType: "water",
+                        elementType: "labels",
+                        stylers: [
+                            {visibility: "off"}
+                        ]
+                    },
+                    {
+                        featureType: 'poi.business',
+                        stylers: [{visibility: 'off'}]
+                    },
+                    {
+                        featureType: 'transit',
+                        elementType: 'labels.icon',
+                        stylers: [{visibility: 'off'}]
+                    },
+                ]
+            };
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            var infoWindow = new google.maps.InfoWindow();
+            var myLatlng = new google.maps.LatLng(40.7110411, -74.0110326);
+    
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map
+            });
+            (function (marker) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    infoWindow.setContent("" +
+                        "<div class='map-properties contact-map-content'>" +
+                        "<div class='map-content'>" +
+                        "<p class='address'>123 Kathal St. Tampa City, </p>" +
+                        "<ul class='map-properties-list'> " +
+                        "<li><i class='fa fa-phone'></i>  +0477 8556 552</li> " +
+                        "<li><i class='fa fa-envelope'></i>  info@themevessel.com</li> " +
+                        "<li><a href='index.html'><i class='fa fa-globe'></i>  http://http://themevessel.com</li></a> " +
+                        "</ul>" +
+                        "</div>" +
+                        "</div>");
+                    infoWindow.open(map, marker);
+                });
+            })(marker);
+        }
+        LoadMap();
+    </script>
+</body>
+</html>

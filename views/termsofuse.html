@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <title>Avenir Realty LLP - Amaravati Real Estate Advisors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <!-- External CSS libraries -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-submenu.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/leaflet.css" type="text/css">
+    <link rel="stylesheet" href="css/map.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="fonts/linearicons/style.css">
+    <link rel="stylesheet" type="text/css"  href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css"  href="css/dropzone.css">
+    <link rel="stylesheet" type="text/css"  href="css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css"  href="css/intlTelInput.css">
+    <link rel="stylesheet" type="text/css"  href="css/datepicker.css">
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="css/skins/default.css">
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="img/Avenue-FavIcon.png" type="image/x-icon" >
+    <!-- Google fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" type="text/css" href="css/ie10-viewport-bug-workaround.css">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script defer src="js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.min.js"></script>
+    <script type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="page_loader"></div>
+    <!-- Main header start -->
+    <header class="main-header fixed-top darkHeader innerpage">
+      <div class="container-fluid">
+        <nav class="navbar navbar-default">
+          <div class="navbar-header">
+            <a href="index.html" class="logo">
+              <img src="img/logos/logo.png" alt="logo">
+            </a>
+            <div class="check-filter-search">
+              <ul class="list-inline text-right">
+                <li><a class="fa fa-refresh" href="#"></a></li>
+                <li><a class="fa fa-heart" href="#"></a></li>
+              </ul>
+              <div class="form-group">
+                <select class="selectpicker" name="city">
+                  <option value="Select" data-hidden="true">Choose City</option>
+                  <option value="1">Amaravati </option>
+                  <option value="2">Vijaywada </option>
+                  <option value="3">Guntur </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <input type="text" class="input-text" name="filterAreaProperty" placeholder="Area, Locality">
+                <a class="fa fa-search" href="#"></a>
+              </div>
+              <div>
+                <a class="filtertoggle" aria-expanded="true" href="#" data-toggle="collapse" data-target="#filtertab">
+                  hide advanced filters
+                  <span class="caret"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="dropdown" data-dir="rtl" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="#">Price Trends</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacypolicy.html">Privacy Policy</a></li>
+            <li><a href="termsofuse.html">Terms of Service</a></li>
+            <li><a href="mailto:support@avenue.in" target="_blank"><i class="fa fa-envelope"></i>support@avenue.in</a></li>
+            <li class="dtpHide"><a href="#"><i class="fa fa-phone"></i>+91.9533.894.894</a></li>
+            <li class="dtpHide">
+                <a href="submit-property.html">
+                    <i class="flaticon-symbol-1"></i>Sell Property
+                </a>
+            </li>
+            <li class="dtpHide">
+                <a href="#" data-toggle="modal" data-target="#loginPopup">
+                    <i class="fa fa-user"></i>Login
+                </a>
+            </li>
+        </ul>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="navbar-collapse collapse pull-right" role="navigation" aria-expanded="true" id="app-navigation">
+            <ul class="nav navbar-nav rightside-navbar">
+              <li>
+                <a href="submit-property.html" class="button">
+                  Sell Property
+                </a>
+              </li>
+              <li>
+                <a href="/" class="button transparent">
+                  Logout
+                </a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav margin-right">
+              <li><a href="#">+91.9533.894.894</a></li>
+              <li><a href="#">Price Trends</a></li>
+              <li><a href="#">Blog</a></li>
+              <!-- <li class="dropdown">
+                <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
+                  More<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="agent-listing-row.html">Terms of Service</a></li>
+                  <li><a href="tel:+91-9533- 894-894"><i class="fa fa-phone"></i>+91-9533- 894-894</a></li>
+                  <li><a href="tel:Support@avenue.in"><i class="fa fa-envelope"></i>Support@avenue.in</a></li>
+                </ul>
+              </li>
+              <li><a href="signup.html" class="sign-in">Login <span class="fa fa-user"></span></a></li>
+              <li class="hidden-sm hidden-md hidden-lg">
+                <a href="submit-property.html" class="button">
+                  Submit Property
+                </a>
+              </li> -->
+            </ul>
+            <!--<ul class="top-social-media">
+              <li>
+                <a href="signup.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
+              </li>
+            </ul>-->
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- Main header end -->
+    <div class="clearfix innerfirst"></div>
+    <div class="container bredcrumb-area">
+      <ul class="list-inline bredcrumb text-right content-area">
+        <li><a href="/">Home</a> / </li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+    <!--==========================
+    ============================-->
+    <section id="faq" class="content-area">
+      <div class="container innercontent">
+        <div class="row">
+          <div class="main-title">
+            <h1>Terms of Service</h1>
+          </div>
+          <div class=" col-md-12 col-sm-12 mb30">
+           
+            <div class="panel-group white-bg pd-15 pt-30 pb-30">
+              <div class="pd-15">
+                <ol class="list-unstyled">
+                  <li>
+                    <h4 class="theme-color bold">GENERAL</h4>
+                    <p>“www.avenue.in” (hereinafter, the “Website”) is owned and operated by Avenir Realty LLP, (hereinafter referred to as “Company”), a Partnership Firm, having its registered office at Vijayawada, Andhra Pradesh, India.</p>
+                    <p>This document is an electronic record published in accordance with the provisions of the Information Technology (Intermediaries guidelines) Rules, 2011 that require publishing the Rules and Regulations, Privacy Policy and Terms of Service for access or usage of the website and being generated by a computer system, it does not require any physical or digital signatures.</p>
+                    <p>For the purpose of these Terms of Use, along with any amendments to the same, and wherever the context so requires</p>
+                    <p>“You”, “Your”, “Yourself” or “User” shall mean and refer to the person visiting, accessing, browsing through and/or using the Website at any point in time and shall include the “Clients/Customers”.</p>
+                    <p>The term “We”, “Us”, “Our” shall mean and refer to the website and/or the Company, depending on the context.</p>
+                    <p>The headings of each section in this Agreement are only for the purpose of organizing the various provisions under this Agreement in an orderly manner. These headings shall not be used by either party to interpret the provisions contained under them in any manner. Further, the headings have no legal or contractual value.</p>
+                    <p>We hold the sole right to modify the Terms of Service without prior permission from You or providing notice to You. The relationship creates on You a duty to periodically check the Terms of Service and stay updated on its requirements. If You continue to use the Website or avail any of its services without registration following such change, this is deemed as consent by You to the so amended policies. Your continued use of the Website is conditioned upon your compliance with the Terms of Service, including but not limited to compliance with the Terms of Service even after alterations, if any.</p>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">ABOUT US</h4>
+                    <p>Avenir Realty LLP is a complete realty solution that aggregates end-to-end property services for property seekers. We undertake the responsibility of identifying, validating and certifying the authenticity of a property as a sound investment option. We have launched our operations in new capital of Andhra Pradesh ‘Amaravati’ which includes providing investment advice related to property and other allied solutions.</p>
+                    <p>The maps and other related information used on the website are sourced from the Andhra Pradesh Capital Region Development Authority (APCRDA) and Government of Andhra Pradesh.</p>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">REGISTRATION</h4>
+                    <p>To use some of the services provided on the Website, you shall register yourself on the Website. To create an account, you need to provide your email id and choose a username and password. You must keep your account and registration details current and correct for communications from the Website.</p>
+                    <p>Information collected about you is subject to the Privacy Policy of the Company, which may be read as part and parcel of these Terms of Use.</p>
+                    <p>You are solely responsible for protecting the confidentiality of your username and password and any activity under the account will be deemed to have been done by you. In the event you provide us with false/inaccurate details or the Company has a reasonable ground to believe that false and inaccurate information has been furnished, we hold the right to permanently suspend your account.</p>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">ELIGIBILITY</h4>
+                    <p>Services on the Site would be available pan India. However, some features of the Site shall only be available in select cities in India. Persons who are “incompetent to contract” within the meaning of the Indian Contract Act, 1872 including minors, un-discharged insolvents etc. are not eligible to use the Site.</p>
+                    <p>However, if you are a minor, i.e. under the age of 18 years and over the age of 13 years, you may use the Site under the supervision of a parent or legal guardian who agrees to be bound by these Terms of Use. We reserve the right to terminate or refuse your registration, or refuse to permit access to the Site, if it is discovered or brought to its notice that you are a minor.</p>
+                    <p>The user agrees that even though the website targets only Indian residents, it may be accessible to people in other parts of the world given the nature of the Internet. If the user is not an Indian resident and yet uses the website, he acknowledges, understands and agrees that he is doing this at his own initiative, and at his own risk. It is his responsibility to make sure that he complies with the applicable local laws. If the user is not an Indian resident, by using this website and/or revealing his personal identity or any other information on the website, he expressly consents to the transfer of such data to India, and to the processing of such data on Avenir Realty LLP’s Indian servers, where his data will be governed by Indian laws that may provide a level of data protection different from his country of residence.</p>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">SECURITY</h4>
+                    <p>Transactions on the Website are secure and protected. Any information entered by the User when transacting on the Website is encrypted to protect the User against unintentional disclosure to third parties. The User’s credit and debit card information is not received, stored by or retained by the Company / Website in any manner. This information is supplied by the User directly to the relevant payment gateway which is authorized to handle the information provided, and is compliant with the regulations and requirements of various banks and institutions and payment franchisees that it is associated with.</p>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">LICENSE AND ACCESS</h4>
+                    <p>The Company grants you no sub-license, whether limited or not, to access and make personal use of the Site, and not to download (other than page caching) or modify it or any portion of it, except with express written consent of the Company. You are not permitted any resale or commercial use of the Site or its contents; any collection and use of any product listings, descriptions, or prices; any derivative use of the Site or its contents; any downloading or copying of information for the benefit of another merchant; or any use of data mining, robots, or similar data gathering and extraction tools. Any portion of the Site may not be reproduced, duplicated, copied, sold, resold, visited, or otherwise exploited for any commercial purpose without express written consent of the Company. You may not frame or utilize framing techniques to enclose any trademark, logo, or other proprietary information (including images, text, page layout, or form) of the Website or of the Company and/or its affiliates without the express written consent of the Company. You may not use any meta tags or any other “hidden text” utilizing the Company’s name or trademarks without the express written consent of the Company. You shall not attempt to gain unauthorized access to any portion or feature of the Site, or any other systems or networks connected to the Site or to any server, computer, network, or to any of the services offered on or through the Site, by hacking, ‘password mining’ or any other illegitimate means.</p>
+
+                    <p><strong>You hereby agree and undertake not to host, display, upload, modify, publish, transmit, update or share any information which:</strong></p>
+
+                    <ol class="list-unstyled alphabet">
+                      <li>Belongs to another person and to which you do not have any right;</li>
+                      <li>Is grossly harmful, harassing, blasphemous, defamatory, obscene, pornographic, pedophilic, libelous, invasive of another’s privacy, hateful, or racially, ethnically objectionable, disparaging, relating or encouraging money laundering or gambling, or otherwise unlawful in any manner whatever;</li>
+                      <li>Harms minors in any way;</li>
+                      <li>Infringes any patent, trademark, copyright or other proprietary/intellectual property rights;</li>
+                      <li>Violates any law for the time being in force;</li>
+                      <li>deceives or misleads the addressee about the origin of such messages communicates any information which is grossly offensive or menacing in nature;</li>
+                      <li>Impersonates another person;</li>
+                      <li>Contains software viruses or any other computer code, files or programs designed to interrupt, destroy or limit the functionality of any computer resource;</li>
+                      <li>Threatens the unity, integrity, defense, security or sovereignty of India, friendly relations with foreign states, or public order or causes incitement to the commission of any cognizable offence or prevents investigation of any offence or is insulting any other nation; or</li>
+                      <li>Is misleading or known to be false in any way.</li>
+                    </ol>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">COMMUNICATIONS</h4>
+                    <p>By using this Website, it is deemed that you have consented to receiving calls, autodialed and/or pre-recorded message calls, e-mails, from Us at any time with the use of the telephone number and e-mail address that has been provided by you for the use of this website which are subject to the Privacy Policy. The user agrees to receive promotional communication and newsletters from the Company and its partners.</p>
+
+                    <p>This includes contacting you through information received through other parties. The use of this website is also your consent to receive SMS from Us at any time we deem fit. This consent to be contacted is for purposes that include and are not limited to clarification calls and marketing and promotional calls. The user can opt out from such communication and/or newsletters either by unsubscribing on the Website itself, or by contacting the customer services team and placing a request for unsubscribing by sending an email to <a href="mailto:support@avenue.in">support@avenue.in</a>.</p>
+
+                    <p>You may also be contacted by Service Providers with whom we have entered into a contract in furtherance of our rights, duties and obligations under this document and all other policies followed by Us. Such contact will be made only in pursuance of such objectives, and no other calls will be made.</p>
+
+                    <p>The sharing of the information provided by you will be governed by the Privacy Policy and We may or may not sell your information to third parties.</p>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">USER OBLIGATIONS</h4>
+                    <p><strong>You are a restricted user of this website.</strong></p>
+                    <ol class="alphabet">
+                      <li>You are bound not to cut, copy, distribute, modify, recreate, reverse engineer, distribute, disseminate, post, publish or create derivative works from, transfer, or sell any information or software obtained from the website. With our prior permission limited use may be allowed. For the removal of doubt, it is clarified that unlimited or wholesale reproduction, copying of the content for commercial or non-commercial purposes and unwarranted modification of data and information within the content of the Website is not permitted.</li>
+                      <li>You agree not to access (or attempt to access) the Website and/or the materials or Services by any means other than through the interface that is provided by the website. The use of deep-link, robot, spider or other automatic device, program, algorithm or methodology, or any similar or equivalent manual process, to access, acquire, copy or monitor any portion of the Website or Content, or in any way reproduce or circumvent the navigational structure or presentation of the Website, materials or any Content, to obtain or attempt to obtain any materials, documents or information through any means not specifically made available through the Website. You acknowledge and agree that by accessing or using the Website or Services, You may be exposed to content from other users that You may consider offensive, indecent or otherwise objectionable. We disclaim all liabilities arising in relation to such offensive content on the Website. Further, You may report such offensive content.</li>
+                      <li>In places where this website allows you to post or upload data/information, You undertake to ensure that such material is not offensive and in accordance with applicable laws. Further, You undertake not to:</li>
+                      <ol class="romalAlpha">
+                        <li>Abuse, harass, threaten, defame, disillusion, erode, abrogate, demean or otherwise violate the legal rights of others;</li>
+                        <li>Engage in any activity that interferes with or disrupts access to the Website or the Services (or the servers and networks which are connected to the Website);</li>
+                        <li>Impersonate any person or entity, or falsely state or otherwise misrepresent Your affiliation with a person or entity;</li>
+                        <li>Publish, post, disseminate, any information which is grossly harmful, harassing, blasphemous, defamatory, obscene, pornographic, pedophilic, libelous, invasive of another’s privacy, hateful, or racially, ethnically objectionable, disparaging, relating or encouraging money laundering or gambling, or otherwise unlawful in any manner whatever; or unlawfully threatening or unlawfully harassing including but not limited to “indecent representation of women” within the meaning of the Indecent Representation of Women (Prohibition) Act, 1986;</li>
+                        <li>Post any file that infringes the copyright, patent or trademark of other legal entities;</li>
+                        <li>Upload or distribute files that contain viruses, corrupted files, or any other similar software or programs that may damage the operation of the Website or another’s computer;</li>
+                        <li>Download any file posted by another user that you know, or reasonably should know, cannot be legally distributed in such manner;</li>
+                        <li>Probe, scan or test the vulnerability of the Website or any network connected to the Website, nor breach the security or authentication measures on the Website or any network connected to the Website. You may not reverse look-up, trace or seek to trace any information on any other user, of or visitor to, the Website, or any other customer of the website, including any website Account not owned by You, to its source, or exploit the Website or Service or information made available or offered by or through the Website, in any way whether or not the purpose is to reveal any information, including but not limited to personal identification information, other than Your own information, as provided for by the Website;</li>
+                        <li>Disrupt or interfere with the security of, or otherwise cause harm to, the Website, system resources, accounts, passwords, servers or networks connected to or accessible through the Website or any affiliated or linked sites;</li>
+                        <li>Collect or store data about other users in connection with the prohibited conduct and activities set forth in this Section;</li>
+                        <li>Use the Website or any material or Content for any purpose that is unlawful or prohibited by these Terms of Service, or to solicit the performance of any illegal activity or other activity which infringes the rights of this website or other third parties;</li>
+                        <li>Violate any code of conduct or other guidelines, which may be applicable for or to any particular Service;</li>
+                        <li>Violate any applicable laws or regulations for the time being in force within or outside India;</li>
+                        <li>Violate the Terms of Service including but not limited to any applicable Additional Terms of the Website contained herein or elsewhere;</li>
+                        <li>Violate any code of conduct or other guidelines, which may be applicable for or to any particular Service;</li>
+                        <li>Threaten the unity, integrity, defense, security or sovereignty of India, friendly relations with foreign states, or public order or cause incitement to the commission of any cognizable offence or prevent investigation of any offence or is insulting any other nation;</li>
+                        <li>Publish, post, disseminate information that is false, inaccurate or misleading; violate any applicable laws or regulations for the time being in force in or outside India;</li>
+                        <li>Directly or indirectly, offer, attempt to offer, trade or attempt to trade in any item, the dealing of which is prohibited or restricted in any manner under the provisions of any applicable law, rule, regulation or guideline for the time being in force;</li>
+                        <li>Create liability for Us or cause Us to lose (in whole or in part) the services of Our internet service provider (“ISPs”) or other suppliers.</li>
+                      </ol>
+                    </ol>
+
+                    <p class="mt-15">We have no obligation to monitor the materials posted on the Website. We shall have the right to remove or edit any content that in its sole discretion violates, or is alleged to violate, any applicable law or either the spirit or letter of these Terms of Service. Notwithstanding this right, YOU REMAIN SOLELY RESPONSIBLE FOR THE CONTENT OF THE MATERIALS YOU POST ON THE WEBSITE AND IN YOUR PRIVATE MESSAGES. In no event shall We assume or have any responsibility or liability for any Content posted or for any claims, damages or losses resulting from the use of Content and/or appearance of Content on the Website. You hereby represent and warrant that You have all necessary rights in and to all Content which You provide and all information it contains and that such Content shall not infringe any proprietary or other rights of third parties or contain any libelous, tortuous, or otherwise unlawful information.</p>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">COPYRIGHT AND TRADEMARK</h4>
+                    <p>The Company, its suppliers and licensors expressly reserve all intellectual property rights in all text, programs, products, processes, technology, images, content and other materials which appear on the Site. Access to or use of the Site does not confer and should not be considered as conferring upon anyone any license to the Company or any third party’s intellectual property rights. All rights, including copyright, in and to the Site are owned by or licensed to the Company. Any use of the Site or its contents, including copying or storing it or them in whole or part is prohibited without the permission of the Company.</p>
+                    <p>This page contains maps of new capital of Andhra Pradesh, Amaravati City/Townships and other private layouts along with other details such as land pooling scheme, returnable plots and other details. Some of the maps available on the Website are developed with the information provided by APCRDA on their website for public use. Avenir Realty LLP is not affiliated to APCRDA or Government of Andhra Pradesh in any manner. Neither APCRDA nor Avenir Realty LLP shall be responsible for any information that may be misplaced, incorrect, outdated and/or unavailable. Further APCRDA reserves the right to change maps of Amaravati without notifying you or Avenir Realty LLP or anyone else of the same.</p>
+                    <p>The maps provided on the website are for information purposes only and to help the User get a high level of understanding of Amaravati layout. The User shall not consider the data to be correct or up to date. Further Users shall not quote any data or information available on the Website, as a source for any query made or being made to the APCRDA or Andhra Pradesh government.</p>
+                    <p>You may not modify, distribute or re-post anything on the Site for any purpose. The names and logos and all related product and service names, design marks and slogans are the trademarks/service marks of the Company, its affiliates, its partners or its suppliers/service providers. All other marks are the property of their respective owners. No trademark or service mark license is granted in connection with the materials contained on the Site. Access to or use of the Site does not authorize anyone to use any name, logo or mark in any manner. References on the Site to any names, marks, products or services of third parties or hypertext links to third party sites or information are provided solely as a convenience to you and do not in any way constitute or imply the Company’s endorsement, sponsorship or recommendation of the third party, the information, its product or services.</p>
+                    <p>The Company is not responsible for the content of any third party sites and does not make any representations regarding the content or accuracy of material on such sites. If you decide to access a link of any third party websites, you do so entirely at your own risk and expense.</p>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">DISCLAIMER OF WARRANTIES AND LIABILITIES</h4>
+                    <p>You expressly understand and agree that, to the maximum extent permitted by applicable law:</p>
+                    <p>The website, services and other materials are provided by this website is on an “as is” Basis without warranty of any kind, express, implied, statutory or otherwise, including the implied warranties of title, non-infringement, merchantability or fitness for a particular purpose. Without limiting the foregoing, we make no warranty that</p>
+
+                    <ol class="alphabet">
+                      <li>Your requirements will be met or that services provided will be uninterrupted, timely, secure or error-free;</li>
+                      <li>Materials, information and results obtained will be effective, accurate or reliable;</li>
+                      <li>Any errors or defects in the website, services or other materials will be corrected.</li>
+                    </ol>
+
+                    <p class="mt-15">To the maximum extent permitted by applicable law, we will have no liability related to user content arising under intellectual property rights, libel, privacy, publicity, obscenity or other laws. We also disclaim all liability with respect to the misuse, loss, modification or unavailability of any user content.</p>
+                    <p>The user understands and agrees that any material or data downloaded or otherwise obtained through the website is done entirely at his/her own discretion and risk and he/she will be solely responsible for any damage to his/her computer systems or loss of data that results from the download of such material or data. We are not responsible for any typographical error leading to an invalid coupon. We accept no liability for any errors or omissions, with respect to any information provided to you whether on behalf of itself or third parties.</p>
+                    <p>We shall not be responsible for the relevance and validity of comments made by third parties like vendors, public on the platform. The customer shall be wholly responsible for the accuracy of email, phone number, and personal information. Further in awarding points that are redeemable for cash, to users we are not responsible if the event expires or changes or is removed altogether.</p>
+                    <p>We shall not be liable for any third party product or services. The advertisement available on e-mail or website with respect to the third party website or the products and services are for information purpose only.</p>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">INDEMNIFICATION AND LIMITATION OF LIABILITY</h4>
+                    <p>You agree to indemnify, defend and hold harmless this website/company including but not limited to its affiliate vendors, agents and employees from and against any and all losses, liabilities, claims, damages, demands, costs and expenses (including legal fees and disbursements in connection therewith and interest chargeable thereon) asserted against or incurred by us that arise out of, result from, or may be payable by virtue of, any breach or non-performance of any representation, warranty, covenant or agreement made or obligation to be performed by you pursuant to these terms of service. Further, you agree to hold us harmless against any claims made by any third party due to, or arising out of, or in connection with, your use of the website, any claim that your material caused damage to a third party, your violation of the terms of service, or your violation of any rights of another, including any intellectual property rights.</p>
+                    <p>In no event shall we, our officers, directors, employees, partners, suppliers or experts be liable to you, the vendor or any third party for any special, incidental, indirect, consequential or punitive damages whatsoever, including those resulting from loss of use, data or profits, whether or not foreseeable or whether or not we have been advised of the possibility of such damages, or based on any theory of liability, including breach of contract or warranty, negligence or other tortious action, or any other claim arising out of or in connection with your use of or access to the website, services or materials.</p>
+                    <p>Users shall only use this website/maps for information purposes only. Such information shall not be used as a source any queries with apcrda or andhra pradesh government.</p>
+                    <p>Further maps and information we display may not be accurate and users/buyers/sellers should cross verify sich information with concerned parties before taking any decision. Avenir Realty LLP doesn’t take any responsibility or liability for any discrepancies in information. Futher we shall not be responsible for any negative outcome based on reliance of the information available on the website.</p>
+                    <p>The limitations and exclusions in this section apply to the maximum extent permitted by applicable law.</p>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">TERMINATION</h4>
+                    <p>This User Agreement is effective unless and until terminated by either you or the Company. You may terminate this User Agreement at any time, provided that you discontinue any further use of the Website. The Company may terminate this User Agreement at any time and may do so immediately without notice, and accordingly deny you access to the Site.</p>
+                    <p>Such termination will be without any liability to the Company. The Company’s right to any Comments and to be indemnified pursuant to the terms hereof, shall survive any termination of this User Agreement. Any such termination of the User Agreement shall not cancel your obligation to pay for product(s)/service(s) already ordered from the Site or affect any liability that may have arisen under the User Agreement prior to the date of termination.</p>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">DISPUTES AND JURISDICTION</h4>
+                    <p>All disputes involving but not limited to rights conferred, compensation, refunds, and other claims will be resolved through a two-step Alternate Dispute Resolution mechanism.</p>
+
+                    <ol class="alphabet">
+                      <li>Stage 1: Mediation. In case of a dispute, the matter will first be attempted to be resolved by a sole mediator who is a neutral third party and will be selected at the mutual acceptance of a proposed mediator by both parties. Both parties may raise a name for the sole mediator and in the case both parties accept the proposed name, the said person shall be appointed as sole mediator. In case the parties are not able to reach a consensus within two proposed mediators, the Company reserves the right to decide who the final mediator is. The decision of the mediator is not binding on both parties.</li>
+                      <li>Stage 2: Arbitration. In case that mediation does not yield a result suitable or preferred by any one of the parties, arbitration may follow, the award of which is binding on both parties. The Arbitration Board shall comprise three members – one appointed by each party and the third member to be nominated by the two appointed members by mutual consent. Arbitration shall be held at Vijayawada, Andhra Pradesh, India. The proceedings of arbitration shall be in the English language. The arbitrator’s award shall be final and binding on the Parties.</li>
+                    </ol>
+
+                    <p class="mt-15">If the dispute cannot be resolved by this two-step Alternate Dispute Resolution mechanism, it shall be referred to the courts at Vijayawada, Andhra Pradesh, India.</p>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">PRIVACY</h4>
+                    <p>We encourage you to read the Privacy Policy and to use the information it contains to make informed decisions regarding Your personal information. Please also note that certain information, statements, data and content (such as but not limited to photographs) which You provide on the Website are likely to reveal Your gender, ethnic origin, nationality, age, and/or other personal information about You. You acknowledge and agree that your submission of such information is voluntary on Your part. Further, You acknowledge, consent and agree that we may access, preserve, and disclose information You provide to Us at any stage during Your use of the Website. Disclosures of information to Third Parties are further addressed in Our Privacy Policy.</p>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">MISCELLANEOUS PROVISIONS</h4>
+                    <ol class="alphabet">
+                      <li>Entire Agreement: The terms and conditions set forth in this Agreement and any additional or different terms expressly agreed by Client and Service vendor shall constitute the entire agreement and understanding of Client and Service vendor with respect to each Service Contract and shall cancel and supersede any other prior or contemporaneous discussions, agreements, representations, warranties, and/or other communications between them. Notwithstanding the foregoing, the Client and Service vendor shall always remain subject to the terms of Our user Agreement.</li>
+                      <li>Waiver: The failure of either party at any time to require performance of any provision of this Agreement in no manner shall affect such party’s right at a later time to enforce the same. No waiver by either party of any breach of this Agreement, whether by conduct or otherwise, in any one or more instances, shall be deemed to be, or construed as, a further or continuing waiver of any other such breach, or a waiver of any other breach of this Agreement.</li>
+                      <li>Severability: If any provision of this Agreement shall to any extent be held invalid, illegal or unenforceable, the validity, legality and enforceability of the remaining provisions of this Agreement shall in no way be affected or impaired thereby and each such provision of this Agreement shall be valid and enforceable to the fullest extent permitted by law. In such a case, this Agreement shall be reformed to the minimum extent necessary to correct any invalidity, illegality or unenforceability, while preserving to the maximum extent the rights and commercial expectations of the parties hereto, as expressed herein.</li>
+                    </ol>
+                  </li>
+
+                  <li class="mt-20">
+                    <h4 class="theme-color bold">CONTACT US</h4>
+                    <p>If you have any questions about this Agreement, the practices of, or your experience with the Service, you can e-mail us at <a href="mailto:support@avenue.in.">support@avenue.in.</a></p>
+                  </li>
+                </ol>
+                
+              </div>
+            </div><!-- panel-group -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="main-footer clearfix">
+      <div class="container">
+        <!-- Footer info-->
+        <div class="footer-info">
+          <div class="row footertop">
+            <!-- Footer top -->
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <h5>BUILDERS</h5>
+              <p><a href="#">Prestige Group</a></p>
+              <p><a href="#">Sobha Limited</a></p>
+              <p><a href="#">DLF</a></p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <h5>buy property</h5>
+              <p><a href="#">Amarati</a></p>
+              <p><a href="#">Guntur</a></p>
+              <p><a href="#">Vijaywada</a></p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <h5>properties in india</h5>
+              <p><a href="#">Apartments For Sale In India</a></p>
+              <p><a href="#">Villas in India</a></p>
+              <p><a href="#">New Apartments For Sale In India</a></p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <h5>additional links</h5>
+              <p><a href="#">Additional Link One</a></p>
+              <p><a href="#">Additional Link Two</a></p>
+              <p><a href="#">Additional Link Thre</a></p>
+            </div>
+          </div>
+          <div class="row footerbottom">
+            <!-- Footer top -->
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <h5>ABOUT</h5>
+              <p>We offer professional advisory services for Real Estate investors in Amaravati, CRDA Area - Andhra Pradesh. "Transparency, Reliability & Professionalism" are our promise to you. We will be your partner through out the investment process. We function on the fundamentals of trust, transparency and expertise. We guide home / land buyers right from the start of their search to the very end. Shortlist your favorite properties and allow us to arrange site visits. Our work does not end here. We assist you with property loans and property registrations.</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <h5>contact us</h5>
+              <ul class="personal-info">
+                <li>
+                  <i class="lnr lnr-map-marker"></i>
+                  <h4>ITI College Road, Prasanthi Nagar, Vijayawada</h4>
+                </li>
+                <li>
+                  <i class="fa fa-envelope-o"></i>
+                  <h4>Email: <a href="mailto:support@avenue.in" target="_blank">support@avenue.in</a></h4>
+                </li>
+                <li>
+                  <i class="fa fa-phone"></i>
+                  <h4>Phone: <a href="tel:+91-9533-894-894">+91.9533.894.894</a></h4>
+                </li>
+                <!--
+                <li>
+                  <i class="fa fa-fax"></i>
+                  Fax: +55 4XX-634-7071
+                </li>
+                -->
+              </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <h5>GET IN TOUCH</h5>
+              <form action="#" method="post">
+                <div class="form-group">
+                  <input class="nsu-field btn-block" id="nsu-email-0" type="text" name="email" placeholder="Enter your email to subscribe" required="">
+                  <a class="fa fa-check" href="#"></a>
+                </div>
+              </form>
+              <ul class="social-list list-inline clearfix">
+                <li>
+                  <a href="https://facebook.com/"  target="_blank" class="facebook">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/supportavenue" target="_blank" class="twitter">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://plus.google.com/+avenuein" target="_blank" class="linkedin">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </li>
+                <!--<li>
+                  <a href="#" class="google">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="rss">
+                    <i class="fa fa-rss"></i>
+                  </a>
+                </li>-->
+              </ul>
+            </div>
+            <div class="col-xs-12 text-center copyp">
+              <p>&copy; 2018 <a href="#">Avenir Realty LLP</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+      <!-- Footer end -->
+    <div id="loginPopup" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-sm">
+        
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+          </div>
+          <div class="modal-body" id="login">
+            <div class="white-bg">
+              <article>
+                <h4 class="modal-title">WELCOME !<span>Login to your account</span></h4>
+                <form>
+                  <div class="form-group">
+                    <input name="" class="form-control" placeholder="Username or email*" type="email">
+                  </div> <!-- form-group// -->
+                  <div class="form-group">
+                    <input class="form-control pwd" placeholder="Your password*" type="password">
+                    <!--<a href="#" class="fa fa-eye show"></a>-->
+                  </div> <!-- form-group// -->
+                  <div class="form-group clearfix">
+                    <!-- <label class="small">Forgot password?</label><a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#loginPopup').modal('hide')"> Reset</a> -->
+                    <!--<a href="register.html">Register Now</a>-->
+                    <div class="checkbox">
+                      <input type="checkbox" id="loginmail"><label for="loginmail">Remember me</label>
+                    </div>
+                  </div>
+                  <div class="form-group text-center">
+                    <button type="submit" class="btn btn-block">LOGIN</button>
+                  </div>
+                  <div class="text-center">
+                    <p>Are you new here ? <a href="#" data-toggle="modal" data-target="#registerPopup" onclick="$('#loginPopup, #resetPopup').modal('hide')">
+                    <strong>Register now!</strong></a></p>
+                  </div>
+                  <!-- form-group// -->
+                  <div class="text-center"><label class="or">or</label></div>
+                  <div class="form-group text-center">
+                    <p>Forgot Password?
+                      <a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#loginPopup').modal('hide')">
+                        <strong>Click here</strong>
+                      </a> to get it back.</a>
+                    </p>
+                  </div>
+                  <div class="row clearfix">
+                    <div class="col-xs-12">
+                      <div class="form-group facebook">
+                        <button type="button" class="btn btn-block">Login with
+                        <i class="fa fa-facebook"></i></button>
+                      </div>
+                      <div class="form-group google">
+                        <button type="button" class="btn btn-block">Login with
+                        <i class="fa fa-google-plus"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="form-group text-center clearfix mt15">
+                    <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                  </div> -->
+                </form>
+              </article>
+            </div>
+          </div>
+        </div>
+              
+      </div>
+    </div>
+
+    <div id="resetPopup" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-sm">
+        
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+          </div>
+          <div class="modal-body" id="login">
+            <div class="white-bg">
+              <article>
+                <h4 class="modal-title">FORGOT PASSWORD?<span>Enter your email</span></h4>
+                <form>
+                  <div class="form-group">
+                    <input name="" class="form-control" placeholder="Email" type="email">
+                  </div> <!-- form-group// -->
+                  <div class="form-group text-center">
+                    <button type="submit" class="btn btn-block">reset password</button>
+                  </div>
+                  <div class="text-center">
+                    <p>Are you new here ? <a href="#" data-toggle="modal" data-target="#registerPopup" onclick="$('#loginPopup, #resetPopup').modal('hide')">
+                    <strong>Register now!</strong></a></p>
+                  </div>
+                  <!-- form-group// -->
+                  <!-- <div class="form-group text-center clearfix mt15">
+                    <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                  </div> -->
+                </form>
+              </article>
+            </div>
+          </div>
+        </div>
+          
+      </div>
+    </div>
+
+    <div id="registerPopup" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-sm">
+        
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+          </div>
+          <div class="modal-body" id="login">
+            <div class="white-bg">
+              <article>
+                <h4 class="modal-title">WELCOME !<span>Create your account</span></h4>
+                <form>
+                  <div class="form-group">
+                    <input name="" class="form-control" placeholder="Username" type="text">
+                  </div> <!-- form-group// -->
+                  <div class="form-group">
+                    <input name="" class="form-control" placeholder="Email" type="email">
+                  </div> <!-- form-group// -->
+                  <div class="form-group">
+                    <input class="form-control pwd" placeholder="Password" type="password">
+                    <!--<a href="#" class="fa fa-eye show"></a>-->
+                  </div> <!-- form-group// -->
+                  <div class="form-group">
+                    <input class="form-control pwd" placeholder="Confirm Password" type="password">
+                  </div> <!-- form-group// -->
+                  <div class="form-group text-center">
+                    <button type="submit" class="btn btn-block">REGISTER</button>
+                  </div>
+                  <div class="text-center">
+                    <p>Already member ? <a data-toggle="modal" data-target="#loginPopup" onclick="$('#registerPopup').modal('hide')">
+                    <strong>Login now!</strong></a></p>
+                  </div>
+                  <!-- form-group// -->
+                  <div class="text-center"><label class="or">or</label></div>
+                  <div class="form-group text-center">
+                    <p>Forgot Password?
+                      <a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#registerPopup').modal('hide')">
+                        <strong>Click here</strong>
+                      </a> to get it back.</a>
+                    </p>
+                  </div>
+                  <div class="row clearfix">
+                    <div class="col-xs-12">
+                      <div class="form-group facebook">
+                        <button type="button" class="btn btn-block">Register with
+                        <i class="fa fa-facebook"></i></button>
+                      </div>
+                      <div class="form-group google">
+                        <button type="button" class="btn btn-block">Register with
+                        <i class="fa fa-google-plus"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="form-group text-center clearfix mt15">
+                    <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                  </div> -->
+                </form>
+              </article>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <script defer  src="js/jquery-2.2.0.min.js"></script>
+    <script defer src="js/bootstrap.min.js"></script>
+    <script src="js/datepicker.js"></script>
+    <script defer src="js/bootstrap-submenu.js"></script>
+    <script defer src="js/rangeslider.js"></script>
+    <script defer src="js/jquery.mb.YTPlayer.js"></script>
+    <script defer src="js/wow.min.js"></script>
+    <script defer src="js/bootstrap-select.min.js"></script>
+    <script defer src="js/jquery.easing.1.3.js"></script>
+    <script defer src="js/jquery.scrollUp.js"></script>
+    <script defer src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script defer src="js/parallax.min.js"></script>
+    <script src="js/leaflet-providers.js"></script>
+    <script src="js/leaflet.markercluster.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script defer src="js/jquery.filterizr.js"></script>
+    <script defer src="js/jquery.magnific-popup.min.js"></script>
+    <script defer src="js/jquery.nicescroll.min.js"></script>
+    <script defer src="js/intlTelInput.min.js"></script>
+    <script src="js/maps.js"></script>
+    <script src="js/app.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script defer src="js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Custom javascript -->
+    <script defer src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
+    
+  </body>
+</html>

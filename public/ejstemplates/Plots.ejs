@@ -1,0 +1,315 @@
+
+<div class="row Residential_Plot Commercial_Plot Villa_Plot New_Approved_Layout additional-info">
+    <div class="col-sm-6 col-xs-12 New_Approved_Layout additional-info">
+        <h4>Launch date</h4>
+        <div class="input-group date form-group" data-toggle="datepicker">
+            <input type="text" class="form-control" placeholder="yyyy/mm/dd" name="LaunchDate"  value="<% if(EditpropertiesDetailData.LaunchDate){ %><%= EditpropertiesDetailData.LaunchDate %><% } %>">
+            <div class="input-group-addon">
+                <span class="fa fa-calendar-o icon"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 New_Approved_Layout additional-info">
+        <h4>Possesion date</h4>
+        <div class="input-group date form-group" data-toggle="datepicker">
+            <input type="text" class="form-control" placeholder="yyyy/mm/dd" name="PossessionDate" value="<% if(EditpropertiesDetailData.PossessionDate){ %><%= EditpropertiesDetailData.PossessionDate %><% } %>">
+            <div class="input-group-addon">
+                <span class="fa fa-calendar-o icon"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xs-12 Residential_Plot Commercial_Plot Villa_Plot additional-info">
+        <h4>Plot Number</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="PlotNumber" placeholder="Plot Number" value="<% if(EditpropertiesDetailData.PlotNumber){ %><%= EditpropertiesDetailData.PlotNumber %><% } %>">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Layout Name</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="ProjectName1" placeholder="Layout Name" value="<% if(EditpropertiesDetailData.ProjectName1){ %><%= EditpropertiesDetailData.ProjectName1 %><% } %>">
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xs-12">
+        <h4>Total Layout Extent</h4>
+        <div class="form-group">
+            <input type="text" class="input-text ExtentOfTotalSite" name="ExtentOfTotalSite" placeholder="Total Layout Extent" value="<% if(EditpropertiesDetailData.ExtentOfTotalSite){ %><%= EditpropertiesDetailData.ExtentOfTotalSite %><% } %>">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Units of area</h4>
+        <select class="selectpicker UnitsOfArea" name="ExtentOfTotalSiteUnitID" id="ExtentOfTotalSiteUnitID">
+            <option value="">Select</option>
+            <%   for(var i=0; i< UnitsOfArea.length; i++){  %>
+            <option value="<%= UnitsOfArea[i].ID %>"<% if(typeof EditpropertiesDetailData != 'undefined' && EditpropertiesDetailData.ExtentOfTotalSiteUnitID ==  UnitsOfArea[i].ID) { %>selected<% } %>>
+                <%= UnitsOfArea[i].Unit %>
+            </option>
+            <% } %>
+        </select>
+    </div>    
+
+    <div class="col-sm-6 col-xs-12 New_Approved_Layout additional-info">
+        <h4>CRDA/VUDA LP Number</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="ApprovalNumber" placeholder="Approval Number" value="<% if(EditpropertiesDetailData.ApprovalNumber){ %><%= EditpropertiesDetailData.ApprovalNumber %><% } %>">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 lpnumber Residential_Plot Commercial_Plot Villa_Plot additional-info">
+        <h4>LP Number</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="ApprovalNumber" placeholder="LP Number"  value="<% if(EditpropertiesDetailData.ApprovalNumber){ %><%= EditpropertiesDetailData.ApprovalNumber %><% } %>">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 Residential_Plot Commercial_Plot Villa_Plot additional-info">
+        <h4>Year of Layout</h4>
+        <div class="input-group date form-group" data-toggle="yearpicker">
+            <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="LaunchDate" value="<% if(EditpropertiesDetailData.LaunchDate){ %><%= EditpropertiesDetailData.LaunchDate %><% } %>">
+            <div class="input-group-addon">
+                <span class="fa fa-calendar-o icon"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 Residential_Plot Commercial_Plot Villa_Plot additional-info">
+        <h4>Width</h4>
+        <div class="form-group">
+            <input type="text" class="input-text PlotWidth" placeholder="Plot Width" name="PlotWidth" placeholder=""  value="<% if(EditpropertiesDetailData.PlotWidth){ %><%= EditpropertiesDetailData.PlotWidth %><% } %>">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 Residential_Plot Commercial_Plot Villa_Plot additional-info">
+        <h4>Length</h4>
+        <div class="form-group">
+            <input type="text" class="input-text PlotLength" placeholder="Plot Length" name="PlotLength" placeholder="" value="<% if(EditpropertiesDetailData.PlotLength){ %><%= EditpropertiesDetailData.PlotLength %><% } %>">
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xs-12">
+        <h4>Plan Approved By</h4>
+        <select class="selectpicker PlanApprovedBy" name="PlanApprovedBy" id="PlanApprovedBy">
+            <option value="">Select</option>
+            
+            <%  for(var i=0; i< PlanApprovedby.length; i++){  %>
+            <option value="<%= PlanApprovedby[i].ID %>" <% if(EditpropertiesDetailData.Authority) {%>selected<% } %>>
+                <%= PlanApprovedby[i].Authority %>
+            </option>
+            <%  }%>
+        </select>
+    </div>
+
+    <div class="col-sm-6 col-xs-12 New_Approved_Layout additional-info">
+        <h4>Project Status</h4>
+        <select class="selectpicker" onchange="$('#ProjectStatusID option:selected').val() ? $('#previewStatus').html($('#ProjectStatusID option:selected').text()) : $('#previewStatus').html('')"
+            name="ProjectStatusID" id="ProjectStatusID">
+        
+            <option value="">Select</option>
+            <% for(var i=0; i < ProjectStatus.length; i++){%>
+            <option value="<%= ProjectStatus[i].ID %>"<% if(typeof EditpropertiesDetailData != 'undefined' && EditpropertiesDetailData.ProjectStatusID ==  ProjectStatus[i].ID) { %>selected<% } %>>
+                <%= ProjectStatus[i].Status %>
+            </option>
+            <% } %>
+        </select>
+    </div>
+
+    <div class="col-sm-6 col-xs-12">
+        <h4>RERA Approved</h4>
+        <select class="selectpicker" name="RERAApproved" id="RERAApproved" value="">
+            <option value="true">Yes</option>
+            <option value="false" selected >No</option>
+        </select>
+    </div>
+
+    <div class="col-sm-6 col-xs-12">
+        <h4>RERA Approval Number</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="RERAApprovalNumber" placeholder="RERA Approval Number" value="<% if(EditpropertiesDetailData.RERAApprovalNumber){ %><%= EditpropertiesDetailData.RERAApprovalNumber %><% } %>">
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xs-12">
+        <h4>Bank Loan</h4>
+        <!-- <div class="form-group">
+            <div class="radio-btn">
+                <label>Yes </label><input class="radio" type="radio" name="BankLoan" value="true"
+                    <% if(EditpropertiesDetailData && EditpropertiesDetailData.BankLoan =="true"){%>checked<% } %> checked />
+
+                    <label>No</label> <input class="radio" type="radio" value="false" name="BankLoan" <% if(EditpropertiesDetailData && EditpropertiesDetailData.BankLoan == "false" ){%>checked<% } %> />
+
+              
+            </div>
+        </div> -->
+
+        <div class="form-group">
+            <div class="radio  inline">
+                <input class="radio" type="radio" name="BankLoan" value="true" <% if(EditpropertiesDetailData && EditpropertiesDetailData.BankLoan =="true"){%>checked<% } %> checked />
+                <label for="Yes1" >Yes</label>                                         
+            </div>
+            <div class="radio  inline">
+                <input class="radio" type="radio" value="false" name="BankLoan" <% if(EditpropertiesDetailData && EditpropertiesDetailData.BankLoan == "false" ){%>checked<% } %> />
+                <label for="No1">No</label>                                        
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-xs-12 New_Approved_Layout additional-info">
+        <h4>Brochure</h4>
+        <div id="brochure" class="dropzone dropzone-design mb-50">
+            <div class="dz-default dz-message">upload</div>
+        </div>
+        <input type="hidden" id="brochureUrl" class="input-text" name="BrochureURL">
+    </div>
+</div>
+
+
+<!-- Plot Unit Details -->
+<!-- <%= EditUnitDetailData.length %> -->
+<div class="row input_plots_wrap New_Approved_Layout additional-info" data-key="<%=EditUnitDetailData.length %>">
+
+
+    <div class="col-sm-12 col-xs-12 mt30">
+        <h4 class="heading">Unit Details</h4>
+    </div>
+    <input type="hidden" name="multiple_option_length_1" id="multiple_option_length_1" value="<% if(EditUnitDetailData && EditUnitDetailData.length){ %><%= EditUnitDetailData.length %><% }else {%> 1 <% } %>">
+
+    <% if(EditUnitDetailData.length){ 
+        for(i=0; i < EditUnitDetailData.length; i++) { %>
+
+        <div class="plots-row-<%= i %>">
+            <div class="col-sm-6 col-xs-12">
+                <h4>Title</h4>
+                <div class="form-group">
+                    <input type="text" class="input-text title"  name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>plotsTitle_<%= i %><% } %>" placeholder="Title" value="<% if(EditUnitDetailData[i].UnitTitle){%><%= EditUnitDetailData[i].UnitTitle %><% } %>">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Length</h4>
+                <div class="form-group">
+                    <input type="text" class="input-text" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>PlotLength_<%= i %><% } %>" placeholder="Plot Length" value="<% if(EditUnitDetailData[i].PlotLength){%><%= parseInt(EditUnitDetailData[i].PlotLength) %><% } %>">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Width</h4>
+                <div class="form-group">
+                    <input type="text" class="input-text" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>PlotWidth_<%= i %><% } %>" placeholder="Width" value="<% if(EditUnitDetailData[i].PlotWidth){%><%=parseInt(EditUnitDetailData[i].PlotWidth) %><% } %>">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Plot Extent</h4>
+                <div class="form-group">
+                    <input type="text" class="input-text plotsUnitExtent" placeholder="Plot Extent" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>plotsUnitExtent_<%= i %><% } %>" 
+                    value="<% if(EditUnitDetailData[i].plotsUnitExtent){%><%= EditUnitDetailData[i].plotsUnitExtent %><% } %>" onkeyup="showUnitExtend('plotsUnitExtent')">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Unit Number</h4>
+                <div class="form-group">
+                    <input type="text" class="input-text"
+                    name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>plotsUnitNumber_<%= i %><% } %>" 
+                    value="<% if(EditUnitDetailData[i].plotsUnitNumber){%><%= EditUnitDetailData[i].plotsUnitNumber %><% } %>" placeholder="Unit Number">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Facing</h4>
+                <div class="form-group">
+                    <div class="checkbox inline">
+                        <input type="checkbox" value="true" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>plotsNorth_<%= i %><% } %>" id="plotsNorth_0" <% if(EditUnitDetailData[i].North){ %>checked<% } %> ><label for="plotsNorth_0">N</label>
+                    </div>
+                    <div class="checkbox inline">
+                        <input type="checkbox" value="true"  name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>plotsEast_<%= i %><% } %>"id="plotsEast_0" <% if(EditUnitDetailData[i].East){ %>checked<% } %>><label for="plotsEast_0">E</label>
+                    </div>
+                    <div class="checkbox inline">
+                        <input type="checkbox" value="true" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>plotsSouth_<%= i %><% } %>"id="plotsSouth_0" <% if(EditUnitDetailData[i].South){ %>checked<% } %>><label for="plotsSouth_0">S</label>
+                    </div>
+                    <div class="checkbox inline">
+                        <input type="checkbox" value="true" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>plotsWest_<%= i %><% } %>"id="plotsWest_0" <% if(EditUnitDetailData[i].West){ %>checked<% } %>><label for="plotsWest_0">W</label>
+                    </div>
+                </div>
+                <!--<div class="form-group mt15">
+                    <div class="checkbox">
+                        <input type="checkbox" value="true" name="plotsNorth_0" id="plotsNorth_0"><label for="plotsNorth_0">N</label>
+                        <input type="checkbox" value="true" name="plotsEast_0" id="plotsEast_0"><label for="plotsEast_0">E</label>
+                        <input type="checkbox" value="true" name="plotsSouth_0" id="plotsSouth_0"><label for="plotsSouth_0">S</label>
+                        <input type="checkbox" value="true" name="plotsWest_0" id="plotsWest_0"><label for="plotsWest_0">W</label>
+                    </div>
+                </div>-->
+            </div>
+            <div class="col-sm-12 text-left mb-30">
+                <button class="add_field_button-' + i + ' button transparent" type="button"  onclick="removehtml(<%= i %>,'plots');" data-key="' + i + '">Remove</button>
+            </div>
+        </div>
+     
+    <% } }else {%>
+        <div class="plots-row-0">
+            <div class="col-sm-6 col-xs-12">
+                <h4>Title</h4>
+                <div class="form-group">
+                    <input type="text" class="input-text title" name="plotsTitle_0" placeholder="Title">
+                </div>
+            </div>
+    
+            <div class="col-sm-6 col-xs-12">
+                <h4>Length</h4>
+                <div class="form-group">
+                    <input type="text" class="input-text" name="PlotLength_0" placeholder="Plot Length">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Width</h4>
+                <div class="form-group">
+                    <input type="text" class="input-text" name="PlotWidth_0" placeholder="Width">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Plot Extent</h4>
+                <div class="form-group">
+                    <input type="text" class="input-text plotsUnitExtent" placeholder="Plot Extent" name="plotsUnitExtent_0" 
+                    onkeyup="showUnitExtend('plotsUnitExtent')">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Unit Number</h4>
+                <div class="form-group">
+                    <input type="text" class="input-text" name="plotsUnitNumber_0" 
+                     placeholder="Unit Number">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Facing</h4>
+                <div class="form-group">
+                    <div class="checkbox inline">
+                        <input type="checkbox" value="true" name="plotsNorth_0" id="plotsNorth_0"><label for="plotsNorth_0">N</label>
+                    </div>
+                    <div class="checkbox inline">
+                        <input type="checkbox" value="true" name="plotsEast_0" id="plotsEast_0"><label for="plotsEast_0">E</label>
+                    </div>
+                    <div class="checkbox inline">
+                        <input type="checkbox" value="true" name="plotsSouth_0" id="plotsSouth_0"><label for="plotsSouth_0">S</label>
+                    </div>
+                    <div class="checkbox inline">
+                        <input type="checkbox" value="true" name="plotsWest_0" id="plotsWest_0"><label for="plotsWest_0">W</label>
+                    </div>
+                </div>
+                <!--<div class="form-group mt15">
+                    <div class="checkbox">
+                        <input type="checkbox" value="true" name="plotsNorth_0" id="plotsNorth_0"><label for="plotsNorth_0">N</label>
+                        <input type="checkbox" value="true" name="plotsEast_0" id="plotsEast_0"><label for="plotsEast_0">E</label>
+                        <input type="checkbox" value="true" name="plotsSouth_0" id="plotsSouth_0"><label for="plotsSouth_0">S</label>
+                        <input type="checkbox" value="true" name="plotsWest_0" id="plotsWest_0"><label for="plotsWest_0">W</label>
+                    </div>
+                </div>-->
+            </div> 
+        </div>
+    <% } %>
+</div>
+    <div class="row New_Approved_Layout additional-info" >
+        <div class="col-sm-12 text-left mb-30">
+            <button class="add_plots_button-0 button transparent" type="button" onclick="addPlotsUnitDetails(this);"
+                data-key="0">Add</button>
+        </div>
+    </div>
+
+
+
+
+
+

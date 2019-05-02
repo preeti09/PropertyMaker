@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <title>Avenir Realty LLP - Amaravati Real Estate Advisors</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <!-- External CSS libraries -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        
+        <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-submenu.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="css/leaflet.css" type="text/css">
+        <link rel="stylesheet" href="css/map.css" type="text/css">
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" type="text/css" href="fonts/linearicons/style.css">
+        <link rel="stylesheet" type="text/css"  href="css/jquery.mCustomScrollbar.css">
+        <link rel="stylesheet" type="text/css"  href="css/dropzone.css">
+        <link rel="stylesheet" type="text/css"  href="css/magnific-popup.css">
+        <link rel="stylesheet" type="text/css"  href="css/intlTelInput.css">
+        <link rel="stylesheet" type="text/css"  href="css/datepicker.css">
+        <!-- Custom stylesheet -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" id="style_sheet" href="css/skins/default.css">
+        <!-- Favicon icon -->
+        <link rel="shortcut icon" href="img/Avenue-FavIcon.png" type="image/x-icon" >
+        <!-- Google fonts -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link rel="stylesheet" type="text/css" href="css/ie10-viewport-bug-workaround.css">
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script defer src="js/ie-emulation-modes-warning.js"></script>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/html5shiv.min.js"></script>
+        <script type="text/javascript" src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="page_loader"></div>
+        <!-- Top header start -->
+        <!--<header class="top-header fixed-top" id="top">
+            <div class="container">
+                <div class="custom-widht">
+                    <div class="col-xs-6">
+                        <div class="list-inline">
+                            <a href="tel:+91-9533- 894-894"><i class="fa fa-phone"></i>+91-9533- 894-894</a>
+                            <a href="tel:Support@avenue.in"><i class="fa fa-envelope"></i>Support@avenue.in</a>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <ul class="top-social-media pull-right">
+                            <li>
+                                <a href="login.html" class="sign-in"><i class="fa fa-sign-in"></i> Login</a>
+                            </li>
+                            <li>|</li>
+                            <li>
+                                <a href="signup.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
+                            </li>
+                             <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"> <i class="fa fa-google-plus"></i></a></li> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>-->
+        <!-- Top header end -->
+        <!-- Main header start -->
+        <header class="main-header fixed-top">
+            <div class="container-fluid">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header">
+                        <a href="index.html" class="logo">
+                            <img src="img/logo.png" alt="logo">
+                        </a> 
+                        <div class="form-group mr-0">
+                            <select class="selectpicker" name="city">
+                                <option value="Select" data-hidden="true">CHOOSE City</option>
+                                <option value="1">Amaravati </option>
+                                <option value="2">Vijaywada </option>
+                                <option value="3">Guntur </option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="dropdown" data-dir="rtl" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Price Trends</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="termsofuse.html">Terms of Service</a></li>
+                        <li><a href="mailto:support@avenue.in" target="_blank"><i class="fa fa-envelope"></i>support@avenue.in</a></li>
+                        <li class="dtpHide"><a href="#"><i class="fa fa-phone"></i>+91.9533.894.894</a></li>
+                        <li class="dtpHide">
+                            <a href="submit-property.html">
+                                <i class="flaticon-symbol-1"></i>Sell Property
+                            </a>
+                        </li>
+                        <li class="dtpHide">
+                            <a href="#" data-toggle="modal" data-target="#loginPopup">
+                                <i class="fa fa-user"></i>Login
+                            </a>
+                        </li>
+                      </ul>
+                    <div class="navbar-collapse collapse pull-right" role="navigation" aria-expanded="true" id="app-navigation">
+                        <ul class="nav navbar-nav rightside-navbar">
+                            <li>
+                                <a href="submit-property.html" class="button">
+                                    Sell Property
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="button transparent" data-toggle="modal" data-target="#loginPopup">
+                                    Login
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav margin-right">
+                            <li><a href="#">+91.9533.894.894</a></li>
+                            <li><a href="#">Price Trends</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- Main header end -->
+<!-- Banner start -->
+<div class="banner">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="item item-100vh active">
+                <img src="img/partical-bg.png" alt="banner-slider-1" class="img-responsive">
+                <div class="carousel-caption banner-slider-inner banner-tb text-left">
+                    <h1 data-animation="animated fadeInDown delay-05s">Let’s find your place in</h1>
+                    <div class="banner-content banner-content-left">
+                        <div class="banner-search-box">
+                            <div class="search-area animated fadeInDown delay-1s">
+                                <div class="search-area-inner">
+                                    <div class="search-contents ">
+                                        <form method="GET">
+                                          <div class="tabs-container" style="padding-left: 150px;">
+                                            <ul class="nav nav-tabs mb-0">
+                                                <li class="active">
+                                                    <a href="#tab_default_1" data-toggle="tab">All </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#tab_default_2" data-toggle="tab">Amaravati </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#tab_default_3" data-toggle="tab">Vijaywada </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#tab_default_4" data-toggle="tab">Guntur </a>
+                                                </li>
+                                            </ul>
+                                              <div class="row tabs-data">
+                                               <div class="col-md-8 col-sm-8 col-xs-12 pd-0 check-filter-search">
+                                                <div class="col-md-4 col-sm-5 col-xs-12 pd-0">
+                                                    <div class="form-group">
+                                                        <select class="selectpicker search-fields" id="Type" name="propertyType">
+                                                            <option value="Property Types"   data-hidden="true">Property Types </option>
+                                                            <option value="Apartment">Apartment</option>
+                                                            <option value="Plots">Plots</option>
+                                                            <option value="Projects">Projects</option>
+                                                            <option value="Layouts">Layouts</option>
+                                                            <option value="Individual Homes">Individual Homes</option>
+                                                            <option value="Lands">Lands</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 col-sm-7 col-xs-12 pd-0">
+                                                    <div class="form-group">
+                                                        <input type="text" class="input-text" name="filterAreaProperty" placeholder="Area, Locality">
+                                                    </div>
+                                                </div>
+                                               </div>
+                                                <div class="col-md-2 col-sm-4 col-xs-12 text-left">
+                                                    <div class="form-group mb-0">
+                                                        <a href="property-details.html" class="search-button btn">Search</a>
+                                                    </div>
+                                                </div>
+                                              </div>
+                                          </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="caption-w-img animated fadeInDown delay-1s">
+                                <h3>Price trends</h3>
+                                <img src="img/map.png" alt="Price trends" class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
+
+<div class="counters overview-bgi">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3 col-xs-6 bordered-right">
+                    <ul class="list-inline counter-box">
+                        <li>
+                            <img src="img/expert-advice-icon.png" >
+                        </li>
+                        <li><p>Expert advice</p></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 col-xs-6 bordered-right">
+                    <ul class="list-inline counter-box">
+                        <li>
+                            <img src="img/varified-listing-icon.png" >
+                        </li>
+                        <li><p>Verified listings</p></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 col-xs-6 bordered-right">
+                    <ul class="list-inline counter-box">
+                        <li>
+                            <img src="img/latest-price-trends.png" >
+                        </li>
+                        <li><p>Latest price trends</p></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <ul class="list-inline counter-box">
+                        <li>
+                            <img src="img/end-to-end-services.png" >
+                        </li>
+                        <li><p>End to end services</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner end -->
+
+<div class="clearfix"></div>
+<!-- Customer say start -->
+<div class="customer-say content-area chevron-icon">
+    <div class="container-fluid">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>How it works? </h1>
+        </div>
+        <div class="row">
+                <div class="col-lg-offset-2 col-lg-4 col-md-6 col-sm-6 col-12"> 
+                    <ul class="list-inline icon-w-img">
+                        <li><img src="img/hworks-01.png" alt="hworks-01"></li>
+                        <li><h4>Search listings based on your budget and requirements</h4>
+                    </ul>
+                    <ul class="list-inline icon-w-img">
+                        <li><img src="img/hworks-02.png" alt="hworks-01"></li>
+                        <li><h4>If you don’t find what you need or need an advice call us</h4>
+                    </ul>
+                    <ul class="list-inline icon-w-img">
+                        <li><img src="img/hworks-03.png" alt="hworks-01"></li>
+                        <li><h4>Property Identified</h4>
+                    </ul>
+                    <ul class="list-inline icon-w-img">
+                        <li><img src="img/hworks-04.png" alt="hworks-01"></li>
+                        <li><h4>We will take you to seller to negotiate price and conditions</h4>
+                    </ul>
+                </div>
+                <div class=" col-lg-4 col-md-6 col-sm-6 col-12">
+                        <ul class="list-inline icon-w-img">
+                            <li><img src="img/hworks-08.png" alt="hworks-01"></li>
+                            <li><h4>Once the conditions are set you will pay an advance</h4>
+                        </ul>
+                        <ul class="list-inline icon-w-img">
+                            <li><img src="img/hworks-07.png" alt="hworks-01"></li>
+                            <li><h4>As per the agreed time frame, you have to enter in to agreement with seller</h4>
+                        </ul>
+                        <ul class="list-inline icon-w-img">
+                                <li><img src="img/hworks-06.png" alt="hworks-01"></li>
+                                <li><h4>With in agreed time frame, you will need to pay balance amount to seller and get the property registered on your name</h4>
+                        </ul>
+                        <ul class="list-inline icon-w-img">
+                            <li><img src="img/hworks-05.png" alt="hworks-01"></li>
+                            <li><h4>We will deliver the registered documents to your home</h4>
+                        </ul>
+                </div>
+                <div class="col-xs-12 process pad-30 text-center">
+                    <h4>We will assist in you in every step of the process</h4>
+                </div>
+            </div>
+    </div>
+</div>
+<!-- Customer say end -->
+<!-- Get in Touch start -->
+<div class="getintouch contact-2">
+    <img src="img/get-in-touch.png" class="img-responsive" alt="get in touch">
+    <div class="container-fluid">
+        <!-- Main title -->
+        <div class="form-container contact-form">
+            <div class="main-title">
+                <h1>Get in touch</h1>
+            </div>
+            <form>
+                <div class="row">
+                    <div class="col-md-6 col-xs-12 wow fadeInLeft delay-04s">
+                        <div class="form-group fullname">
+                            <input type="text" name="full-name" class="input-text" placeholder="Name*">
+                        </div>
+                        <div class="form-group enter-email">
+                            <input type="email" name="email" class="input-text" placeholder="Email*">
+                        </div> 
+                        <div class="form-group fullname">
+                            <input type="text" name="subject" class="input-text" placeholder="Subject*">
+                        </div>                       
+                    </div>
+                    <div class="col-md-6 col-xs-12 wow fadeInRight delay-04s">
+                        <div class="form-group message">
+                            <textarea class="input-text" name="message" placeholder="Write message*"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 wow fadeInUp delay-04s">
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+       </div>
+    </div>
+</div>
+<!-- Get in Touch end -->
+<!-- Featured properties start -->
+<div class="content-area featured-properties">
+        <div class="container">
+            <!-- Main title -->
+            <div class="main-title">
+                <h1>Recommended properties</h1>
+            </div>
+            <ul class="list-inline-listing filters activeClass">
+                <li class="active btn filtr-button filtr" data-filter="all">All</li>
+                <li data-filter="1" class="btn btn-inline filtr-button filtr">VIJAYWADA</li>
+                <li data-filter="2" class="btn btn-inline filtr-button filtr">AMRAVATI</li>
+                <li data-filter="3" class="btn btn-inline filtr-button filtr">GUNTUR</li>
+           </ul>
+            <div class="row">
+                <div class="filtr-container">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="1, 2, 3">
+                        <div class="property">
+                            <!-- Property img -->
+                            <div class="property-img">
+                                <div class="property-tag alt featured">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                </div>
+                                <div class="property-tag sale">TRENDING</div>
+                                <div class="property-price">Experion
+                                    <div>&#8377; 98 Cr - &#8377; 4.23 Cr</div>
+                                </div>
+                                <!-- Facilities List -->
+                                <ul class="facilities-list clearfix">
+                                        <li>
+                                            <i class="flaticon-social"></i>
+                                            <span>400 ft<sup>2</sup></sup></span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-bed"></i>
+                                            <span>4</span>
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-holidays"></i>
+                                            <span>2 </span>
+                                        </li>
+                                </ul>
+                                <img src="img/Plots.png" alt="fp" class="img-responsive">
+                                <div class="property-overlay">
+                                    <a href="properties-details.html" class="overlay-link">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                    <a class="overlay-link property-video" title="Lexus GS F">
+                                        <i class="fa fa-video-camera"></i>
+                                    </a>
+                                    <div class="property-magnify-gallery">
+                                        <a href="http://placehold.it/750x540" class="overlay-link">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="2">
+                        <div class="property">
+                                <div class="property-img">
+                                    <div class="property-tag alt featured">
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="property-tag sale" style="display: none;">TRENDING</div>
+                                    <div class="property-price">Experion
+                                        <div>&#8377; 98 Cr - &#8377; 4.23 Cr</div>
+                                    </div>
+                                    <!-- Facilities List -->
+                                    <ul class="facilities-list clearfix">
+                                            <li>
+                                                <i class="flaticon-social"></i>
+                                                <span>400 ft<sup>2</sup></sup></span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-bed"></i>
+                                                <span>4</span>
+                                            </li>
+                                            <li>
+                                                <i class="flaticon-holidays"></i>
+                                                <span>2 </span>
+                                            </li>
+                                    </ul>
+                                    <img src="img/Area.png" alt="fp" class="img-responsive">
+                                    <div class="property-overlay">
+                                        <a href="properties-details.html" class="overlay-link">
+                                            <i class="fa fa-link"></i>
+                                        </a>
+                                        <a class="overlay-link property-video" title="Lexus GS F">
+                                            <i class="fa fa-video-camera"></i>
+                                        </a>
+                                        <div class="property-magnify-gallery">
+                                            <a href="http://placehold.it/750x540" class="overlay-link">
+                                                <i class="fa fa-expand"></i>
+                                            </a>
+                                            <a href="http://placehold.it/750x540" class="hidden"></a>
+                                            <a href="http://placehold.it/750x540" class="hidden"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="2, 3">
+                        <div class="property">
+                            <!-- Property img -->
+                            <div class="property-img">
+                                <div class="property-tag alt featured">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                </div>
+                                <div class="property-tag sale">TRENDING</div>
+                                <div class="property-price">Experion
+                                    <div>&#8377; 98 Cr - &#8377; 4.23 Cr</div>
+                                </div>
+                                <!-- Facilities List -->
+                                <ul class="facilities-list clearfix">
+                                        <li>
+                                            <i class="flaticon-social"></i>
+                                            <span>400 ft<sup>2</sup></sup></span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-bed"></i>
+                                            <span>4</span>
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-holidays"></i>
+                                            <span>2 </span>
+                                        </li>
+                                </ul>
+                                <img src="img/recommend_03.png" alt="fp" class="img-responsive">
+                                <div class="property-overlay">
+                                    <a href="properties-details.html" class="overlay-link">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                    <a class="overlay-link property-video" title="Lexus GS F">
+                                        <i class="fa fa-video-camera"></i>
+                                    </a>
+                                    <div class="property-magnify-gallery">
+                                        <a href="http://placehold.it/750x540" class="overlay-link">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="3, 1">
+                        <div class="property">
+                            <!-- Property img -->
+                            <div class="property-img">
+                                <div class="property-tag alt featured">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                </div>
+                                <div class="property-tag sale" style="display: none;">TRENDING</div>
+                                <div class="property-price">Experion
+                                    <div>&#8377; 98 Cr - &#8377; 4.23 Cr</div>
+                                </div>
+                                <!-- Facilities List -->
+                                <ul class="facilities-list clearfix">
+                                        <li>
+                                            <i class="flaticon-social"></i>
+                                            <span>400 ft<sup>2</sup></sup></span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-bed"></i>
+                                            <span>4</span>
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-holidays"></i>
+                                            <span>2 </span>
+                                        </li>
+                                </ul>
+                                <img src="img/Villa.png" alt="fp" class="img-responsive">
+                                <div class="property-overlay">
+                                    <a href="properties-details.html" class="overlay-link">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                    <a class="overlay-link property-video" title="Lexus GS F">
+                                        <i class="fa fa-video-camera"></i>
+                                    </a>
+                                    <div class="property-magnify-gallery">
+                                        <a href="http://placehold.it/750x540" class="overlay-link">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="3">
+                        <div class="property">
+                            <!-- Property img -->
+                            <div class="property-img">
+                                <div class="property-tag alt featured">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                </div>
+                                <div class="property-tag sale">TRENDING</div>
+                                <div class="property-price">Experion
+                                    <div>&#8377; 98 Cr - &#8377; 4.23 Cr</div>
+                                </div>
+                                <!-- Facilities List -->
+                                <ul class="facilities-list clearfix">
+                                        <li>
+                                            <i class="flaticon-social"></i>
+                                            <span>400 ft<sup>2</sup></sup></span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-bed"></i>
+                                            <span>4</span>
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-holidays"></i>
+                                            <span>2 </span>
+                                        </li>
+                                </ul>
+                                <img src="img/recommend_01.png" alt="fp" class="img-responsive">
+                                <div class="property-overlay">
+                                    <a href="properties-details.html" class="overlay-link">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                    <a class="overlay-link property-video" title="Lexus GS F">
+                                        <i class="fa fa-video-camera"></i>
+                                    </a>
+                                    <div class="property-magnify-gallery">
+                                        <a href="http://placehold.it/750x540" class="overlay-link">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="1">
+                        <div class="property">
+                            <!-- Property img -->
+                            <div class="property-img">
+                                <div class="property-tag alt featured">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                </div>
+                                <div class="property-tag sale">TRENDING</div>
+                                <div class="property-price">Experion
+                                    <div>&#8377; 98 Cr - &#8377; 4.23 Cr</div>
+                                </div>
+                                <!-- Facilities List -->
+                                <ul class="facilities-list clearfix">
+                                        <li>
+                                            <i class="flaticon-social"></i>
+                                            <span>400 ft<sup>2</sup></sup></span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-bed"></i>
+                                            <span>4</span>
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-holidays"></i>
+                                            <span>2 </span>
+                                        </li>
+                                </ul>
+                                <img src="img/AgriLands.png" alt="fp" class="img-responsive">
+                                <div class="property-overlay">
+                                    <a href="properties-details.html" class="overlay-link">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                    <a class="overlay-link property-video" title="Lexus GS F">
+                                        <i class="fa fa-video-camera"></i>
+                                    </a>
+                                    <div class="property-magnify-gallery">
+                                        <a href="http://placehold.it/750x540" class="overlay-link">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="2, 3">
+                        <div class="property">
+                            <!-- Property img -->
+                            <div class="property-img">
+                                <div class="property-tag alt featured">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                </div>
+                                <div class="property-tag sale">TRENDING</div>
+                                <div class="property-price">Experion
+                                    <div>&#8377; 98 Cr - &#8377; 4.23 Cr</div>
+                                </div>
+                                <!-- Facilities List -->
+                                <ul class="facilities-list clearfix">
+                                        <li>
+                                            <i class="flaticon-social"></i>
+                                            <span>400 ft<sup>2</sup></sup></span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-bed"></i>
+                                            <span>4</span>
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-holidays"></i>
+                                            <span>2 </span>
+                                        </li>
+                                </ul>
+                                <img src="img/recommend_03.png" alt="fp" class="img-responsive">
+                                <div class="property-overlay">
+                                    <a href="properties-details.html" class="overlay-link">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                    <a class="overlay-link property-video" title="Lexus GS F">
+                                        <i class="fa fa-video-camera"></i>
+                                    </a>
+                                    <div class="property-magnify-gallery">
+                                        <a href="http://placehold.it/750x540" class="overlay-link">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  filtr-item" data-category="3, 1">
+                        <div class="property">
+                            <!-- Property img -->
+                            <div class="property-img">
+                                <div class="property-tag alt featured">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                </div>
+                                <div class="property-tag sale">TRENDING</div>
+                                <div class="property-price">Experion
+                                    <div>&#8377; 98 Cr - &#8377; 4.23 Cr</div>
+                                </div>
+                                <!-- Facilities List -->
+                                <ul class="facilities-list clearfix">
+                                        <li>
+                                            <i class="flaticon-social"></i>
+                                            <span>400 ft<sup>2</sup></sup></span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-bed"></i>
+                                            <span>4</span>
+                                        </li>
+                                        <li>
+                                            <i class="flaticon-holidays"></i>
+                                            <span>2 </span>
+                                        </li>
+                                </ul>
+                                <img src="img/Apartment-ICon.png" alt="fp" class="img-responsive">
+                                <div class="property-overlay">
+                                    <a href="properties-details.html" class="overlay-link">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                    <a class="overlay-link property-video" title="Lexus GS F">
+                                        <i class="fa fa-video-camera"></i>
+                                    </a>
+                                    <div class="property-magnify-gallery">
+                                        <a href="http://placehold.it/750x540" class="overlay-link">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                        <a href="http://placehold.it/750x540" class="hidden"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Featured properties end -->
+<footer class="main-footer clearfix">
+    <div class="container">
+        <!-- Footer info-->
+        <div class="footer-info">
+            <div class="row footertop">
+                <!-- Footer top -->
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <h5>BUILDERS</h5>
+                    <p><a href="#">Prestige Group</a></p>
+                    <p><a href="#">Sobha Limited</a></p>
+                    <p><a href="#">DLF</a></p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <h5>buy property</h5>   
+                    <p><a href="#">Amarati</a></p>
+                    <p><a href="#">Guntur</a></p>
+                    <p><a href="#">Vijaywada</a></p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <h5>properties in india</h5>
+                    <p><a href="#">Apartments For Sale In India</a></p>
+                    <p><a href="#">Villas in India</a></p>
+                    <p><a href="#">New Apartments For Sale In India</a></p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <h5>additional links</h5>
+                    <p><a href="#">Additional Link One</a></p>
+                    <p><a href="#">Additional Link Two</a></p>
+                    <p><a href="#">Additional Link Thre</a></p>
+                </div>
+            </div>
+            <div class="row footerbottom">
+                <!-- Footer top -->
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <h5>ABOUT</h5>
+                    <p>We offer professional advisory services for Real Estate investors in Amaravati, CRDA Area - Andhra Pradesh. "Transparency, Reliability & Professionalism" are our promise to you. We will be your partner through out the investment process. We function on the fundamentals of trust, transparency and expertise. We guide home / land buyers right from the start of their search to the very end. Shortlist your favorite properties and allow us to arrange site visits. Our work does not end here. We assist you with property loans and property registrations.</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <h5>contact us</h5>   
+                    <ul class="personal-info">
+                        <li>
+                            <i class="lnr lnr-map-marker"></i>
+                            <h4>ITI College Road, Prasanthi Nagar, Vijayawada</h4>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-o"></i>
+                            <h4>Email: <a href="mailto:support@avenue.in" target="_blank">support@avenue.in</a></h4>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            <h4>Phone: <a href="tel:+91-9533-894-894">+91.9533.894.894</a></h4>
+                        </li>
+<!--
+                        <li>
+                            <i class="fa fa-fax"></i>
+                            Fax: +55 4XX-634-7071
+                        </li>
+-->
+                        </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <h5>GET IN TOUCH</h5>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <input class="nsu-field btn-block" id="nsu-email-0" type="text" name="email" placeholder="Enter your email to subscribe" required="">
+                            <a class="fa fa-check" href="#"></a>
+                        </div>
+                    </form>
+                    <ul class="social-list list-inline clearfix">
+                            <li>
+                                <a href="https://facebook.com/"  target="_blank" class="facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/supportavenue" target="_blank" class="twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/+avenuein" target="_blank" class="linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <!--<li>
+                                <a href="#" class="google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="rss">
+                                    <i class="fa fa-rss"></i>
+                                </a>
+                            </li>-->
+                        </ul>
+                </div>
+                <div class="col-xs-12 text-center copyp">
+                        <p>&copy; 2018 <a href="#">Avenir Realty LLP</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer end -->
+<div id="loginPopup" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body" id="login">
+              <div class="white-bg">
+                  <article>
+                      <h4 class="modal-title">WELCOME !<span>Login to your account</span></h4>
+                      <form>
+                      <div class="form-group">
+                          <input name="" class="form-control" placeholder="Username or Email" type="email">
+                      </div> <!-- form-group// -->
+                      <div class="form-group">
+                          <input class="form-control pwd" placeholder="Your password" type="password">
+                          <!--<a href="#" class="fa fa-eye show"></a>-->
+                      </div> <!-- form-group// -->
+                      <div class="form-group clearfix">
+                            <!-- <label class="small">Forgot password?</label><a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#loginPopup').modal('hide')"> Reset</a> -->
+                            <!--<a href="register.html">Register Now</a>-->
+                        <div class="checkbox">
+                            <input type="checkbox" id="loginmail"><label for="loginmail">Remember me</label>
+                        </div>
+                      </div>
+                      <div class="form-group text-center">
+                        <button type="submit" class="btn btn-block">LOGIN</button>
+                      </div>
+                      <div class="text-center">
+                            <p>Are you new here ? <a href="#" data-toggle="modal" data-target="#registerPopup" onclick="$('#loginPopup, #resetPopup').modal('hide')">
+                                <strong>Register now!</strong></a></p>
+                      </div>
+                          <!-- form-group// -->
+                          
+                      <div class="text-center"><label class="or">or</label></div>
+                      <div class="form-group text-center">
+                            <p>Forgot Password? 
+                                <a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#loginPopup').modal('hide')">
+                                    <strong>Click here</strong>
+                                </a> to get it back.</a></p>
+                      </div>
+                      <div class="row clearfix">
+                          <div class="col-xs-12">
+                              <div class="form-group facebook">
+                                  <button type="button" class="btn btn-block">Login with 
+                                      <i class="fa fa-facebook"></i></button>
+                              </div>
+                              <div class="form-group google">
+                                  <button type="button" class="btn btn-block">Login with
+                                   <i class="fa fa-google-plus"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- <div class="form-group text-center clearfix mt15">
+                          <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                       </div> -->
+                      </form>
+                  </article>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+<div id="resetPopup" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body" id="login">
+            <div class="white-bg">
+                <article>
+                    <h4 class="modal-title">FORGOT PASSWORD?<span>Enter your email</span></h4>
+                    <form>
+                    <div class="form-group">
+                        <input name="" class="form-control" placeholder="Email" type="email">
+                    </div> <!-- form-group// -->
+                    <div class="form-group text-center">
+                    <button type="submit" class="btn btn-block">reset password</button>
+                    </div>
+                    <div class="text-center">
+                        <p>Are you new here ? <a href="#" data-toggle="modal" data-target="#registerPopup" onclick="$('#loginPopup, #resetPopup').modal('hide')">
+                            <strong>Register now!</strong></a></p>
+                    </div>
+                        <!-- form-group// -->
+                    <!-- <div class="form-group text-center clearfix mt15">
+                        <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                    </div> -->
+                    </form>
+                </article>
+            </div>
+        </div>
+        </div>
+    
+    </div>
+    </div>
+<div id="registerPopup" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body" id="login">
+            <div class="white-bg">
+                <article>
+                    <h4 class="modal-title">WELCOME !<span>Create your account</span></h4>
+                    <form>
+                    <div class="form-group">
+                        <input name="" class="form-control" placeholder="Username" type="text">
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                            <input name="" class="form-control" placeholder="Email" type="email">
+                        </div> <!-- form-group// -->
+                    <div class="form-group">
+                        <input name="phonenumber" class="form-control" placeholder="Phone Number" type="text">
+                        </div> <!-- form-group// -->
+                    <div class="form-group">
+                        <input class="form-control pwd" placeholder="Password" type="password">
+                        <!--<a href="#" class="fa fa-eye show"></a>-->
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                            <input class="form-control pwd" placeholder="Confirm Password" type="password">
+                        </div> <!-- form-group// -->
+                    <div class="form-group text-center">
+                    <button type="submit" class="btn btn-block">REGISTER</button>
+                    </div>
+                    <div class="text-center">
+                        <p>Already member ? <a data-toggle="modal" data-target="#loginPopup" onclick="$('#registerPopup').modal('hide')">
+                            <strong>Login now!</strong></a></p>
+                    </div>
+                        <!-- form-group// -->
+                        
+                    <div class="text-center"><label class="or">or</label></div>
+                    <div class="form-group text-center">
+                        <p>Forgot Password? 
+                            <a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#registerPopup').modal('hide')">
+                                <strong>Click here</strong>
+                            </a> to get it back.</a></p>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-xs-12">
+                            <div class="form-group facebook">
+                                <button type="button" class="btn btn-block">Register with 
+                                    <i class="fa fa-facebook"></i></button>
+                            </div>
+                            <div class="form-group google">
+                                <button type="button" class="btn btn-block">Register with
+                                <i class="fa fa-google-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group text-center clearfix mt15">
+                        <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                    </div> -->
+                    </form>
+                </article>
+            </div>
+        </div>
+        </div>
+    
+    </div>
+    </div>
+<script defer  src="js/jquery-2.2.0.min.js"></script>
+<script defer src="js/bootstrap.min.js"></script>
+<script src="js/datepicker.js"></script>
+<script defer src="js/bootstrap-submenu.js"></script>
+<script defer src="js/rangeslider.js"></script>
+<script defer src="js/jquery.mb.YTPlayer.js"></script>
+<script defer src="js/wow.min.js"></script>
+<script defer src="js/bootstrap-select.min.js"></script>
+<script defer src="js/jquery.easing.1.3.js"></script>
+<script defer src="js/jquery.scrollUp.js"></script>
+<script defer src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/leaflet.js"></script>
+<script defer src="js/parallax.min.js"></script>
+<script src="js/leaflet-providers.js"></script>
+<script src="js/leaflet.markercluster.js"></script>
+<script src="js/dropzone.js"></script>
+<script defer src="js/jquery.filterizr.js"></script>
+<script defer src="js/jquery.magnific-popup.min.js"></script>
+<script defer src="js/jquery.nicescroll.min.js"></script>
+<script defer src="js/intlTelInput.min.js"></script>
+<script src="js/maps.js"></script>
+<script src="js/app.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script defer src="js/ie10-viewport-bug-workaround.js"></script>
+<!-- Custom javascript -->
+<script defer src="js/ie10-viewport-bug-workaround.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
+</body>
+</html>
+

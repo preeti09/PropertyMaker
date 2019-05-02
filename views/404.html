@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <title>Avenir Realty LLP - Amaravati Real Estate Advisors</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <!-- External CSS libraries -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        
+        <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-submenu.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="css/leaflet.css" type="text/css">
+        <link rel="stylesheet" href="css/map.css" type="text/css">
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" type="text/css" href="fonts/linearicons/style.css">
+        <link rel="stylesheet" type="text/css"  href="css/jquery.mCustomScrollbar.css">
+        <link rel="stylesheet" type="text/css"  href="css/dropzone.css">
+        <link rel="stylesheet" type="text/css"  href="css/magnific-popup.css">
+        <link rel="stylesheet" type="text/css"  href="css/intlTelInput.css">
+        <link rel="stylesheet" type="text/css"  href="css/datepicker.css">
+        <!-- Custom stylesheet -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" id="style_sheet" href="css/skins/default.css">
+        <!-- Favicon icon -->
+        <link rel="shortcut icon" href="img/Avenue-FavIcon.png" type="image/x-icon" >
+        <!-- Google fonts -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link rel="stylesheet" type="text/css" href="css/ie10-viewport-bug-workaround.css">
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script defer src="js/ie-emulation-modes-warning.js"></script>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/html5shiv.min.js"></script>
+        <script type="text/javascript" src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="page_loader"></div>
+        <!-- Main header start -->
+        <header class="main-header fixed-top darkHeader innerpage">
+            <div class="container-fluid">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header">
+                        <a href="index.html" class="logo">
+                            <img src="img/logo.png" alt="logo">
+                        </a> 
+                        <div class="check-filter-search">
+                            <ul class="list-inline text-right">
+                                <li><a class="fa fa-refresh" href="#"></a></li>
+                                <li><a class="fa fa-heart" href="#"></a></li>
+                            </ul>
+                            <div class="form-group">
+                                <select class="selectpicker" name="city">
+                                    <option value="Select" data-hidden="true">Choose City</option>
+                                    <option value="1">Amaravati </option>
+                                    <option value="2">Vijaywada </option>
+                                    <option value="3">Guntur </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="input-text" name="filterAreaProperty" placeholder="Area, Locality">
+                                <a class="fa fa-search" href="#"></a>
+                            </div>
+                            <div>
+                                    <a class="filtertoggle" aria-expanded="true" href="#" data-toggle="collapse" data-target="#filtertab">
+                                        hide advanced filters 
+                                        <span class="caret"></span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="dropdown" data-dir="rtl" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Price Trends</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="agent-listing-row.html">Terms of Service</a></li>
+                        <li><a href="tel:support@avenue.in"><i class="fa fa-envelope"></i>support@avenue.in</a></li>
+                        <li class="dtpHide"><a href="#"><i class="fa fa-phone"></i>+91.9533.894.894</a></li>
+                        <li class="dtpHide">
+                            <a href="submit-property.html">
+                                <i class="flaticon-symbol-1"></i>Sell Property
+                            </a>
+                        </li>
+                        <li class="dtpHide">
+                            <a href="#" data-toggle="modal" data-target="#loginPopup">
+                                <i class="fa fa-user"></i>Login
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="navbar-collapse collapse pull-right" role="navigation" aria-expanded="true" id="app-navigation">
+                        <ul class="nav navbar-nav rightside-navbar">
+                            <li>
+                                <a href="submit-property.html" class="button">
+                                    Sell Property
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/" class="button transparent">
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav margin-right">
+                            <li><a href="#">+91.9533.894.894</a></li>
+                            <li><a href="#">Price Trends</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <!-- <li class="dropdown">
+                                <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
+                                    More<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="agent-listing-row.html">Terms of Service</a></li>
+                                    <li><a href="tel:+91-9533- 894-894"><i class="fa fa-phone"></i>+91-9533- 894-894</a></li>
+                                    <li><a href="tel:Support@avenue.in"><i class="fa fa-envelope"></i>Support@avenue.in</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="signup.html" class="sign-in">Login <span class="fa fa-user"></span></a></li>
+                            <li class="hidden-sm hidden-md hidden-lg">
+                                <a href="submit-property.html" class="button">
+                                    Submit Property
+                                </a>
+                            </li> -->
+                        </ul>
+                        <!--<ul class="top-social-media">
+                            <li>
+                                <a href="signup.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
+                            </li>
+                        </ul>-->
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- Main header end -->
+
+<div class="clearfix innerfirst"></div>
+<section class="section-transparent page-section-ptb mt-150 content-area">
+    <div class="container custom-width">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 text-center">
+          <div class="error-text-02">
+            <h2>404</h2>
+            <span>Error </span>
+          </div>
+          <h3 class="text-white mt-40 mb-20">Ooops, This Page Could Not Be Found!</h3>
+          <div class="error-info">
+            <p class="mb-50 text-white">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+            <a class="button xs-mb-10 " href="/">back to home</a>
+            <a class="button border white" href="/">back to Prev page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<footer class="main-footer clearfix">
+    <div class="container">
+        <!-- Footer info-->
+        <div class="footer-info">
+            <div class="row footertop">
+                <!-- Footer top -->
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <h5>BUILDERS</h5>
+                    <p><a href="#">Prestige Group</a></p>
+                    <p><a href="#">Sobha Limited</a></p>
+                    <p><a href="#">DLF</a></p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <h5>buy property</h5>   
+                    <p><a href="#">Amarati</a></p>
+                    <p><a href="#">Guntur</a></p>
+                    <p><a href="#">Vijaywada</a></p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <h5>properties in india</h5>
+                    <p><a href="#">Apartments For Sale In India</a></p>
+                    <p><a href="#">Villas in India</a></p>
+                    <p><a href="#">New Apartments For Sale In India</a></p>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <h5>additional links</h5>
+                    <p><a href="#">Additional Link One</a></p>
+                    <p><a href="#">Additional Link Two</a></p>
+                    <p><a href="#">Additional Link Thre</a></p>
+                </div>
+            </div>
+            <div class="row footerbottom">
+                <!-- Footer top -->
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <h5>ABOUT</h5>
+                    <p>We offer professional advisory services for Real Estate investors in Amaravati, CRDA Area - Andhra Pradesh. "Transparency, Reliability & Professionalism" are our promise to you. We will be your partner through out the investment process. We function on the fundamentals of trust, transparency and expertise. We guide home / land buyers right from the start of their search to the very end. Shortlist your favorite properties and allow us to arrange site visits. Our work does not end here. We assist you with property loans and property registrations.</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <h5>contact us</h5>   
+                    <ul class="personal-info">
+                        <li>
+                            <i class="lnr lnr-map-marker"></i>
+                            <h4>ITI College Road, Prasanthi Nagar, Vijayawada</h4>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-o"></i>
+                            <h4>Email: <a href="mailto:sales@hotelempire.com">support@avenue.in</a></h4>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            <h4>Phone: <a href="tel:+91-9533-894-894">+91.9533.894.894</a></h4>
+                        </li>
+<!--
+                        <li>
+                            <i class="fa fa-fax"></i>
+                            Fax: +55 4XX-634-7071
+                        </li>
+-->
+                        </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <h5>GET IN TOUCH</h5>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <input class="nsu-field btn-block" id="nsu-email-0" type="text" name="email" placeholder="Enter your email to subscribe" required="">
+                            <a class="fa fa-check" href="#"></a>
+                        </div>
+                    </form>
+                    <ul class="social-list list-inline clearfix">
+                            <li>
+                                <a href="https://facebook.com/"  target="_blank" class="facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/supportavenue" target="_blank" class="twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://plus.google.com/+avenuein" target="_blank" class="linkedin">
+                                    <i class="fa fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <!--<li>
+                                <a href="#" class="google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="rss">
+                                    <i class="fa fa-rss"></i>
+                                </a>
+                            </li>-->
+                        </ul>
+                </div>
+                <div class="col-xs-12 text-center copyp">
+                        <p>&copy; 2018 <a href="#">Avenir Realty LLP</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer end -->
+<div id="loginPopup" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body" id="login">
+              <div class="white-bg">
+                  <article>
+                      <h4 class="modal-title">WELCOME !<span>Login to your account</span></h4>
+                      <form>
+                      <div class="form-group">
+                          <input name="" class="form-control" placeholder="Username or email*" type="email">
+                      </div> <!-- form-group// -->
+                      <div class="form-group">
+                          <input class="form-control pwd" placeholder="Your password*" type="password">
+                          <!--<a href="#" class="fa fa-eye show"></a>-->
+                      </div> <!-- form-group// -->
+                      <div class="form-group clearfix">
+                            <!-- <label class="small">Forgot password?</label><a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#loginPopup').modal('hide')"> Reset</a> -->
+                            <!--<a href="register.html">Register Now</a>-->
+                        <div class="checkbox">
+                            <input type="checkbox" id="loginmail"><label for="loginmail">Remember me</label>
+                        </div>
+                      </div>
+                      <div class="form-group text-center">
+                        <button type="submit" class="btn btn-block">LOGIN</button>
+                      </div>
+                      <div class="text-center">
+                            <p>Are you new here ? <a href="#" data-toggle="modal" data-target="#registerPopup" onclick="$('#loginPopup, #resetPopup').modal('hide')">
+                                <strong>Register now!</strong></a></p>
+                      </div>
+                          <!-- form-group// -->
+                          
+                      <div class="text-center"><label class="or">or</label></div>
+                      <div class="form-group text-center">
+                            <p>Forgot Password? 
+                                <a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#loginPopup').modal('hide')">
+                                    <strong>Click here</strong>
+                                </a> to get it back.</a></p>
+                      </div>
+                      <div class="row clearfix">
+                          <div class="col-xs-12">
+                              <div class="form-group facebook">
+                                  <button type="button" class="btn btn-block">Login with 
+                                      <i class="fa fa-facebook"></i></button>
+                              </div>
+                              <div class="form-group google">
+                                  <button type="button" class="btn btn-block">Login with
+                                   <i class="fa fa-google-plus"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- <div class="form-group text-center clearfix mt15">
+                          <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                       </div> -->
+                      </form>
+                  </article>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+<div id="resetPopup" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body" id="login">
+            <div class="white-bg">
+                <article>
+                    <h4 class="modal-title">FORGOT PASSWORD?<span>Enter your email</span></h4>
+                    <form>
+                    <div class="form-group">
+                        <input name="" class="form-control" placeholder="Email" type="email">
+                    </div> <!-- form-group// -->
+                    <div class="form-group text-center">
+                    <button type="submit" class="btn btn-block">reset password</button>
+                    </div>
+                    <div class="text-center">
+                        <p>Are you new here ? <a href="#" data-toggle="modal" data-target="#registerPopup" onclick="$('#loginPopup, #resetPopup').modal('hide')">
+                            <strong>Register now!</strong></a></p>
+                    </div>
+                        <!-- form-group// -->
+                    <!-- <div class="form-group text-center clearfix mt15">
+                        <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                    </div> -->
+                    </form>
+                </article>
+            </div>
+        </div>
+        </div>
+    
+    </div>
+    </div>
+<div id="registerPopup" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body" id="login">
+            <div class="white-bg">
+                <article>
+                    <h4 class="modal-title">WELCOME !<span>Create your account</span></h4>
+                    <form>
+                    <div class="form-group">
+                        <input name="" class="form-control" placeholder="Username" type="text">
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                            <input name="" class="form-control" placeholder="Email" type="email">
+                        </div> <!-- form-group// -->
+                    <div class="form-group">
+                        <input class="form-control pwd" placeholder="Password" type="password">
+                        <!--<a href="#" class="fa fa-eye show"></a>-->
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                            <input class="form-control pwd" placeholder="Confirm Password" type="password">
+                        </div> <!-- form-group// -->
+                    <div class="form-group text-center">
+                    <button type="submit" class="btn btn-block">REGISTER</button>
+                    </div>
+                    <div class="text-center">
+                        <p>Already member ? <a data-toggle="modal" data-target="#loginPopup" onclick="$('#registerPopup').modal('hide')">
+                            <strong>Login now!</strong></a></p>
+                    </div>
+                        <!-- form-group// -->
+                        
+                    <div class="text-center"><label class="or">or</label></div>
+                    <div class="form-group text-center">
+                        <p>Forgot Password? 
+                            <a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#registerPopup').modal('hide')">
+                                <strong>Click here</strong>
+                            </a> to get it back.</a></p>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-xs-12">
+                            <div class="form-group facebook">
+                                <button type="button" class="btn btn-block">Register with 
+                                    <i class="fa fa-facebook"></i></button>
+                            </div>
+                            <div class="form-group google">
+                                <button type="button" class="btn btn-block">Register with
+                                <i class="fa fa-google-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group text-center clearfix mt15">
+                        <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                    </div> -->
+                    </form>
+                </article>
+            </div>
+        </div>
+        </div>
+    
+    </div>
+    </div>
+<script defer  src="js/jquery-2.2.0.min.js"></script>
+<script defer src="js/bootstrap.min.js"></script>
+<script src="js/datepicker.js"></script>
+<script defer src="js/bootstrap-submenu.js"></script>
+<script defer src="js/rangeslider.js"></script>
+<script defer src="js/jquery.mb.YTPlayer.js"></script>
+<script defer src="js/wow.min.js"></script>
+<script defer src="js/bootstrap-select.min.js"></script>
+<script defer src="js/jquery.easing.1.3.js"></script>
+<script defer src="js/jquery.scrollUp.js"></script>
+<script defer src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/leaflet.js"></script>
+<script defer src="js/parallax.min.js"></script>
+<script src="js/leaflet-providers.js"></script>
+<script src="js/leaflet.markercluster.js"></script>
+<script src="js/dropzone.js"></script>
+<script defer src="js/jquery.filterizr.js"></script>
+<script defer src="js/jquery.magnific-popup.min.js"></script>
+<script defer src="js/jquery.nicescroll.min.js"></script>
+<script defer src="js/intlTelInput.min.js"></script>
+<script src="js/maps.js"></script>
+<script src="js/app.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script defer src="js/ie10-viewport-bug-workaround.js"></script>
+<!-- Custom javascript -->
+<script defer src="js/ie10-viewport-bug-workaround.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
+</body>
+</html>

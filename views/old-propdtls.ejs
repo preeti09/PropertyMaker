@@ -1,0 +1,1020 @@
+<% include header %>
+<div class="clearfix innerfirst"></div>
+<div class="container bredcrumb-area">
+    <ul class="list-inline bredcrumb text-right content-area">
+        <li><a href="/">Home</a> / </li>
+        <li><a href="#">Property search</a></li>
+    </ul>
+</div>
+<div class="overlay js-overlay hide"></div>
+<div class="container">
+    <div class="ta-r">
+        <div data-type="reset-btn" class="resetBtn" onclick="Refresh('filterForm');">
+            <span class="fa fa-refresh"></span><span> reset</span>
+        </div>
+    </div>
+
+    <div class=""></div>
+    <section id="filtertab" class="filter-cntrl content-area collapse modal fade" role="dialog">
+        <div class="mobileDesign">
+            <div class="modal-header dtpHiden">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <form id="filterForm" class="">
+                <div class="container">
+                    <div class="row filters-wrap">
+
+                        <!-- Category -->
+                        <div class="col-lg-3 col-md-6 col-xs-12 custom-col onclick">
+                            <h4>Category</h4>
+                            <select class="selectpicker PropertyTypeChildID" name="PropertyTypeChildID" name="category"
+                                id="PropertyTypeChildID" onchange="changePropertyCategory(this.value)">
+                                <option value="" selected>Select</option>
+                            </select>
+                        </div>
+
+
+                        <!-- Budget (approx.) -->
+                        <div class="col-lg-3 col-md-6 col-xs-12 custom-col Residential Agriculture_Lands hideproperty">
+                            <h4 class="selected-val">Budget (approx.)</h4>
+                            <div class="min-max budget mb-25">
+                                <span class="selected-val">
+                                    <span class="Selecttxt">Select</span>
+                                    <span class="minVal"></span>
+                                    <span class="maxVal"></span>
+                                    <span class="lnr lnr-chevron-down arrow-dir"></span>
+                                </span>
+                                <div class="hide dropMax">
+                                    <div class="parameter-dropdown">
+                                        <div  class="col-xs-6 pdl-0 select-1">
+                                            <div class="min-parameter">
+		                                        <div class="inputwrap">
+                                                    <!-- Hidden -->
+                                                    <input type="hidden" value="1000000" id="budget_min1" name="budget_min">
+                                                   
+                                                    <input type="text" onchange=" setValue(this,'budget_min1')" placeholder="Minimum" class="min" name="budget_min1">
+		                                        </div>
+		                                        <ul class="min-dropdown range-toggle-in">
+                                                    <li data-value="1000000"><span class="text">₹ 10 L</span></li>
+                                                    <li data-value="2000000"><span class="text">₹ 20 L</span></li>
+                                                    <li data-value="3000000"><span class="text">₹ 30 L</span></li>
+                                                    <li data-value="4000000"><span class="text">₹ 40 L</span></li>
+                                                    <li data-value="5000000"><span class="text">₹ 50 L</span></li>
+                                                    <li data-value="6000000"><span class="text">₹ 60 L</span></li>
+                                                    <li data-value="7000000"><span class="text">₹ 70 L</span></li>
+                                                    <li data-value="8000000"><span class="text">₹ 80 L</span></li>
+                                                    <li data-value="9000000"><span class="text">₹ 90 L</span></li>
+                                                    <li data-value="10000000"><span class="text">₹ 1 Cr</span></li>
+                                                    <li data-value="20000000"><span class="text">₹ 2 Cr</span></li>
+                                                    <li data-value="30000000"><span class="text">₹ 3 Cr</span></li>
+                                                    <li data-value="40000000"><span class="text">₹ 4 Cr</span></li>
+                                                    <li data-value="50000000"><span class="text">₹ 5 Cr</span></li>
+                                                    <li data-value="60000000"><span class="text">₹ 6 Cr</span></li>
+                                                    <li data-value="70000000"><span class="text">₹ 7 Cr</span></li>
+                                                    <li data-value="80000000"><span class="text">₹ 8 Cr</span></li>
+                                                    <li data-value="90000000"><span class="text">₹ 9 Cr</span></li>
+                                                    <li data-value="100000000"><span class="text">₹ 10 Cr</span></li>
+                                                    <li data-value="110000000"><span class="text">₹ 11 Cr</span></li>
+                                                    <li data-value="120000000"><span class="text">₹ 12 Cr</span></li>
+                                                    <li data-value="130000000"><span class="text">₹ 13 Cr</span></li>
+                                                    <li data-value="140000000"><span class="text">₹ 14 Cr</span></li>
+                                                    <li data-value="150000000"><span class="text">₹ 15 Cr</span></li>
+                                                    <li data-value="160000000"><span class="text">₹ 16 Cr</span></li>
+                                                    <li data-value="170000000"><span class="text">₹ 17 Cr</span></li>
+                                                    <li data-value="180000000"><span class="text">₹ 18 Cr</span></li>
+                                                    <li data-value="190000000"><span class="text">₹ 19 Cr</span></li>
+                                                    <li data-value="200000000"><span class="text">₹ 20 Cr</span></li>
+		                                        </ul>
+		                                    </div>
+                                        </div>
+                                        <div class="col-xs-6 pdr-0 select-2">
+                                            <div class="max-parameter">
+		                                        <div class="inputwrap">
+                                                    <!-- Hidden -->
+                                                    <input type="hidden" value="50000000" id="budget_max" name="budget_max">
+
+                                                    <input type="text" onchange="setValue(this,'budget_max')" placeholder="Maximum" class="max" name="budget_max1">
+		                                        </div>
+		                                        <ul class="max-dropdown  range-toggle-in hide">
+                                                    <li data-value="1000000"><span class="text">₹ 10 L</span></li>
+                                                    <li data-value="2000000"><span class="text">₹ 20 L</span></li>
+                                                    <li data-value="3000000"><span class="text">₹ 30 L</span></li>
+                                                    <li data-value="4000000"><span class="text">₹ 40 L</span></li>
+                                                    <li data-value="5000000"><span class="text">₹ 50 L</span></li>
+                                                    <li data-value="6000000"><span class="text">₹ 60 L</span></li>
+                                                    <li data-value="7000000"><span class="text">₹ 70 L</span></li>
+                                                    <li data-value="8000000"><span class="text">₹ 80 L</span></li>
+                                                    <li data-value="9000000"><span class="text">₹ 90 L</span></li>
+                                                    <li data-value="10000000"><span class="text">₹ 1 Cr</span></li>
+                                                    <li data-value="20000000"><span class="text">₹ 2 Cr</span></li>
+                                                    <li data-value="30000000"><span class="text">₹ 3 Cr</span></li>
+                                                    <li data-value="40000000"><span class="text">₹ 4 Cr</span></li>
+                                                    <li data-value="50000000"><span class="text">₹ 5 Cr</span></li>
+                                                    <li data-value="60000000"><span class="text">₹ 6 Cr</span></li>
+                                                    <li data-value="70000000"><span class="text">₹ 7 Cr</span></li>
+                                                    <li data-value="80000000"><span class="text">₹ 8 Cr</span></li>
+                                                    <li data-value="90000000"><span class="text">₹ 9 Cr</span></li>
+                                                    <li data-value="100000000"><span class="text">₹ 10 Cr</span></li>
+                                                    <li data-value="110000000"><span class="text">₹ 11 Cr</span></li>
+                                                    <li data-value="120000000"><span class="text">₹ 12 Cr</span></li>
+                                                    <li data-value="130000000"><span class="text">₹ 13 Cr</span></li>
+                                                    <li data-value="140000000"><span class="text">₹ 14 Cr</span></li>
+                                                    <li data-value="150000000"><span class="text">₹ 15 Cr</span></li>
+                                                    <li data-value="160000000"><span class="text">₹ 16 Cr</span></li>
+                                                    <li data-value="170000000"><span class="text">₹ 17 Cr</span></li>
+                                                    <li data-value="180000000"><span class="text">₹ 18 Cr</span></li>
+                                                    <li data-value="190000000"><span class="text">₹ 19 Cr</span></li>
+                                                    <li data-value="200000000"><span class="text">₹ 20 Cr</span></li>
+		                                        </ul>
+		                                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- area -->
+                        <div class="col-lg-3 col-md-6 col-xs-12 custom-col btn-align onclick">
+                            <h4 class="selected-val">Area</h4>
+                            <select class="selectpicker" data-live-search="true" multiple data-actions-box="true"
+                                data-deselect-all-text='Clear' name="area_id" id="area">
+                                                         
+                                <% for(var i=0; i < cityArea.length; i++){ %>
+                                <option value="<%= cityArea[i].ID %>"
+                                    <% if(cityArea[i].Area == query.area || cityArea[i].ID == query.area_id){ %>selected="selected" <% } %>>
+                                    <%= cityArea[i].Area %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                         
+
+                        <!-- Facing -->
+                        <div class="col-lg-3 col-md-6 col-xs-12 custom-col filter-property-type more-inner-col Plots hideproperty btn-align onclick">
+                            <h4 class="selected-val">Facing</h4>
+                            <select class="selectpicker" multiple data-actions-box="true" data-deselect-all-text='Clear'
+                            name="facing">
+                                <!-- <option value="" selected>Select</option> -->
+                                <option value="North" selected>North</option>
+                                <option value="East" selected>East</option>
+                                <option value="South" selected>South</option>
+                                <option value="West" selected>West</option>
+                            </select>
+                        </div>
+
+                        <!-- Plot size -->
+                        <div class="col-lg-3 col-md-6 col-xs-12 custom-col filter-baths Plots hideproperty">
+                            <h4 class="selected-val">Plot Size</h4>
+                            <div class="min-max budget">
+                                <span class="selected-val">
+                                    <span class="Selecttxt">Select</span>
+                                    <span class="minVal"></span>
+                                    <span class="maxVal"></span>
+                                    <span class="lnr lnr-chevron-down arrow-dir"></span>
+                                </span>
+                                <div class="hide dropMax">
+                                    <div class="parameter-dropdown">
+                                        <div  class="col-xs-6 pdl-0 select-1">
+                                            <div class="min-parameter">
+		                                        <div class="inputwrap">
+                                                    <!-- Hidden -->
+                                                    <input type="hidden" value="30" id="plotSizeMin" name="plotSizeMin">
+
+                                                    <input type="text" placeholder="Minimum"  data-name="plotsize" onchange="checkPlotsize(this.value,'plotSizeMin');" data-type="range-input-min" class="min" name="plotSizeMin1">
+		                                        </div>
+		                                        <ul class="min-dropdown range-toggle-in">
+                                                    <li data-value="30"><span class="text">30 sq Yd</span></li>
+                                                    <li data-value="60"><span class="text">60 sq Yd</span></li>
+                                                    <li data-value="100"><span class="text">100 sq Yd</span></li>
+                                                    <li data-value="1000"><span class="text">1000 sq Yd</span></li>
+                                                    <li data-value="1500"><span class="text">1500 sq Yd</span></li>
+                                                    <li data-value="2000"><span class="text">2000 sq Yd</span></li>
+                                                    <li data-value="2500"><span class="text">2500 sq Yd</span></li>
+                                                    <li data-value="3000"><span class="text">3000 sq Yd</span></li>
+                                                    <li data-value="3500"><span class="text">3500 sq Yd</span></li>
+                                                    <li data-value="4500"><span class="text">4500 sq Yd</span></li>
+                                                    <li data-value="20000"><span class="text">20000 sq Yd</span></li>
+                                                    <li data-value="50000"><span class="text">50000 sq Yd</span></li>
+		                                        </ul>
+		                                    </div>
+                                        </div>
+                                        <div class="col-xs-6 pdr-0 select-2">
+                                            <div class="max-parameter">
+	                                            <div class="inputwrap">
+                                                    <!--  Hidden  -->
+                                                    <input type="hidden" value="5000" id="plotSizeMax" name="plotSizeMax">
+
+                                                    <input type="text" placeholder="Maximum" value="" data-value="" data-name="plotsize" onchange="checkPlotsize(this.value,'plotSizeMax');" class="max" name="plotSizeMax1">
+	                                            </div>
+	                                            <ul class="max-dropdown  range-toggle-in hide">
+                                                    <li data-value="30"><span class="text">30 sq Yd</span></li>
+                                                    <li data-value="60"><span class="text">60 sq Yd</span></li>
+                                                    <li data-value="100"><span class="text">100 sq Yd</span></li>
+                                                    <li data-value="1000"><span class="text">1000 sq Yd</span></li>
+                                                    <li data-value="1500"><span class="text">1500 sq Yd</span></li>
+                                                    <li data-value="2000"><span class="text">2000 sq Yd</span></li>
+                                                    <li data-value="2500"><span class="text">2500 sq Yd</span></li>
+                                                    <li data-value="3000"><span class="text">3000 sq Yd</span></li>
+                                                    <li data-value="3500"><span class="text">3500 sq Yd</span></li>
+                                                    <li data-value="4500"><span class="text">4500 sq Yd</span></li>
+                                                    <li data-value="20000"><span class="text">20000 sq Yd</span></li>
+                                                    <li data-value="50000"><span class="text">50000 sq Yd</span></li>
+	                                            </ul>
+	                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bedroom -->
+                        <div class="onclick col-lg-3 col-md-6 col-xs-12 custom-col filter-baths more-inner-col btn-align Residential hideproperty">
+                            <h4 class="selected-val">Bedroom</h4>
+                            <select class="selectpicker" name="bedroom" id="bedroom_PropertyDetail" multiple
+                            data-actions-box="true" data-deselect-all-text='Clear'>
+                                <option value="1">1 BHK</option>
+                                <option value="2">2 BHK</option>
+                                <option value="3">3 BHK</option>
+                                <option value="4">4 BHK</option>
+                                <option value="5">5 BHK</option>
+                            </select>
+                        </div>
+
+                    
+                        <!-- Extent -->
+                        <div class="col-lg-3 col-md-6 col-xs-12 custom-col filter-project-status more-inner-col Agriculture_Lands hideproperty">
+                            <h4>Extent</h4>
+                            <div class="min-max extent">
+                                <span class="selected-val">
+                                    <span class="Selecttxt">Select</span>
+                                    <span class="minVal"></span>
+                                    <span class="maxVal"></span>
+                                    <span class="lnr lnr-chevron-down arrow-dir"></span>
+                                </span>
+                                <div class="hide dropMax">
+                                    <div class="parameter-dropdown">
+                                        <div  class="col-xs-6 pdl-0 select-1">
+                                            <select class="selectpicker" onchange="minVal(this)" name="extentMin">
+                                                <option value="" data-hidden="true">Min</option>
+                                                <option value=".25">.25 cents</option>
+                                                <option value=".50">.50 cents</option>
+                                                <option value=".75">.75 cents</option>
+                                                <option value="1">1 Acre</option>
+                                                <option value="2">2 Acre</option>
+                                                <option value="3">3 Acre</option>
+                                                <option value="4">4 Acre</option>
+                                                <option value="5">5 Acre</option>
+                                                <option value="6">6 Acre</option>
+                                                <option value="7">7 Acre</option>
+                                                <option value="8">8 Acre</option>
+                                                <option value="9">9 Acre</option>
+                                                <option value="10">10 Acre</option>
+                                                <option value="11">11 Acre</option>
+                                                <option value="12">12 Acre</option>
+                                                <option value="13">13 Acre</option>
+                                                <option value="14">14 Acre</option>
+                                                <option value="15">15 Acre</option>
+                                                <option value="16">16 Acre</option>
+                                                <option value="17">17 Acre</option>
+                                                <option value="18">18 Acre</option>
+                                                <option value="19">19 Acre</option>
+                                                <option value="20">20 Acre</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-6 pdr-0 select-2">
+                                            <select class="selectpicker" onchange="minVal(this)" name="extentMax">
+                                                <option value="" data-hidden="true">Max</option>
+                                                <% for (var i = 1; i <= 20; i++) { %>
+                                                <option value="<%= i %>"><%= i %> Acres</option>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                                    
+
+                        <div class="filter-tab filter-more">
+                            <h4>More Options</h4>
+                            <span class="selected-val js-filter-btn">
+                                <span class="glyphicon glyphicon-filter left-icon"></span>
+                                <span class="txt">More Filters</span>
+                                <span class="lnr lnr-chevron-down arrow-dir"></span>
+                            </span>
+
+                            
+                            <div class="dd more-dd js-dd w4col Agriculture_Lands hideproperty hide">
+
+                                <!-- Property Type -->
+                                <div class="more-inner-col w4col">
+                                    <span class="selected-val">property type</span>
+                                    <select class="selectpicker propertyType" onclick="overlay()" id="Type" onchange="changePropertyType(this.value,2)"
+                                        name="type">
+                                        <option value="" data-hidden="true">Select</option>
+                                        <% 
+                                        for(var i=0; i< propertyType.length; i++ ){ %>
+                                        <option value="<%= propertyType[i].Type %>"
+                                            <% if(query.type == propertyType[i].Type || query.PropertyTypeID == propertyType[i].ID){ %>selected<% } %>>
+                                            <%= propertyType[i].Type %></option>
+                                        <% } %>
+                                    </select>
+                                    <input type="hidden" id="selectedCity" name="city" value="query.city">
+                                </div>
+
+                                
+                                <!-- city    -->
+                                <div class="filter-baths more-inner-col w4col Plots hideproperty">
+                                    <span class="selected-val">City</h4>
+                                    <select class="selectpicker city" name="city" id="CityID" onchange="changeCity(this.value)">
+                                        <option value="All">Select</option>
+                                        <% for(var i=0; i< cities.length; i++ ){  %>
+                                        <option value="<%= cities[i].ID %>" city="<%= cities[i].Name %>" <% if(query.city == cities[i].Name || query.CityID == cities[i].ID){ %>selected="selected"
+                                            <% } %>>
+                                            <%= cities[i].Name %>
+                                        </option>
+                                        <% } %>
+                                    </select>
+                                </div>
+
+                                <!-- Amenities -->
+                                <div class="filter-baths more-inner-col w4col btn-align">
+                                    <span class="selected-val">Amenities</span>
+                                    <select class="selectpicker" name="amenities" id="amenities_PropertyDetail" multiple
+                                    data-actions-box="true" data-deselect-all-text='Clear'>
+                                    <% for(var i =0; i< Amenities.length; i++){ %>
+                                        <option value="<%= Amenities[i].ID %>"><%= Amenities[i].Amenity %></option>
+                                        <% } %>
+                                    </select>
+                                </div>
+
+                                <!-- Budget (approx.)Plot -->
+                                <div class=" filter-baths innerBudget w4col more-inner-col Plots hideproperty">
+                                    <span class="selected-val">Budget (approx.)</span>
+                                    <div class="parameter-dropdown">
+                                        <div  class="col-xs-6 pdl-0 select-1">
+                                            <div class="min-parameter">
+                                                <div class="inputwrap">
+                                                    <!-- Hidden -->
+                                                        <input type="hidden" value="1000000" id="Plotbudget_min" name="budget_min">
+    
+                                                        <input type="text" onchange="setValue(this,'Plotbudget_min')" placeholder="Minimum" class="min" name="budget_min1">
+                                                </div>
+                                                <ul class="min-dropdown range-toggle-in">
+                                                    <li data-value="1000000"><span>₹</span> 10 L</li>
+                                                    <li data-value="2000000"><span>₹</span> 20 L</li>
+                                                    <li data-value="3000000"><span>₹</span> 30 L</li>
+                                                    <li data-value="4000000"><span>₹</span> 40 L</li>
+                                                    <li data-value="5000000"><span>₹</span> 50 L</li>
+                                                    <li data-value="6000000"><span>₹</span> 60 L</li>
+                                                    <li data-value="7000000"><span>₹</span> 70 L</li>
+                                                    <li data-value="8000000"><span>₹</span> 80 L</li>
+                                                    <li data-value="9000000"><span>₹</span> 90 L</li>
+                                                    <li data-value="10000000"><span>₹</span> 1 Cr</li>
+                                                    <li data-value="20000000"><span>₹</span> 2 Cr</li>
+                                                    <li data-value="30000000"><span>₹</span> 3 Cr</li>
+                                                    <li data-value="40000000"><span>₹</span> 4 Cr</li>
+                                                    <li data-value="50000000"><span>₹</span> 5 Cr</li>
+                                                    <li data-value="60000000"><span>₹</span> 6 Cr</li>
+                                                    <li data-value="70000000"><span>₹</span> 7 Cr</li>
+                                                    <li data-value="80000000"><span>₹</span> 8 Cr</li>
+                                                    <li data-value="90000000"><span>₹</span> 9 Cr</li>
+                                                    <li data-value="100000000"><span>₹</span> 10 Cr</li>
+                                                    <li data-value="110000000"><span>₹</span> 11 Cr</li>
+                                                    <li data-value="120000000"><span>₹</span> 12 Cr</li>
+                                                    <li data-value="130000000"><span>₹</span> 13 Cr</li>
+                                                    <li data-value="140000000"><span>₹</span> 14 Cr</li>
+                                                    <li data-value="150000000"><span>₹</span> 15 Cr</li>
+                                                    <li data-value="160000000"><span>₹</span> 16 Cr</li>
+                                                    <li data-value="170000000"><span>₹</span> 17 Cr</li>
+                                                    <li data-value="180000000"><span>₹</span> 18 Cr</li>
+                                                    <li data-value="190000000"><span>₹</span> 19 Cr</li>
+                                                    <li data-value="200000000"><span>₹</span> 20 Cr</li>
+                                                </ul>
+    
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-xs-6 pdr-0">
+                                            <div class="max-parameter">
+                                                <div class="inputwrap">
+                                                    <!-- Hidden -->
+                                                        <input type="hidden" value="50000000" id="Plotbudget_max" name="budget_max">
+
+                                                        <input type="text" onchange="setValue(this,'Plotbudget_max')" placeholder="Maximum" class="max" name="budget_max1">
+                                                </div>
+                                                <ul class="max-dropdown  range-toggle-in hide">
+                                                    <li data-value="1000000"><span>₹</span> 10 L</li>
+                                                    <li data-value="2000000"><span>₹</span> 20 L</li>
+                                                    <li data-value="3000000"><span>₹</span> 30 L</li>
+                                                    <li data-value="4000000"><span>₹</span> 40 L</li>
+                                                    <li data-value="5000000"><span>₹</span> 50 L</li>
+                                                    <li data-value="6000000"><span>₹</span> 60 L</li>
+                                                    <li data-value="7000000"><span>₹</span> 70 L</li>
+                                                    <li data-value="8000000"><span>₹</span> 80 L</li>
+                                                    <li data-value="9000000"><span>₹</span> 90 L</li>
+                                                    <li data-value="10000000"><span>₹</span> 1 Cr</li>
+                                                    <li data-value="20000000"><span>₹</span> 2 Cr</li>
+                                                    <li data-value="30000000"><span>₹</span> 3 Cr</li>
+                                                    <li data-value="40000000"><span>₹</span> 4 Cr</li>
+                                                    <li data-value="50000000"><span>₹</span> 5 Cr</li>
+                                                    <li data-value="60000000"><span>₹</span> 6 Cr</li>
+                                                    <li data-value="70000000"><span>₹</span> 7 Cr</li>
+                                                    <li data-value="80000000"><span>₹</span> 8 Cr</li>
+                                                    <li data-value="90000000"><span>₹</span> 9 Cr</li>
+                                                    <li data-value="100000000"><span>₹</span> 10 Cr</li>
+                                                    <li data-value="110000000"><span>₹</span> 11 Cr</li>
+                                                    <li data-value="120000000"><span>₹</span> 12 Cr</li>
+                                                    <li data-value="130000000"><span>₹</span> 13 Cr</li>
+                                                    <li data-value="140000000"><span>₹</span> 14 Cr</li>
+                                                    <li data-value="150000000"><span>₹</span> 15 Cr</li>
+                                                    <li data-value="160000000"><span>₹</span> 16 Cr</li>
+                                                    <li data-value="170000000"><span>₹</span> 17 Cr</li>
+                                                    <li data-value="180000000"><span>₹</span> 18 Cr</li>
+                                                    <li data-value="190000000"><span>₹</span> 19 Cr</li>
+                                                    <li data-value="200000000"><span>₹</span> 20 Cr</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+ 
+                                <!-- Abutting Road Width -->
+                                <div class="filter-baths more-inner-col w4col Plots hideproperty">
+                                    <span class="selected-val">Abutting Road Width</span>
+                                    <div class="parameter-dropdown">
+                                        <div class="col-xs-6 pdl-0">
+                                            <select class="selectpicker" name="AbuttingRoadWidthMin">
+                                                <option value="" data-hidden="true">Min</option>
+                                                <option value="">All</option>
+                                                <option value="30">30 ft</option>
+                                                <option value="40">40 ft</option>
+                                                <option value="60">60 ft</option>
+                                                <option value="100">100 ft</option>
+                                                <option value="160">160 ft</option>
+                                                <option value="200">200 ft</option>
+                
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-6 pdr-0">
+                                            <select class="selectpicker" name="AbuttingRoadWidthMax">
+                                                <option value="" data-hidden="true">Max</option>
+                                                <option value="">All</option>
+                                                <option value="30">30 ft</option>
+                                                <option value="40">40 ft</option>
+                                                <option value="60">60 ft</option>
+                                                <option value="100">100 ft</option>
+                                                <option value="160">160 ft</option>
+                                                <option value="200">200 ft</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                                <!-- Specification -->
+                                <div class="filter-baths more-inner-col btn-align w4col Residential hideproperty">
+                                    <span class="selected-val">Specification</span>
+                                    <select class="selectpicker" name="specification" id="specification_PropertyDetail" multiple
+                                    data-actions-box="true" data-deselect-all-text='Clear'>
+                                    <% for(var i =0; i< Specifications.length; i++){ %>
+                                        <option value="<%= Specifications[i].ID %>"><%= Specifications[i].Specification %>
+                                        </option>
+                                        <% } %>
+                                    </select>
+                                </div>
+
+
+                                <!-- RERA Approved -->
+                                <div class="filter-size more-inner-col js-size-filter w4col Plots Residential Apartment Gated_Community Villas hideproperty additional-info Residential_Plot Commercial_Plot Villa_Plot New_Approved_Layout">
+                                    <span class="selected-val">RERA Approved</span>
+                                    <div class="radio-btn">
+                                        <label>All</label> <input class="radio" type="radio" name="RERA_Approved" value="all"
+                                            checked />
+                                        <label>Yes</label> <input class="radio" type="radio" name="RERA_Approved" value="true" />
+                                        <label>No</label> <input class="radio" type="radio" name="RERA_Approved" value="false" />
+                                    </div>
+                                </div>
+
+                                <!-- Has Road Access -->
+                                <div class="filter-baths more-inner-col w4col Agriculture_Lands hideproperty">
+                                    <span class="selected-val">Has Road Access</span>
+                                    <div class="radio-btn">
+                                        <label>All</label> <input class="radio" type="radio" name="RoadAccess" value="all"
+                                        checked />
+                                        <label>Yes</label> <input class="radio" type="radio" name="RoadAccess" value="true" />
+                                        <label>No</label> <input class="radio" type="radio" name="RoadAccess" value="false" />
+                                    </div>
+                                </div>
+                                
+                                <!-- Water Source -->
+                                <div class="filter-baths more-inner-col w4col Agriculture_Lands hideproperty">
+                                    <span class="selected-val">Water Source</span>
+                                    <div class="radio-btn">
+                                        <label>All</label> <input class="radio" type="radio" name="WaterSource" value="all"
+                                        checked />
+                                        <label>Rain</label> <input class="radio" type="radio" name="WaterSource" value="Rainfed" />
+                                        <label>Canal</label> <input class="radio" type="radio" name="WaterSource" value="Canal" />
+                                        <label>Bore</label> <input class="radio" type="radio" name="WaterSource" value="Bore" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 custom-col col-xs-12 ms-mt-35 text-right">
+                            <button type="button" onclick="filterProperty();" class="button transparent" class="close"
+                                data-dismiss="modal">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+<section class="filter-content sm-pb-40">
+    <div class="container toggle-header">
+        <div class="divRel">
+            <div id='msg' class="dtpShow manag-mob">
+                <%= propertyResult.length%>
+                <%= Message %> Found
+            </div>
+            <ul class="nav navbar-nav navbar-right activeClass display-toggle">
+                <!-- <li class="mapview-sortopt"><span>Sort by</span></li> -->
+                
+                <li><a data-displaytoggle="grid-opt" href="#" class="fa fa-th toggle"></a></li>
+                <li><a data-displaytoggle="list-opt" href="#" class="lnr lnr-list list-view toggle"></a></li>
+                <li><a data-displaytoggle="map-opt" href="#" class="fa fa-map-o toggle"></a></li>
+                <li class="active"><a data-displaytoggle="b-list-opt" href="#" class="lnr lnr-chevron-down-circle toggle"></a></li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="container dtpShow">
+        <div class="sort-options">
+            <ul class="list-inline text-right xs-text-left filter-sec">
+                <li class="mobHide"><span class="sort-by">Sort by</span></li>
+                <li class="right-select">
+                    <span class="sort-by tabHide">Sort by</span>
+                    <select class="selectpicker" name="sort" id="sortMapScreen"
+                        onchange="sortProperty(this.value,'sortProperty')">
+                        <option value="" data-hidden="true">Select</option>
+                        <option value="1">Price: High to Low</option>
+                        <option value="2">Price: Low to High</option>
+                        <option value="3">Latest</option>
+                        <option value="4">Oldest</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="featured-properties grid-mob">
+        <div class="container">
+            <div class="dtpHiden">
+                <!-- <div id='msg'>
+                    <%= propertyResult.length%>
+                    <%= Message %> Found
+                </div> -->
+                <ul class="list-inline text-right xs-text-left filter-sec">
+                    <li class="deskHide advFinlt">
+                        <a href="#" data-toggle="modal" class="button transparent" data-target="#filtertab">
+                            Advanced Filters
+                        </a>
+                    </li>
+                    <li class="mobHide"><span class="sort-by">Sort by</span></li>
+                    <li class="right-select">
+                        <span class="sort-by tabHide">Sort by</span>
+                        <select class="selectpicker" name="sort" id="sortMapScreen"
+                            onchange="sortProperty(this.value,'sortProperty')">
+                            <option value="" data-hidden="true">Select</option>
+                            <option value="1">Price: High to Low</option>
+                            <option value="2">Price: Low to High</option>
+                            <option value="3">Latest</option>
+                            <option value="4">Oldest</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="map">
+                    <div id="map" class="contact-map"></div>
+                </div>
+
+                <div class="filtr-container">
+                    <% 
+                    var recommemdedTab = 0;
+                    if(typeof propertyResult != 'undefined'){
+                    for(var i=0; i < propertyResult.length; i++){   
+                        
+                <!--           var ImageGallery = GalleryImage[propertyResult[i].ID] ? GalleryImage[propertyResult[i].ID] : ['https://avenueproperty.s3.ap-south-1.amazonaws.com/images/1529576338069']; -->
+                var filterImages = [];
+                if(GalleryImage[propertyResult[i].ID]){
+                var filterImages = GalleryImage[propertyResult[i].ID].filter(v => v != '');
+                }
+                
+                        var ImageGallery = (filterImages.length) ? filterImages :(propertyResult[i].PropertyTypeID == 1 ? ['/img/Plots.png'] : (propertyResult[i].PropertyTypeID == 2  ? ['/img/Residential.png']:['/img/AgriLands.png'])) ;
+                        
+                        if(propertyResult[i].VideoGallery){
+                            var VideoGallery = propertyResult[i].VideoGallery.split(',');
+                        }
+                        if(propertyResult[i].VideoURL){
+                            var VideoURL = propertyResult[i].VideoURL.split(',');
+                        }
+                        var filter = '1';
+                        if(recommemdedIds.includes(propertyResult[i].ID) ){
+                            filter = '2';
+                            recommemdedTab = 2;
+                        }
+                        var TotalPrice = [];
+                        var Extent = [];
+                        var NumberofBeds = [];
+                        var NumberofBath = [];
+                        var SuperBuiltUpArea =[];
+                        var unitDetailsData = UnitTableData[propertyResult[i].ID];
+                        var UnitData = [];
+                        
+                        if(typeof UnitTableData[propertyResult[i].ID] == 'object' && UnitTableData.length > 0){
+                            for(var u = 0; u < UnitTableData[propertyResult[i].ID].length; u++){
+                                if(propertyResult[i].ID == UnitTableData[propertyResult[i].ID][u].PropertyID ){
+                                    UnitData.push(UnitTableData[propertyResult[i].ID][u]);
+                                    if(UnitTableData[propertyResult[i].ID][u].NumberofBeds){
+                                        NumberofBeds.push(UnitTableData[propertyResult[i].ID][u].NumberofBeds); 
+                                    }
+                                    if(UnitTableData[propertyResult[i].ID][u].NumberofBath){
+                                        NumberofBath.push(UnitTableData[propertyResult[i].ID][u].NumberofBath); 
+                                    }
+                                    if(UnitTableData[propertyResult[i].ID][u].UnitExtent){
+                                        TotalPrice.push(parseInt(UnitTableData[propertyResult[i].ID][u].UnitExtent) * parseInt(propertyResult[i].SearchPrice));
+                                        Extent.push(parseFloat(UnitTableData[propertyResult[i].ID][u].UnitExtent));
+                                    }else
+                                    if(UnitTableData[propertyResult[i].ID][u].SuperBuiltUpArea){
+                                        TotalPrice.push(parseInt(UnitTableData[propertyResult[i].ID][u].SuperBuiltUpArea) * parseInt(propertyResult[i].SearchPrice));  
+                                        Extent.push(parseFloat(UnitTableData[propertyResult[i].ID][u].SuperBuiltUpArea));
+                                    }
+                                    else if(propertyResult[i].Extent || propertyResult[i].TotalPrice){
+                                        if(propertyResult[i].TotalPrice){
+                                        TotalPrice.push(parseFloat(propertyResult[i].Extent) * parseInt(propertyResult[i].SearchPrice)); 
+                                        }
+                                        if(propertyResult[i].Extent){
+                                        Extent.push(parseFloat(propertyResult[i].Extent));  
+                                        }
+                                    }
+                                }
+                            }
+                        }else{
+                            TotalPrice.push(parseFloat(propertyResult[i].Extent) * parseInt(propertyResult[i].SearchPrice));
+                            Extent.push(parseFloat(propertyResult[i].Extent));
+                        }
+                        propertyResult[i].unitDetails= UnitData;
+                    %>
+                    
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  filtr-item b-list-opt"
+                        data-category="<%= filter %>">
+                        <div class="property">
+                            <!-- Property img -->
+                            <div class="property-img">
+                                <% 
+                                    var Active = '';
+                                    if(favoriteData.length > 0){
+                                    if(favoriteData.includes(propertyResult[i].ID))
+                                    Active = 'active'; 
+                                    }
+                                %>
+                                <div class="property-tag alt featured <%= Active %>" id="myfavorite<%= i %>">
+                                    <a href="javascript:void(0);"
+                                        onclick="saveAsFavorite('<%= sess_val %>',<%= propertyResult[i].ID %>,<%= i %>);"><i
+                                            class="fa fa-heart" aria-hidden="true"></i></a>
+                                </div>
+                                <!--<div class="property-tag sale">TRENDING</div>  -->
+                                <% if(propertyResult[i].DisplayPrice){ %>
+                                <div class="property-price">
+                                    <%= propertyResult[i].Title.substring(0,17) %><% if(propertyResult[i].Title.length > 17 ){ %>...<% } %>
+                                    <% if(Math.min(...TotalPrice) == Math.max(...TotalPrice)){ 
+                                        propertyResult[i].viewPrice = currencyFormat(Math.max(...TotalPrice));
+                                        %>
+                                    <div>&#8377; <%= currencyFormat(Math.min(...TotalPrice)) %>
+                                        <h5 class="p-color mt-0 mb-0">
+                                            <%= currencyFormat (propertyResult[i].SearchPrice) %>/<%= UnitIdentifier %>
+                                        </h5>
+                                    </div>
+                                    <% }else{ 
+                                        propertyResult[i].viewPrice = currencyFormat(Math.min(...TotalPrice)) + ' - ' +currencyFormat(Math.max(...TotalPrice));
+                                    %>
+                                    <div>&#8377; <%= currencyFormat(Math.min(...TotalPrice)) %> -
+                                        <%= currencyFormat(Math.max(...TotalPrice)) %>
+                                        <h5 class="p-color mt-0 mb-0">
+                                            <%= currencyFormat(propertyResult[i].SearchPrice)%>/<%= UnitIdentifier %>
+                                        </h5>
+                                    </div>
+                                    <% } %>
+                                </div>
+                                <% } else { %>
+                                <div class="property-price">
+                                    <%= propertyResult[i].Title.substring(0,17) %><% if(propertyResult[i].Title.length > 17 ){ %>...<% } %>
+                                    <div>Price On Request</div>
+                                </div>
+                                <% } %>
+                                <!-- Facilities List -->
+                                <ul class="facilities-list clearfix">
+                                    <li>
+                                        <% if(Extent && Extent.length > 0){ %>
+                                        <img src="/img/extent.jpg" width="14" ,height="16" style="margin-top:-4px"
+                                            title="Extent">
+                                        <span>
+                                            <% if(Math.min(...Extent) == Math.max(...Extent)){ %>
+                                            <%= Math.min(...Extent) %> <%= propertyResult[i].UnitIdentifier%>
+                                            <% }else{ %>
+                                            <%= Math.min(...Extent) %> -
+                                            <%= Math.max(...Extent) %><%= propertyResult[i].UnitIdentifier%>
+                                            <% } %>
+                                        </span>
+                                        <% } %>
+                                        <% var facing = ''; if(propertyResult[i].East ||propertyResult[i].West || propertyResult[i].North || propertyResult[i].South) {  %>
+                                        <img src="/img/facing.jpg" width="14" ,height="16" style="margin-top:-4px"
+                                            title="Facing">
+                                        <% if(propertyResult[i].East){
+                                            facing += 'E'
+                                            } 
+                                            if(propertyResult[i].West){ 
+                                            if(facing){
+                                                facing += ' | '
+                                            } 
+                                            facing += 'W'
+                                            } if(propertyResult[i].North){
+                                            if(facing){
+                                                facing += ' | '
+                                            }
+                                            facing += 'N';
+                                            
+                                            } if(propertyResult[i].South){
+                                            if(facing){
+                                                facing += ' | '
+                                            }
+                                            facing += 'S';
+                                            } %>
+                                        <span><%= facing %></span>
+                                        <% } %>
+                                    </li>
+                                    <% if(NumberofBeds.length > 0 ){ %>
+                                    <li>
+                                        <i class="fa fa-bed" title="Number of beds"></i>
+                                        <% if(Math.min(...NumberofBeds) == Math.max(...NumberofBeds)){ %>
+                                        <span><%= Math.min(...NumberofBeds) %> </span>
+                                        <% }else{ %>
+                                        <span><%= Math.min(...NumberofBeds) %>-<%= Math.max(...NumberofBeds) %> </span>
+                                        <% } %>
+                                    </li>
+                                    <% }if(NumberofBath.length > 0){ %>
+                                    <li>
+                                        <i class="flaticon-holidays" title="Number of baths"></i>
+                                        <% if(Math.min(...NumberofBath) == Math.max(...NumberofBath)){ %>
+                                        <span><%= Math.min(...NumberofBath) %> </span>
+                                        <% }else{ %>
+                                        <span><%= Math.min(...NumberofBath) %>-<%= Math.max(...NumberofBath) %> </span>
+                                        <% } %>
+                                    </li>
+                                    <% } %>
+                                </ul>
+                                <ul class="facilities-list clearfix viewlistdata">
+                                    <% if(ImageGallery){ %>
+                                    <li>
+                                        <i class="lnr lnr-camera"></i>
+                                        <span><%= ImageGallery.length %></span>
+                                    </li>
+                                    <% }if(VideoGallery || VideoURL){ 
+                                        var totalVideos = 0;
+                                        if(VideoGallery){
+                                            totalVideos += VideoGallery.length
+                                        }if(VideoURL){
+                                            totalVideos += VideoURL.length
+                                        }
+                                        %>
+                                    <%if(totalVideos > 0){%>
+                                    <li>
+                                        <i class="lnr lnr-camera-video"></i>
+                                        <span><%= totalVideos %></span>
+                                    </li>
+                                    <% } }%>
+                                </ul>
+                                <img src="<%= ImageGallery[0] %>" alt="fp" class="img-responsive">
+                                <div class="property-overlay">
+                                    <a href="<%= propertyResult[i].URL %>" class="overlay-link" target="_blank">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                    <% if(propertyResult[i].VideoURL || propertyResult[i].VideoGallery) { %>
+                                    <a class="overlay-link property-video" title="<%= propertyResult[i].Title %>"
+                                        onclick="videoModal('Video','<%= (propertyResult[i].VideoURL)%>','<%= propertyResult[i].VideoGallery %>','<%= ImageGallery %>',<%= YouTubeGetID %>,<%= i %>);">
+                                        <i class="fa fa-video-camera"></i>
+                                    </a>
+                                    <% } %>
+                                    <% for(var j =0 ; j < ImageGallery.length  ;j++){
+                                        if(j == 0){ %>
+                                    <a class="overlay-link property-video" title="<%= propertyResult[i].Title %>"
+                                        onclick="videoModal('Images','<%= (propertyResult[i].VideoURL)%>','<%= propertyResult[i].VideoGallery %>','<%= ImageGallery %>',<%= YouTubeGetID %>,<%= j %>);">
+                                        <i class="fa fa-expand"></i>
+                                    </a>
+                                    <% } }  %>
+                                </div>
+                            </div>
+                            <!-- Property content -->
+                            <div class="property-content">
+                                <!-- title -->
+                                <div class="col-md-7 col-sm-6 col-xs-12 cont-item cont-item1">
+                                    <h3 class="title">
+                                        <input type="hidden" id="newnew" name="result[]"
+                                            value="<%= propertyResultStr %>">
+                                        <a href="javascript:void(0);"
+                                            onclick="propertyInfowindow(<%= JSON.stringify(propertyResult[i].ID) %>,<%= JSON.stringify(propertyResult[i].URL) %>)"
+                                            title="<%= propertyResult[i].Title %>"><%= propertyResult[i].Title.substring(0,22) %><% if(propertyResult[i].Title.length > 22 ){ %>...<% } %></a>
+                                        <!-- <a href="/single-property/<%= propertyResult[i].ID %>" title="<%= propertyResult[i].Title %>"><%= propertyResult[i].Title.substring(0,25) %></a> -->
+                                        <span class="titleheart <%= Active %>" id="myfavorite_<%= i %>">
+                                            <a href="javascript:void(0);"
+                                                onclick="saveAsFavorite('<%= sess_val %>',<%= propertyResult[i].ID %>,<%= i %>);"><i
+                                                    class="fa fa-heart" aria-hidden="true"></i></a>
+                                        </span>
+                                    </h3>
+                                    <!-- Property address -->
+                                    <h4 class="property-address">
+                                        <a href="#">
+                                            <i class="lnr lnr-map-marker"></i><%= propertyResult[i].Area %><%if(propertyResult[i].Area){%>,
+                                            <% } %>
+                                            <%= propertyResult[i].city %>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class="col-md-7 col-sm-6 col-xs-12 cont-item cont-item2">
+                                    <% if(propertyResult[i].ProjectStatusID){ %>
+                                    <h5><%= PropertyStatus[propertyResult[i].ProjectStatusID]%></h5>
+                                    <% } %>
+                                    <ul class="facilities-list clearfix">
+                                        <li>
+                                            <% if(Extent && Extent.length > 0){ %>
+                                            <img src="/img/extent.jpg" width="14" ,height="16" style="margin-top:-4px"
+                                                title="Extent">
+                                            <span>
+                                                <% if(Math.min(...Extent) == Math.max(...Extent)){ %>
+                                                <%= Math.min(...Extent) %>
+                                                <%= propertyResult[i].UnitIdentifier%>
+                                                <% }else{ %>
+                                                <%= Math.min(...Extent) %> - <%= Math.max(...Extent) %>
+                                                <%= propertyResult[i].UnitIdentifier%>
+                                                <% } %>
+                                            </span>
+                                            <% } %>
+                                            <% if(facing){ %>
+                                            <img src="/img/facing.jpg" width="14" ,height="16" style="margin-top:-4px"
+                                                title="Facing">
+                                            <span> <%= facing %></span>
+                                            <% } %>
+                                        </li>
+                                        <% if(NumberofBeds.length > 0){ %>
+                                        <li>
+                                            <i class="fa fa-bed" title="Number of beds"></i>
+                                            <% if(Math.min(...NumberofBeds) == Math.max(...NumberofBeds)){ %>
+                                            <span><%= Math.min(...NumberofBeds) %> </span>
+                                            <% }else{ %>
+                                            <span><%= Math.min(...NumberofBeds) %>-<%= Math.max(...NumberofBeds) %>
+                                            </span>
+                                            <% } %>
+                                        </li>
+                                        <% }if(NumberofBath.length > 0){ %>
+                                        <li>
+                                            <i class="flaticon-holidays" title="Number of baths"></i>
+                                            <% if(Math.min(...NumberofBath) == Math.max(...NumberofBath)){ %>
+                                            <span><%= Math.min(...NumberofBath) %> </span>
+                                            <% }else{ %>
+                                            <span><%= Math.min(...NumberofBath) %>-<%= Math.max(...NumberofBath) %>
+                                            </span>
+                                            <% } %>
+                                        </li>
+                                        <% } %>
+                                    </ul>
+                                </div>
+                                
+                                <div class="col-md-5 col-sm-6 col-xs-12 cont-item cont-item3">
+                                    <% if(propertyResult[i] && propertyResult[i] .DisplayPrice){ %>
+                                    <div class="property-price">
+                                        <% if(Math.min(...TotalPrice) == Math.max(...TotalPrice)){ 
+                                            propertyResult[i].viewPrice = currencyFormat(Math.max(...TotalPrice));    
+                                        %>
+                                        <div>&#8377; <%= currencyFormat(Math.min(...TotalPrice)) %>
+                                            <h5 class="p-color mt-0 mb-0">
+                                                <%= currencyFormat(propertyResult[i].SearchPrice) %>/<%= UnitIdentifier %>
+                                            </h5>
+                                        </div>
+                                        <% }else{ 
+                                            propertyResult[i].viewPrice = currencyFormat(Math.min(...TotalPrice))+ ' - ' + currencyFormat(Math.max(...TotalPrice));
+                                        %>
+                                        <div>&#8377; <%= currencyFormat(Math.min(...TotalPrice)) %> -
+                                            <%= currencyFormat(Math.max(...TotalPrice)) %>
+                                            <h5 class="p-color mt-0 mb-0">
+                                                <%=currencyFormat(propertyResult[i].SearchPrice)%>/<%= UnitIdentifier %>
+                                            </h5>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                    <% } else { %>
+                                    <div class="property-price">
+                                        Price On Request
+                                    </div>
+                                    <% } %>
+                                </div>
+                                <div class="col-sm-5 col-xs-12 cont-item cont-item4">
+                                    <% if(propertyResult[i].DisplayPrice){ %>
+                                    <div class="property-price mapshowprice" style="display:none;">
+                                        <% if(Math.min(...TotalPrice) == Math.max(...TotalPrice)){ 
+                                                propertyResult[i].viewPrice = currencyFormat(Math.max(...TotalPrice));    
+                                            %>
+                                        <div>&#8377;<%= currencyFormat(Math.min(...TotalPrice)) %>
+                                        </div>
+                                        <% }else{ 
+                                                propertyResult[i].viewPrice = currencyFormat(Math.min(...TotalPrice))+ ' - ' + currencyFormat(Math.max(...TotalPrice));
+                                            %>
+                                        <div>&#8377; ><%= currencyFormat(Math.min(...TotalPrice)) %> -
+                                            <%= currencyFormat(Math.max(...TotalPrice)) %>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                    <% } else { %>
+                                    <div class="property-price mapshowprice" style="display:none;">
+                                        Price On Request
+                                    </div>
+                                    <% } %>
+                                    <a href="javascript:void(0);" id="Iam" class="button transparent"
+                                        onclick='iAm_Interested(<%= JSON.stringify(propertyResult[i]) %>)'>I am
+                                        Interested</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } } %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+    <!-- Featured properties end -->
+</section>
+<!-- Car Video Modal end-->
+<div class="modal photo-swipe property-modal fade" id="propertyModal" tabindex="-1" role="dialog" aria-labelledby="carModalLabel" aria-hidden="true">
+
+</div>
+
+<% include script %>
+<% include footer %>
+<!-- <div class="modal property-modal fade" id="propertyModal" tabindex="-1" role="dialog" aria-labelledby="carModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
+                </div>
+                <div class="modal-body">
+                    <div class="row modal-raw">
+                        <div class="col-lg-12 modal-left">
+                            <div class="modal-left-content">
+                                <div class="bs-example" data-example-id="carousel-with-captions">
+                                    <div class="carousel slide" id="properties-carousel" data-ride="carousel">
+                                        <div class="carousel-inner" role="listbox">
+                                            <div class="item">
+                                                <img src="http://placehold.it/450x300 " alt="best-properties">
+                                            </div>
+                                            <div class="item">
+                                                <img src="http://placehold.it/450x300 " alt="best-properties">
+                                            </div>
+                                            <div class="item active">
+                                                <iframe class="modalIframe" src="https://www.youtube.com/embed/5e0LxrLSzok" allowfullscreen></iframe>
+                                            </div>
+                                        </div>
+    
+                                        <a class="control control-prev" href="#properties-carousel" role="button" data-slide="prev">
+                                            <i class="fa fa-angle-left"></i>
+                                        </a>
+                                        <a class="control control-next" href="#properties-carousel" role="button" data-slide="next">
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div> -->
+<script>
+    var PropertyLocations = <%-JSON.stringify(PropertyLocations)%>;
+    var GalleryImage = <%-JSON.stringify(GalleryImage)%>;
+    var UnitTableData = <%-JSON.stringify(UnitTableData)%>;
+    var favoriteData = <%-JSON.stringify(favoriteData)%>;
+    var UnitIdentifier = <%-JSON.stringify(UnitIdentifier)%>;
+    var query = <%- JSON.stringify(query) %>;
+    //console.log('favoriteData==',favoriteData)
+    $('#Type').trigger('change');
+    if (<%-JSON.stringify(recommemdedTab)%> == 0) {
+        $('.filtr-button[data-filter=2]').hide();
+    }
+</script>

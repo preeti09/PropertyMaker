@@ -1,0 +1,52 @@
+  <div class="carousel-inner" role="listbox">
+                                        <% if(VideoURL.length || VideoGallery.length || ImageGallery) { %>
+                                            <% if(ImageGallery.length && mode == 'Images') {
+                                                var active = "";
+                                                %>
+                                                <% for(j=0; j< ImageGallery.length; j++){ 
+                                                     active = ""
+                                                     if(j == 0){
+                                                        active = "active";
+                                                    }
+                                                %>
+                                                <div class = "item <%= active %>">
+                                                    <img src="<%= ImageGallery[0] %>">
+                                                </div>  
+                                                <% } } %>
+                                            <% if(VideoURL.length > 0){ 
+                                                var active = "";
+                                            %>
+                                            <% for(i=0; i< VideoURL.length; i++){
+                                                active = "";
+                                                if(i == 0 && mode != 'Images' ){ 
+                                                    active = "active";
+                                                }    
+                                            %>
+                                            <div class="item <%= active %>">        
+                                                <iframe class="modalIframe" src="https://www.youtube.com/embed/<%= YouTubeGetID(VideoURL[i]) %>" allowfullscreen height="300"></iframe>
+                                            </div>
+                                            <% } } %>
+                                            <% if(VideoGallery.length) { %>   
+                                            <%for(i=0; i< VideoGallery.length; i++){
+                                                active = "";
+                                                if(i == 0 && active == ''){ 
+                                                    active = "active";
+                                                } 
+                                            %>
+                                            <div class="item inactive">
+                                            
+                                                <video  height="300" controls>
+                                                    <source src="<%= VideoGallery[i] %>" type="video/mp4">
+                                                    Your browser does not
+                                                    support the video tag.
+                                                </video> 
+                                      
+                                            </div> 
+                                            <% } } %>
+                                        <% if(ImageGallery.length && mode == 'Video') { %>
+                                            <% for(i=0; i< ImageGallery.length; i++){ %>
+                                            <div class = "item inactive">
+                                                <img src="<%= ImageGallery[0] %>">
+                                            </div>
+                                        <% } } } %>
+                                    </div>

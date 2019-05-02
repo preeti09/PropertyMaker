@@ -1,0 +1,157 @@
+<% include header %>
+<% include banner %>
+<div class="content-area profile-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Form content box start -->
+                <div class="">
+                    <!-- details -->
+                    <div class="details">
+                        
+                        <!-- Form start-->
+                        <%- locals.flash %>
+                        <%if (!profile) { %>
+                            <div class="alert alert-danger">Please enter your contact details.</div>
+                        <% } %>
+                        <div id="ProfileForm_msg"></div>
+                        <form id="ProfileForm" role="form" method="Post">
+                            <div class="row clearfix mb30">
+                                <div class="col-sm-6 col-xs-12">
+                                    
+                                    <div class="form-group">
+                                        <select class="selectpicker" name="UserTypeID"> 
+                                        <option value="">Are you</option>    
+                                        <% for(var i=0; i< UserType.length; i++){ %>
+                                            <option value="<%= UserType[i].ID %>" <% if(userDetail && userDetail.UserTypeID == UserType[i].ID){%>selected<% } %>>
+                                                <%= UserType[i].Type %>
+                                            </option>
+                                        <% } %>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input name="Name" class="form-control" placeholder="Name*" type="text" value="<% if(userDetail){%><%= userDetail.Name %><% } %>" required>
+                                        <input name="id" class="form-control" type="hidden" value="<% if(userDetail){%><%= userDetail.ID %><% } %>">
+                                    </div>
+
+                                    <!-- form-group// -->
+                                    <!--<div class="form-group">
+                                        <input name="lastname" class="form-control" placeholder="Last name*" type="text">
+                                    </div>-->
+                                  
+                                    <div class="form-group">
+                                        <input name="Email" class="form-control" placeholder="Email ID*" type="email" value="<% if(userDetail){ %><%= userDetail.Email %><% } %>" readonly>
+                                    </div>
+
+                                    <!-- form-group// -->
+                                    <div class="form-group">
+                                        <input name="Password" id="Password" class="form-control" type="Hidden" >
+                                    </div>
+
+                                    <!-- form-group// -->
+                                </div>
+                               
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="row clearfix">
+                                        <div class="col-sm-4 col-md-3">
+                                            <select class="selectpicker" data-live-search="true" id="country" onchange="changeCountryCode(this.value)" name="ISDCode"  required>
+                                            <option value="">Select</option>    
+                                            <% for(var i=0; i< Countries.length; i++){ %>
+                                                <option value="<%= Countries[i].ISDCode %>" <% if(userDetail && userDetail.Country == Countries[i].CountryName){%>selected<% } %>>
+                                                    <%= Countries[i].CountryName %> +<%= Countries[i].ISDCode %>
+                                                </option>
+                                            <% } %>
+                                            </select>
+                                        </div>
+                      
+                                        <div class="pdl0 col-sm-8 col-md-9 mobpad">
+                                            <div class="form-group">
+                                                <input name="PhoneNumber" class="form-control mobileNumber" placeholder="Phone number*" maxlength="10" type="tel" value="<% if(userDetail && userDetail.PhoneNumber && userDetail.PhoneNumber.length > 4){%><%= userDetail.PhoneNumber.substr(userDetail.PhoneNumber.length - 10) %><% } %>" required>
+                                                <div class="text-right checkbox">
+                                                    <input type="checkbox" id="WhatsAppNumber" name="WhatsAppNumber" value="1" <% if(userDetail && userDetail.WhatsAppNumber){%>checked<% } %>>
+                                                    <label for="WhatsAppNumber">I have WhatsApp</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-4 col-md-3">
+                                            <select class="selectpicker" id="Country1" data-live-search="true" name="ISDCode" required>
+                                                <option value="">Select</option>    
+                                                <% for(var i=0; i< Countries.length; i++){ %>
+                                                    <option value="<%= Countries[i].ISDCode %>" <% if(userDetail && userDetail.Country == Countries[i].CountryName){%>selected<% } %>>
+                                                        <%= Countries[i].CountryName %> +<%= Countries[i].ISDCode %>
+                                                    </option>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                       
+                                        <div class="pdl0 col-sm-8 col-md-9 mobpad">
+                                            <div class="form-group">
+                                                <input name="SecondPhoneNumber" class="form-control mobileNumber" placeholder="Second phone number (optional)" type="tel" maxlength="10" value="<% if(userDetail && userDetail.SecondPhoneNumber && userDetail.SecondPhoneNumber.length > 4){%><%= userDetail.SecondPhoneNumber.substr(userDetail.SecondPhoneNumber.length - 10) %><% } %>">
+                                                <div class="text-right checkbox">
+                                                    <input type="checkbox" id="SecondWhatsAppNumber" name="SecondWhatsAppNumber" value="1" <% if(userDetail && userDetail.SecondWhatsAppNumber){%>checked<% } %>>
+                                                    <label for="SecondWhatsAppNumber">I have WhatsApp</label>
+                                                </div>
+                                            </div>
+                                    
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row clearfix">
+
+                                        <div class="col-sm-4">
+                                        <select class="selectpicker" id="Country" name="Country" data-live-search="true" > 
+                                        <option value="">Country</option>    
+                                        <% for(var i=0; i< Countries.length; i++){ %>
+                                            <option value="<%= Countries[i].CountryName %>" <% if(userDetail && userDetail.Country == Countries[i].CountryName){%>selected<% } %>><%= Countries[i].CountryName %></option>
+                                        <% } %>
+                                        </select>
+                                        </div>
+                                        
+                                        <div class="col-sm-4 pdl0 mobpad">
+                                            <div class="form-group">
+                                                <input name="State" id="State" class="form-control" placeholder="State*" value="<% if(userDetail){%><%= userDetail.State %><% } %>" type="text" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4 pdl0 mobpad">
+                                            <div class="form-group">
+                                                <input name="City" id="City" class="form-control" placeholder="City*" value="<% if(userDetail){%><%= userDetail.City %><% } %>" type="text" required>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="Address" class="form-control" placeholder="Address" value="<% if(userDetail){%><%= userDetail.Address %><% } %>" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group text-center login">
+                                <button type="button" onclick=" ProfileUpdate('ProfileForm');"class="button">Update Profile</button>
+                            </div>
+                            
+                        </form>
+                        
+                        <!-- Form end-->
+                    </div>
+                   
+                   
+                </div>
+                <!-- Form content box end -->
+            </div>
+        </div>
+    </div>
+</div>
+<% include script %>
+<% include footer %>
+<script>
+    //$('#signup').validate();
+    formValidation('ProfileForm');
+    var States = <%-JSON.stringify(States)%>;
+    var Countries = <%-JSON.stringify(Countries)%>;
+    autocomplete(document.getElementById("State"),States ,'Name');
+
+</script>

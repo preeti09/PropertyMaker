@@ -1,0 +1,112 @@
+<!-- Modal content-->
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+    </div>
+    <div class="modal-body" id="login">
+        <div class="white-bg">
+            <article>
+                <h4 class="modal-title">Interested in Our Services ?</h4>
+                
+                <form id="iamInterstedForm" method="Post">
+                 <!--  <%=  object.countryData %> -->
+                    <% 
+                    var CountryName = [];
+                    for (var i = 0; i < object.countryData.length; i++) {
+                        CountryName.push(object.countryData[i].CountryName);
+                       
+                    } %>
+                    
+                    <label>Property Title</label>
+                    <div class="form-group">
+                        <input name="PropertyName" class="form-control" placeholder="Name" type="text" value="<%if (object.propertyData){%><%=object.propertyData.Title %><%}%>" readonly>
+                    </div>
+
+                    <input name="userId" id="userId" type="hidden" value="<%if(object.userData){%> <%=object.userData.ID%><%}%>">
+                    
+                    <input name="UnitIdentifier" id="UnitIdentifier" type="hidden" value="<%if(object.propertyType){%><%=object.propertyType.UnitIdentifier%><%}%>">
+
+                    <input name="Extent" id="Extent" type="hidden" value="<%if(object.propertyData){%><%=object.propertyData.Extent%><%}%>">
+
+                    <input name="TotalPrice" id="TotalPrice" type="hidden" value="<%if(object.propertyData){%> <%=object.propertyData.TotalPrice%><%}%>">
+                   
+                    <input name="AskingPrice" id="AskingPrice" type="hidden" value="<%if(object.propertyData){%><%=object.propertyData.AskingPrice%><%}%>">
+
+                    <input name="propertyId" id="propertyId" type="hidden" value="<%if(object.propertyData){%><%=object.propertyData.ID%><%}%>">
+
+                    <input name="SearchPrice" id="SearchPrice" type="hidden" value="<%if(object.propertyData) {%><%=object.propertyData.SearchPrice%><%}%>">
+
+                    <input name="AMListingID" id="AMListingID" type="hidden" value="<%if(object.propertyData) {%><%=object.propertyData.AMListingID%><%}%>">
+
+                    <% if(object.propertyData.unitDetails && object.propertyData.unitDetails.length > 0) { %>
+                    <label>Unit Type</label>
+                    <div class="form-group">
+                        <select class="selectpicker" name="typeProperty" id="typeProperty" required>
+                         
+                        <option value="">Select Unit Type</option>   
+                         <% for(i=0; i < object.propertyData.unitDetails.length; i++) { %> 
+                         <option value="<%=object.propertyData.unitDetails[i].ID %>@<%=object.propertyData.unitDetails[i].UnitExtent %>@<%=object.propertyData.unitDetails[i].UnitTitle %>"><%=object.propertyData.unitDetails[i]. UnitTitle%></option>
+                         <% } %>                    
+                        </select>
+                    </div>    
+                    <% } %>
+                    
+                    <label>Name</label>
+                    <div class="form-group">
+                        <input name="Name" class="form-control" placeholder="Name" type="text" value="<% if (object.userData) { %> <%= object.userData.Name %> <% } %>" required>
+                    </div>
+
+                    <label>Email</label>
+                    <div class="form-group">
+                        <input name="Email" placeholder="Email" class="form-control" value="<%if(object.userData){%> <%=object.userData.Email%><%}%>" required>
+                    </div>
+
+                    <label>Phone Number</label>
+                    <div class="form-group">
+                        <input name="phoneNumber" onkeyup="$('#whatsAppNumber').val(this.value)" class="form-control mobileNumber" placeholder="Phone Number" maxlength="10" type="text" required id="users-phone" value="<% if (object.userData && object.userData.PhoneNumber) { %><%= object.userData.PhoneNumber.substr(object.userData.PhoneNumber.length - 10) %><% } %>">
+                    </div>
+                    
+                    <label>WhatsApp Number</label>
+                    <div class="form-group">
+                        <input class="form-control mobileNumber" maxlength="10" name="whatsAppNumber" placeholder="Whats App Number" type="text" required id="whatsAppNumber" value="<% if (object.userData && object.userData.WhatsAppNumber) { %><%= object.userData.WhatsAppNumber.substr(object.userData.WhatsAppNumber.length - 10) %><% } else if(object.userData && object.userData.PhoneNumber) { %><%= object.userData.PhoneNumber.substr(object.userData.PhoneNumber.length - 10) %><% } %>">
+                    </div>
+                
+                    <div class="form-group">
+                        <select class="selectpicker" name="countryIam" data-live-search="true" id="countryIam" required>
+                            <option value="" data-hidden="true">Select Country</option>
+                            <% for (var i = 0; i < object.countryData.length ; i++) { %>
+                            <option value="<%= object.countryData[i].CountryName%>" <% if (object.userData && object.userData.Country != 'undefined' && object.userData.Country == object.countryData[i].CountryName ) { %>selected<% } %>>
+                                <%= object.countryData[i].CountryName %>
+                            </option>
+                            <% } %>
+                        </select>
+                      <!--   <input class="form-control" name="countryIam" placeholder="Country" id="countryIam" type="text" id="countryIam" value="<% if (object.userData) { %> <%= object.userData.Country %> <% } %>" required>
+                     -->
+                     <!-- <% if(object.userData && object.userData.Country){%> selected="selected"<% } %> -->
+                    </div>
+
+                    <label>Message</label>
+                    <div class="form-group">
+                         <textarea class="form-control" name="message" id="message"  placeholder="Type your message..." required></textarea>
+                    </div>
+                    <div class="form-group clearfix">
+                        <div class="checkbox">
+                                <input type="checkbox" name="termCondition" id="termCondition" checked required><label for="termCondition">I have read and accepted the<a class="blue" href="/term-of-services" target="_blank"> Terms and Conditions</a></label>
+                        </div>
+                    </div>
+                 
+                    <div class="form-group text-center">
+                        <button type="button" onclick="iAmInterested_submit('iamInterstedForm')" class="btn btn-block submit-button">Submit</button>
+                    </div>
+                    <span id="msgInterest"></span>
+                </form>
+            </article>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+    formValidation('iamInterstedForm');
+</script>
+

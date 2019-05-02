@@ -1,0 +1,26 @@
+<%
+    function currencyFormat(input) {
+        input=input.toString();
+        var lastThree = input.substring(input.length-3);
+        var otherNumbers = input.substring(0,input.length-3);
+        if(otherNumbers != ''){
+            lastThree = ',' + lastThree;
+        }
+        input = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+
+        var a = input.split(',');
+        var p = '';
+        if(a.length == 4){
+            p = a[0]+' Cr';
+        }else
+        if(a.length == 3){
+            p = a[0]+' L';
+        }else
+        if(a.length == 2){
+            p = a[0]+' k';
+        }else{
+            p = input;
+        }
+        return p;
+    } 
+%>    

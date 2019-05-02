@@ -1,0 +1,438 @@
+<div class="row Apartment Villas Gated_Community Individual_House additional-info">
+    <div class="col-sm-6 col-xs-12">
+        <h4 class="Apartment Villas Individual_House additional-info">Name of the apartment</h4>
+        <h4 class="hiddenElement Gated_Community additional-info">Name of the Community</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="ProjectName" placeholder="Name of the Apartment">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Site area</h4>
+        <div class="form-group">
+            <input type="text" class="input-text ExtentOfTotalSite" name="ExtentOfTotalSite" placeholder="Site Area">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Total units</h4>
+        <div class="form-group">
+            <input type="text" class="input-text totalUnits" name="TotalUnits" placeholder="Total Units" value="">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Total floors</h4>
+        <div class="form-group">
+            <input type="text" class="input-text totalFloors" name="TotalFloors" placeholder="Total Floors" value="">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Total Towers</h4>
+        <div class="form-group">
+            <input type="text" class="input-text TotalTowers" name="TotalTowers" placeholder="Total Towers" value="">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 Villas Individual_House additional-info">
+        <h4>Floor number</h4>
+        <div class="form-group">
+            <input type="text" class="input-text UnitFloor" name="UnitFloor" placeholder="Floor Number">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 " style="">
+        <h4>Bank Loan</h4>
+        <div class="form-group">
+            <div class="radio-btn">
+                <label>Yes<input class="radio" type="radio" name="bankLoan1" value="true" checked> </label>
+                <label>No<input class="radio" type="radio" name="bankLoan1" value="false">
+                </label>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row Residential_Plot Commercial_Plot Villa_Plot New_Approved_Layout Apartment Villas Gated_Community Launch_Possession additional-info">
+    <div class="col-sm-6 col-xs-12">
+        <h4>Launch date</h4>
+        <div class="input-group date form-group" data-toggle="datepicker">
+            <input type="text" class="form-control" placeholder="mm /dd / yyyy" name="LaunchDate">
+            <div class="input-group-addon">
+                <span class="fa fa-calendar-o icon"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Possesion date</h4>
+        <div class="input-group date form-group" data-toggle="datepicker">
+            <input type="text" class="form-control" placeholder="mm /dd / yyyy" name="PossessionDate">
+            <div class="input-group-addon">
+                <span class="fa fa-calendar-o icon"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row Residential_Plot Commercial_Plot Villa_Plot New_Approved_Layout additional-info">
+    <div class="col-sm-6 col-xs-12 Residential_Plot Commercial_Plot Villa_Plot additional-info">
+        <h4>Plot Number</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="PlatNumber" placeholder="Plot Number">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Layout Name</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="ProjectName1" placeholder="Layout Name">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 New_Approved_Layout additional-info">
+        <h4>CRDA/VUDA LP Number</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="ApprovalNumber" placeholder="Approval Number">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 lpnumber Residential_Plot Commercial_Plot Villa_Plot additional-info">
+        <h4>LP Number</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="ApprovalNumber" placeholder="LP Number">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 Residential_Plot Commercial_Plot Villa_Plot additional-info">
+        <h4>Year of Layout</h4>
+        <div class="input-group date form-group" data-toggle="yearpicker">
+            <input type="text" class="form-control" placeholder="yyyy" name="LaunchDate">
+            <div class="input-group-addon">
+                <span class="fa fa-calendar-o icon"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-xs-12">
+        <h4>Width</h4>
+        <div class="form-group">
+            <input type="text" class="input-text PlotWidth" placeholder="Plot Width" name="PlotWidth" placeholder="">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Length</h4>
+        <div class="form-group">
+            <input type="text" class="input-text PlotLength" placeholder="Plot Length" name="PlotLength" placeholder="">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12" style="">
+        <h4>Bank Loan</h4>
+        <div class="form-group">
+            <div class="radio-btn">
+                <label>Yes<input class="radio" type="radio" name="bankLoan" value="true" checked> </label>
+                <label>No<input class="radio" type="radio" name="bankLoan" value="false">
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 New_Approved_Layout additional-info">
+        <h4>Project Status</h4>
+        <div class="form-group">
+            <select class="selectpicker" onchange="$('#ProjectStatusID option:selected').val() ? $('#previewStatus').html($('#ProjectStatusID option:selected').text()) : $('#previewStatus').html('')"
+                name="ProjectStatusID" id="ProjectStatusID">
+                <option value="">Select</option>
+                <% for(var i=0; i < ProjectStatus.length; i++){%>
+                <option value="<%= ProjectStatus[i].ID %>">
+                    <%= ProjectStatus[i].Status %>
+                </option>
+                <% } %>
+                <!-- <option value="complete">Ready to Move</option>
+                                            <option value="working">Under Construction</option> -->
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-12 col-xs-12 New_Approved_Layout additional-info">
+        <h4>Brochure</h4>
+
+        <div id="brochure" class="dropzone dropzone-design mb-50">
+            <div class="dz-default dz-message">upload</div>
+        </div>
+
+        <input type="hidden" id="brochureUrl" class="input-text" name="BrochureURL">
+    </div>
+
+</div>
+
+<div class="Agriculture_Lands row Dry Wet additional-info" style="display:none">
+    <div class="col-sm-6 col-xs-12">
+        <h4>Road Access</h4>
+        <div class="form-group">
+            <div class="radio-btn">
+                <label>Yes</label> <input class="radio" type="radio" name="RoadAccess" value="true" checked />
+                <label>No</label> <input class="radio" type="radio" name="RoadAccess" value="false" />
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Recent Crop Cultivated</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="RecentCrop" placeholder="">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Soil</h4>
+        <!--<div class="form-group">
+                                        <input type="text" class="input-text" name="SoilTypeID"  placeholder="" >
+                                    </div>-->
+        <select class="selectpicker" name="SoilTypeID">
+            <% for(var i=0; i< soil.length; i++){ %>
+            <option value="<%= soil[i].ID %>">
+                <%= soil[i].Type %>
+            </option>
+            <% } %>
+        </select>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Water Source</h4>
+        <select class="selectpicker" name="WaterSource">
+            <option value="Rainfed">Rainfed</option>
+            <option value="Canal">Canal</option>
+            <option value="Bore">Bore</option>
+        </select>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Width</h4>
+        <div class="form-group">
+            <input type="text" class="input-text PlotWidth" name="PlotWidth" placeholder="">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Length</h4>
+        <div class="form-group">
+            <input type="text" class="input-text PlotLength" name="PlotLength" placeholder="">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Land Mark</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="Landmark" placeholder="">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-xs-12">
+        <h4>Plan Approved By</h4>
+        <select class="selectpicker" name="PlanApprovedBy">
+            <option value="">Select</option>
+            <% for(var i=0; i< PlanApprovedby.length; i++){ %>
+            <option value="<%= PlanApprovedby[i].ID %>">
+                <%= PlanApprovedby[i].Authority %>
+            </option>
+            <% } %>
+        </select>
+    </div>
+</div>
+
+<div class="row input_fields_wrap Apartment Villas Gated_Community additional-info" style="display:none" data-key="0">
+    <div class="col-sm-12 col-xs-12 mt30">
+        <h4 class="heading">Unit Details</h4>
+    </div>
+    <input type="hidden" name="multiple_option_length" id="multiple_option_length" value="1">
+    <div class="flore-row-0">
+        <div class="col-sm-6 col-xs-12">
+            <h4>Title</h4>
+            <div class="form-group">
+                <input type="text" class="input-text title" name="title_0" placeholder="Title">
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Bedrooms</h4>
+            <select class="selectpicker bedrooms" onchange="this.value ? $('#previewBed').html('<i class=\'fa fa-bed\'></i><span>'+this.value+'</span>') : $('#previewBed').html('')"
+                id="bedrooms_0" name="bedrooms_0">
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Bathrooms</h4>
+            <select class="selectpicker bathrooms" onchange="this.value ? $('#previewBath').html('<i class=\'flaticon-holidays\'></i><span >'+this.value+'</span>') : $('#previewBath').html('')"
+                name="bathrooms_0" id="bathrooms_0">
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Number of Balconies</h4>
+            <select class="selectpicker" name="numberofblaconies_0">
+                
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Super built up area</h4>
+            <div class="form-group">
+                <input type="text" class="input-text buildUpArea" name="buildUpArea_0" placeholder="Super Built up area">
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Plinth area</h4>
+            <div class="form-group">
+                <input type="text" class="input-text plinthArea" name="plinthArea_0" placeholder="Plinth Area">
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Facing</h4>
+
+            <div class="form-group">
+                <div class="checkbox inline">
+                    <input type="checkbox" value="true" name="north_0" id="north_0"><label for="north_0">N</label>
+                </div>
+                <div class="checkbox inline">
+                    <input type="checkbox" value="true" name="east_0" id="east_0"><label for="east_0">E</label>
+                </div>
+                <div class="checkbox inline">
+                    <input type="checkbox" value="true" name="south_0" id="south_0"><label for="south_0">S</label>
+                </div>
+                <div class="checkbox inline">
+                    <input type="checkbox" value="true" name="west_0" id="west_0"><label for="west_0">W</label>
+                </div>
+            </div>
+            <!--<div class="form-group mt15">
+                                            <div class="checkbox">
+                                                <input type="checkbox" value="true" name="north_0" id="north_0"><label for="north_0">N</label>
+                                                <input type="checkbox" value="true" name="east_0" id="east_0"><label for="east_0">E</label>
+                                                <input type="checkbox" value="true" name="south_0" id="south_0"><label for="south_0">S</label>
+                                                <input type="checkbox" value="true" name="west_0" id="west_0"><label for="west_0">W</label>
+                                            </div>
+                                        </div>-->
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Undivided share</h4>
+            <div class="form-group">
+                <input type="text" name="undividedShare_0" class="input-text undividedShare" placeholder="Undivided Share">
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Car parking Area</h4>
+
+            <div class="form-group">
+                <input type="text" name="CarParkingArea_0" class="input-text CarParkingArea" placeholder="Car Parking Area">
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Balconies Area</h4>
+            <div class="form-group">
+                <input type="text" name="BalconyArea_0" class="input-text BalconyArea" placeholder="Balconies Area">
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xs-12">
+            <h4>Apartment Number</h4>
+            <div class="form-group">
+                <input type="text" name="UnitNumber_0" class="input-text" placeholder="Apartment Number">
+            </div>
+        </div>
+        <!-- <div class="col-sm-6 col-xs-12">
+                                        <h4>Unit Extent</h4>
+                                        <div class="form-group">
+                                            <input type="text" name="UnitExtent_0" class="input-text" placeholder="Apartment Number">
+                                        </div>
+                                    </div>     -->
+        <div class="col-sm-6 col-xs-12 Apartment Gated_Community additional-info">
+            <h4>Floor number</h4>
+            <div class="form-group">
+                <input type="text" class="input-text UnitFloor" name="UnitFloor_0" placeholder="Floor Number">
+            </div>
+        </div>
+
+        <!-- <div class="col-sm-12 col-xs-12">
+                                        <h4>Images</h4>
+
+                                        <div id="ImageDropZone_plots_0" class="dropzone dropzone-design mb-50">
+                                            <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+                                        </div>
+                                        <input type="hidden" id="plot_image_0" name="plot_image_0" value="" >
+                                    </div> -->
+    </div>
+</div>
+<div class="row Apartment Villas Gated_Community additional-info">
+    <div class="col-sm-12 text-left mb-30">
+        <button class="add_field_button-0 button transparent" type="button" onclick="addhtml(this);" data-key="0">Add</button>
+    </div>
+</div>
+
+<div class="row input_plots_wrap New_Approved_Layout additional-info" style="display:none" data-key="0">
+    <div class="col-sm-12 col-xs-12 mt30">
+        <h4 class="heading">Unit Details</h4>
+    </div>
+    <input type="hidden" name="multiple_option_length_1" id="multiple_option_length_1" value="1">
+    <div class="plots-row-0">
+        <div class="col-sm-6 col-xs-12">
+            <h4>Title</h4>
+            <div class="form-group">
+                <input type="text" class="input-text title" name="plotsTitle_0" placeholder="Title">
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xs-12">
+            <h4>Length</h4>
+            <div class="form-group">
+                <input type="text" class="input-text" name="PlotLength_0" placeholder="Plot Length">
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Width</h4>
+            <div class="form-group">
+                <input type="text" class="input-text" name="PlotWidth_0" placeholder="Width">
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Plot Extent</h4>
+            <div class="form-group">
+                <input type="text" class="input-text" name="plotsUnitExtent_0" placeholder="">
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Unit Number</h4>
+            <div class="form-group">
+                <input type="text" class="input-text" name="plotsUnitNumber_0" placeholder="">
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Facing</h4>
+            <div class="form-group">
+                <div class="checkbox inline">
+                    <input type="checkbox" value="true" name="plotsNorth_0" id="plotsNorth_0"><label for="plotsNorth_0">N</label>
+                </div>
+                <div class="checkbox inline">
+                    <input type="checkbox" value="true" name="plotsEast_0" id="plotsEast_0"><label for="plotsEast_0">E</label>
+                </div>
+                <div class="checkbox inline">
+                    <input type="checkbox" value="true" name="plotsSouth_0" id="plotsSouth_0"><label for="plotsSouth_0">S</label>
+                </div>
+                <div class="checkbox inline">
+                    <input type="checkbox" value="true" name="plotsWest_0" id="plotsWest_0"><label for="plotsWest_0">W</label>
+                </div>
+            </div>
+            <!--<div class="form-group mt15">
+                                            <div class="checkbox">
+                                                <input type="checkbox" value="true" name="plotsNorth_0" id="plotsNorth_0"><label for="plotsNorth_0">N</label>
+                                                <input type="checkbox" value="true" name="plotsEast_0" id="plotsEast_0"><label for="plotsEast_0">E</label>
+                                                <input type="checkbox" value="true" name="plotsSouth_0" id="plotsSouth_0"><label for="plotsSouth_0">S</label>
+                                                <input type="checkbox" value="true" name="plotsWest_0" id="plotsWest_0"><label for="plotsWest_0">W</label>
+                                            </div>
+                                        </div>-->
+        </div>
+
+
+        <div class="col-sm-12 text-left mb-30">
+            <button class="add_plots_button-0 button transparent" type="button" onclick="addPlotsUnitDetails(this);"
+                data-key="0">Add</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,406 @@
+<div class="row Apartment Villas Gated_Community Individual_House additional-info">
+    <div class="col-sm-6 col-xs-12 Apartment Villas Gated_Community additional-info">
+        <h4 class="Apartment Villas Individual_House additional-info">Name of the apartment</h4>
+        <h4 class="hiddenElement Gated_Community additional-info">Name of the Community</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="ProjectName" placeholder="Name of the Apartment" value="<% if(EditpropertiesDetailData && EditpropertiesDetailData.ProjectName){ %><%= EditpropertiesDetailData.ProjectName %><% } %>">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Site area</h4>
+        <div class="form-group">
+            <input type="text" class="input-text ExtentOfTotalSite" name="UnitExtentOfTotalSite" placeholder="Site Area" value="<% if(EditpropertiesDetailData && EditpropertiesDetailData.ExtentOfTotalSite){ %><%= EditpropertiesDetailData.ExtentOfTotalSite %><% } %>">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Units Of area</h4>
+        <select class="selectpicker UnitsOfArea" name="ExtentOfTotalSiteUnitID" id="ExtentOfTotalSiteUnitID">
+            <option value="">Select</option>
+            <% for(var i=0; i< UnitsOfArea.length; i++){ %>
+            <option value="<%= UnitsOfArea[i].ID %>" <% if(typeof EditpropertiesDetailData != 'undefined' && EditpropertiesDetailData.ExtentOfTotalSiteUnitID ==  UnitsOfArea[i].ID) { %> selected<% } %>>
+                <%= UnitsOfArea[i].Unit %>
+            </option>
+            <% } %>
+        </select>
+    </div>
+    <div class="col-sm-6 col-xs-12 Apartment Villas Gated_Community additional-info">
+        <h4>Total units</h4>
+        <div class="form-group">
+            <input type="text" class="input-text totalUnits" name="TotalUnits" placeholder="Total Units" value="<% if(EditpropertiesDetailData && EditpropertiesDetailData.TotalUnits){ %><%= EditpropertiesDetailData.TotalUnits %><% } %>">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Total floors</h4>
+        <div class="form-group">
+            <input type="text" class="input-text totalFloors" name="TotalFloors" placeholder="Total Floors" value="<% if(EditpropertiesDetailData && EditpropertiesDetailData.TotalFloors){ %><%= EditpropertiesDetailData.TotalFloors %><% } %>">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 Apartment Villas Gated_Community additional-info">
+        <h4>Total Towers</h4>
+        <div class="form-group">
+            <input type="text" class="input-text TotalTowers" name="TotalTowers" placeholder="Total Towers" value="<% if(EditpropertiesDetailData && EditpropertiesDetailData.TotalTowers){ %><%= EditpropertiesDetailData.TotalTowers %><% } %>">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 Villas Individual_House additional-info">
+        <h4>Floor number</h4>
+        <div class="form-group">
+            <input type="text" class="input-text UnitFloor" name="UnitFloor" placeholder="Floor Number" value="<% if(EditpropertiesDetailData && EditpropertiesDetailData.UnitFloor){ %><%= EditpropertiesDetailData.UnitFloor %><% } %>">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Plan Approved By</h4>
+        <select class="selectpicker PlanApprovedBy" name="PlanApprovedBy" id="PlanApprovedBy">
+            <option value="">Select</option>
+            <% for(var i=0; i< PlanApprovedby.length; i++){ %>
+            <option value="<%= PlanApprovedby[i].ID %>" <% if(typeof EditpropertiesDetailData != 'undefined' && EditpropertiesDetailData.Authority) { %> selected<% } %>>
+                <%= PlanApprovedby[i].Authority %>
+            </option>
+            <% } %>
+        </select>
+    </div>
+    <div class="col-sm-6 col-xs-12 Apartment Villas Gated_Community Launch_Possession additional-info">
+        <h4>Launch date</h4>
+        <div class="input-group date form-group" data-toggle="datepicker">
+            <input type="text" class="form-control" placeholder="yyyy/mm/dd" name="LaunchDate" value="<% if(EditpropertiesDetailData && EditpropertiesDetailData.LaunchDate){ %><%= EditpropertiesDetailData.LaunchDate %><% } %>">
+            <div class="input-group-addon">
+                <span class="fa fa-calendar-o icon"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 Apartment Villas Gated_Community Launch_Possession additional-info">
+        <h4>Possesion date</h4>
+        <div class="input-group date form-group" data-toggle="datepicker">
+            <input type="text" class="form-control" placeholder="yyyy/mm/dd" name="PossessionDate" value="<% if(EditpropertiesDetailData && EditpropertiesDetailData.PossessionDate){ %><%= EditpropertiesDetailData.PossessionDate %><% } %>">
+            <div class="input-group-addon">
+                <span class="fa fa-calendar-o icon"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 Apartment Villas Gated_Community additional-info">
+        <h4>RERA Approved</h4>
+        <select class="selectpicker" name="RERAApproved" id="RERAApproved">
+            <option value="true">Yes</option>
+            <option value="false" selected>No</option>
+        </select>
+    </div>
+    <div class="col-sm-6 col-xs-12 Apartment Villas Gated_Community additional-info">
+        <h4>RERA Approval Number</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="RERAApprovalNumber" placeholder="RERA Approval Number" value="<% if(EditpropertiesDetailData && EditpropertiesDetailData.RERAApprovalNumber){ %><%= EditpropertiesDetailData.RERAApprovalNumber %><% } %>">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12 ">
+        <h4>Bank Loan</h4>
+        <!-- <div class="form-group">
+            <div class="radio-btn">
+                <label>Yes<input class="radio" type="radio" name="bankLoan1" value="true" checked> </label>
+                <label>No<input class="radio" type="radio" name="bankLoan1" value="false">
+                </label>
+            </div>
+        </div> -->
+
+        <div class="form-group">
+            <div class="radio  inline">
+                <input class="radio" type="radio" name="bankLoan1" value="true" checked>
+                <label for="Yes1" >Yes</label>                                         
+            </div>
+            <div class="radio  inline">
+                <input class="radio" type="radio" name="bankLoan1" value="false">
+                <label for="No1">No</label>                                        
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+    
+     <!-- <div class="col-sm-6 col-xs-12">
+        <h4>Bedrooms</h4>
+        <select class="selectpicker bedrooms" onchange="this.value ? $('#previewBed').html('<i class=\'fa fa-bed\'></i><span>'+this.value+'</span>') : $('#previewBed').html('')"
+            id="bedrooms_0" name="bedrooms">
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Bathrooms</h4>
+        <select class="selectpicker bathrooms" onchange="this.value ? $('#previewBath').html('<i class=\'flaticon-holidays\'></i><span >'+this.value+'</span>') : $('#previewBath').html('')"
+            name="bathrooms" id="bathrooms">
+            <option value="">Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select>
+    </div> -->
+ 
+
+
+<div class="row input_fields_wrap Apartment Villas Gated_Community additional-info"  data-key="<%= EditUnitDetailData.length %>">
+    <!-- <div class="flore-row-0">  -->
+    <div class="col-sm-12 col-xs-12">
+        <h4 class="heading">Unit Details</h4>
+    </div>
+    <input type="hidden" name="multiple_option_length" id="multiple_option_length" value="<% if(EditUnitDetailData && EditUnitDetailData.length){ %><%= EditUnitDetailData.length %><% }else{ %> 1 <% } %>">
+
+    <%
+    if(EditUnitDetailData.length > 0){
+        for(i=0; i < EditUnitDetailData.length; i++){ %>
+    <div class="flore-row-<%= i %>">
+        <div class="col-sm-6 col-xs-12">
+            <h4>Title</h4>
+            <div class="form-group">
+                <input type="text" class="input-text title" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>title_<%= i %><% } %>" placeholder="Title"  value="<% if(EditUnitDetailData[i].UnitTitle){ %><%= EditUnitDetailData[i].UnitTitle %><% } %>" required>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Bedrooms</h4>
+            <select class="selectpicker bedrooms" onchange="this.value ? $('#previewBed').html('<i class=\'fa fa-bed\'></i><span>'+this.value+'</span>') : $('#previewBed').html('')"
+                id="bedrooms_0" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>bedrooms_<%= i %><% }%>">
+                <option value="">Select</option>
+                <option value="1" <% if(EditUnitDetailData[i].NumberofBeds == 1){ %>selected<% } %>>1</option>
+                <option value="2" <% if(EditUnitDetailData[i].NumberofBeds == 2){ %>selected<% } %>>2</option>
+                <option value="3" <% if(EditUnitDetailData[i].NumberofBeds == 3){ %>selected<% } %>>3</option>
+                <option value="4" <% if(EditUnitDetailData[i].NumberofBeds == 4){ %>selected<% } %>>4</option>
+                <option value="5" <% if(EditUnitDetailData[i].NumberofBeds == 5){ %>selected<% } %>>5</option>
+                <option value="6" <% if(EditUnitDetailData[i].NumberofBeds == 6){ %>selected<% } %>>6</option>
+            </select>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Bathrooms</h4>
+            <select class="selectpicker bathrooms" onchange="this.value ? $('#previewBath').html('<i class=\'flaticon-holidays\'></i><span >'+this.value+'</span>') : $('#previewBath').html('')"
+                id="bathrooms_0" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>bathrooms_<%= i %><% } %>">
+                <option value="">Select</option>
+                <option value="1" <% if(EditUnitDetailData[i].NumberofBath == 1){ %>selected<% } %>>1</option>
+                <option value="2"<% if(EditUnitDetailData[i].NumberofBath == 2){ %>selected<% } %>>2</option>
+                <option value="3"<% if(EditUnitDetailData[i].NumberofBath == 3){ %>selected<% } %>>3</option>
+                <option value="4"<% if(EditUnitDetailData[i].NumberofBath == 4){ %>selected<% } %>>4</option>
+                <option value="5"<% if(EditUnitDetailData[i].NumberofBath == 5){ %>selected<% } %>>5</option>
+                <option value="6"<% if(EditUnitDetailData[i].NumberofBath == 6){ %>selected<% } %>>6</option>
+            </select>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Number of Balconies</h4>
+            <select class="selectpicker" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>numberofblaconies_<%= i %><% } else{ %>title_0<% } %>">
+                <option value="">Select</option>
+                <option value="1"<% if(EditUnitDetailData[i].numberofblaconies == 1){ %>selected<% } %>>1</option>
+                <option value="2"<% if(EditUnitDetailData[i].numberofblaconies == 2){ %>selected<% } %>>2</option>
+                <option value="3" <% if(EditUnitDetailData[i].numberofblaconies == 3){ %>selected<% } %>>3</option>
+                <option value="4"<% if(EditUnitDetailData[i].numberofblaconies == 4){ %>selected<% } %>>4</option>
+                <option value="5" <% if(EditUnitDetailData[i].numberofblaconies == 5){ %>selected<% } %>>5</option>
+                <option value="6"<% if(EditUnitDetailData[i].numberofblaconies == 6){ %>selected<% } %>>6</option>
+            </select>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Super built up area</h4>
+            <div class="form-group">
+                <input type="text" class="input-text buildUpArea"  name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>buildUpArea_<%= i %><% } %>" placeholder="Super Built up area" value="<% if(EditUnitDetailData[i].SuperBuiltUpArea){%><%= EditUnitDetailData[i].SuperBuiltUpArea %><% } %>" onkeyup="showUnitExtend('buildUpArea')">
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Plinth area</h4>
+            <div class="form-group">
+                <input type="text" class="input-text plinthArea"  name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>plinthArea_<%= i %><% } %>"placeholder="Plinth Area" value="<% if(EditUnitDetailData[i].PlinthArea){%><%= EditUnitDetailData[i].PlinthArea %><% } %>">
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Facing</h4>
+            <div class="form-group">
+                <div class="checkbox inline">
+                    <input type="checkbox" value="true" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>north_<%= i %><% }%>" id="north_0" <% if(EditUnitDetailData[i].North){ %>checked<% } %> ><label for="north_0">N</label>
+                </div>
+                <div class="checkbox inline">
+                    <input type="checkbox" value="true"  id="east_0" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>east_<%= i %><% }  %>" <% if(EditUnitDetailData[i].East){ %>checked<% } %> ><label for="east_0">E</label>
+                </div>
+                <div class="checkbox inline">
+                    <input type="checkbox" value="true"  id="south_0" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>south_<%= i %><% } %>" <% if(EditUnitDetailData[i].South){ %>checked<% } %> ><label for="south_0">S</label>
+                </div>
+                <div class="checkbox inline">
+                    <input type="checkbox" value="true" id="west_0"  name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>west_<%= i %><% } %>"<% if(EditUnitDetailData[i].West){ %>checked<% } %> ><label for="west_0">W</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Undivided share</h4>
+            <div class="form-group">
+                <input type="text"  class="input-text undividedShare" placeholder="Undivided Share" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>undividedShare_<%= i %><% }  %>" value="<% if(EditUnitDetailData[i].SuperBuiltUpArea){%><%= EditUnitDetailData[i].SuperBuiltUpArea %><% } %>">
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Car parking Area</h4>
+            <div class="form-group">
+                <input type="text" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>CarParkingArea_<%= i %><% } %>" class="input-text " placeholder="Car Parking Area"  value="<% if(EditUnitDetailData[i]. CarParkingArea){%><%= EditUnitDetailData[i].CarParkingArea %><% } %>">
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Balconies Area</h4>
+            <div class="form-group">
+                <input type="text" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>BalconyArea_<%= i %><%  } %>" class="input-text " placeholder="Balconies Area" value="<% if(EditUnitDetailData[i]. BalconyArea){%><%= EditUnitDetailData[i].BalconyArea %><% } %>">
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h4>Apartment Number</h4>
+            <div class="form-group">
+                <input type="text"  name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>UnitNumber_<%= i %><% } %>" class="input-text" placeholder="Apartment Number">
+            </div>
+        </div>
+ <!--        <div class="col-sm-6 col-xs-12 Apartment Gated_Community additional-info">
+            <h4>Floor number</h4>
+            <div class="form-grouFloorp">
+                <input type="text" class="input-text UnitFloor" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>UnitFloor_<%= i %><% } %>"  placeholder="Floor Number">
+            </div>
+        </div> -->
+        <div class="col-sm-12 col-xs-12 ">
+            <h4>Upload an Image</h4>
+            <div id="FloorPlanImage_0" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>FloorPlanURL_<%= i %><% }  %>" class="dropzone dropzone-design mb-30">
+                <div class="dz-default dz-message">Drop files here to upload</div>
+            </div>
+            <input type="hidden"  class="input-text" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>FloorPlanURL_<%= i %><% }  %>">
+        </div>
+        <div class="col-sm-12 col-xs-12 ">
+            <h4>Add videos</h4>
+            <div class="form-group">
+                <input type="text" id="VideoURL_0" name="<% if(EditUnitDetailData && EditUnitDetailData.length){ %>VideoURL_<%= i %><% }  %>"  class="input-text" placeholder="Add a video link">
+            </div>
+        </div>
+    <div class="col-sm-12 text-left mb-30">
+            <button class="add_field_button-' + i + ' button transparent" type="button"  onclick="removehtml(<%= i %>,'flore');" data-key="' + i + '">Remove</button>
+        </div>
+    </div>
+    <% } } else { %>
+        <div class="flore-row-0">
+            <div class="col-sm-6 col-xs-12">
+                <h4>Title</h4>
+                <div class="form-group">
+                    <input type="text" class="input-text title" name="title_0" placeholder="Title"required>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Bedrooms</h4>
+                <select class="selectpicker bedrooms" onchange="this.value ? $('#previewBed').html('<i class=\'fa fa-bed\'></i><span>'+this.value+'</span>') : $('#previewBed').html('')"
+                    id="bedrooms_0" name="bedrooms_0">
+                    <option value="">Select</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Bathrooms</h4>
+                <select class="selectpicker bathrooms" onchange="this.value ? $('#previewBath').html('<i class=\'flaticon-holidays\'></i><span >'+this.value+'</span>') : $('#previewBath').html('')"
+                    name="bathrooms_0" id="bathrooms_0">
+                    <option value="">Select</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Number of Balconies</h4>
+                <select class="selectpicker" name="numberofblaconies_0">
+                    <option value="">Select</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Super built up area</h4>
+                <div class="form-group">
+                    <input type="text" class="input-text buildUpArea" name="buildUpArea_0" placeholder="Super Built up area" onkeyup="showUnitExtend('buildUpArea')">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Plinth area</h4>
+                <div class="form-group">
+                    <input type="text" class="input-text plinthArea" name="plinthArea_0" placeholder="Plinth Area">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Facing</h4>
+    
+                <div class="form-group">
+                    <div class="checkbox inline">
+                        <input type="checkbox" value="true" name="north_0" id="north_0"><label for="north_0">N</label>
+                    </div>
+                    <div class="checkbox inline">
+                        <input type="checkbox" value="true" name="east_0" id="east_0"><label for="east_0">E</label>
+                    </div>
+                    <div class="checkbox inline">
+                        <input type="checkbox" value="true" name="south_0" id="south_0"><label for="south_0">S</label>
+                    </div>
+                    <div class="checkbox inline">
+                        <input type="checkbox" value="true" name="west_0" id="west_0"><label for="west_0">W</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Undivided share</h4>
+                <div class="form-group">
+                    <input type="text" name="undividedShare_0" class="input-text undividedShare" placeholder="Undivided Share" >
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Car parking Area</h4>
+                <div class="form-group">
+                    <input type="text" name="CarParkingArea_0" class="input-text " placeholder="Car Parking Area">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <h4>Balconies Area</h4>
+                <div class="form-group">
+                    <input type="text" name="BalconyArea_0" class="input-text " placeholder="Balconies Area">
+                </div>
+            </div>
+    
+            <div class="col-sm-6 col-xs-12">
+                <h4>Apartment Number</h4>
+                <div class="form-group">
+                    <input type="text" name="UnitNumber_0" class="input-text" placeholder="Apartment Number">
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12 Apartment Gated_Community additional-info">
+                <h4>Floor number</h4>
+                <div class="form-group">
+                    <input type="text" class="input-text UnitFloor" name="UnitFloor_0" placeholder="Floor Number">
+                </div>
+            </div>
+            <div class="col-sm-12 col-xs-12 ">
+                <h4>Upload an Image</h4>
+                <div id="FloorPlanImage_0" class="dropzone dropzone-design mb-30">
+                    <div class="dz-default dz-message">Drop files here to upload</div>
+                </div>
+                <input type="hidden" id="FloorPlanURL_0"  name="FloorPlanURL_0">
+            </div>
+            <div class="col-sm-12 col-xs-12 ">
+                <h4>Add videos</h4>
+                <div class="form-group">
+                    <input type="text" id="VideoURL_0" name="VideoURL_0" class="input-text" placeholder="Add a video link">
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<div class="row Apartment Villas Gated_Community additional-info">
+    <div class="col-sm-12 text-left mb-30">
+        <button class="add_field_button-0 button transparent" type="button" onclick="addhtml(this);" data-key="0">Add</button>
+    </div>
+</div>

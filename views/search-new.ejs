@@ -1,0 +1,315 @@
+<% include header %>
+<div class="clearfix innerfirst"></div>
+<div class="container bredcrumb-area">
+    <ul class="list-inline bredcrumb text-right content-area">
+        <li><a href="/">Home</a> / </li>
+        <li><a href="#">Property search</a></li>
+    </ul>
+</div>
+
+<div class="container">
+        <div class="ta-r">
+              <div data-type="reset-btn" class="resetBtn">
+                <span class="fa fa-refresh"></span><span> reset</span>
+              </div>
+           </div>
+    <div id="filter-section" class="filters-wrap row">
+           <div class="filter-tab">
+              <span class="selected-val js-label js-filter-btn"><span class="flaticon-bed left-icon"></span><span class="txt">Bedroom</span><span class="lnr lnr-chevron-down arrow-dir"></span></span>
+              <ul class="dd js-dd">
+                <li>
+                    <div class="checkbox">
+                      <input id="check01" type="checkbox" data-val="1">
+                      <label for="check01">1 BHK</label>
+                  </div>
+                </li>
+                <li>
+                    <div class="checkbox">
+                      <input id="check02" type="checkbox" data-val="2">
+                      <label for="check02">2 BHK</label>
+                  </div>
+                </li>
+                <li>
+                    <div class="checkbox">
+                        <input id="check03" type="checkbox" data-val="3">
+                        <label for="check03">3 BHK</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox">
+                        <input id="check04" type="checkbox" data-val="4">
+                        <label for="check04">4 BHK</label>
+                    </div>
+                </li>
+                <li>
+                    <div class="checkbox">
+                        <input id="check05" type="checkbox" data-val="5,6,7,8,9">
+                        <label for="check05">5+ BHK</label>
+                    </div>
+                </li>
+              </ul>
+           </div>
+           <div class="filter-tab budget-tab">
+              <span class="selected-val js-filter-btn"><span class="fa fa-rupee left-icon"></span><span class="txt">Budget</span><span class="lnr lnr-chevron-down arrow-dir"></span></span>
+              <div class="parameter-dropdown dd js-dd">
+                 <div class="min-parameter">
+                    <div class="inputwrap">
+                      <input type="text" placeholder="Minimum" value="" data-value="" data-name="budget" data-type="range-input-min" class="margin-5">
+                    </div>
+                    <ul class="min-dropdown range-toggle-in">
+                       <li data-value="0"><span>₹</span> 0 L</li>
+                       <li data-value="500000"><span>₹</span> 5 L</li>
+                       <li data-value="1000000"><span>₹</span> 10 L</li>
+                       <li data-value="2000000"><span>₹</span> 20 L</li>
+                       <li data-value="3000000"><span>₹</span> 30 L</li>
+                       <li data-value="4000000"><span>₹</span> 40 L</li>
+                       <li data-value="5000000"><span>₹</span> 50 L</li>
+                       <li data-value="6000000"><span>₹</span> 60 L</li>
+                       <li data-value="7000000"><span>₹</span> 70 L</li>
+                       <li data-value="8000000"><span>₹</span> 80 L</li>
+                       <li data-value="9000000"><span>₹</span> 90 L</li>
+                       <li data-value="10000000"><span>₹</span> 1 Cr</li>
+                       <li data-value="15000000"><span>₹</span> 1.5 Cr</li>
+                       <li data-value="20000000"><span>₹</span> 2 Cr</li>
+                       <li data-value="25000000"><span>₹</span> 2.5 Cr</li>
+                       <li data-value="30000000"><span>₹</span> 3 Cr</li>
+                       <li data-value="40000000"><span>₹</span> 4 Cr</li>
+                       <li data-value="50000000"><span>₹</span> 5 Cr</li>
+                       <li data-value="60000000"><span>₹</span> 6 Cr</li>
+                       <li data-value="80000000"><span>₹</span> 8 Cr</li>
+                       <li data-value="100000000"><span>₹</span> 10 Cr</li>
+                    </ul>
+                 </div>
+                 <div class="max-parameter">
+                    <div class="inputwrap">
+                      <input type="text" placeholder="Maximum" value="" data-value="" data-name="budget" data-type="range-input-max" class="max">
+                    </div>
+                    <ul class="max-dropdown  range-toggle-in hide">
+                       <li data-value="500000"><span>₹</span> 5 L</li>
+                       <li data-value="1000000"><span>₹</span> 10 L</li>
+                       <li data-value="2000000"><span>₹</span> 20 L</li>
+                       <li data-value="3000000"><span>₹</span> 30 L</li>
+                       <li data-value="4000000"><span>₹</span> 40 L</li>
+                       <li data-value="5000000"><span>₹</span> 50 L</li>
+                       <li data-value="6000000"><span>₹</span> 60 L</li>
+                       <li data-value="7000000"><span>₹</span> 70 L</li>
+                       <li data-value="8000000"><span>₹</span> 80 L</li>
+                       <li data-value="9000000"><span>₹</span> 90 L</li>
+                       <li data-value="10000000"><span>₹</span> 1 Cr</li>
+                       <li data-value="15000000"><span>₹</span> 1.5 Cr</li>
+                       <li data-value="20000000"><span>₹</span> 2 Cr</li>
+                       <li data-value="25000000"><span>₹</span> 2.5 Cr</li>
+                       <li data-value="30000000"><span>₹</span> 3 Cr</li>
+                       <li data-value="40000000"><span>₹</span> 4 Cr</li>
+                       <li data-value="50000000"><span>₹</span> 5 Cr</li>
+                       <li data-value="60000000"><span>₹</span> 6 Cr</li>
+                       <li data-value="80000000"><span>₹</span> 8 Cr</li>
+                       <li data-value="100000000"><span>₹</span> 10 Cr</li>
+                       <li data-value="">Any</li>
+                    </ul>
+                 </div>
+              </div>
+           </div>
+           <div class="filter-tab filter-completionDate">
+              <span class="selected-val js-label js-filter-btn">
+                <span class="flaticon-symbol-1 left-icon"></span>  
+                <span class="txt">Possession within</span><span class="lnr lnr-chevron-down arrow-dir"></span></span>
+              <ul class="dd js-dd">
+                 <li>
+                    <div class="radio-btn">
+                        <input id="radio01" type="radio" name="completionDate" data-val="90" class="radio" placeholder="">
+                        <label>3 months</label> 
+                    </div>
+                 </li>
+                 <li>
+                    <div class="radio-btn">
+                        <input id="radio01" type="radio" name="completionDate" data-val="90" class="radio" placeholder="">
+                        <label>6 months</label> 
+                    </div>
+                 </li>
+                 <li>
+                    <div class="radio-btn">
+                        <input id="radio01" type="radio" name="completionDate" data-val="90" class="radio" placeholder="">
+                        <label>1 yr</label> 
+                    </div>
+                 </li>
+                 <li>
+                    <div class="radio-btn">
+                        <input id="radio01" type="radio" name="completionDate" data-val="90" class="radio" placeholder="">
+                        <label>2+ yrs</label> 
+                    </div>
+                 </li>
+              </ul>
+           </div>
+           <div class="filter-tab filter-listing-type more-inner-col">
+              <span class="selected-val js-label js-filter-btn">
+                <span class="glyphicon glyphicon-check left-icon"></span>
+                <span class="txt">Availability</span>
+                <span class="lnr lnr-chevron-down arrow-dir"></span>
+            </span>
+              <ul class="dd js-dd">
+                 <li>
+                    <div class="checkbox">
+                        <input id="check51" type="checkbox" data-val="new">
+                        <label for="check51">1 New</label>
+                    </div>
+                 </li>
+                 <li>
+                    <div class="checkbox">
+                        <input id="check52" type="checkbox" data-val="Resale">
+                        <label for="check52">Resale</label>
+                    </div>
+                 </li>
+              </ul>
+           </div>
+           <div class="filter-tab filter-more">
+              <span class="selected-val js-filter-btn">
+                <span class="glyphicon glyphicon-filter left-icon"></span>
+                <span class="txt">More Filters</span>
+                <span class="lnr lnr-chevron-down arrow-dir"></span>
+              </span>
+              <div class="dd more-dd js-dd w4col">
+                 <div class="filter-project-status more-inner-col w4col">
+                    <span class="selected-val">Project Status</span>
+                    <div class="project-status-btn inner-row">
+                       <div class="checkbox">
+                          <input id="check11" type="checkbox" data-val="LaunchingSoon">
+                          <label for="check11">Launching Soon</label>
+                       </div>
+                    </div>
+                    <div class="project-status-btn inner-row">
+                        <div class="checkbox">
+                            <input id="check12" type="checkbox" data-val="NewLaunc">
+                            <label for="check12">New Launc</label>
+                        </div>
+                    </div>
+                    <div class="project-status-btn inner-row">
+                        <div class="checkbox">
+                            <input id="check13" type="checkbox" data-val="UnderConstruction">
+                            <label for="check13">Under Construction</label>
+                        </div>
+                    </div>
+                    <div class="project-status-btn inner-row">
+                        <div class="checkbox">
+                            <input id="check14" type="checkbox" data-val="ReadytoMoveIn">
+                            <label for="check14">Ready to Move In</label>
+                        </div>
+                    </div>
+                 </div>
+                 <div class="filter-property-type more-inner-col w4col">
+                    <span class="selected-val">Property Type</span>
+                    <div class="property-type-btn inner-row">
+                       <div class="checkbox">
+                          <input id="check21" type="checkbox" data-val="Apartments">
+                          <label for="check21">Apartments</label>
+                      </div>
+                    </div>
+                    <div class="property-type-btn inner-row">
+                        <div class="checkbox">
+                            <input id="check22" type="checkbox" data-val="Villa">
+                            <label for="check22">Villa</label>
+                        </div>
+                    </div>
+                    <div class="property-type-btn inner-row">
+                        <div class="checkbox">
+                            <input id="check23" type="checkbox" data-val="Plot">
+                            <label for="check23">Plot</label>
+                        </div>
+                    </div>
+                 </div>
+                 <div class="filter-baths more-inner-col w4col">
+                    <span class="selected-val">Bathrooms</span>
+                    <div class="ud multi-select">
+                       <div class="inner-row">
+                          <div class="checkbox">
+                              <input id="check41" type="checkbox" data-val="1">
+                              <label for="check41">1</label>
+                          </div>
+                       </div>
+                       <div class="inner-row">
+                          <div class="checkbox">
+                              <input id="check42" type="checkbox" data-val="2">
+                              <label for="check42">2</label>
+                          </div>
+                       </div>
+                       <div class="inner-row">
+                          <div class="checkbox">
+                              <input id="check43" type="checkbox" data-val="3,4,5">
+                              <label for="check43">3+</label>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="filter-size more-inner-col js-size-filter w4col">
+                    <span class="selected-val">Area (sqft)</span>
+                    <div class="parameter-dropdown dd">
+                       <div class="min-parameter">
+                          <div class="inputwrap"><input type="text" placeholder="Minimum" value="" data-value="" data-name="budget" data-type="range-input-min" class="margin-5"></div>
+                          <ul class="min-dropdown range-toggle-in">
+                             <li data-value="0">&lt;250 sq ft</li>
+                             <li data-value="250">250 sq ft</li>
+                             <li data-value="500">500 sq ft</li>
+                             <li data-value="1000">1000 sq ft</li>
+                             <li data-value="1500">1500 sq ft</li>
+                             <li data-value="2000">2000 sq ft</li>
+                             <li data-value="2500">2500 sq ft</li>
+                             <li data-value="3000">3000 sq ft</li>
+                             <li data-value="3500">3500 sq ft</li>
+                             <li data-value="4500">4500 sq ft</li>
+                             <li data-value="6000">6000 sq ft</li>
+                          </ul>
+                       </div>
+                       <div class="max-parameter">
+                          <div class="inputwrap"><input type="text" placeholder="Maximum" value="" data-value="" data-name="budget" data-type="range-input-max" class="max"></div>
+                          <ul class="max-dropdown range-toggle-in hide">
+                             <li data-value="250">250 sq ft</li>
+                             <li data-value="500">500 sq ft</li>
+                             <li data-value="1000">1000 sq ft</li>
+                             <li data-value="1500">1500 sq ft</li>
+                             <li data-value="2000">2000 sq ft</li>
+                             <li data-value="2500">2500 sq ft</li>
+                             <li data-value="3000">3000 sq ft</li>
+                             <li data-value="3500">3500 sq ft</li>
+                             <li data-value="4500">4500 sq ft</li>
+                             <li data-value="6000">6000 sq ft</li>
+                             <li data-value="">&gt;6000 sq ft</li>
+                          </ul>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+</div>
+<section class="filter-content">
+    <div class="container toggle-header">
+        <div>
+            <div id="msg">0 Residential Properties found</div>
+            <ul class="nav navbar-nav navbar-right activeClass display-toggle">
+                <!-- <li class="mapview-sortopt"><span>Sort by</span></li> -->
+                
+                <li><a data-displaytoggle="grid-opt" href="#" class="fa fa-th toggle"></a></li>
+                <li><a data-displaytoggle="list-opt" href="#" class="lnr lnr-list list-view toggle"></a></li>
+                <li><a data-displaytoggle="map-opt" href="#" class="fa fa-map-o toggle"></a></li>
+                <li class="active"><a data-displaytoggle="b-list-opt" href="#" class="lnr lnr-chevron-down-circle toggle"></a></li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="sort-options">
+        <div class="label">Sort by :</div>
+        <ul class="footer-list-view">
+            <li class="active"><a data-value="sort-by-relevance" data-type="sort" class="no-ajaxy">Relevance</a></li>
+            <li><a data-value="price-low-to-high" data-type="sort" class="no-ajaxy">Price: Low</a></li>
+            <li><a data-value="price-high-to-low" data-type="sort" class="no-ajaxy">Price: High</a></li>
+            <li><a data-value="possession-date-recent-on-top" data-type="sort" class="no-ajaxy">Possession Date</a></li>
+        </ul>
+      </div>
+</section>
+
+
+
+
+<% include script %>
+<% include footer %>
+

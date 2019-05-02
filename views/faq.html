@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <title>Avenir Realty LLP - Amaravati Real Estate Advisors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <!-- External CSS libraries -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-submenu.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/leaflet.css" type="text/css">
+    <link rel="stylesheet" href="css/map.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="fonts/linearicons/style.css">
+    <link rel="stylesheet" type="text/css"  href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css"  href="css/dropzone.css">
+    <link rel="stylesheet" type="text/css"  href="css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css"  href="css/intlTelInput.css">
+    <link rel="stylesheet" type="text/css"  href="css/datepicker.css">
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="css/skins/default.css">
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="img/Avenue-FavIcon.png" type="image/x-icon" >
+    <!-- Google fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" type="text/css" href="css/ie10-viewport-bug-workaround.css">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script defer src="js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.min.js"></script>
+    <script type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="page_loader"></div>
+    <!-- Main header start -->
+    <header class="main-header fixed-top darkHeader innerpage">
+      <div class="container-fluid">
+        <nav class="navbar navbar-default">
+          <div class="navbar-header">
+            <a href="index.html" class="logo">
+              <img src="img/logo.png" alt="logo">
+            </a>
+            <div class="check-filter-search">
+              <ul class="list-inline text-right">
+                <li><a class="fa fa-refresh" href="#"></a></li>
+                <li><a class="fa fa-heart" href="#"></a></li>
+              </ul>
+              <div class="form-group">
+                <select class="selectpicker" name="city">
+                  <option value="Select" data-hidden="true">Choose City</option>
+                  <option value="1">Amaravati </option>
+                  <option value="2">Vijaywada </option>
+                  <option value="3">Guntur </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <input type="text" class="input-text" name="filterAreaProperty" placeholder="Area, Locality">
+                <a class="fa fa-search" href="#"></a>
+              </div>
+              <div>
+                <a class="filtertoggle" aria-expanded="true" href="#" data-toggle="collapse" data-target="#filtertab">
+                  hide advanced filters
+                  <span class="caret"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="dropdown" data-dir="rtl" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="#">Price Trends</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacypolicy.html">Privacy Policy</a></li>
+            <li><a href="termsofuse.html">Terms of Service</a></li>
+            <li><a href="mailto:support@avenue.in" target="_blank"><i class="fa fa-envelope"></i>support@avenue.in</a></li>
+            <li class="dtpHide"><a href="#"><i class="fa fa-phone"></i>+91.9533.894.894</a></li>
+            <li class="dtpHide">
+                <a href="submit-property.html">
+                    <i class="flaticon-symbol-1"></i>Sell Property
+                </a>
+            </li>
+            <li class="dtpHide">
+                <a href="#" data-toggle="modal" data-target="#loginPopup">
+                    <i class="fa fa-user"></i>Login
+                </a>
+            </li>
+          </ul>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="navbar-collapse collapse pull-right" role="navigation" aria-expanded="true" id="app-navigation">
+            <ul class="nav navbar-nav rightside-navbar">
+              <li>
+                <a href="submit-property.html" class="button">
+                  Sell Property
+                </a>
+              </li>
+              <li>
+                <a href="/" class="button transparent">
+                  Logout
+                </a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav margin-right">
+              <li><a href="#">+91.9533.894.894</a></li>
+              <li><a href="#">Price Trends</a></li>
+              <li><a href="#">Blog</a></li>
+              <!-- <li class="dropdown">
+                <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
+                  More<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="agent-listing-row.html">Terms of Service</a></li>
+                  <li><a href="tel:+91-9533- 894-894"><i class="fa fa-phone"></i>+91-9533- 894-894</a></li>
+                  <li><a href="tel:Support@avenue.in"><i class="fa fa-envelope"></i>Support@avenue.in</a></li>
+                </ul>
+              </li>
+              <li><a href="signup.html" class="sign-in">Login <span class="fa fa-user"></span></a></li>
+              <li class="hidden-sm hidden-md hidden-lg">
+                <a href="submit-property.html" class="button">
+                  Submit Property
+                </a>
+              </li> -->
+            </ul>
+            <!--<ul class="top-social-media">
+              <li>
+                <a href="signup.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
+              </li>
+            </ul>-->
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- Main header end -->
+    <div class="clearfix innerfirst"></div>
+    <div class="container bredcrumb-area">
+      <ul class="list-inline bredcrumb text-right content-area">
+        <li><a href="/">Home</a> / </li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+    <!--==========================
+    ============================-->
+    <section id="faq" class="content-area">
+      <div class="container innercontent">
+        <div class="row">
+          <div class="main-title">
+            <h1>Frequently Asked Questions</h1>
+          </div>
+          <div class=" col-md-8 col-md-offset-2 col-sm-12 mb30">
+           
+            <div class="panel-group white-bg pd-15 pt-30 pb-30" id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="panel panel-default">
+              
+                <div class="panel-heading"  class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="false" aria-controls="collapse4" id="heading1">
+                  <h4 class="panel-title">
+                    Why Avenue.in?
+                    <i class="more-less fa fa-plus pull-right"></i>
+                  </h4>
+                </div>
+           
+                <div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1">
+                  <div class="pd-15">
+                    <p>
+                      Avenue.in discovers lucrative investment options in the real estate canvas for investors who want smartly use their wealth. We also aim at filling the service gap for customers, right from enquiring the authentication of the chosen property to closing the purchase with registration. Avenue.in is a smart online tool for those who live across borders and those who lack physical presence in India.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+
+                <div class="panel-heading" class="collapsed"  role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2" id="heading2">
+                  <h4 class="panel-title">
+                    How do the photos and videos attested to each property help us?
+                    <i class="more-less fa fa-plus pull-right"></i>
+                  </h4>
+                </div>
+
+                <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+                  <div class="pd-15">
+                    <p>
+                      We connect buyers from realty to ‘Reality’ with the help of images and videos that speak more about the amenities, facilities & surroundings of the property. In this age when access to reality of properties is difficult, we make it easy by bringing the best of imagery information onto your home screen.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+   
+                <div class="panel-heading" role="button" id="heading3" class="collapsed"  data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                  <h4 class="panel-title">
+                    How soon are you going to kickstart operations in other cities?
+                    <i class="more-less fa fa-plus pull-right"></i>
+                  </h4>
+                </div>
+
+                <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+                  <div class="pd-15">
+                    <p>
+                      We are growing towards expanding our canvas across most of the opportunistic  cities like Vijayawada, Guntur, Vizag and so on. As of now we are operating in a full throttle in Amaravati.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+
+                <div class="panel-heading"  class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" aria-controls="collapse4" id="heading4">
+                  <h4 class="panel-title">
+                    We can’t see some properties listed here. Why aren’t all the properties in the market listed on your website?
+                    <i class="more-less fa fa-plus pull-right"></i>
+                  </h4>
+                </div>
+ 
+                <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
+                  <div class="pd-15">
+                    <p>
+                      Avenue.in is conceived as realty solution to fill the service gaps between the property sellers and buyers by ensuring authenticity and credibility of the property, parties, transaction and investment. For these reasons we have limited the options that we showcase. We do not choose to list all property options for the following reasons. Reason can be one or more of the following:
+                    </p>
+                    <ul class="list-inline">
+                      <li>When the builder does not have credibility in the market.</li>
+                      <li>When the property developers or builders do not choose list on our site due to the existence of some grey areas.</li>
+                      <li>When the developer is not willing to standardize his processes to our norms.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" id="heading5" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                  <h4 class="panel-title">
+        
+                   Can you guarantee lowest possible price?
+                    <i class="more-less fa fa-plus pull-right"></i>
+           
+                  </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
+                  <div class="pd-15">
+                    <p>
+                      Our effort would remain to bring the best priced property that suites your budget. Prices may vary depending on one or more of the following conditions:
+                    </p>
+                    <ul class="list-inline">
+                      <li>Cash flow of the Seller.</li>
+                      <li>Ready cash available with the buyer. The ability of the buyer to make a bulk payment to further proceed and complete the registration process.</li>
+                      <li>Prevailing market conditions.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" id="heading6" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                  <h4 class="panel-title">
+            
+                    Do you guarantee appreciation of the property?
+                    <i class="more-less fa fa-plus pull-right"></i>
+              
+                  </h4>
+                </div>
+                <div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">
+                  <div class="pd-15">
+                    <p>
+                      Real estate activities are based on speculation in the market. Since investment in any property provides appreciating value, it is a safe option. However, since this market is subject to deviations and some influencing factors, we do not guarantee appreciation of any property but we give our guidance as per the current market conditions and speculate future conditions based on our expertise and experience.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" id="heading7" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                  <h4 class="panel-title">
+              
+                    Should I get legal opinion for a property?
+                    <i class="more-less fa fa-plus pull-right"></i>
+               
+                  </h4>
+                </div>
+                <div id="collapse7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7">
+                  <div class="pd-15">
+                    <p>
+                      Avenue.in does sound due diligence before we list a property on our website but we strongly advice buyer to get legal opinion before signing any agreement.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" id="heading8" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                  <h4 class="panel-title">
+              
+                    Is there a check list before going for an agreement? Can you list some points for us?
+                    <i class="more-less fa fa-plus pull-right"></i>
+                 
+                  </h4>
+                </div>
+                <div id="collapse8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8">
+                  <div class="pd-15">
+                    <p>
+                      Avenue.in suggests every buyer to verify the following before signing, irrespective of the agent you choose.
+                    </p>
+                    <ul class="list-inline">
+                      <li>Check the property online or personally</li>
+                      <li>Send your family/friends to check the property personally</li>
+                      <li>Check developer credibility in the market</li>
+                      <li>Check price through other sources</li>
+                      <li>Talk to developer personally or have your family/friends talk to them.</li>
+                      <li>Read registration documents very carefully.</li>
+                      <li>Get Encumbrance Certificate (EC) along with the registration document.</li>
+                      <li>Cross verify property on http://meebhoomi.ap.gov.in website.</li>
+                      <li>Get Legal opinion from a lawyer.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" id="heading9" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                  <h4 class="panel-title">
+          
+                    Will I get loan for land?
+                    <i class="more-less fa fa-plus pull-right"></i>
+           
+                  </h4>
+                </div>
+                <div id="collapse9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading9">
+                  <div class="pd-15">
+                    <p>
+                      Yes, you can get loan to purchase land, but it has to be a VUDA/CRDA approved layout. Such layout has to be within the reach and boundaries of city. Contact us to find more details.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" id="heading10" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                  <h4 class="panel-title">
+            
+                    Should I buy now or wait for longer?
+                    <i class="more-less fa fa-plus pull-right"></i>
+           
+                  </h4>
+                </div>
+                <div id="collapse10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading10">
+                  <div class="pd-15">
+                    <p>
+                      We believe that real estate sector in India is not a bubble. It would stay as a long term option for investors in India; it’s not a short term trend. Prices are ever rising due to the scarcity of the land, it’s always better to make investment sooner than later. Average ROI in  cities like Vijayawada & Guntur is ranging from 30 to 40% per year. We estimate that this trend will continue for next couple of years and appreciate further in the upcoming years.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" id="heading11" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                  <h4 class="panel-title">
+                
+                    Should I buy an Apartment or Land?
+                    <i class="more-less fa fa-plus pull-right"></i>
+                 
+                  </h4>
+                </div>
+                <div id="collapse11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading11">
+                  <div class="pd-15">
+                    <p>
+                      This is a choice that is determined by the buyer’s profile. It has been a general observation over years and research the lands reap more in term of ROI when compared to apartments. However, at times market conditions may influence such that apartments reap more for the investor.
+                    </p>
+                    <p>General rule of thumb is to buy an apartment when you or your family needs a home to live or if you are more interested in monthly income. But if you are a long term investor then lands are a better option. However these aspects are entirely influenced and determined by market conditions.</p>
+                  </div>
+                </div>
+              </div>
+              
+              </div><!-- panel-group -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="main-footer clearfix">
+        <div class="container">
+          <!-- Footer info-->
+          <div class="footer-info">
+            <div class="row footertop">
+              <!-- Footer top -->
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <h5>BUILDERS</h5>
+                <p><a href="#">Prestige Group</a></p>
+                <p><a href="#">Sobha Limited</a></p>
+                <p><a href="#">DLF</a></p>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <h5>buy property</h5>
+                <p><a href="#">Amarati</a></p>
+                <p><a href="#">Guntur</a></p>
+                <p><a href="#">Vijaywada</a></p>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <h5>properties in india</h5>
+                <p><a href="#">Apartments For Sale In India</a></p>
+                <p><a href="#">Villas in India</a></p>
+                <p><a href="#">New Apartments For Sale In India</a></p>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <h5>additional links</h5>
+                <p><a href="#">Additional Link One</a></p>
+                <p><a href="#">Additional Link Two</a></p>
+                <p><a href="#">Additional Link Thre</a></p>
+              </div>
+            </div>
+            <div class="row footerbottom">
+              <!-- Footer top -->
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <h5>ABOUT</h5>
+                <p>We offer professional advisory services for Real Estate investors in Amaravati, CRDA Area - Andhra Pradesh. "Transparency, Reliability & Professionalism" are our promise to you. We will be your partner through out the investment process. We function on the fundamentals of trust, transparency and expertise. We guide home / land buyers right from the start of their search to the very end. Shortlist your favorite properties and allow us to arrange site visits. Our work does not end here. We assist you with property loans and property registrations.</p>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <h5>contact us</h5>
+                <ul class="personal-info">
+                  <li>
+                    <i class="lnr lnr-map-marker"></i>
+                    <h4>ITI College Road, Prasanthi Nagar, Vijayawada</h4>
+                  </li>
+                  <li>
+                    <i class="fa fa-envelope-o"></i>
+                    <h4>Email: <a href="mailto:support@avenue.in" target="_blank">support@avenue.in</a></h4>
+                  </li>
+                  <li>
+                    <i class="fa fa-phone"></i>
+                    <h4>Phone: <a href="tel:+91-9533-894-894">+91.9533.894.894</a></h4>
+                  </li>
+                  <!--
+                  <li>
+                    <i class="fa fa-fax"></i>
+                    Fax: +55 4XX-634-7071
+                  </li>
+                  -->
+                </ul>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <h5>GET IN TOUCH</h5>
+                <form action="#" method="post">
+                  <div class="form-group">
+                    <input class="nsu-field btn-block" id="nsu-email-0" type="text" name="email" placeholder="Enter your email to subscribe" required="">
+                    <a class="fa fa-check" href="#"></a>
+                  </div>
+                </form>
+                <ul class="social-list list-inline clearfix">
+                  <li>
+                    <a href="https://facebook.com/"  target="_blank" class="facebook">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://twitter.com/supportavenue" target="_blank" class="twitter">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://plus.google.com/+avenuein" target="_blank" class="linkedin">
+                      <i class="fa fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <!--<li>
+                    <a href="#" class="google">
+                      <i class="fa fa-google-plus"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="rss">
+                      <i class="fa fa-rss"></i>
+                    </a>
+                  </li>-->
+                </ul>
+              </div>
+              <div class="col-xs-12 text-center copyp">
+                <p>&copy; 2018 <a href="#">Avenir Realty LLP</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- Footer end -->
+      <div id="loginPopup" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
+          
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body" id="login">
+              <div class="white-bg">
+                <article>
+                  <h4 class="modal-title">WELCOME !<span>Login to your account</span></h4>
+                  <form>
+                    <div class="form-group">
+                      <input name="" class="form-control" placeholder="Username or email*" type="email">
+                      </div> <!-- form-group// -->
+                      <div class="form-group">
+                        <input class="form-control pwd" placeholder="Your password*" type="password">
+                        <!--<a href="#" class="fa fa-eye show"></a>-->
+                        </div> <!-- form-group// -->
+                        <div class="form-group clearfix">
+                          <!-- <label class="small">Forgot password?</label><a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#loginPopup').modal('hide')"> Reset</a> -->
+                          <!--<a href="register.html">Register Now</a>-->
+                          <div class="checkbox">
+                            <input type="checkbox" id="loginmail"><label for="loginmail">Remember me</label>
+                          </div>
+                        </div>
+                        <div class="form-group text-center">
+                          <button type="submit" class="btn btn-block">LOGIN</button>
+                        </div>
+                        <div class="text-center">
+                          <p>Are you new here ? <a href="#" data-toggle="modal" data-target="#registerPopup" onclick="$('#loginPopup, #resetPopup').modal('hide')">
+                          <strong>Register now!</strong></a></p>
+                        </div>
+                        <!-- form-group// -->
+                        
+                        <div class="text-center"><label class="or">or</label></div>
+                        <div class="form-group text-center">
+                          <p>Forgot Password?
+                            <a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#loginPopup').modal('hide')">
+                              <strong>Click here</strong>
+                            </a> to get it back.</a></p>
+                          </div>
+                          <div class="row clearfix">
+                            <div class="col-xs-12">
+                              <div class="form-group facebook">
+                                <button type="button" class="btn btn-block">Login with
+                                <i class="fa fa-facebook"></i></button>
+                              </div>
+                              <div class="form-group google">
+                                <button type="button" class="btn btn-block">Login with
+                                <i class="fa fa-google-plus"></i>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- <div class="form-group text-center clearfix mt15">
+                            <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                          </div> -->
+                        </form>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            <div id="resetPopup" class="modal fade" role="dialog">
+              <div class="modal-dialog modal-sm">
+                
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                  </div>
+                  <div class="modal-body" id="login">
+                    <div class="white-bg">
+                      <article>
+                        <h4 class="modal-title">FORGOT PASSWORD?<span>Enter your email</span></h4>
+                        <form>
+                          <div class="form-group">
+                            <input name="" class="form-control" placeholder="Email" type="email">
+                            </div> <!-- form-group// -->
+                            <div class="form-group text-center">
+                              <button type="submit" class="btn btn-block">reset password</button>
+                            </div>
+                            <div class="text-center">
+                              <p>Are you new here ? <a href="#" data-toggle="modal" data-target="#registerPopup" onclick="$('#loginPopup, #resetPopup').modal('hide')">
+                              <strong>Register now!</strong></a></p>
+                            </div>
+                            <!-- form-group// -->
+                            <!-- <div class="form-group text-center clearfix mt15">
+                              <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                            </div> -->
+                          </form>
+                        </article>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <div id="registerPopup" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-sm">
+                  
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body" id="login">
+                      <div class="white-bg">
+                        <article>
+                          <h4 class="modal-title">WELCOME !<span>Create your account</span></h4>
+                          <form>
+                            <div class="form-group">
+                              <input name="" class="form-control" placeholder="Username" type="text">
+                              </div> <!-- form-group// -->
+                              <div class="form-group">
+                                <input name="" class="form-control" placeholder="Email" type="email">
+                                </div> <!-- form-group// -->
+                                <div class="form-group">
+                                  <input class="form-control pwd" placeholder="Password" type="password">
+                                  <!--<a href="#" class="fa fa-eye show"></a>-->
+                                  </div> <!-- form-group// -->
+                                  <div class="form-group">
+                                    <input class="form-control pwd" placeholder="Confirm Password" type="password">
+                                    </div> <!-- form-group// -->
+                                    <div class="form-group text-center">
+                                      <button type="submit" class="btn btn-block">REGISTER</button>
+                                    </div>
+                                    <div class="text-center">
+                                      <p>Already member ? <a data-toggle="modal" data-target="#loginPopup" onclick="$('#registerPopup').modal('hide')">
+                                      <strong>Login now!</strong></a></p>
+                                    </div>
+                                    <!-- form-group// -->
+                                    
+                                    <div class="text-center"><label class="or">or</label></div>
+                                    <div class="form-group text-center">
+                                      <p>Forgot Password?
+                                        <a href="#" data-toggle="modal" data-target="#resetPopup" onclick="$('#registerPopup').modal('hide')">
+                                          <strong>Click here</strong>
+                                        </a> to get it back.</a></p>
+                                      </div>
+                                      <div class="row clearfix">
+                                        <div class="col-xs-12">
+                                          <div class="form-group facebook">
+                                            <button type="button" class="btn btn-block">Register with
+                                            <i class="fa fa-facebook"></i></button>
+                                          </div>
+                                          <div class="form-group google">
+                                            <button type="button" class="btn btn-block">Register with
+                                            <i class="fa fa-google-plus"></i>
+                                            </button>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <!-- <div class="form-group text-center clearfix mt15">
+                                        <label>Need an account?</label><a href="#" data-toggle="modal" data-target="#signupPopup" onclick="$('#loginPopup').modal('hide')"> Signup now</a>
+                                      </div> -->
+                                    </form>
+                                  </article>
+                                </div>
+                              </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+                        <script defer  src="js/jquery-2.2.0.min.js"></script>
+                        <script defer src="js/bootstrap.min.js"></script>
+                        <script src="js/datepicker.js"></script>
+                        <script defer src="js/bootstrap-submenu.js"></script>
+                        <script defer src="js/rangeslider.js"></script>
+                        <script defer src="js/jquery.mb.YTPlayer.js"></script>
+                        <script defer src="js/wow.min.js"></script>
+                        <script defer src="js/bootstrap-select.min.js"></script>
+                        <script defer src="js/jquery.easing.1.3.js"></script>
+                        <script defer src="js/jquery.scrollUp.js"></script>
+                        <script defer src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+                        <script src="js/leaflet.js"></script>
+                        <script defer src="js/parallax.min.js"></script>
+                        <script src="js/leaflet-providers.js"></script>
+                        <script src="js/leaflet.markercluster.js"></script>
+                        <script src="js/dropzone.js"></script>
+                        <script defer src="js/jquery.filterizr.js"></script>
+                        <script defer src="js/jquery.magnific-popup.min.js"></script>
+                        <script defer src="js/jquery.nicescroll.min.js"></script>
+                        <script defer src="js/intlTelInput.min.js"></script>
+                        <script src="js/maps.js"></script>
+                        <script src="js/app.js"></script>
+                        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+                        <script defer src="js/ie10-viewport-bug-workaround.js"></script>
+                        <!-- Custom javascript -->
+                        <script defer src="js/ie10-viewport-bug-workaround.js"></script>
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
+                        <script>
+                        function LoadMap(propertes) {
+                        var defaultLat = 40.7110411;
+                        var defaultLng = -74.0110326;
+                        var mapOptions = {
+                        center: new google.maps.LatLng(defaultLat, defaultLng),
+                        zoom: 15,
+                        scrollwheel: false,
+                        styles: [
+                        {
+                        featureType: "administrative",
+                        elementType: "labels",
+                        stylers: [
+                        {visibility: "off"}
+                        ]
+                        },
+                        {
+                        featureType: "water",
+                        elementType: "labels",
+                        stylers: [
+                        {visibility: "off"}
+                        ]
+                        },
+                        {
+                        featureType: 'poi.business',
+                        stylers: [{visibility: 'off'}]
+                        },
+                        {
+                        featureType: 'transit',
+                        elementType: 'labels.icon',
+                        stylers: [{visibility: 'off'}]
+                        },
+                        ]
+                        };
+                        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                        var infoWindow = new google.maps.InfoWindow();
+                        var myLatlng = new google.maps.LatLng(40.7110411, -74.0110326);
+                        
+                        var marker = new google.maps.Marker({
+                        position: myLatlng,
+                        map: map
+                        });
+                        (function (marker) {
+                        google.maps.event.addListener(marker, "click", function (e) {
+                        infoWindow.setContent("" +
+                        "<div class='map-properties contact-map-content'>" +
+                          "<div class='map-content'>" +
+                            "<p class='address'>123 Kathal St. Tampa City, </p>" +
+                            "<ul class='map-properties-list'> " +
+                              "<li><i class='fa fa-phone'></i>  +0477 8556 552</li> " +
+                              "<li><i class='fa fa-envelope'></i>  info@themevessel.com</li> " +
+                              "<li><a href='index.html'><i class='fa fa-globe'></i>  http://http://themevessel.com</li></a> " +
+                            "</ul>" +
+                          "</div>" +
+                        "</div>");
+                        infoWindow.open(map, marker);
+                        });
+                        })(marker);
+                        }
+                        LoadMap();
+                        </script>
+                      </body>
+                    </html>

@@ -1,0 +1,590 @@
+<% include header %>
+<div class="container bredcrumb-area">
+    <ul class="list-inline bredcrumb text-right content-area">
+        <li><a href="/">Home</a> / </li>
+        <li><a href="#">Submit property</a></li>
+    </ul>
+</div>
+<section class="filter-content content-area submit-property">
+
+    <span class="alert alert-danger properyTitleMsg" style="display: none;">Title is already exists!</span>
+    <%
+    if(typeof propertyResult[0] == 'object' &&  propertyResult[0] != undefined){
+          var VideoGallery = propertyResult[0].VideoGallery.split(',');
+          var VideoGallery = VideoGallery.filter(v => v != '' && v != null &&
+           v != undefined && v != [])
+      } %>
+ 
+    <div class="container toggle-header">
+        <div id="tabs">
+            <ul class="nav navbar-nav activeClass">
+                <li class="active"><a class="filtr-button filtr" data-filter="1" onclick="tabClick(1);">Basic info</a></li>
+                <li><a data-filter="2" class="filtr-button filtr" onclick="tabClick(2);" >Additional Info</a></li>
+                <li><a data-filter="3" class="filtr-button filtr" onclick="tabClick(3);">specifications</a></li>
+                <li><a data-filter="4" class="filtr-button filtr" onclick="tabClick(4);">map</a></li>
+                <li><a data-filter="5" class="filtr-button filtr" onclick="tabClick(5);">gallery</a></li>
+            </ul>
+        </div>
+    </div>
+    <hr />
+
+    <div class="featured-properties submit-property-details">
+        <div class="container">
+            <div class="row">
+                <form id="save-property-details" method="POST"
+                    onkeypress="return event.keyCode != 13;" class="form-cont">
+
+                    <div class="filtr-container">
+                        <div class="col-md-6 col-sm-7 col-xs-12  filtr-item" data-category="1">
+                            <div class="row">
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Title</h4>
+                                    <div class="form-group">
+                                        <input type="text" id="properyTitle" name="property_title" class="input-text property_title"
+                                            placeholder="Property title" onkeyup="$('#propertyTitle').text($(this).val())"
+                                            value="<% if(propertyResult[0] &&propertyResult[0].Title){ %><%= propertyResult[0].Title %><% } %>">
+                                    </div>
+                                    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Type of property</h4>
+                                    <select class="selectpicker propertyType" id="propertyType" onchange="changePropertyType(this.value,1)"
+                                        name="propertyType">
+                                       <option value="" data-hidden="true">Select</option>
+                                       <% var propertyTypeData = [];
+                                                for(var i=0; i< propertyType.length; i++ ){ 
+                                                propertyTypeData[propertyType[i].ID] = propertyType[i].Type; 
+                                            %>
+                                        <option value="<%= propertyType[i].ID %>" <% if( propertyResult[0] &&propertyResult[0].PropertyTypeID == propertyType[i].ID){%>selected<% } %>>
+                                            <%= propertyType[i].Type %>
+                                        </option>
+                                        <% } %>
+                                    </select>
+                                    <input type="hidden" name="propertyTypeData" value="<%= JSON.stringify(propertyTypeData); %>">
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Property category</h4>
+                                    <select class="selectpicker PropertyTypeChildID" name="PropertyTypeChildID" id="PropertyTypeChildID"
+                                        onchange="changePropertyCategory(this.value)">
+                                        <option value="">Select</option>
+                                        <% if(propertyResult[0] &&propertyResult[0].PropertyTypeChildID) { %>
+                                        <% var propertyTypeChildData = [];
+                                        for(var i=0; i< propertyCategory.length; i++ ){ 
+                                            propertyTypeChildData[propertyCategory[i].ID] = propertyCategory[i].PropertyTypeChild; 
+                                        %>
+                                       
+                                        <option value="<%= propertyCategory[i].ID %>" <% if( propertyResult[0] &&propertyResult[0].PropertyTypeChildID == propertyCategory[i].ID){ %>selected<% } %>>
+                                            <%=propertyCategory[i].PropertyTypeChild%>
+                                        </option>
+                                        <% } }%>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>City</h4>
+                                    <!--<div class="form-group">
+                                        <input type="text" name="City" class="input-text" placeholder="City">
+                                    </div>-->
+                                    <select class="selectpicker city" name="CityID" id="CityID" onchange="changeCity(this.value)">
+                                        <option value="">Select</option>
+                                        <% for(var i=0; i< cities.length; i++ ){ 
+                                        %>
+                                        <option value="<%= cities[i].ID %>" <% if( propertyResult[0] && propertyResult[0].city == cities[i].Name){%>selected<% } %>>
+                                            <%= cities[i].Name %>
+                                        </option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Area/Village</h4>
+                                    <div class="form-group">
+                                        <input type="text" id="area" class="input-text areaId" name="area" value="<% if(propertyResult[0] && propertyResult[0].Area){ %><%= propertyResult[0].Area%><% } %>" placeholder="Area"
+                                            onkeyup="$('#previewArea').text($(this).val());$('#locationIcon').html('<i class=\'lnr lnr-map-marker\'></i>')"
+                                            autocomplete="off">
+                                        <input type="hidden" id="areaId" class="input-text" name="areaId">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Locality/Colony</h4>
+                                    <div class="form-group">
+                                        <input type="text" id="locality"  value="<% if(propertyResult[0] && propertyResult[0].Location){ %><%= propertyResult[0].Location %><% } %>" class="input-text" name="locality" placeholder="Locality"
+                                            autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xs-12 Residential_Plot Commercial_Plot Villa_Plot Individual_House Dry Wet additional-info" style="display:none">
+                                    <h4>Extent</h4>
+                                    <div class="form-group">
+                                        <input type="text" class="input-text extent" onkeyup="$('#previewExtent').text($(this).val());$('#extentIcon').html('<img src=\'/img/extent.jpg\' Width=\'14\',height=\'16\'>')" value="<% if(propertyResult[0] && propertyResult[0].Extent){ %><%= parseInt( propertyResult[0].Extent) %><% } %>"
+                                        name="extent" placeholder="Extent">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Asking price</h4>
+                                    <div class="form-group">
+                                        <input type="text" class="input-text asking_price" name="asking_price"
+                                        value="<% if(propertyResult[0] &&propertyResult[0].AskingPrice){ %><%= propertyResult[0].AskingPrice %><% } %>"
+                                        placeholder="INR/Sq. Yd" onkeyup="numberFormat(this)">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Search price</h4>
+                                    <div class="form-group">
+                                        <input type="text" value="<% if(propertyResult[0] && propertyResult[0].SearchPrice){ %><%= propertyResult[0].SearchPrice %><% } %>" class="input-text search_price" name="search_price" onkeyup="
+                                            numberFormat(this),$('#previewPrice').text('₹ '+this.value)"
+                                            placeholder="INR/Sq.Yd">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Survey number</h4>
+                                    <div class="form-group">
+                                        <input type="text" class="input-text" value="<% if(propertyResult[0] && propertyResult[0].SurveryNumber){ %><%= propertyResult[0].SurveryNumber %><% } %>" id="surveyNo" name="surveyNo" placeholder="Survey No">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Abutting road width</h4>
+                                    <div class="form-group">
+                                        <input type="text" class="input-text" value="<% if(propertyResult[0] && propertyResult[0].AbuttingRoadWidth){ %><%= parseFloat(propertyResult[0].AbuttingRoadWidth)  %><% } %>" name="abuttingRoadWidth" placeholder="Abutting Road Width">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                    <h4>Name of the owner</h4>
+                                    <div class="form-group">
+                                        <input type="text" class="input-text" name="ownerName" placeholder="Name of the owner">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xs-12">
+                                        <h4>Display price</h4>
+                                        <div class="form-group">
+                                            <div class="radio  inline">
+                                                <input id="Yes1" class="radio displayPrice" type="radio" value="true" name="displayPrice" <% if(propertyResult[0] && propertyResult[0].DisplayPrice =='true'){%>checked<% } %>
+                                                    checked />
+                                                <label for="Yes1" >Yes</label>                                         
+                                            </div>
+                                            <div class="radio  inline">
+                                                <input id="No1" class="radio displayPrice" type="radio" value="false" name="displayPrice" <% if(propertyResult[0] && propertyResult[0].DisplayPrice == 'false' ){%>checked<% } %> />
+                                                <label for="No1">No</label>                                        
+                                            </div>
+                                        </div>
+    
+                                    </div>
+                                    <div class="col-sm-6 col-xs-12 hideproperty Residential" style="display:none">
+                                        <h4>Sale Type</h4>
+                                        <div class="form-group">
+                                            <div class="radio  inline">
+                                                <input id="New" class="radio" type="radio" name="ResaleProperty" onchange="showHideDate(false)" value="false" checked />
+                                                <label for="New" >New</label>                                         
+                                            </div>
+                                            <div class="radio  inline">
+                                                <input id="Resale" class="radio" type="radio" name="ResaleProperty" onchange="showHideDate(true)" value="true" />
+                                                <label for="Resale">Resale</label>                                        
+                                            </div>
+                                        </div>
+    
+                                    </div>
+
+                                <div class="col-sm-12 col-xs-12 additional-info Residential_Plot Commercial_Plot Villa_Plot Individual_House Dry Wet">
+                                    <h4>Facing</h4>
+                                    <div class="form-group facing labelWidth">
+                                    
+                                        <div class="col-sm-12">
+                                            <div class="checkbox inline">
+                                                <input type="checkbox" data-ptag="NorthRoadWidth" class="check_box" onchange="facingChange()" value="true" name="north" <% if(EditpropertiesDetailData &&EditpropertiesDetailData.North){ %>checked<% } %>   id="north">
+                                                <label for="north">N</label>
+                                                <input type="text" class="input-text" value="<% if(EditpropertiesDetailData &&EditpropertiesDetailData.NorthRoadWidth){%><%= EditpropertiesDetailData.NorthRoadWidth%><%}%>" id="NorthRoadWidth" name="NorthRoadWidth" placeholder="North Road Width" >
+                                            </div>
+                                            <div class="checkbox inline">
+                                                <input type="checkbox" data-ptag="EastRoadWidth" class="check_box" onchange="facingChange()" value="true" name="east"  <% if(EditpropertiesDetailData && EditpropertiesDetailData.East){ %>checked<% } %>
+                                                    id="east"><label for="east">E</label>
+                                                <input type="text" class="input-text" value="<% if(EditpropertiesDetailData &&EditpropertiesDetailData.EastRoadWidth){%><%= EditpropertiesDetailData.EastRoadWidth%><%}%>" name="EastRoadWidth" id="EastRoadWidth"  placeholder="East Road Width" >
+                                            </div>
+                                            <div class="checkbox inline">
+                                                    <input type="checkbox" data-ptag="SouthRoadWidth" class="check_box" onchange="facingChange()" value="true" name="south"  <% if(EditpropertiesDetailData &&EditpropertiesDetailData.South){ %>checked<% } %>
+                                                        id="south"><label for="south">S</label>
+                                                        <input type="text" class="input-text" value="<% if(EditpropertiesDetailData &&EditpropertiesDetailData.SouthRoadWidth){%><%= EditpropertiesDetailData.SouthRoadWidth%><%}%>" name="SouthRoadWidth" id="SouthRoadWidth" placeholder="South Road Width" >
+                                                </div>
+                                                <div class="checkbox inline">
+                                                    <input type="checkbox" data-ptag="WestRoadWidth" class="check_box" onchange="facingChange()" value="true" name="west"  <% if(EditpropertiesDetailData && EditpropertiesDetailData.West){ %>checked<% } %>
+                                                        id="west"><label for="west">W</label>
+                                                        <input type="text" class="input-text" value="<% if(EditpropertiesDetailData && EditpropertiesDetailData.WestRoadWidth){%><%= EditpropertiesDetailData.WestRoadWidth%><%}%>" name="WestRoadWidth" id="WestRoadWidth" placeholder="West Road Width">
+                                                </div>
+                                        </div>
+                                                                              
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-12 col-xs-12">
+                                <!-- <div class="col-sm-6 col-xs-12"> -->
+                                    <h4>Detailed information</h4>
+                                    <div class="form-group textarea">
+                                        <textarea id="description" name="description" class="input-text" placeholder="Detailed Information"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-7 col-xs-12  filtr-item posAbs" data-category="2">
+                        </div>
+                        <div class="col-md-6 col-sm-7 col-xs-12  filtr-item posAbs" data-category="3">
+                            <input type="hidden" value="<%= JSON.stringify(specifications) %>" name="specification_obj">
+                            <div class="row" id="specification">
+                            </div>
+                            <div class="row" id="amenities">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 filtr-item posAbs" data-category="4">
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <h4>Geo location</h4>
+                                <div class="form-group">
+                                    <input type="text" class="input-text geoLocation" name="geoLocation" id="searchInput" placeholder="Search Location">
+                                    <input id="searchInput1" class="controls form-control cutom-txt" type="text" placeholder="Search Location">
+                                    <input type="hidden" name="latitude" id="lat" value="">
+                                    <input type="hidden" name="longitude" id="lon" value="">
+                                    <input type="hidden" name="drawShap" id="drawShap" value="<% if(propertyResult[0] && propertyResult[0].geometry){ %><%= propertyResult[0].geometry %><% } %>">
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <h4 class="mobHide">&nbsp</h4>
+                                    <button type="button" onclick="getCurrentLocation()" class="button transparent">get
+                                        location</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-xs-12">
+                                <div class="map">
+                                    <div id="map" class="contact-map"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-xs-12 mt15">
+                                <div class="checkbox"> <input id="nolocation" name="nolocation" type="checkbox" checked><label
+                                        for="nolocation">I don't know the location of Property.</label> </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-7 col-xs-12  filtr-item posAbs" data-category="5">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-12">
+                                    <h4>Add photos</h4>
+                                    <div class="form-group imageplus">
+                                        <!-- <span class="add-img-container dropzone-previews" id="preview">Click to<br>add photos</span> -->
+                                        <!--<input type="file" id="ImageDropZone" name="addPhotos" class="input-text fa" placeholder="Click to
+                                        add photos">-->
+                      
+                                        <div class="dropzone dropzone-design mb-10" id="ImageDropZone"><div class="dz-message" data-dz-message><span>Click Here or Drop files here to upload</span></div></div>
+                                        <input type="hidden" value="<% if(typeof EditImagesdata != undefined && EditImagesdata.length > 0 ){ %><%= EditImagesdata %><% } %>" name="gellery_images" id="gellery_images">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-xs-12">
+                                    <ul class="">
+                                        <% for(var i=0; i < EditImagesdata.length; i++){ 
+                                          %>
+                                            <li id="remove_image<%= i %>"><img src="<%= EditImagesdata[i] %>" width="50px" height="30px"><button onclick="removeImage('gellery_images','<%=EditImagesdata[i]%>',<%= i%>);" >Remove</button>
+                                            </li>
+                                        <% } %>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-12 col-xs-12">
+                                    <h4>Add videos</h4>
+                                    <div class="form-group">
+                                        <input type="text" name="VideoUrl" class="input-text" value="<% if(propertyResult[0] && propertyResult[0].VideoURL){ %><%= propertyResult[0].VideoURL %><% } %>" placeholder="Add a video link">
+                                    </div>
+                                    <div class="form-group imageplus">
+                                        <!-- <span class="add-img-container">+ add atleast<br>1 video</span> -->
+                                        <!--<input type="file" name="addPhotos" class="input-text fa" placeholder="Click to
+                                        add photos">-->
+                                        <div id="VideoDropZone" class="dropzone dropzone-design mb-10"><div class="dz-message" data-dz-message><span>Click Here or Drop files here to upload</span></div>
+                                        </div>
+                                        <input type="hidden" value="<% if(propertyResult[0] && propertyResult[0].VideoGallery){ %><%= propertyResult[0].VideoGallery %><% } %>" name="gellery_video" id="gellery_video">
+                                    </div>
+                                    <div class="videoSection">
+                                        <ul class="">
+                                        <%
+                                        if(typeof VideoGallery != 'undefined' &&VideoGallery.length > 0){
+                                        for(var i=0; i < VideoGallery.length; i++){ 
+                                        %>
+                                        <li id="remove_video<%= i %>">
+                                            <video width="100" height="60" controls="off">
+                                                <source src="<%= VideoGallery[i] %>" type="video/mp4">
+                                                Your browser does not
+                                                support the video tag.
+                                            </video>
+                                            <button onclick="removeImage('gellery_video','<%=VideoGallery[i]%>',<%= i%>);">Remove</button>
+                                        </li>
+                                        <% } } %>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-sm-12 col-xs-12">
+                                    <h4>Detailed information</h4>
+                                    <div class="form-group">
+                                        <textarea id="description" name="description" class="input-text" placeholder="Detailed Information"></textarea>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-5 col-xs-12 pull-right onmaphiden">
+                            <h4>Property preview</h4>
+                            <!-- Properties details section start -->
+                            <div class="Properties-details-section sidebar-widget">
+                                <!-- Properties detail slider start -->
+                                <div class="properties-detail-slider simple-slider">
+                                    <div id="carousel-custom" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-outer">
+                                            <!-- Wrapper for slides -->
+                                            <div class="carousel-inner">
+                                                <% if( typeof EditImagesdata != 'undefined' &&  EditImagesdata.length > 0){
+                                                    var active = "" %>
+                                                <% for(var i=0; i < EditImagesdata.length; i++){ 
+                                                    active = ""
+                                                    if(i == 0){
+                                                        active = "active";
+                                                    }
+                                                %>
+                                                <div class="item <%= active %> defaultSliderImage">
+                                                    <img src="<%= EditImagesdata[i] %>" class="thumb-preview" alt="Chevrolet Impala">
+                                                </div>           
+                                            <% } } else{  %>
+                                                    <div class="item active defaultSliderImage">
+                                                        <img src="http://placehold.it/710x473" class="thumb-preview" alt="Chevrolet Impala">
+                                                    </div>
+                                                    <% } %>
+                                                </div>
+                                            <!-- Controls -->
+                                            <a class="left carousel-control" href="#carousel-custom" role="button"
+                                                data-slide="prev">
+                                                <span class="slider-mover-left no-bg t-slider-r pojison" aria-hidden="true">
+                                                    <i class="fa fa-angle-left"></i>
+                                                </span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="right carousel-control" href="#carousel-custom" role="button"
+                                                data-slide="next">
+                                                <span class="slider-mover-right no-bg t-slider-l pojison" aria-hidden="true">
+                                                    <i class="fa fa-angle-right"></i>
+                                                </span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div>
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators thumbs visible-lg visible-md">
+                                            <% if(typeof EditImagesdata != undefined && EditImagesdata.length > 0){
+                                            for(i=0; i < EditImagesdata.length; i++){ %>
+                                            <li data-target="#carousel-custom" data-slide-to="0" class="defaultSliderImage"><img
+                                            src="<%= EditImagesdata[i]%>"></li>
+                                            <% } }else{ %>
+                                            <li data-target="#carousel-custom" data-slide-to="0" class="defaultSliderImage"><img
+                                            src="http://placehold.it/90x60" alt="Chevrolet Impala"></li>
+                                            <% } %>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <!-- Properties detail slider end -->
+                                <!-- Property description start -->
+                                <div class="panel-box properties-panel-box Property-description">
+                                    <h3 class="title">
+                                    <!--    <a href="properties-details.html" id="propertyTitle"></a> -->
+                                        <span id="propertyTitle"></span>
+
+                                    </h3>
+                                    <!-- Property address -->
+                                    <h4 class="property-address" id="previewAdress">
+                                        <span id="locationIcon"></span>
+                                        <span id="previewArea"></span>
+                                        <span id="previewCity"></span>
+                                    </h4>
+                                    <div class="property-price">
+                                        <span id="previewPrice"></span>
+                                    </div>
+                                    <h5 class="New_Approved_Layout additional-info" style="display:none" id="previewStatus"></h5>
+                                    <!-- Facilities List -->
+                                    <div class="property-content">
+                                        <ul class="facilities-list clearfix">
+                                            <li>
+                                                <span id="extentIcon"></span>
+                                                <span id="previewExtent"></span> 
+                                                <span id="previewUnit"></span>
+                                            </li>
+                                            <li class="Apartment Villas Gated_Community additional-info" id="previewBed"
+                                                style="display:none">
+
+                                            </li>
+                                            <li class="Apartment Villas Gated_Community additional-info" id="previewBath"
+                                                style="display:none">
+
+                                            <li class="Residential_Plot Commercial_Plot Villa_Plot Apartment Villas Gated_Community additional-info, Wet, Dry"
+                                                id="previewFacing">
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Property description end -->
+                            </div>
+                            <!-- Properties details section end -->
+                        </div>
+                    </div>
+
+                    <input type="hidden" id="PropertyID" name="PropertyID" value="<%if(propertyResult[0] && propertyResult[0].ID){ %><%= propertyResult[0].ID %><% } %>">
+                    <div class="btn-container col-sm-12 content-area">
+                        <div id="save-property-details_msg"></div>
+                        <div class="form-group text-center">
+                            <button type="button" onclick="goBack()" class="button back-step" style="display: none;">back</button>
+                            <button type="button" onclick="goNext()" class="button next-step">next</button>
+
+                       <!--      <button type="submit" class="button transparent submit-button">save</button> -->
+                            <!-- <input type="submit" class="button transparent submit-button" value="Submit"> -->
+                                 <button type="button"  onclick="SubmitProperty('save-property-details');" class="button transparent submit-button">save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="ValidationError" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div>
+            <div class="modal-body" id="errorPopup">
+                <ul id="messageBox" style="margin-left:16px">
+                </ul>
+
+
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+<% include script %>
+<% include footer %>
+
+<div class="modal fade" id="modalCrop">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <!-- <div class="modal-header">
+                <button type="button" class="close cancelCrop" data-dismiss="modal">×</button>
+            </div> -->
+            <div class="modal-body">
+                <div class="img-container">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-xs small-btn cancelCrop" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-xs small-btn" id="crop">Crop</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var ProjectStatus = <%-JSON.stringify(ProjectStatus)%>;
+    var soil = <%-JSON.stringify(soil)%>;
+    var PlanApprovedby = <%-JSON.stringify(PlanApprovedby)%>;
+    var UnitsOfArea = <%-JSON.stringify(UnitsOfArea)%>;
+    var validator = formValidation('save-property-details');
+    var propertyResult =  <%-JSON.stringify(propertyResult[0] ? propertyResult[0] : []) %>;
+    var EditpropertiesDetailData = <%-JSON.stringify(EditpropertiesDetailData) %>;
+   
+    var EditUnitDetailData =  <%-JSON.stringify(EditUnitDetailData) %>;
+    var EditSpecificationData =  <%-JSON.stringify(EditSpecificationData) %>;
+ 
+    var EditAmenityData =  <%-JSON.stringify(EditAmenityData) %>;
+    if(typeof EditpropertiesDetailData == 'object' ){
+ 
+        setTimeout(function(){
+            $('#propertyType').trigger('change');
+            $('.check_box').trigger('change');
+            $('#CityID').trigger('change');
+         
+        }, 1000); 
+    }
+    function tabClick(str){
+        var valid = true;
+        var current = parseInt($('.activeClass li.active').find('a').attr('data-filter'));
+        if(str > current){
+            $('div.filtr-item[data-category="' + current + '"]').find("input,select").each(function () {
+            if (!validator.element(this) && valid) {
+                valid = false;
+            }
+        });    
+        }
+        if (!valid) {
+            event.stopImmediatePropagation();
+        } else {
+        if (str == 1) {
+        $('.back-step').hide();
+        }
+        if (str < 5) {
+        $('.next-step').show();
+        }
+        if (str >= 2) {
+        $('.back-step').show();
+        }
+        if(str == 5) {
+        $('.next-step').hide();
+        }
+            var city = '';
+            var state = '';
+            var district = '';
+            for (var i = 0; i < cities.length; i++) {
+                // console.log('---------cities',cities[i]);
+                if (cities[i].ID == $('#CityID').val()) {
+                    city = cities[i].Name;
+                    state = cities[i].State;
+                    district = cities[i].District;
+                }
+            }
+            var address = '';
+            if ($('#surveyNo').val()) {
+                address += $('#surveyNo').val() + ' ,';
+            }
+            if ($('#locality').val()) {
+                address += $('#locality').val() + ' ,';
+            }
+            address += $('#area').val()+', '+district+', '+city+' ,'+ state;
+            // console.log('----------- address', address);
+            geocode(address);
+        }
+    }
+    
+    // $('.filtr-button').click(function (event) {
+    //     var valid = true;
+    //     $('div.filtr-item[data-category="' + (parseInt($('.activeClass li.active').find('a').attr('data-filter'))) +
+    //         '"]').find("input,select").each(function () {
+    //         if (!validator.element(this) && valid) {
+    //             valid = false;
+    //         }
+    //     });
+    //     if (!valid) {
+    //         event.stopImmediatePropagation();
+    //     } else {
+    //         var city = '';
+    //         var state = '';
+    //         var district = '';
+    //         for (var i = 0; i < cities.length; i++) {
+    //             if (cities[i].ID == $('#CityID').val()) {
+    //                 city = cities[i].Name;
+    //                 state = cities[i].State;
+    //                 district = cities[i].District;
+    //             }
+    //         }
+    //         var address = '';
+    //         if ($('#surveyNo').val()) {
+    //             address += $('#surveyNo').val() + ' ,';
+    //         }
+    //         if ($('#locality').val()) {
+    //             address += $('#locality').val() + ' ,';
+    //         }
+    //         address += $('#area').val() + ', ' + city + ', ' + district + ', ' + state;
+    //         geocode(address);
+    //     }
+    // });
+</script>

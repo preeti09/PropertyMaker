@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <!-- External CSS libraries -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-submenu.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/leaflet.css" type="text/css">
+    <link rel="stylesheet" href="css/map.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="fonts/linearicons/style.css">
+    <link rel="stylesheet" type="text/css"  href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css"  href="css/dropzone.css">
+    <link rel="stylesheet" type="text/css"  href="css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css"  href="css/intlTelInput.css">
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="/css/skins/default.css">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" >
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" type="text/css" href="css/ie10-viewport-bug-workaround.css">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script defer src="js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.min.js"></script>
+    <script type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="body withFilter">
+<div class="page_loader"></div>
+<!-- Main header start -->
+<header class="main-header fixed-top">
+    <div class="container-fluid">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navigation" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="logo">
+                    <img src="img/logos/logo.png" alt="logo">
+                </a>
+
+                <div class="form-group mr-0">
+
+                 <span class="buy-in">Buy in</span>
+                    <select class="selectpicker" name="byInCity" id="byInCity">
+                        <option value="Select" data-hidden="true">City</option>
+                        <option value="Amaravati">Amaravati </option>
+                        <option value="Vijaywada">Vijaywada </option>
+                        <option value="Guntur">Guntur </option>
+                    </select>
+
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse collapse pull-right" role="navigation" aria-expanded="true" id="app-navigation">
+
+                <ul class="nav navbar-nav margin-right">
+                    <li><a href="/buy">Buy</a></li>
+                    <li><a href="/price-trends">Price Trends</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li class="dropdown">
+                        <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
+                            More<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/faq">FAQ</a></li>
+                            <li><a href="/privacy-policy">Privacy Policy</a></li>
+                            <li><a href="/terms-of-service">Terms of Service</a></li>
+                            <li><a href="/disclaimer">Disclaimer</a></li>
+                            <li><a href="tel:+91-9533- 894-894"><i class="fa fa-phone"></i>+91-9533- 894-894</a></li>
+                            <li><a href="tel:Support@avenue.in"><i class="fa fa-envelope"></i>Support@avenue.in</a></li>
+                        </ul>
+                    </li>
+                    <% if(sess_val) {%>
+                            <li><a href="/login/logout" class="sign-in">Logout <span class="fa fa-user"></span></a></li>
+                            <% }else{ %>
+                                <li><a href="/login" class="sign-in">Login <span class="fa fa-user"></span></a></li>
+                            <% } %>
+                    
+                    <li class="hidden-sm hidden-md hidden-lg">
+                        <a href="/submit-property" class="button">
+                            Submit Property
+                        </a>
+                    </li>
+                </ul>
+                <!--<ul class="top-social-media">
+                    <li>
+                        <a href="signup.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
+                    </li>
+                </ul>-->
+                <ul class="nav navbar-nav navbar-right rightside-navbar">
+                    <li>
+                        <a href="/submit-property" class="button">
+                            Submit Property
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- Main header end -->
+    
+<section class="parallax-window sub-header sub-banner overview-bgi" id="short"  data-parallax="scroll" data-image-src="img/sub-banner-1.jpg" data-natural-width="1400" data-natural-height="145">
+ <div class="container-fluid">
+    <div class="row">
+        <form action="/properties-grid" method="POST" id="search_property">
+            <ul class="nav navbar-nav margin-right">
+                <li>
+                    <div class="form-group">
+                        <select class="selectpicker search-fields" id="Type" name="propertyType">
+                            <option value="Property Types" data-hidden="true">Property Types </option>
+                            <% var propertyTypeData = [];
+                                for(var i=0; i< propertyType.length; i++ ){ 
+                                    var select = "";
+                                    if(query.propertyType == propertyType[i].PropertyTypeId){
+                                        select = "selected";
+                                    }
+                            %>
+                                <option value="<%= propertyType[i].PropertyTypeId %>" <%= select %>><%= propertyType[i].PropertyType %></option>
+                            <% } %>
+
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-group form-group"> <input class="input-text" placeholder="City, Area, Locality, Property Title" value="<%= query.filterAreaProperty %>" name="filterAreaProperty" id="myInput" autocomplete="off"> <!--<span class="input-group-btn"> <button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button> </span>--> </div>
+                </li>
+                <li>
+                    <div class="dropdown search-fields">
+                        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Budget
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="input-text" name="budget_min" value="<%= query.budget_min %>" placeholder="Min">
+                            </div>
+                            <div class="dash">&nbsp;</div>
+                          </li>
+                          <li class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="input-text" name="budget_max" value="<%= query.budget_max %>" placeholder="Max">
+                            </div>
+                          </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown search-fields">
+                        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Extent 
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="input-text" name="extent_sale" placeholder="Sale" value="<%= query.extent_sale %>">
+                            </div>
+                          </li>
+                          <li class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="input-text" name="extent_sold" placeholder="Sold" value="<%= query.extent_sold %>">
+                            </div>
+                          </li>
+                        </ul>
+                    </div>
+                </li>
+                <li style="display: none" class="propertyCategory Lands">
+                    <div class="form-group">
+                        <select class="selectpicker search-fields" name="water_source">
+                            <option value="" data-hidden="true">Water source </option>
+                            <option value="Well" <% if(query.water_source == 'Well'){%> selected <% } %>>Well</option>
+                            <option value="River" <% if(query.water_source == 'River'){%> selected <% } %>>River</option>
+                            <option value="Ocean" <% if(query.water_source == 'Ocean'){%> selected <% } %>>Ocean</option>
+                        </select>
+                    </div>
+                </li>
+                <li style="display: none" class="propertyCategory Layouts Lands Plots">
+                    <div class="form-group">
+                        <!--<input type="text" class="input-text" name="road_width" value="<%= %>" placeholder="Road width">-->
+                        <select class="selectpicker search-fields" name="road_width">
+                            <option value="" data-hidden="true">Width </option>
+                            <option value="= 10" <% if(query.road_width == '= 10'){%> selected <% } %>>10</option>
+                            <option value="= 20" <% if(query.road_width == '= 20'){%> selected <% } %>>2</option>
+                            <option value=">= 30" <% if(query.road_width == '>= 30'){%> selected <% } %>>>30</option>
+                            <option value=">= 40" <% if(query.road_width == '>= 40'){%> selected <% } %>>>40</option>
+                        </select>
+                    </div>
+                </li>
+                <li style="display: none" class="propertyCategory Apartment Projects Individual">
+                    <div class="form-group">
+                        <select class="selectpicker search-fields" name="bed">
+                            <option value="" data-hidden="true">Min Bed </option>
+                            <option value="1" <% if(query.bed == 1){%> selected <% } %>>1</option>
+                            <option value="2" <% if(query.bed == 2){%> selected <% } %>>2</option>
+                            <option value="3" <% if(query.bed == 3){%> selected <% } %>>3</option>
+                            <option value="4" <% if(query.bed == 4){%> selected <% } %>>4</option>
+                            <option value="5" <% if(query.bed == 5){%> selected <% } %>>5</option>
+                            <option value="6" <% if(query.bed == 6){%> selected <% } %>>6</option>
+                        </select>
+                    </div>
+                </li>
+                <li style="display: none" class="propertyCategory Apartment Projects Individual">
+                    <div class="form-group">
+                        <select class="selectpicker search-fields" name="bath">
+                            <option value="" data-hidden="true">Bath </option>
+                            <option value="1" <% if(query.bath == 1){%> selected <% } %>>1</option>
+                            <option value="2" <% if(query.bath == 2){%> selected <% } %>>2</option>
+                            <option value="3" <% if(query.bath == 3){%> selected <% } %>>3</option>
+                            <option value="4" <% if(query.bath == 4){%> selected <% } %>>4</option>
+                            <option value="5" <% if(query.bath == 5){%> selected <% } %>>5</option>
+                            <option value="6" <% if(query.bath == 6){%> selected <% } %>>6</option>
+                        </select>
+                    </div>
+                </li>
+                <li style="display: none" class="propertyCategory Apartment Projects Individual">
+                    <div class="form-group">
+                        <select class="selectpicker search-fields" name="Balcony">
+                            <option value="" data-hidden="true">Balcony </option>
+                            <option value="1" <% if(query.Balcony == 1){%> selected <% } %>>1</option>
+                            <option value="2" <% if(query.Balcony == 2){%> selected <% } %>>2</option>
+                            <option value="3" <% if(query.Balcony == 3){%> selected <% } %>>3</option>
+                        </select>
+                    </div>
+                </li>
+                <li style="display: none" class="propertyCategory Apartment Projects Individual">
+                    <span class="checkTitle">Cupboards</span>
+                    <div class="checkbox checkbox-theme checkbox-circle">
+                        <input type="checkbox" id="Cupboards" name="cupboards" value="1" <% if(query.cupboards){%> checked <% } %>>
+                        <label for="Cupboards">
+    <!--                        Cupboards-->
+                        </label>
+                    </div>
+                </li>
+                <li style="display: none;" class="propertyCategory Apartment Projects Individual Plots">
+                    <span class="checkTitle">Facing</span>
+                    <div class="checkbox checkbox-theme checkbox-circle">
+                        <input type="checkbox" id="north" name="north" value="North" <% if(query.north){%> checked <% } %>>
+                        <label for="north">
+                            N
+                        </label>
+                    </div>
+                    <div class="checkbox checkbox-theme checkbox-circle">
+                        
+                        <input type="checkbox" id="east" name="east" value="East" <% if(query.east){%> checked <% } %>>
+                        <label for="east">
+                            E
+                        </label>
+                    </div>
+                    <div class="checkbox checkbox-theme checkbox-circle">
+                        <input type="checkbox" id="west" name="west" value="West" <% if(query.west){%> checked <% } %>>
+                        <label for="west">
+                            W
+                        </label>
+                    </div>
+                    <div class="checkbox checkbox-theme checkbox-circle">
+                        <input type="checkbox" id="south" name="south" value="South" <% if(query.south){%> checked <% } %>>
+                        <label for="south">
+                            S
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <span class="input-group-btn" style="width:0px"> <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button> </span>
+                </li>
+            </ul>
+        </form>
+    </div>
+ </div>
+</section>
+<!-- Sub Banner end -->
+
+<!-- Map content start -->
+<div class="map-content content-area container-fluid">
+    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-6 map-div anim">
+        <div class="row">
+            <div id="map"></div>
+            <a class="show-more-options pull-right">
+                <i class="fa fa-plus-circle"></i> More Map
+            </a>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-6 map-content-sidebar anim">
+        <div class="title-area">
+            <!--<h2 class="pull-left">Properties</h2>-->
+            <div class="breadcrumb-area pull-left">                  
+                <ul class="breadcrumbs">
+                    <li><a href="#">Real Estate</a></li>
+                    <li class="active"><a href="#">Guntur</a></li>
+                    <li class="active"><a href="#">Apartment</a></li>
+                </ul>
+            </div>
+            <div class="pull-left result-container">                  
+                <strong>
+                    (No properties for sale)
+                </strong>
+            </div>
+            <div class="pull-right btns-area">
+                <a href="#" class="change-view-btn" data-target="list">
+                    <i class="fa fa-th-list"></i>
+                </a>
+                <a href="#" class="change-view-btn active-view-btn" data-target="grid">
+                    <i class="fa fa-th-large"></i>
+                </a>
+            </div>
+            <div class="clearfix"></div>
+            <div class="propertyFilter">                  
+
+                <select class="selectpicker" name="sortby" onchange="setCookie('sortby', this.value ,1);window.location.href='/properties-grid'">
+                    <option value="Select" data-hidden="true">Sort by <span class="caret caret_filter"></span></option>
+                    <option value="p.AskingPrice DESC" <% if(sortby == 'p.AskingPrice DESC') { %> selected <% } %> >Sq.ft Price High to Low </option>
+                    <option value="p.AskingPrice ASC" <% if(sortby == 'p.AskingPrice ASC'){%> selected <% } %>>Sq.ft Price Low to High </option>
+                    <option value="p.Propid DESC" <% if(sortby == 'p.Propid DESC'){%> selected <% } %>>Newest first </option>
+                    <option value="p.Propid ASC" <% if(sortby == 'p.Propid ASC'){%> selected <% } %>>Oldest first </option>
+                    <option value="fp.Bed_No DESC" <% if(sortby == 'fp.Bed_No DESC'){%> selected <% } %>>Bedrooms High to Low </option>
+                    <option value="fp.Bed_No ASC" <% if(sortby == 'fp.Bed_No ASC'){%> selected <% } %>>Bedrooms Low to high </option>
+                    <option value="fp.Bath_No ASC" <% if(sortby == 'fp.Bath_No ASC'){%> selected <% } %>>Bathrooms Low to high </option>
+                </select>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="fetching-properties">
+            
+            <% 
+                for(var i=0; i< propertyResult.length; i++){  %>
+            <a href="/properties-details/<%= propertyResult[i].Propid %>" >  
+           <div class="property map-properties-list grid clearfix">
+                
+               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 property-content">
+                
+                  <div class="grid-bg">
+                     <div class="prop-img">
+                        <img src="<% if(propertyResult[i].ImageGallery.split(',')[0]){ %><%= propertyResult[i].ImageGallery.split(',')[0] %><%} else{%> https://avenueproperty.s3.ap-south-1.amazonaws.com/images/1529576338069 <% } %>" alt="" width="360px" height="240px">
+                    </div>
+
+                    <div class="prop-Detials">
+                        <div class="property-name">
+                            <h4 class="mar-b-0"><span><%= propertyResult[i].Title %></span></h4>
+                        </div>
+                        <% if(propertyResult[i].Site_Area || propertyResult[i].Bed_No || propertyResult[i].Bath_No){ %>
+                          <ul class="facilities-list clearfix">
+                             <% if(propertyResult[i].Site_Area){ %>
+                            <li> <i class="flaticon-square-layouting-with-black-square-in-east-area"></i> <span><%= propertyResult[i].Site_Area %></span> </li>
+                            <% } if(propertyResult[i].Bed_No){ %>
+                            <li> <i class="flaticon-bed"></i> <span><%= propertyResult[i].Bed_No %></span> </li>
+    <!--                        <li> <i class="flaticon-monitor"></i> <span>TV </span> </li>-->
+                             <% } if(propertyResult[i].Bath_No){ %>
+                            <li> <i class="flaticon-holidays"></i><span><%= propertyResult[i].Bath_No %></span> </li>
+                             <% } %>
+    <!--                        <li> <i class="flaticon-vehicle"></i><span>1 Garage</span></li>-->
+    <!--                        <li> <i class="flaticon-building"></i> <span> 3 Balcony</span> </li>-->
+                         </ul>
+                        <% } %>
+                        
+                        <%  var active = '';
+                            if(propertyResult[i].AgentsId != sess_val){
+                                
+                                 if(propertyResult[i].favourite == 1 && propertyResult[i].f_user_id == sess_val){
+                                     active = 'active';
+                                 }   
+                            
+                            %>
+                            <div class="short-list <%= active %>" onclick="event.stopPropagation();" Propid="<%= propertyResult[i].Propid %>">
+                                <i class="fa fa-heart" ></i>
+                            </div>
+                         <% } %>
+                        
+                          <!--<div class="short-list">
+                                <i class="fa fa-heart"></i>
+                          </div>-->
+                         
+                          <div class="property-footer"> 
+                             <span>₹<%= propertyResult[i].AskingPrice %></span>
+                             <span class="right"> Sale</span> 
+                          </div>
+                      </div>
+                   </div>
+                        
+                </div>   
+           </div>
+               </a>
+            <% } if(propertyResult.length == 0 ){ %>
+            
+            <center>No Record Found.</center>  
+            
+            <% } %>
+        </div>
+        <% if(count > 20){ 
+            var len = Math.ceil(count/20);
+        %>
+        <nav aria-label="Page navigation" class="text-right">
+            <ul class="pagination">
+                <% if(page > 1){ %>
+                <li>
+                    <a href="/properties-grid" onclick="setCookie('page',<%= parseInt(page)-1 %>,1)" aria-label="Previous">
+                        
+                        <span aria-hidden="true">«</span>
+                    </a>
+                </li>
+                <% } for(var i = 0; i < len; i++) {
+                    var active = '';
+                    if((!page && i== 0) || (page-1) == i){
+                        active = 'active';
+                    }
+                %>
+                <li class="<%= active %>"><a href="/properties-grid" onclick="setCookie('page',<%= i+1 %>,1)"><%= i+1 %> <span class="sr-only">(current)</span></a></li>
+                <% } if(page != len){%>
+                
+                <li>
+                    <a href="/properties-grid" onclick="setCookie('page',<%= parseInt(page)+1 %>,1)" aria-label="Next">
+                        <span aria-hidden="true">»</span>
+                    </a>
+                </li>
+                <% } %>
+            </ul>
+        </nav>
+        <% } %>
+        <% include script %>
+    </div>
+</div>
+<script>
+    var propertyResult =<%-JSON.stringify(propertyResult)%>
+        
+    autocomplete(document.getElementById("myInput"), <%-JSON.stringify(autocpmpleteArr)%>,'option');    
+    setTimeout(function(){
+        $("#Type").trigger('change');
+    },500);   
+    
+    if(getCookie('map_resize') == 1){
+        $('.show-more-options').trigger('click');
+    }
+    
+</script>    
+<!-- Map content end -->
+
+<!--<script defer  src="js/jquery-2.2.0.min.js"></script>
+<script defer src="js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<script defer src="js/bootstrap-submenu.js"></script>
+<script defer src="js/rangeslider.js"></script>
+<script defer src="js/jquery.mb.YTPlayer.js"></script>
+<script defer src="js/wow.min.js"></script>
+<script defer src="js/bootstrap-select.min.js"></script>
+<script defer src="js/jquery.easing.1.3.js"></script>
+<script defer src="js/jquery.scrollUp.js"></script>
+<script defer src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/leaflet.js"></script>
+<script defer src="js/parallax.min.js"></script>
+<script src="js/leaflet-providers.js"></script>
+<script src="js/leaflet.markercluster.js"></script>
+<script src="js/dropzone.js"></script>
+<script defer src="js/jquery.filterizr.js"></script>
+<script defer src="js/jquery.magnific-popup.min.js"></script>
+<script defer src="js/jquery.nicescroll.min.js"></script>
+<script defer src="js/intlTelInput.min.js"></script>
+<script src="js/maps.js"></script>
+<script src="js/app.js"></script>
+
+
+<script defer src="js/ie10-viewport-bug-workaround.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css">
+<script defer src="js/ie10-viewport-bug-workaround.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0N5pbJN10Y1oYFRd0MJ_v2g8W2QT74JE"></script>
+<script>
+    function LoadMap(propertes) {
+        var defaultLat = 40.7110411;
+        var defaultLng = -74.0110326;
+        var mapOptions = {
+            center: new google.maps.LatLng(defaultLat, defaultLng),
+            zoom: 15,
+            scrollwheel: false,
+            styles: [
+                {
+                    featureType: "administrative",
+                    elementType: "labels",
+                    stylers: [
+                        {visibility: "off"}
+                    ]
+                },
+                {
+                    featureType: "water",
+                    elementType: "labels",
+                    stylers: [
+                        {visibility: "off"}
+                    ]
+                },
+                {
+                    featureType: 'poi.business',
+                    stylers: [{visibility: 'off'}]
+                },
+                {
+                    featureType: 'transit',
+                    elementType: 'labels.icon',
+                    stylers: [{visibility: 'off'}]
+                },
+            ]
+        };
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        var infoWindow = new google.maps.InfoWindow();
+        var myLatlng = new google.maps.LatLng(40.7110411, -74.0110326);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map
+        });
+        (function (marker) {
+            google.maps.event.addListener(marker, "click", function (e) {
+                infoWindow.setContent("" +
+                    "<div class='map-properties contact-map-content'>" +
+                    "<div class='map-content'>" +
+                    "<p class='address'>123 Kathal St. Tampa City, </p>" +
+                    "<ul class='map-properties-list'> " +
+                    "<li><i class='fa fa-phone'></i>  +0477 8556 552</li> " +
+                    "<li><i class='fa fa-envelope'></i>  info@themevessel.com</li> " +
+                    "<li><a href='index.html'><i class='fa fa-globe'></i>  http://http://themevessel.com</li></a> " +
+                    "</ul>" +
+                    "</div>" +
+                    "</div>");
+                infoWindow.open(map, marker);
+            });
+        })(marker);
+    }
+    LoadMap();
+
+    // Add Class for Shortlist
+    $('.short-list').on('click', function(){
+        $(this).toggleClass('active');
+    })
+
+    // Tooltips
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip(); 
+    });
+
+    // Smooth Scroll
+    $(document).ready(function(){
+      $('body').scrollspy({target: ".navbar"});   
+
+      $("#Navbar a").on('click', function(event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top - 120
+          }, 800, );
+        } 
+      });
+    });
+    $("#phone, #mobile").intlTelInput();
+</script>
+
+</body>
+</html>-->

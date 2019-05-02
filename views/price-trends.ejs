@@ -1,0 +1,133 @@
+<% include header %>
+<%- locals.flash %>
+
+<div class="main margin-TOP-15">
+    <nav id="filterwrapper" class="filterwrapper mobHide prctrnd">
+        <div class="bg-light">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="pull-right">
+                        <div class="mapcontrol filter-toggle filter-open text-center btn btn-success hidden">Options&nbsp;<i class="fa fa-filter" aria-hidden="true"></i></div>
+                        <div class="mapcontrol filter-toggle filter-close text-center btn btn-danger">Close&nbsp;<i class="fa fa-close" aria-hidden="true"></i></div>
+                    </span>
+                    <span>
+                        <div id="reset" class="text-center mapcontrol btn btn-primary"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+                    </span>
+                </div>
+            </div>
+            <div class="row rowgap">
+                <div class="col-sm-12">
+                    <div id="landusefilter" class="landusefilter">
+                        <h5> Property Type </h5>
+                        <table id="landusetable" class="filtertable myList1 table table-hover">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="radio  inline">
+                                            <input id="Commercial" class="mapsfilter" type="radio" value="commercial" name="landuse1">
+                                            <label for="Commercial">Commercial</label>                                         
+                                        </div>
+                                        <!-- <label><input class="mapsfilter" type="radio" value="commercial" name="landuse1">Commercial</label> -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="radio  inline">
+                                            <input class="mapsfilter" id="Residential" type="radio" value="residential" name="landuse1" checked="">
+                                            <label for="Residential">Residential</label>                                         
+                                        </div>
+                                        <!-- <label><input class="mapsfilter" type="radio" value="residential" name="landuse1" checked>Residential</label> -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    
+                    <div id="datefilter" class="datefilter">
+                        <h5> Date </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <nav id="filterwrapper" class="filterwrapper active tabHide prctrnd">
+        <div class="bg-light">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="pull-right">
+                        <div class="mapcontrol filter-toggle filter-open text-center btn btn-success">Options&nbsp;<i class="fa fa-filter" aria-hidden="true"></i></div>
+                        <div class="mapcontrol filter-toggle filter-close text-center btn btn-danger hidden">Close&nbsp;<i class="fa fa-close" aria-hidden="true"></i></div>
+                    </span>
+                    <span>
+                        <div id="reset" class="text-center mapcontrol btn btn-primary"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+                    </span>
+                </div>
+            </div>
+            <div class="row rowgap">
+                <div class="col-sm-12">
+                    <div id="landusefilter" class="landusefilter">
+                        <h5> Property Type </h5>
+                        <table id="landusetable" class="filtertable myList1 table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="radio  inline">
+                                                <input id="Commercial" class="mapsfilter" type="radio" value="commercial" name="landuse">
+                                                <label for="Commercial">Commercial</label>                                         
+                                            </div>
+                                            <!-- <label><input class="mapsfilter" type="radio" value="commercial" name="landuse">Commercial</label> -->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="radio  inline">
+                                                <input class="mapsfilter" id="Residential" type="radio" value="residential" name="landuse" checked="">
+                                                <label for="Residential">Residential</label>                                         
+                                            </div>
+                                            <!-- <label><input class="mapsfilter" type="radio" value="residential" name="landuse" checked>Residential</label> -->
+                                        </td>
+                                    </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    
+                    <div id="datefilter" class="datefilter">
+                        <h5> Date </h5>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </nav>
+
+    <div id="mapcontainer">
+        <div id="map" class="price-map" style="height:452px; width:100%"> </div>
+        <div class="map-options mobHide">
+            <div id="filter-toggle-div" style="margin-left:5px;">
+            <div style="border:solid  #398439; padding: 1px 10px; color: #ffffff; margin-top:10px;" class="filter-toggle filter-open text-center btn btn-success hidden">Options&nbsp;<i class="fa fa-filter" aria-hidden="true"></i></div>
+            <div style="border:solid #d9534f; padding: 1px 10px; color: #ffffff; margin-top:10px;" class="filter-toggle filter-close text-center btn btn-danger">Close&nbsp;<i class="fa fa-close" aria-hidden="true"></i></div>
+            <div style="border:solid #337ab7; padding: 1px 10px; color: #ffffff; margin-top:10px;" id="fullzoom" class="text-center mapcontrol btn btn-primary"><i class="fa fa-arrows-alt" aria-hidden="true"></i></div>
+            <div style="border:solid #337ab7; padding: 1px 10px; color: #ffffff; margin-top:10px;" id="reset" class="text-center mapcontrol btn btn-primary"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+            </div>
+        </div>
+        <div class="map-options tabHide">
+                <div id="filter-toggle-div" style="margin-left:5px;">
+                <div style="border:solid  #398439; padding: 1px 10px; color: #ffffff; margin-top:10px;" class="filter-toggle filter-open text-center btn btn-success">Options&nbsp;<i class="fa fa-filter" aria-hidden="true"></i></div>
+                <div style="border:solid #d9534f; padding: 1px 10px; color: #ffffff; margin-top:10px;" class="filter-toggle filter-close text-center btn btn-danger hidden">Close&nbsp;<i class="fa fa-close" aria-hidden="true"></i></div>
+                <div style="border:solid #337ab7; padding: 1px 10px; color: #ffffff; margin-top:10px;" id="fullzoom" class="text-center mapcontrol btn btn-primary"><i class="fa fa-arrows-alt" aria-hidden="true"></i></div>
+                <div style="border:solid #337ab7; padding: 1px 10px; color: #ffffff; margin-top:10px;" id="reset" class="text-center mapcontrol btn btn-primary"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<% include script %>
+<% include footer %>
+
+
+<script>
+    var geoJson = <%- JSON.stringify( geoJsonData ) %>;
+</script>

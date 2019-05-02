@@ -1,0 +1,754 @@
+<% include header %>
+<div class="clearfix innerfirst"></div>
+<div class="container bredcrumb-area">
+    <ul class="list-inline bredcrumb text-right content-area">
+        <li><a href="/">Home</a> / </li>
+        <li><a href="#">Property search</a></li>
+    </ul>
+</div>
+
+<section id="filtertab" class="filter-cntrl content-area collapse modal fade" role="dialog">
+    <div class="mobileDesign">
+        <div class="modal-header deskHide">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <form id="filterForm">
+            <div class="container">
+                <!-- Main title -->
+                <!-- <div class="row">
+                <div class="col-xs-12">
+                    <a class="fa fa-heart fa-2x" href="javascript:saveSearch()"></a> <b>Save Search</b>
+                </div>
+            </div> -->
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                    
+                        <h4>property type</h4>
+                        <select class="selectpicker propertyType" id="Type" onchange="changePropertyType(this.value,2)"
+                            name="type">
+                            <option value="" data-hidden="true">Select</option>
+                            <% 
+                            for(var i=0; i< propertyType.length; i++ ){ %>
+                            <option value="<%= propertyType[i].Type %>"
+                                <% if(query.type == propertyType[i].Type || query.PropertyTypeID == propertyType[i].ID){ %>selected<% } %>>
+                                <%= propertyType[i].Type %></option>
+                            <% } %>
+                        </select>
+                        <input type="hidden" id="selectedCity" name="city" value="query.city">
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-xs-12 ">
+                        <h4>Category</h4>
+                        <select class="selectpicker PropertyTypeChildID" name="PropertyTypeChildID" name="category"
+                            id="PropertyTypeChildID" onchange="changePropertyCategory(this.value)">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-xs-12 ">
+                        <h4>City</h4>
+                        <select class="selectpicker city" name="city" id="CityID" onchange="changeCity(this.value)">
+                            <option value="All">Select</option>
+                            <% for(var i=0; i< cities.length; i++ ){  %>
+                            <option value="<%= cities[i].ID %>" city="<%= cities[i].Name %>" <% if(query.city == cities[i].Name || query.CityID == cities[i].ID){ %>selected="selected"
+                                <% } %>>
+                                <%= cities[i].Name %>
+                            </option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <!--  <div class="col-lg-3 col-md-6 col-xs-12 Plots hideproperty"> 
+                        <h4>Plot Size</h4>
+                    <div class="col-xs-6 pdl-0">
+                            <select class="selectpicker" name="plotSizeMin">
+                                <option value="" data-hidden="true">Min</option>
+                                <option value="30">30 sq Yd</option>
+                                <option value="60">60 sq Yd</option>
+                                <option value="100">100 sq Yd</option>
+                                <option value="1000">1000 sq Yd</option>
+                                <option value="1500">1500 sq Yd</option>
+                                <option value="2000">2000 sq Yd</option>
+                                <option value="2500">2500 sq Yd</option>
+                                <option value="3000">3000 sq Yd</option>
+                                <option value="3500">3500 sq Yd</option>
+                                <option value="4500">4500 sq Yd</option>
+                                <option value="20000">20000 sq Yd</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-6 pdr-0">
+                            <select class="selectpicker" name="plotSizeMax">
+                                <option value="" data-hidden="true">Max</option>
+                                <option value="30">30 sq Yd</option>
+                                <option value="500">500 sq Yd </option>
+                                <option value="1000">1000 sq Yd </option>
+                                <option value="1500">1500 sq Yd </option>
+                                <option value="2000">2000 sq Yd </option>
+                                <option value="2500">2500 sq Yd </option>
+                                <option value="3000">3000 sq Yd </option>
+                                <option value="3500">3500 sq Yd </option>
+                                <option value="4500">4500 sq Yd </option>
+                                <option value="6000">6000 sq Yd </option>
+                                <option value="20000">20000 sq Yd </option>    
+                            </select>
+                        </div> 
+                    </div>
+                -->
+                    <div class="col-lg-3 col-md-6 col-xs-12 Agriculture_Lands hideproperty">
+                        <h4>Extent</h4>
+                        <div class="col-xs-6 pdl-0">
+                            <select class="selectpicker" name="extentMin">
+                                <option value="" data-hidden="true">Min</option>
+                                <option value=".25">.25 cents </option>
+                                <option value=".50">.50 cents</option>
+                                <option value=".75">.75 cents</option>
+                                <option value="1">1 Acre</option>
+                                <option value="2">2 Acre</option>
+                                <option value="3">3 Acre</option>
+                                <option value="4">4 Acre</option>
+                                <option value="5">5 Acre</option>
+                                <option value="6">6 Acre</option>
+                                <option value="7">7 Acre</option>
+                                <option value="8">8 Acre</option>
+                                <option value="9">9 Acre</option>
+                                <option value="10">10 Acre</option>
+                                <option value="11">11 Acre</option>
+                                <option value="12">12 Acre</option>
+                                <option value="13">13 Acre</option>
+                                <option value="14">14 Acre</option>
+                                <option value="15">15 Acre</option>
+                                <option value="16">16 Acre</option>
+                                <option value="17">17 Acre</option>
+                                <option value="18">18 Acre</option>
+                                <option value="19">19 Acre</option>
+                                <option value="20">20 Acre</option>
+
+                            </select>
+                        </div>
+                        <div class="col-xs-6 pdr-0">
+                            <select class="selectpicker" name="extentMax">
+                                <option value="" data-hidden="true">Max</option>
+                                <% for (var i = 1; i <= 20; i++) { %>
+                                <option value="<%= i %>"><%= i %> Acres</option>
+                                <% } %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <h4>Area</h4>
+                        <select class="selectpicker" data-live-search="true" multiple data-actions-box="true"
+                            data-deselect-all-text='Clear' name="area_id" id="area">
+                            <option value="" data-hidden="true">Select</option>
+                            <% for(var i=0; i < cityArea.length; i++){ %>
+                            <option value="<%= cityArea[i].ID %>"
+                                <% if(cityArea[i].Area == query.area || cityArea[i].ID == query.area_id){ %>selected="selected" <% } %>>
+                                <%= cityArea[i].Area %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-xs-12 Plots hideproperty">
+                        <h4>Facing</h4>
+                        <select class="selectpicker" multiple data-actions-box="true" data-deselect-all-text='Clear'
+                            name="facing">
+                            <option value="North" selected>North</option>
+                            <option value="East" selected>East</option>
+                            <option value="South" selected>South</option>
+                            <option value="West" selected>West</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-xs-12 Plots hideproperty">
+                        <h4> AbuttingRoadWidth</h4>
+                        <div id="Abutting" class="col-xs-6 pdl-0">
+                            <select class="selectpicker" name="AbuttingRoadWidthMin">
+                                <option value="" data-hidden="true">Min</option>
+                                <option value="">All</option>
+                                <option value="30">30 ft</option>
+                                <option value="40">40 ft</option>
+                                <option value="60">60 ft</option>
+                                <option value="100">100 ft</option>
+                                <option value="160">160 ft</option>
+                                <option value="200">200 ft</option>
+
+                            </select>
+                        </div>
+                        <div class="col-xs-6 pdr-0">
+                            <select class="selectpicker" name="AbuttingRoadWidthMax">
+                                <option value="" data-hidden="true">Max</option>
+                                <option value="">All</option>
+                                <option value="30">30 ft</option>
+                                <option value="40">40 ft</option>
+                                <option value="60">60 ft</option>
+                                <option value="100">100 ft</option>
+                                <option value="160">160 ft</option>
+                                <option value="200">200 ft</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div
+                        class="col-lg-3 col-md-6 col-xs-12 Plots Residential Apartment Gated_Community Villas hideproperty additional-info Residential_Plot Commercial_Plot Villa_Plot New_Approved_Layout">
+                        <h4>RERA Approved</h4>
+                        <div class="radio-btn">
+                            <label>All</label> <input class="radio" type="radio" name="RERA_Approved" value="all"
+                                checked />
+                            <label>Yes</label> <input class="radio" type="radio" name="RERA_Approved" value="true" />
+                            <label>No</label> <input class="radio" type="radio" name="RERA_Approved" value="false" />
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-xs-12  Agriculture_Lands hideproperty">
+                        <h4>Has Road Access</h4>
+                        <div class="radio-btn">
+                            <label>All</label> <input class="radio" type="radio" name="RoadAccess" value="all"
+                                checked />
+                            <label>Yes</label> <input class="radio" type="radio" name="RoadAccess" value="true" />
+                            <label>No</label> <input class="radio" type="radio" name="RoadAccess" value="false" />
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-xs-12  Agriculture_Lands hideproperty">
+                        <h4>Water source</h4>
+                        <div class="radio-btn">
+                            <label>All</label> <input class="radio" type="radio" name="WaterSource" value="all"
+                                checked />
+                            <label>Rain</label> <input class="radio" type="radio" name="WaterSource" value="Rainfed" />
+                            <label>Canal</label> <input class="radio" type="radio" name="WaterSource" value="Canal" />
+                            <label>Bore</label> <input class="radio" type="radio" name="WaterSource" value="Bore" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <h4>amenities</h4>
+                        <select class="selectpicker" name="amenities" id="amenities_PropertyDetail" multiple
+                            data-actions-box="true" data-deselect-all-text='Clear'>
+                            <% for(var i =0; i< Amenities.length; i++){ %>
+                            <option value="<%= Amenities[i].ID %>"><%= Amenities[i].Amenity %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xs-12 Residential hideproperty">
+                        <h4>Specification</h4>
+                            <select class="selectpicker" name="specification" id="specification_PropertyDetail" multiple
+                                data-actions-box="true" data-deselect-all-text='Clear'>
+                                <% for(var i =0; i< Specifications.length; i++){ %>
+                                <option value="<%= Specifications[i].ID %>"><%= Specifications[i].Specification %>
+                                </option>
+                                <% } %>
+                            </select>
+                    </div>
+                </div>
+
+                <div class="row Plots hideproperty">
+                    <div class="col-xs-12">
+                        <h4>Plot Size</h4>
+                        <div class="form-group">
+                            <div class="range-slider">
+                                <div data-min="30" data-max="20000" data-unit="sq Yd" data-min-name="plotSizeMin"
+                                    data-max-name="plotSizeMax" class="range ui-slider" aria-disabled="false"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4>budget (approx.)</h4>
+                        <div class="form-group">
+                            <div class="range-slider">
+                                <div data-min="1000000" data-max="200000000" data-unit="&#8377;"
+                                    data-min-name="budget_min" data-max-name="budget_max"
+                                    class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 text-right">
+                        <button type="button" onclick="filterProperty();" class="button transparent" class="close"
+                            data-dismiss="modal">Search</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<section class="filter-content content-area">
+    <div class="container toggle-header">
+        <div>
+            <ul class="nav navbar-nav activeClass">
+                <li class="active"><a class="filtr-button filtr" data-filter="all">search results</a></li>
+                <li class="mobHide"><a data-filter="2" class="filtr-button filtr">recommended</a></li>
+                <!--<li><a data-filter="2" class="filtr-button filtr">trending</a></li>-->
+            </ul>
+            <ul class="nav navbar-nav navbar-right activeClass display-toggle">
+                <!-- <li class="mapview-sortopt"><span>Sort by</span></li> -->
+                <li class="mapview-sortopt">
+                    <select class="selectpicker" name="sort" id="sortProperty"
+                        onchange="sortProperty(this.value,'sortMapScreen')">
+                        <option value="" data-hidden="true">Sort by</option>
+                        <option value="1">Price: High to Low</option>
+                        <option value="2">Price: Low to High</option>
+                        <option value="3">Latest</option>
+                        <option value="4">Oldest</option>
+                    </select>
+                </li>
+                <li><a data-displaytoggle="grid-opt" href="#" class="fa fa-th toggle"></a></li>
+                <li><a data-displaytoggle="list-opt" href="#" class="lnr lnr-list list-view toggle"></a></li>
+                <li><a data-displaytoggle="map-opt" href="#" class="fa fa-map-o toggle"></a></li>
+                <li class="active"><a data-displaytoggle="b-list-opt" href="#"
+                        class="lnr lnr-chevron-down-circle toggle"></a></li>
+            </ul>
+        </div>
+    </div>
+    <hr />
+
+    <div class="featured-properties">
+        <div class="container">
+            <div id='msg'>
+                <%= propertyResult.length%>
+                <%= Message %> Found
+            </div>
+            <ul class="list-inline text-right xs-text-left filter-sec">
+                <li class="deskHide advFinlt">
+                    <a href="#" data-toggle="modal" class="button transparent" data-target="#filtertab">
+                        Advanced Filters
+                    </a>
+                </li>
+                <li class="mobHide"><span class="sort-by">Sort by</span></li>
+                <li class="right-select">
+                    <span class="sort-by tabHide">Sort by</span>
+                    <select class="selectpicker" name="sort" id="sortMapScreen"
+                        onchange="sortProperty(this.value,'sortProperty')">
+                        <option value="" data-hidden="true">Select</option>
+                        <option value="1">Price: High to Low</option>
+                        <option value="2">Price: Low to High</option>
+                        <option value="3">Latest</option>
+                        <option value="4">Oldest</option>
+                    </select>
+                </li>
+            </ul>
+            <div class="row">
+                <div class="map">
+                    <div id="map" class="contact-map"></div>
+                </div>
+
+                <div class="filtr-container">
+                    <% 
+                    var recommemdedTab = 0;
+                    if(typeof propertyResult != 'undefined'){
+                    for(var i=0; i < propertyResult.length; i++){   
+                        
+              <!--           var ImageGallery = GalleryImage[propertyResult[i].ID] ? GalleryImage[propertyResult[i].ID] : ['https://avenueproperty.s3.ap-south-1.amazonaws.com/images/1529576338069']; -->
+              var filterImages = [];
+              if(GalleryImage[propertyResult[i].ID]){
+              var filterImages = GalleryImage[propertyResult[i].ID].filter(v => v != '');
+              }
+               
+                        var ImageGallery = (filterImages.length) ? filterImages :(propertyResult[i].PropertyTypeID == 1 ? ['/img/Plots.png'] : (propertyResult[i].PropertyTypeID == 2  ? ['/img/Residential.png']:['/img/AgriLands.png'])) ;
+                        
+                        if(propertyResult[i].VideoGallery){
+                            var VideoGallery = propertyResult[i].VideoGallery.split(',');
+                        }
+                        if(propertyResult[i].VideoURL){
+                            var VideoURL = propertyResult[i].VideoURL.split(',');
+                        }
+                        var filter = '1';
+                        if(recommemdedIds.includes(propertyResult[i].ID) ){
+                            filter = '2';
+                            recommemdedTab = 2;
+                        }
+                        var TotalPrice = [];
+                        var Extent = [];
+                        var NumberofBeds = [];
+                        var NumberofBath = [];
+                        var SuperBuiltUpArea =[];
+                        var unitDetailsData = UnitTableData[propertyResult[i].ID];
+                        var UnitData = [];
+                        
+                        if(typeof UnitTableData[propertyResult[i].ID] == 'object' && UnitTableData.length > 0){
+                            for(var u = 0; u < UnitTableData[propertyResult[i].ID].length; u++){
+                                if(propertyResult[i].ID == UnitTableData[propertyResult[i].ID][u].PropertyID ){
+                                    UnitData.push(UnitTableData[propertyResult[i].ID][u]);
+                                    if(UnitTableData[propertyResult[i].ID][u].NumberofBeds){
+                                        NumberofBeds.push(UnitTableData[propertyResult[i].ID][u].NumberofBeds); 
+                                    }
+                                    if(UnitTableData[propertyResult[i].ID][u].NumberofBath){
+                                        NumberofBath.push(UnitTableData[propertyResult[i].ID][u].NumberofBath); 
+                                    }
+                                    if(UnitTableData[propertyResult[i].ID][u].UnitExtent){
+                                        TotalPrice.push(parseInt(UnitTableData[propertyResult[i].ID][u].UnitExtent) * parseInt(propertyResult[i].SearchPrice));
+                                        Extent.push(parseFloat(UnitTableData[propertyResult[i].ID][u].UnitExtent));
+                                    }else
+                                    if(UnitTableData[propertyResult[i].ID][u].SuperBuiltUpArea){
+                                        TotalPrice.push(parseInt(UnitTableData[propertyResult[i].ID][u].SuperBuiltUpArea) * parseInt(propertyResult[i].SearchPrice));  
+                                        Extent.push(parseFloat(UnitTableData[propertyResult[i].ID][u].SuperBuiltUpArea));
+                                    }
+                                    else if(propertyResult[i].Extent || propertyResult[i].TotalPrice){
+                                        if(propertyResult[i].TotalPrice){
+                                        TotalPrice.push(parseFloat(propertyResult[i].Extent) * parseInt(propertyResult[i].SearchPrice)); 
+                                        }
+                                        if(propertyResult[i].Extent){
+                                        Extent.push(parseFloat(propertyResult[i].Extent));  
+                                        }
+                                    }
+                                }
+                            }
+                        }else{
+                            TotalPrice.push(parseFloat(propertyResult[i].Extent) * parseInt(propertyResult[i].SearchPrice));
+                            Extent.push(parseFloat(propertyResult[i].Extent));
+                        }
+                        propertyResult[i].unitDetails= UnitData;
+                    %>
+                 
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  filtr-item b-list-opt"
+                        data-category="<%= filter %>">
+                        <div class="property">
+                            <!-- Property img -->
+                            <div class="property-img">
+                                <% 
+                                    var Active = '';
+                                    if(favoriteData.length > 0){
+                                    if(favoriteData.includes(propertyResult[i].ID))
+                                    Active = 'active'; 
+                                    }
+                                %>
+                                <div class="property-tag alt featured <%= Active %>" id="myfavorite<%= i %>">
+                                    <a href="javascript:void(0);"
+                                        onclick="saveAsFavorite('<%= sess_val %>',<%= propertyResult[i].ID %>,<%= i %>);"><i
+                                            class="fa fa-heart" aria-hidden="true"></i></a>
+                                </div>
+                                <!--<div class="property-tag sale">TRENDING</div>  -->
+                                <% if(propertyResult[i].DisplayPrice){ %>
+                                <div class="property-price">
+                                    <%= propertyResult[i].Title.substring(0,17) %><% if(propertyResult[i].Title.length > 17 ){ %>...<% } %>
+                                    <% if(Math.min(...TotalPrice) == Math.max(...TotalPrice)){ 
+                                        propertyResult[i].viewPrice = currencyFormat(Math.max(...TotalPrice));
+                                        %>
+                                    <div>&#8377; <%= currencyFormat(Math.min(...TotalPrice)) %>
+                                        <h5 class="p-color mt-0 mb-0">
+                                            <%= currencyFormat (propertyResult[i].SearchPrice) %>/<%= UnitIdentifier %>
+                                        </h5>
+                                    </div>
+                                    <% }else{ 
+                                        propertyResult[i].viewPrice = currencyFormat(Math.min(...TotalPrice)) + ' - ' +currencyFormat(Math.max(...TotalPrice));
+                                    %>
+                                    <div>&#8377; <%= currencyFormat(Math.min(...TotalPrice)) %> -
+                                        <%= currencyFormat(Math.max(...TotalPrice)) %>
+                                        <h5 class="p-color mt-0 mb-0">
+                                            <%= currencyFormat(propertyResult[i].SearchPrice)%>/<%= UnitIdentifier %>
+                                        </h5>
+                                    </div>
+                                    <% } %>
+                                </div>
+                                <% } else { %>
+                                <div class="property-price">
+                                    <%= propertyResult[i].Title.substring(0,17) %><% if(propertyResult[i].Title.length > 17 ){ %>...<% } %>
+                                    <div>Price On Request</div>
+                                </div>
+                                <% } %>
+                                <!-- Facilities List -->
+                                <ul class="facilities-list clearfix">
+                                    <li>
+                                        <% if(Extent && Extent.length > 0){ %>
+                                        <img src="/img/extent.jpg" width="14" ,height="16" style="margin-top:-4px"
+                                            title="Extent">
+                                        <span>
+                                            <% if(Math.min(...Extent) == Math.max(...Extent)){ %>
+                                            <%= Math.min(...Extent) %> <%= propertyResult[i].UnitIdentifier%>
+                                            <% }else{ %>
+                                            <%= Math.min(...Extent) %> -
+                                            <%= Math.max(...Extent) %><%= propertyResult[i].UnitIdentifier%>
+                                            <% } %>
+                                        </span>
+                                        <% } %>
+                                        <% var facing = ''; if(propertyResult[i].East ||propertyResult[i].West || propertyResult[i].North || propertyResult[i].South) {  %>
+                                        <img src="/img/facing.jpg" width="14" ,height="16" style="margin-top:-4px"
+                                            title="Facing">
+                                        <% if(propertyResult[i].East){
+                                            facing += 'E'
+                                            } 
+                                            if(propertyResult[i].West){ 
+                                            if(facing){
+                                                facing += ' | '
+                                            } 
+                                            facing += 'W'
+                                            } if(propertyResult[i].North){
+                                            if(facing){
+                                                facing += ' | '
+                                            }
+                                            facing += 'N';
+                                            
+                                            } if(propertyResult[i].South){
+                                            if(facing){
+                                                facing += ' | '
+                                            }
+                                            facing += 'S';
+                                            } %>
+                                        <span><%= facing %></span>
+                                        <% } %>
+                                    </li>
+                                    <% if(NumberofBeds.length > 0 ){ %>
+                                    <li>
+                                        <i class="fa fa-bed" title="Number of beds"></i>
+                                        <% if(Math.min(...NumberofBeds) == Math.max(...NumberofBeds)){ %>
+                                        <span><%= Math.min(...NumberofBeds) %> </span>
+                                        <% }else{ %>
+                                        <span><%= Math.min(...NumberofBeds) %>-<%= Math.max(...NumberofBeds) %> </span>
+                                        <% } %>
+                                    </li>
+                                    <% }if(NumberofBath.length > 0){ %>
+                                    <li>
+                                        <i class="flaticon-holidays" title="Number of baths"></i>
+                                        <% if(Math.min(...NumberofBath) == Math.max(...NumberofBath)){ %>
+                                        <span><%= Math.min(...NumberofBath) %> </span>
+                                        <% }else{ %>
+                                        <span><%= Math.min(...NumberofBath) %>-<%= Math.max(...NumberofBath) %> </span>
+                                        <% } %>
+                                    </li>
+                                    <% } %>
+                                </ul>
+                                <ul class="facilities-list clearfix viewlistdata">
+                                    <% if(ImageGallery){ %>
+                                    <li>
+                                        <i class="lnr lnr-camera"></i>
+                                        <span><%= ImageGallery.length %></span>
+                                    </li>
+                                    <% }if(VideoGallery || VideoURL){ 
+                                        var totalVideos = 0;
+                                        if(VideoGallery){
+                                            totalVideos += VideoGallery.length
+                                        }if(VideoURL){
+                                            totalVideos += VideoURL.length
+                                        }
+                                        %>
+                                    <%if(totalVideos > 0){%>
+                                    <li>
+                                        <i class="lnr lnr-camera-video"></i>
+                                        <span><%= totalVideos %></span>
+                                    </li>
+                                    <% } }%>
+                                </ul>
+                                <img src="<%= ImageGallery[0] %>" alt="fp" class="img-responsive">
+                                <div class="property-overlay">
+                                    <a href="<%= propertyResult[i].URL %>" class="overlay-link" target="_blank">
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                    <% if(propertyResult[i].VideoURL || propertyResult[i].VideoGallery) { %>
+                                    <a class="overlay-link property-video" title="<%= propertyResult[i].Title %>"
+                                        onclick="videoModal('Video','<%= (propertyResult[i].VideoURL)%>','<%= propertyResult[i].VideoGallery %>','<%= ImageGallery %>',<%= YouTubeGetID %>,<%= i %>);">
+                                        <i class="fa fa-video-camera"></i>
+                                    </a>
+                                    <% } %>
+                                    <% for(var j =0 ; j < ImageGallery.length  ;j++){
+                                        if(j == 0){ %>
+                                    <a class="overlay-link property-video" title="<%= propertyResult[i].Title %>"
+                                        onclick="videoModal('Images','<%= (propertyResult[i].VideoURL)%>','<%= propertyResult[i].VideoGallery %>','<%= ImageGallery %>',<%= YouTubeGetID %>,<%= j %>);">
+                                        <i class="fa fa-expand"></i>
+                                    </a>
+                                    <% } }  %>
+                                </div>
+                            </div>
+                            <!-- Property content -->
+                            <div class="property-content">
+                                <!-- title -->
+                                <div class="col-md-7 col-sm-6 col-xs-12 cont-item cont-item1">
+                                    <h3 class="title">
+                                        <input type="hidden" id="newnew" name="result[]"
+                                            value="<%= propertyResultStr %>">
+                                        <a href="javascript:void(0);"
+                                            onclick="propertyInfowindow(<%= JSON.stringify(propertyResult[i].ID) %>,<%= JSON.stringify(propertyResult[i].URL) %>)"
+                                            title="<%= propertyResult[i].Title %>"><%= propertyResult[i].Title.substring(0,22) %><% if(propertyResult[i].Title.length > 22 ){ %>...<% } %></a>
+                                        <!-- <a href="/single-property/<%= propertyResult[i].ID %>" title="<%= propertyResult[i].Title %>"><%= propertyResult[i].Title.substring(0,25) %></a> -->
+                                        <span class="titleheart <%= Active %>" id="myfavorite_<%= i %>">
+                                            <a href="javascript:void(0);"
+                                                onclick="saveAsFavorite('<%= sess_val %>',<%= propertyResult[i].ID %>,<%= i %>);"><i
+                                                    class="fa fa-heart" aria-hidden="true"></i></a>
+                                        </span>
+                                    </h3>
+                                    <!-- Property address -->
+                                    <h4 class="property-address">
+                                        <a href="#">
+                                            <i class="lnr lnr-map-marker"></i><%= propertyResult[i].Area %><%if(propertyResult[i].Area){%>,
+                                            <% } %>
+                                            <%= propertyResult[i].city %>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class="col-md-7 col-sm-6 col-xs-12 cont-item cont-item2">
+                                    <% if(propertyResult[i].ProjectStatusID){ %>
+                                    <h5><%= PropertyStatus[propertyResult[i].ProjectStatusID]%></h5>
+                                    <% } %>
+                                    <ul class="facilities-list clearfix">
+                                        <li>
+                                            <% if(Extent && Extent.length > 0){ %>
+                                            <img src="/img/extent.jpg" width="14" ,height="16" style="margin-top:-4px"
+                                                title="Extent">
+                                            <span>
+                                                <% if(Math.min(...Extent) == Math.max(...Extent)){ %>
+                                                <%= Math.min(...Extent) %>
+                                                <%= propertyResult[i].UnitIdentifier%>
+                                                <% }else{ %>
+                                                <%= Math.min(...Extent) %> - <%= Math.max(...Extent) %>
+                                                <%= propertyResult[i].UnitIdentifier%>
+                                                <% } %>
+                                            </span>
+                                            <% } %>
+                                            <% if(facing){ %>
+                                            <img src="/img/facing.jpg" width="14" ,height="16" style="margin-top:-4px"
+                                                title="Facing">
+                                            <span> <%= facing %></span>
+                                            <% } %>
+                                        </li>
+                                        <% if(NumberofBeds.length > 0){ %>
+                                        <li>
+                                            <i class="fa fa-bed" title="Number of beds"></i>
+                                            <% if(Math.min(...NumberofBeds) == Math.max(...NumberofBeds)){ %>
+                                            <span><%= Math.min(...NumberofBeds) %> </span>
+                                            <% }else{ %>
+                                            <span><%= Math.min(...NumberofBeds) %>-<%= Math.max(...NumberofBeds) %>
+                                            </span>
+                                            <% } %>
+                                        </li>
+                                        <% }if(NumberofBath.length > 0){ %>
+                                        <li>
+                                            <i class="flaticon-holidays" title="Number of baths"></i>
+                                            <% if(Math.min(...NumberofBath) == Math.max(...NumberofBath)){ %>
+                                            <span><%= Math.min(...NumberofBath) %> </span>
+                                            <% }else{ %>
+                                            <span><%= Math.min(...NumberofBath) %>-<%= Math.max(...NumberofBath) %>
+                                            </span>
+                                            <% } %>
+                                        </li>
+                                        <% } %>
+                                    </ul>
+                                </div>
+                              
+                                <div class="col-md-5 col-sm-6 col-xs-12 cont-item cont-item3">
+                                    <% if(propertyResult[i] && propertyResult[i] .DisplayPrice){ %>
+                                    <div class="property-price">
+                                        <% if(Math.min(...TotalPrice) == Math.max(...TotalPrice)){ 
+                                            propertyResult[i].viewPrice = currencyFormat(Math.max(...TotalPrice));    
+                                        %>
+                                        <div>&#8377; <%= currencyFormat(Math.min(...TotalPrice)) %>
+                                            <h5 class="p-color mt-0 mb-0">
+                                                <%= currencyFormat(propertyResult[i].SearchPrice) %>/<%= UnitIdentifier %>
+                                            </h5>
+                                        </div>
+                                        <% }else{ 
+                                            propertyResult[i].viewPrice = currencyFormat(Math.min(...TotalPrice))+ ' - ' + currencyFormat(Math.max(...TotalPrice));
+                                        %>
+                                        <div>&#8377; <%= currencyFormat(Math.min(...TotalPrice)) %> -
+                                            <%= currencyFormat(Math.max(...TotalPrice)) %>
+                                            <h5 class="p-color mt-0 mb-0">
+                                                <%=currencyFormat(propertyResult[i].SearchPrice)%>/<%= UnitIdentifier %>
+                                            </h5>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                    <% } else { %>
+                                    <div class="property-price">
+                                        Price On Request
+                                    </div>
+                                    <% } %>
+                                </div>
+                                <div class="col-sm-5 col-xs-12 cont-item cont-item4">
+                                    <% if(propertyResult[i].DisplayPrice){ %>
+                                    <div class="property-price mapshowprice" style="display:none;">
+                                        <% if(Math.min(...TotalPrice) == Math.max(...TotalPrice)){ 
+                                                propertyResult[i].viewPrice = currencyFormat(Math.max(...TotalPrice));    
+                                            %>
+                                        <div>&#8377;<%= currencyFormat(Math.min(...TotalPrice)) %>
+                                        </div>
+                                        <% }else{ 
+                                                propertyResult[i].viewPrice = currencyFormat(Math.min(...TotalPrice))+ ' - ' + currencyFormat(Math.max(...TotalPrice));
+                                            %>
+                                        <div>&#8377; ><%= currencyFormat(Math.min(...TotalPrice)) %> -
+                                            <%= currencyFormat(Math.max(...TotalPrice)) %>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                    <% } else { %>
+                                    <div class="property-price mapshowprice" style="display:none;">
+                                        Price On Request
+                                    </div>
+                                    <% } %>
+                                    <a href="javascript:void(0);" id="Iam" class="button transparent"
+                                        onclick='iAm_Interested(<%= JSON.stringify(propertyResult[i]) %>)'>I am
+                                        Interested</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } } %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Featured properties end -->
+</section>
+<!-- Car Video Modal end-->
+<div class="modal photo-swipe property-modal fade" id="propertyModal" tabindex="-1" role="dialog"
+    aria-labelledby="carModalLabel" aria-hidden="true">
+
+</div>
+
+<% include script %>
+<% include footer %>
+<!-- <div class="modal property-modal fade" id="propertyModal" tabindex="-1" role="dialog" aria-labelledby="carModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </a>
+                </div>
+                <div class="modal-body">
+                    <div class="row modal-raw">
+                        <div class="col-lg-12 modal-left">
+                            <div class="modal-left-content">
+                                <div class="bs-example" data-example-id="carousel-with-captions">
+                                    <div class="carousel slide" id="properties-carousel" data-ride="carousel">
+                                        <div class="carousel-inner" role="listbox">
+                                            <div class="item">
+                                                <img src="http://placehold.it/450x300 " alt="best-properties">
+                                            </div>
+                                            <div class="item">
+                                                <img src="http://placehold.it/450x300 " alt="best-properties">
+                                            </div>
+                                            <div class="item active">
+                                                <iframe class="modalIframe" src="https://www.youtube.com/embed/5e0LxrLSzok" allowfullscreen></iframe>
+                                            </div>
+                                        </div>
+    
+                                        <a class="control control-prev" href="#properties-carousel" role="button" data-slide="prev">
+                                            <i class="fa fa-angle-left"></i>
+                                        </a>
+                                        <a class="control control-next" href="#properties-carousel" role="button" data-slide="next">
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div> -->
+<script>
+    var PropertyLocations = <%-JSON.stringify(PropertyLocations)%>;
+    var GalleryImage = <%-JSON.stringify(GalleryImage)%>;
+    var UnitTableData = <%-JSON.stringify(UnitTableData)%>;
+    var favoriteData = <%-JSON.stringify(favoriteData)%>;
+    var UnitIdentifier = <%-JSON.stringify(UnitIdentifier)%>;
+    var query = <%- JSON.stringify(query) %>;
+    //console.log('favoriteData==',favoriteData)
+    $('#Type').trigger('change');
+    if (<%-JSON.stringify(recommemdedTab)%> == 0) {
+        $('.filtr-button[data-filter=2]').hide();
+    }
+</script>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68425747-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-68425747-1');
+    
+    </script>
+
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/3964054.js"></script>
+    <!-- End of HubSpot Embed Code -->
+  
+    <% if(typeof seoData == 'object' && seoData ){ %>
+    <title>
+        <%= seoData.meta_title %>
+    </title>
+   
+    <meta name="keywords" content="<%= seoData.keywords %>">
+    <meta name="description" content="<%= seoData.meta_description %>">
+    <% } if(typeof Tags != 'undefined' && Tags.length > 0){ %> 
+        <%- Tags %>
+    <% }else if(typeof Meta_tags != 'undefined') { %>
+        <%- include(Meta_tags) %>
+    <% } %>
+
+  
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <!-- External CSS libraries -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-submenu.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-multiselect.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/css/leaflet.css" type="text/css">
+    <!-- <link rel="stylesheet" href="/css/map.css" type="text/css"> -->
+    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/linearicons/style.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/gotham-book/font.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="/css/dropzone.css">
+    <link rel='stylesheet' href='/css/owl.carousel.css'>
+    <link rel="stylesheet" type="text/css" href="/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="/css/cropper.css">
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="/css/skins/default.css">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="/img/Avenue-FavIcon.png" type="image/x-icon" sizes="196x196">
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" type="text/css" href="/css/ie10-viewport-bug-workaround.css">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/js/ie-emulation-modes-warning.js"></script>
+
+   
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5shiv.min.js"></script>
+    <script type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Facebook Pixel Code -->
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '492929537810132');
+            fbq('track', 'PageView');
+        </script>
+        <noscript>
+            <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=492929537810132&ev=PageView&noscript=1"/>
+        </noscript>
+    <!-- End Facebook Pixel Code -->
+
+
+
+
+
+</head>
+
+<body>
+
+    <!-- <div class="page_loader"></div> -->
+
+    <!-- Main header start -->
+    <header class="main-header fixed-top darkHeader innerpage">
+        <div class="container-fluid">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <a href="/" class="logo">
+                        <img src="/img/logos/logo.png" alt="logo">
+                    </a>
+                    <div class="check-filter-search hideTab">
+                        <!-- <ul class="list-inline text-right">
+                            <li><a class="fa fa-refresh" onclick="Refresh();"></a></li>
+                        </ul> -->
+                        <form action="/buy/search" method="get" id="search_property">
+                          
+                            <div class="form-group">
+                                <select class="selectpicker propertyType"
+                                    id="type" name="type" onchange="TypebySelect(this.value)" style="width:50px" >
+                                    <option value="" data-hidden="true" <% if(typeof query != 'undefined' && query.PropertyTypeID == ''){ %>selected ="selected"<% } %>>Select</option>
+                                    <% var propertyTypeData = [];
+                                    for(var i=0; i< propertyType.length; i++ ){ 
+                                    if(propertyType[i].PropertyType){
+                                    propertyTypeData[propertyType[i].PropertyTypeId] = propertyType[i].PropertyType; 
+                                        } %>
+                                    <option value="<%= propertyType[i].Type %>" <% if(typeof query != 'undefined' && query.PropertyTypeID == propertyType[i].ID ){ %>selected ="selected"<% } %>>
+                                        <%= propertyType[i].Type %>
+                                    </option>
+                                    <% } %>
+                                </select>
+                            </div>
+                           
+                            <div class="form-group choose-citybtn">
+                                <select class="selectpicker" name="city"  
+                                onchange="byInCity(this.value)" id="city">
+                                    <option value="All" data-hidden="true" <% if(typeof query != 'undefined' && query.CityID == ''){ %>selected ="selected"<% } %>>Choose City</option>
+                                    <% for(var i=0; i < cities.length ; i++){ %>
+                                        <option value="<%= cities[i].Name %>" <% if(typeof query != 'undefined' &&(query.CityID == cities[i].ID || query.city == cities[i].Name)){ %>selected ="selected"<% } %>>
+                                            <%= cities[i].Name %>
+                                        </option>
+                                        <% } %>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <!-- <input type="text" class="input-text" name="area" placeholder="Area" value="" autocomplete="off"> -->
+                              <input type="text" class="input-text" name="area"
+                              id="myInput" placeholder="Area" autocomplete="off">
+                                <a class="fa fa-search" href="javascript:$('#search_property').submit();"></a>
+                            </div>
+
+                        </form>
+                        <!-- <% if(typeof showAdvanceSearch != 'undefined' && showAdvanceSearch == true){ %>
+                        <div>
+                            <a class="filtertoggle collapsed advancedFilter" aria-expanded="false" href="#" data-toggle="collapse"
+                                data-target="#filtertab">
+                                show advanced filters
+                                <span class="caret"></span>
+                            </a>
+                        </div>
+                        <% } %> -->
+                    </div>
+                </div>
+                <button type="button" class="navbar-toggle collapsed" data-target="#mobile-dropdown" data-toggle="dropdown" data-dir="rtl">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" id="mobile-dropdown">
+                    <% if(sess_val) {%>
+                        <!-- <a href="/login/logout" class="button transparent">
+                            Logout
+                        </a> -->
+                       
+                        <li class="dropdown dtpHide">
+                            <a href="#" data-target="slidemenu"><%= userName.replace(/\s/g, "").substring(0,8);%><b class="caret"></b></a>
+                            <ul class="dropdown-menu acc-menu slidemenu">
+                                <li><a href="/profile">My Profile</a></li>
+                                <li><a href="/MyFavorites">My Favorites</a></li>
+                                <li><a href="/myproperties">My Properties</a></li>
+                                <li><a href="/login/logout">Logout</a></li>
+                            </ul>
+                        </li>
+
+                        <% }else {%>
+                        <li class="dtpHide">    
+                            <a href="#" data-toggle="modal" data-target="#loginPopup">
+                                Login
+                            </a>
+                        </li>
+                    <% } %>
+                    <li class="dtpHide"><a href="#"><i class="fa fa-phone"></i>+91.9533.894.894</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-target="slidemenu">Quick Links <b class="caret"></b></a>
+                        <ul class="dropdown-menu slidemenu">
+                            <li><a href="/buy/search?type=Plots&city=Amaravati">Amaravati Land Pooling Plots</a></li>
+                            <li><a href="/buy/search?type=Residential&city=Amaravati">Amaravati Apartments</a></li>
+                            <li><a href="/buy/search?type=Agriculture Lands&city=Amaravati">Amaravati Agriculture Lands</a></li>
+                            <li><a href="/buy/search?type=Residential&city=Vijayawada">Vijayawada Apartments</a></li>
+                        </ul>
+                    </li>
+                    <li class="dtpHide"><a href="/submit-request">Submit Request</a></li>
+                    <li><a href="/amaravati-price-trends">Price Trends</a></li>
+                    <li><a href="http://blog.avenue.in" target="_blank">Blog</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/term-of-services">Terms of Service</a></li>
+                    <li><a href="/disclaimer">Disclaimer</a></li>
+                    <li><a href="/contact-us">Contact Us</a></li>
+                    <li><a href="https://propertyshield.in" target="_blank">Property Shield</a></li>
+                    <li><a href="mailto:support@avenue.in"><i class="fa fa-envelope"></i>support@avenue.in</a></li>
+                    <!-- <li class="dtpHide">
+                        <a href="submit-property.html">
+                            <i class="flaticon-symbol-1"></i>Sell property
+                        </a>
+                    </li> -->
+                </ul>
+                <div class="navbar-collapse collapse pull-right" role="navigation" aria-expanded="true" id="app-navigation">
+                    <ul class="nav navbar-nav rightside-navbar">
+                        <li>
+                            <a href="/submit-request" class="button">
+                                Submit Request
+                            </a>
+                        </li>
+                        <li><a href="tel:+91.9533.894.894">+91.9533.894.894</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav margin-right">
+                         
+                            <% if(sess_val) {%>
+                                <!-- <a href="/login/logout" class="button transparent">
+                                    Logout
+                                </a> -->
+                           
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><%= userName.replace(/\s/g, "").substring(0,8); %><b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/profile">My Profile</a></li>
+                                        <li><a href="/MyFavorites">My Favorites</a></li>
+                                        <li><a href="/myproperties">My Properties</a></li>
+                                        <li><a href="/login/logout">Logout</a></li>
+                                    </ul>
+                                </li>
+                                <% }else {%>
+                                <li>    
+                                    <a href="#" class="button transparent" data-toggle="modal" data-target="#loginPopup">
+                                        Login
+                                    </a>
+                                </li>
+                                <% } %>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Main header end -->
+    <div class="clearfix innerfirst"></div>
+
+    <script>
+    var propertyTypeSelect = getCookie('propertyType');
+    var AreaTypeSelect = getCookie('AreaType');
+    var byInCitySelect = getCookie('byInCity');
+    
+    if(propertyTypeSelect){
+        document.getElementById('type').value = propertyTypeSelect;
+    }
+    if(AreaTypeSelect){
+        document.getElementById('city').value = byInCitySelect;
+    }
+    if(byInCitySelect){
+        document.getElementById('myInput').value = AreaTypeSelect;
+    }
+    
+    function getCookie(cname){
+     //console.log(cname,'-------------');
+     var name = cname + "=";
+     var decodedCookie = decodeURIComponent(document.cookie);
+     var ca = decodedCookie.split(';');
+     for (var i = 0; i < ca.length; i++) {
+         var c = ca[i];
+         while (c.charAt(0) == ' ') {
+             c = c.substring(1);
+         }
+         if (c.indexOf(name) == 0) {
+             return c.substring(name.length, c.length);
+         }
+     }
+     return "";
+ }
+    </script>

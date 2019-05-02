@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68425747-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'UA-68425747-1');
+        </script>
+    
+        <!-- Start of HubSpot Embed Code -->
+        <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/3964054.js"></script>
+        <!-- End of HubSpot Embed Code -->
+
+        <!-- <title>Avenir Realty LLP - Amaravati Real Estate Advisors</title> -->
+       <!--  <title><%= seoData.meta_title %></title> -->
+        <meta name="keywords" content="<%= seoData.keywords %>">
+        <meta name="description" content="<%= seoData.meta_description %>"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+       
+        <%  if(typeof Meta_tags != 'undefined') { %>
+            <%- include(Meta_tags) %>
+        <% } %>
+        <!-- External CSS libraries -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        
+        <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-submenu.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="css/leaflet.css" type="text/css">
+        <link rel="stylesheet" href="css/map.css" type="text/css">
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" type="text/css" href="fonts/linearicons/style.css">
+        <link rel="stylesheet" type="text/css"  href="css/jquery.mCustomScrollbar.css">
+        <link rel="stylesheet" type="text/css"  href="css/dropzone.css">
+        <link rel="stylesheet" type="text/css"  href="css/magnific-popup.css">
+        <link rel="stylesheet" type="text/css"  href="css/intlTelInput.css">
+        <link rel="stylesheet" type="text/css"  href="css/datepicker.css">
+        <link rel="stylesheet" type="text/css" href="./css/partical-animation.css" />
+
+        <!-- Custom stylesheet -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" id="style_sheet" href="/css/skins/default.css">
+        <!-- Favicon icon -->
+        <link rel="shortcut icon" href="img/Avenue-FavIcon.png" type="image/x-icon" >
+        <!-- Google fonts -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <link rel="stylesheet" type="text/css" href="css/ie10-viewport-bug-workaround.css">
+        <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+        <!--[if lt IE 9]><script type="text/javascript" src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+        <script defer src="js/ie-emulation-modes-warning.js"></script>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="js/html5shiv.min.js"></script>
+        <script type="text/javascript" src="js/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Facebook Pixel Code -->
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '492929537810132');
+            fbq('track', 'PageView');
+        </script>
+        <noscript>
+            <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=492929537810132&ev=PageView&noscript=1"/>
+        </noscript>
+        <!-- End Facebook Pixel Code -->
+
+
+</head>
+
+<body>
+    <!-- <div class="page_loader"></div> -->
+    <!-- Main header start -->
+    <header class="main-header fixed-top">
+        <div class="container-fluid">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <a href="/" class="logo">
+                        <img src="/img/logos/logo.png" alt="logo">
+                    </a>
+                    <div class="form-group mr-0">
+                        <select class="selectpicker" name="byInCity" onchange="byInCity(this.value)" id="byPropertyINcity">
+                            <option value="Select" data-hidden="true">CHOOSE City</option>
+                            <!--<option value="1">Amaravati </option>
+                                <option value="2">Vijayawada </option>
+                                <option value="3">Guntur </option>-->
+                            <% for(var i=0; i < cities.length; i++){ %>
+                            <option value="<%= cities[i].Name %>">
+                                <%= cities[i].Name %>
+                            </option>
+                            <% } %>
+                        </select>
+
+                    </div>
+                </div>
+                <button type="button" class="navbar-toggle collapsed" data-target="#mobile-dropdown" data-toggle="dropdown" data-dir="rtl">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" id="mobile-dropdown">
+                    <% if(sess_val) { %>
+                        <!-- <a href="/login/logout" class="button transparent">
+                            Logout
+                        </a> -->
+                        <li class="dropdown dtpHide">
+                            <a href="#" data-target="slidemenu"><%= userName.replace(/\s/g, "").substring(0,8)%> <b class="caret"></b></a>
+                            <ul class="dropdown-menu acc-menu slidemenu">
+                                <li><a href="/profile">My Profile</a></li>
+                                <li><a href="/MyFavorites">My Favorites</a></li>
+                                <li><a href="/myproperties">My Properties</a></li>
+                                <li><a href="/login/logout">Logout</a></li>
+                            </ul>
+                        </li>
+                        <% }else {%>
+                        <li class="dtpHide">    
+                            <a href="#" data-toggle="modal" data-target="#loginPopup">
+                                Login
+                            </a>
+                        </li>
+                    <% } %>
+                    <li class="dtpHide"><a href="#"><i class="fa fa-phone"></i>+91.9533.894.894</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-target="slidemenu">Quick Links <b class="caret"></b></a>
+                        <ul class="dropdown-menu slidemenu">
+                            <li><a href="/buy/search?type=Plots&city=Amaravati">Amaravati Land Pooling Plots</a></li>
+                            <li><a href="/buy/search?type=Residential&city=Amaravati">Amaravati Apartments</a></li>
+                            <li><a href="/buy/search?type=Agriculture Lands&city=Amaravati">Amaravati Agriculture Lands</a></li>
+                            <li><a href="/buy/search?type=Residential&city=Vijayawada">Vijayawada Apartments</a></li>
+                        </ul>
+                    </li>
+                    <li class="dtpHide"><a href="/submit-request">Submit Request</a></li>
+                    <li><a href="/amaravati-price-trends">Price Trends</a></li>
+                    <li><a href="http://blog.avenue.in" target="_blank">Blog</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/term-of-services">Terms of Service</a></li>
+                    <li><a href="/contact-us">Contact Us</a></li>
+                    <li><a href="/disclaimer">Disclaimer</a></li>
+                    <li class="hide-1000"><a href="https://propertyshield.in" target="_blank">Property Shield</a></li>
+                    <li><a href="mailto:support@avenue.in"><i class="fa fa-envelope"></i>support@avenue.in</a></li>
+                    <!-- <li class="dtpHide">
+                        <a href="submit-property.html">
+                            <i class="flaticon-symbol-1"></i>Sell property
+                        </a>
+                    </li> -->
+                </ul>
+                <div class="navbar-collapse collapse pull-right" role="navigation" id="app-navigation">
+                    <ul class="nav navbar-nav rightside-navbar">
+                        <li>
+                            <a href="/submit-request" class="button">
+                                Submit Request
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav margin-right">
+                        <li><a href="https://propertyshield.in" target="_blank">Property Shield</a></li>
+                        <li><a href="tel:+91.9533.894.894">+91.9533.894.894</a></li>
+                        <% if(sess_val) {%>
+                            <!-- <a href="/login/logout" class="button transparent">
+                                Logout
+                            </a> -->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><%= userName.replace(/\s/g, "").substring(0,8); %><b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/profile">My Profile</a></li>
+                                    <li><a href="/MyFavorites">My Favorites</a></li>
+                                    <li><a href="/myproperties">My Properties</a></li>
+                                    <li><a href="/login/logout">Logout</a></li>
+                                </ul>
+                            </li>
+    
+                            <% }else {%>
+                            <li>    
+                                <a href="#" class="button transparent" data-toggle="modal" data-target="#loginPopup">
+                                    Login
+                                </a>
+                            </li>
+                        <% } %>
+                        <!-- <li><a href="http://avenue.in/blog/">Blog</a></li> -->
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Main header end -->
+    <!-- Banner start -->
+    <div class="banner">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="item item-100vh active">
+                    <div id="particles-js"></div>
+                    <img src="img/background_slider.jpg" alt="banner-slider-1" class="img-responsive">
+                    <div class="carousel-caption banner-slider-inner banner-tb text-left">
+                        <h1 class="animated fadeInDown delay-1s">Let’s find your place in</h1>
+                        <div class="banner-content banner-content-left">
+                            <div class="banner-search-box">
+                                <div class="search-area animated fadeInDown delay-1s">
+                                    <div class="search-area-inner">
+                                        <div class="search-contents ">
+                                            <form action="/buy/search" method="GET" id="search_property">
+                                                <div class="tabs-container" style="padding-left: 150px;">
+                                                    <ul class="nav nav-tabs mb-0">
+                                                        <li class="active">
+                                                            <a href="#All" onclick="changeTab(this)" data-toggle="tab">All
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#Amaravati" onclick="changeTab(this)" data-toggle="tab">Amaravati
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#Vijayawada" onclick="changeTab(this)" data-toggle="tab">Vijayawada
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#Guntur" onclick="changeTab(this)" data-toggle="tab">Guntur
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="row tabs-data">
+                                                        <div class="col-md-8 col-sm-8 col-xs-12 pd-0 check-filter-search">
+                                                            <div class="col-md-4 col-sm-5 col-xs-12 pd-0">
+                                                                <div class="form-group">
+                                                                    <select class="selectpicker search-fields selectPropertyType"
+                                                                    onchange="TypebySelect(this.value)" 
+                                                                        id="Type" name="type">
+                                                                        <option value="" data-hidden="true">Property
+                                                                            Types </option>
+                                                                        <% var propertyTypeData = [];
+                                                                        for(var i=0; i< propertyType.length; i++ ){ 
+                                                                            if(propertyType[i].PropertyType){
+                                                                        propertyTypeData[propertyType[i].PropertyTypeId] = propertyType[i].PropertyType; 
+                                                                            }
+                                                                     %>
+                                                                        <option value="<%= propertyType[i].Type %>">
+                                                                            <%= propertyType[i].Type %>
+                                                                        </option>
+                                                                        <% } %>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-8 col-sm-7 col-xs-12 pd-0">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="input-text" name="area"
+                                                                        id="myInput"
+                                                                        onblur="AreaSelect(this.value)" placeholder="Area" autocomplete="off">
+                                                                    <input type="hidden" id="selectedCity" name="city"
+                                                                        value="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2 col-sm-4 col-xs-12 text-left">
+                                                            <div class="form-group mb-0">
+                                                                <button class="search-button btn" >Search</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="caption-w-img animated fadeInDown delay-1s d-block mt-50">
+                                    <!-- <h3>Price trends</h3>
+                                    <img src="img/map.png" alt="Price trends" class="img-responsive"> -->
+                                    <h3>Quick Links</h3>
+                                    <ul class="Quick-links list-unstyled list-inline">
+                                        <li><a href="/buy/search?type=Plots&city=Amaravati">Amaravati Land Pooling Plots</a></li>
+                                        <li><a href="/buy/search?type=Residential&city=Amaravati">Amaravati Apartments</a></li>
+                                        <li><a href="/buy/search?type=Agriculture Lands&city=Amaravati">Amaravati Agriculture Lands</a></li>
+                                        <li><a href="/buy/search?type=Residential&city=Vijayawada">Vijayawada Apartments</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="counters overview-bgi">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-3 col-xs-6 bordered-right">
+                                        <ul class="list-inline counter-box">
+                                            <li>
+                                                <img src="img/expert-advice-icon.png">
+                                            </li>
+                                            <li>
+                                                <p>Expert advice</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-3 col-xs-6 bordered-right">
+                                        <ul class="list-inline counter-box">
+                                            <li>
+                                                <img src="img/varified-listing-icon.png">
+                                            </li>
+                                            <li>
+                                                <p>Verified listings</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-3 col-xs-6 bordered-right">
+                                        <ul class="list-inline counter-box">
+                                            <li>
+                                                <img src="img/latest-price-trends.png">
+                                            </li>
+                                            <li>
+                                                <p>Latest price trends</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-3 col-xs-6">
+                                        <ul class="list-inline counter-box">
+                                            <li>
+                                                <img src="img/end-to-end-services.png">
+                                            </li>
+                                            <li>
+                                                <p>End to end services</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner end -->
+
+    <div class="clearfix"></div>
+    <!-- Customer say start -->
+    <div class="customer-say content-area chevron-icon">
+        <div class="container-fluid">
+            <!-- Main title -->
+            <div class="main-title">
+                <h1>How it works? </h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-offset-2 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <ul class="list-inline icon-w-img">
+                        <li><img src="img/hworks-01.png" alt="hworks-01"></li>
+                        <li>
+                            <h4>Search listings based on your budget and requirements</h4>
+                    </ul>
+                    <ul class="list-inline icon-w-img">
+                        <li><img src="img/hworks-02.png" alt="hworks-01"></li>
+                        <li>
+                            <h4>If you don’t find what you need or need an advice call us</h4>
+                    </ul>
+                    <ul class="list-inline icon-w-img">
+                        <li><img src="img/hworks-03.png" alt="hworks-01"></li>
+                        <li>
+                            <h4>Property Identified</h4>
+                    </ul>
+                    <ul class="list-inline icon-w-img">
+                        <li><img src="img/hworks-04.png" alt="hworks-01"></li>
+                        <li>
+                            <h4>We will take you to seller to negotiate price and conditions</h4>
+                    </ul>
+                </div>
+                <div class=" col-lg-4 col-md-6 col-sm-6 col-12">
+                    <ul class="list-inline icon-w-img">
+                        <li><img src="img/hworks-08.png" alt="hworks-01"></li>
+                        <li>
+                            <h4>Once the conditions are set you will pay an advance</h4>
+                    </ul>
+                    <ul class="list-inline icon-w-img">
+                        <li><img src="img/hworks-07.png" alt="hworks-01"></li>
+                        <li>
+                            <h4>As per the agreed time frame, you have to enter in to agreement with seller</h4>
+                    </ul>
+                    <ul class="list-inline icon-w-img">
+                        <li><img src="img/hworks-06.png" alt="hworks-01"></li>
+                        <li>
+                            <h4>With in agreed time frame, you will need to pay balance amount to seller and get the
+                                property registered on your name</h4>
+                    </ul>
+                    <ul class="list-inline icon-w-img">
+                        <li><img src="img/hworks-05.png" alt="hworks-01"></li>
+                        <li>
+                            <h4>We will deliver the registered documents to your home</h4>
+                    </ul>
+                </div>
+                <div class="col-xs-12 process pad-30 text-center">
+                    <h4>We will assist you in every step of the process</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Customer say end -->
+    <!-- Get in Touch start -->
+    <div class="getintouch contact-2 pb-0">
+        <img src="img/get-in-touch.png" class="img-responsive" alt="get in touch">
+        <div class="container-fluid">
+            <!-- Main title -->
+            <div class="form-container contact-form">
+                <div class="main-title">
+                    <h1>Get in touch</h1>
+                    <span id="getInTouchMessage"></span>
+                </div>
+                <form id="getInTouchFrom">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12 wow fadeInLeft delay-04s">
+                            <div class="form-group fullname">
+                                <input type="text" name="name" id="name" class="input-text" placeholder="Name*"
+                                    required>
+                            </div>
+                            <div class="form-group enter-email">
+                                <input type="email" name="email" id="email" class="input-text" placeholder="Email*"
+                                    required>
+                            </div>
+                            <div class="form-group fullname">
+                                <input type="text" name="subject" id="subject" class="input-text" placeholder="Subject*"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 wow fadeInRight delay-04s">
+                            <div class="form-group message">
+                                <textarea class="input-text" name="message" id="message" placeholder="Write message*"
+                                    required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 wow fadeInUp delay-04s">
+                            <div class="form-group text-center">
+                                <button type="button" class="btn" onclick="getInTouch()">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Get in Touch end -->
+    <!-- Featured properties start -->
+    <% 
+    var propertyNotfoundForCity = [];
+    if(propertyResult.length > 0){ 
+    propertyNotfoundForCity = [1,2,3];
+%>
+    <div class="content-area pt-50 featured-properties">
+        <div class="container">
+            <!-- Main title -->
+            <div class="main-title">
+                <h1>Recommended properties</h1>
+            </div>
+            <ul class="list-inline-listing filters activeClass">
+                <li data-filter="all" class="active btn filtr-button filtr">All</li>
+                <li data-filter="2" class="btn btn-inline filtr-button filtr">VIJAYAWADA</li>
+                <li data-filter="1" class="btn btn-inline filtr-button filtr">AMARAVATI</li>
+                <li data-filter="3" class="btn btn-inline filtr-button filtr">GUNTUR</li>
+            </ul>
+            <div class="row">
+                <div class="filtr-container">
+                <%
+                var check_id = [];
+                for(var i=0; i< propertyResult.length; i++){
+                    var index = propertyNotfoundForCity.indexOf(propertyResult[i].CityID);
+                    if (index > -1) {
+                        propertyNotfoundForCity.splice(index, 1);
+                    }
+                    var TotalPrice = [];
+                    var Extent = [];
+                    var UnitData = [];
+                    
+                    if(typeof unitData[propertyResult[i].ID] == 'object' && unitData[propertyResult[i].ID].length){
+                        for(var u = 0; u < unitData[propertyResult[i].ID].length; u++){
+                            if(propertyResult[i].ID == unitData[propertyResult[i].ID][u].PropertyID ){
+                                UnitData.push(unitData[propertyResult[i].ID][u]);
+                                if(unitData[propertyResult[i].ID][u].UnitExtent){
+                                    TotalPrice.push(parseInt(unitData[propertyResult[i].ID][u].UnitExtent) * parseInt(propertyResult[i].SearchPrice));
+                                    Extent.push(parseInt(unitData[propertyResult[i].ID][u].UnitExtent));
+                                }else
+                                if(unitData[propertyResult[i].ID][u].SuperBuiltUpArea){
+                                    TotalPrice.push(parseInt(unitData[propertyResult[i].ID][u].SuperBuiltUpArea) * parseInt(propertyResult[i].SearchPrice));  
+                                    Extent.push(parseInt(unitData[propertyResult[i].ID][u].SuperBuiltUpArea));
+                                }
+                                else if(propertyResult[i].Extent || propertyResult[i].TotalPrice){
+                                    if(propertyResult[i].TotalPrice){
+                                    TotalPrice.push(parseInt(propertyResult[i].TotalPrice)); 
+                                    }
+                                    if(propertyResult[i].Extent){
+                                    Extent.push(parseInt(propertyResult[i].Extent));  
+                                    }
+                                }
+                            }
+                        }
+                    }else{
+                        TotalPrice.push(parseInt(propertyResult[i].TotalPrice));
+                        Extent.push(parseInt(propertyResult[i].Extent));
+                    }
+                    propertyResult[i].unitDetails= UnitData;
+                %>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 filtr-item" data-category="<%= propertyResult[i].CityID %>">
+                        <div class="property">
+                            <!-- Property img -->
+                            <div class="property-img">
+                                
+                                <% 
+                                var Active = '';
+                                if(favoriteData.length > 0){
+                                if(favoriteData.includes(propertyResult[i].ID))
+                                Active = 'active'; 
+                                }
+                                %>
+                                <div class="property-tag alt featured <%= Active %>" id="myfavorite<%= i %>">
+                                    <a href="javascript:void(0);" onclick="saveAsFavorite('<%= sess_val %>',<%= propertyResult[i].ID %>,<%= i %>);"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                </div>
+                                <!-- <div class="property-tag sale">TRENDING</div>-->
+                                <div class="property-price">
+                                    <%= propertyResult[i].Title %>
+                                    <% if(propertyResult[i].DisplayPrice){ %>
+                                    <div><% if(Math.min(...TotalPrice) == Math.max(...TotalPrice)){ 
+                                        propertyResult[i].viewPrice = currencyFormat(Math.max(...TotalPrice));    
+                                        %>
+                                    <div>&#8377; <%= currencyFormat(Math.min(...TotalPrice)) %></div>
+                                    <% }else{ 
+                                        propertyResult[i].viewPrice = currencyFormat(Math.min(...TotalPrice))+ ' - ' + currencyFormat(Math.max(...TotalPrice));
+                                    %>
+                                    <div> &#8377;<%= currencyFormat(Math.min(...TotalPrice)) %> - <%= currencyFormat(Math.max(...TotalPrice)) %></div>   
+                                    <% } %>
+                                    </div>
+                                    <% } else { %>
+                                        <div>
+                                            Price On Request
+                                        </div>
+                                    <% } %>
+                                </div>
+                                <!-- Facilities List -->
+                                <ul class="facilities-list clearfix">
+                                    <li>
+                                        <% if(Extent && Extent.length > 0){ %>
+                                        <img src="/img/extent.jpg" width="14" ,height="16" style="margin-top:-4px" title="Extent">
+                                        <span>    
+                                        <% if(Math.min(...Extent) == Math.max(...Extent)){ %>
+                                        <%= Math.min(...Extent) %> <%= propertyResult[i].UnitIdentifier %>
+                                        <% }else{ %>        
+                                        <%= Math.min(...Extent) %> - <%= Math.max(...Extent) %> <%= propertyResult[i].UnitIdentifier %>   
+                                        <% } %>
+                                        </span>
+                                        <% } %>
+                                   
+                                        <% if(propertyResult[i].East ||propertyResult[i].West || propertyResult[i].North || propertyResult[i].South) { var facing = '' %>
+                                        <img src="/img/facing.jpg" width="14" ,height="16" style="margin-top:-4px"
+                                            title="Facing">
+                                        <% if(propertyResult[i].East){
+                                                facing += 'E'
+                                             } 
+                                             if(propertyResult[i].West){ 
+                                                if(facing){
+                                                    facing += ' | '
+                                                } 
+                                                facing += 'W';
+                                                                                       
+                                             } if(propertyResult[i].North){
+                                                if(facing){
+                                                    facing += ' | '
+                                                }
+                                                facing += 'N';
+                                              
+                                              } if(propertyResult[i].South){
+                                                if(facing){
+                                                    facing += ' | '
+                                                }
+                                                facing += 'S';
+                                             } %>
+                                        <span>
+                                            <%= facing %></span>
+                                        <% } %>
+                                    </li>
+                                    <!-- <li>
+                                        <i class="fa fa-bed"></i>
+                                        <span>4</span>
+                                    </li>
+                                    <li>
+                                        <i class="flaticon-holidays"></i>
+                                        <span>2 </span>
+                                    </li> -->
+                                </ul>
+                                <img src="<% if(propertyResult[i].ImageURL){ %><%= propertyResult[i].ImageURL %><%} else if(propertyResult[i].PropertyTypeID == 1 ){%>img/Plots.png<% } else if(propertyResult[i].PropertyTypeID == 2 ){%>img/Residential.png<% }else if(propertyResult[i].PropertyTypeID == 3 ){%>img/AgriLands.png<%}%>"
+                                    alt="fp" class="img-responsive">
+                                <div class="property-overlay">
+                                    <a href="<%=propertyResult[i].URL %>" class="overlay-link" >
+                                        <i class="fa fa-link"></i>
+                                    </a>
+                                    <div class="property-magnify-gallery">
+                                        <% if(images[propertyResult[i].ID]){
+                                                for(var m = 0; m < images[propertyResult[i].ID].length; m++){ 
+                                                if(m == 0 ){ 
+                                            %>
+                                        <a href="<%= images[propertyResult[i].ID][m] %>" class="overlay-link">
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                        <% } else {%>
+                                        <a href="<%= images[propertyResult[i].ID][m] %>" class="hidden"></a>
+                                        <!-- <a href="http://placehold.it/750x540" class="hidden"></a> -->
+                                        <% 
+                                                } 
+                                                }
+                                            } 
+                                            %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Featured properties end -->
+    <% } %>
+    <% include script %>
+    <% include footer %>
+<!--Disclaimer content-->
+<div class="js-disclaimer disclaimer-fixed"><div class="fa fa-close js-dis-close close-dis"></div><div class="dis-txt"><div class="icon-wrap"><i class="fa fa-info-circle"></i></div><div class="d-ib"><span class="hidden-xs">Avenue.in shall neither be responsible nor liable for any inaccuracy in the information provided here and therefore the customers are requested to independently validate the information from the respective sellers/developers before making their decisions related to properties displayed here. Avenue.in, its directors, employees, agents and other representatives shall not be liable for any action taken, cost/expenses/ losses incurred, by you. <a class="p-color" href="/disclaimer"> Read Disclaimer</a></span><span class="visible-xs-inline">Please Read <a class="p-color" href="/disclaimer">Disclaimer</a> before...</span>&nbsp;</div></div></div>
+<script defer src="/js/particles.min.js"></script> 
+<script defer src="/js/partical-animation.js"></script> 
+<script>
+    if(localStorage.getItem('disclaimerState') == "Hidden"){
+        $(".js-disclaimer").hide();
+    }else{
+        $(".js-disclaimer").show();
+        $(".js-dis-close").click(function(){
+            $(".js-disclaimer").hide();
+            localStorage.setItem('disclaimerState','Hidden');
+        });
+    }
+</script>
+    <style>
+        #getInTouchFrom .error {
+            color: #000 !important;
+        }
+    </style>
+    <script>
+        formValidation('search_property');
+        var getInTouchValidate = formValidation('getInTouchFrom');
+        var propertyNotfoundForCity =[];
+        if(typeof <%- JSON.stringify(propertyNotfoundForCity) %>){
+            var propertyNotfoundForCity = <%- JSON.stringify(propertyNotfoundForCity) %>;
+        }
+        for (var i = 0; i < propertyNotfoundForCity.length; i++) {
+                $('.filtr[data-filter="' + propertyNotfoundForCity[i] + '"]').hide();
+            
+        }
+            
+       
+
+    </script>
+
+    <script>
+        /* var getInTouchValidate = $("#getInTouchFrom").validate({
+        showErrors: function(errorMap, errorList) {
+            console.log('errorList ------ ',errorList);
+            $.each(this.validElements(), function (index, element) {
+                var $element = $(element);
+                $element.data("title", "") // Clear the title - there is no error associated anymore
+                    .removeClass("error")
+                    .tooltip("destroy");
+            });
+            // Create new tooltips for invalid elements
+            $.each(errorList, function (index, error) {
+                var $element = $(error.element);
+                $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+                .data("title", error.message)
+                .addClass("error")
+                .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
+            });
+        }
+    });  */
+    </script>
+

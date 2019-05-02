@@ -1,0 +1,81 @@
+<div class="Agriculture_Lands row Dry Wet additional-info" style="display:none">
+    <div class="col-sm-6 col-xs-12">
+        <h4>Road Access</h4>
+        <!-- <div class="form-group">
+            <div class="radio-btn">
+                <label>Yes</label> <input class="radio" type="radio" name="RoadAccess" value="true" checked />
+                <label>No</label> <input class="radio" type="radio" name="RoadAccess" value="false" />
+            </div>
+        </div> -->
+
+        <div class="form-group">
+            <div class="radio  inline">
+                <input class="radio" type="radio" name="RoadAccess" value="true" checked />
+                <label for="Yes1" >Yes</label>                                         
+            </div>
+            <div class="radio  inline">
+                <input class="radio" type="radio" name="RoadAccess" value="false" />
+                <label for="No1">No</label>                                        
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Recent Crop Cultivated</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="RecentCrop" placeholder="Recent Crop Cultivated
+            ">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Soil</h4>
+        <!--<div class="form-group">
+                <input type="text" class="input-text" name="SoilTypeID"  placeholder="" >
+            </div>-->
+        <select class="selectpicker" name="SoilTypeID">
+            <% for(var i=0; i< soil.length; i++){ %>
+            <option value="<%= soil[i].ID %>">
+                <%= soil[i].Type %>
+            </option>
+            <% } %>
+        </select>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Water Source</h4>
+        <select class="selectpicker" name="WaterSource">
+            <option value="Rainfed">Rainfed</option>
+            <option value="Canal">Canal</option>
+            <option value="Bore">Bore</option>
+        </select>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Width</h4>
+        <div class="form-group">
+            <input type="text" class="input-text PlotWidth" name="PlotWidth" placeholder="Width">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Length</h4>
+        <div class="form-group">
+            <input type="text" class="input-text PlotLength" name="PlotLength" placeholder="Length">
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <h4>Land Mark</h4>
+        <div class="form-group">
+            <input type="text" class="input-text" name="Landmark" placeholder="Land Mark">
+        </div>
+    </div>
+    <!-- <div class="col-sm-6 col-xs-12">
+        <h4>Plan Approved By</h4>
+        <select class="selectpicker PlanApprovedBy" name="PlanApprovedBy" id="PlanApprovedBy">
+            <option value="">Select</option>
+            <% for(var i=0; i< PlanApprovedby.length; i++){ %>
+            <option value="<%= PlanApprovedby[i].ID %>">
+                <%= PlanApprovedby[i].Authority %>
+            </option>
+            <% } %>
+        </select>
+    </div> -->
+</div>

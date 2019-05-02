@@ -1,0 +1,65 @@
+<% include header %>
+<% include banner %>
+    <section class="content-area-7 login">
+        <div class="modal fade" id="my-modal" role="dialog"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="login-inner">
+                    <div class="login-form">
+                        <div id="login_alertMsg" style="display:none"></div>
+                        <%- locals.flash %>
+                            <form action="/login" method="post">
+                                <div class="main-title-2">
+                                    <h1 style="text-align:center"><span>Login with Social Media or Manually</span></h1>
+                                </div>
+                                <div class="vl">
+                                    <span class="vl-innertext">or</span>
+                                </div>
+
+                                <div class="col">
+                                    <a href="javascript:void(0)" onclick="Facebooklogin()" class="fb btn">
+                                        <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                                    </a>
+                                    <a href="javascript:void(0)" class="google btn" id="googlebtn">
+                                        <i class="fa fa-google fa-fw">
+                                        </i> Login with Google+
+                                    </a>
+                                </div>
+
+                                <div class="col">
+                                    <div class="hide-md-lg">
+                                        <p>Or sign in manually:</p>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" class="input-text" name="username" placeholder="Email" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="password" class="input-text" name="password" placeholder="Password" required>
+                                    </div>
+
+
+
+                                    <input type="submit" class="button-sm button-theme" value="Login">
+                                </div>
+
+                            </form>
+                            <div class="bottom-container clearfix">
+                                <a href="/registration" style="color:white" class="btn col">Sign up</a>
+                                <a href="javascript:pass_forgot()" style="color:white" class="btn col">Forgot password?</a>
+                            </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+<% include script %>
+<% include footer %>
+
+        

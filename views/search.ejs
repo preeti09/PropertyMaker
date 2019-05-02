@@ -1,0 +1,364 @@
+<% include header %>
+
+<section class="parallax-window sub-header sub-banner overview-bgi" id="short"  data-parallax="scroll" data-image-src="img/sub-banner-1.jpg" data-natural-width="1400" data-natural-height="145">
+ <div class="container-fluid">
+    <div class="row">
+        <form action="/buy/search" method="GET" id="search_property">
+            <ul class="nav navbar-nav margin-right">
+                <li>
+                    <div class="form-group">
+                        <select class="selectpicker" name="city" id="city" onchange="byInCity(this.value)">
+                                <option value="" data-hidden="true" <% if(query.city == ''){ %>selected<% } %>>City</option>
+                                <% for(var i=0; i < cities.length; i++){ %>
+                                    <option value="<%= cities[i].Name %>" <% if(query.city == cities[i].Name){ %>selected<% } %>><%= cities[i].Name %> </option>
+                                <% } %>
+                            </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-group">
+                        <select class="selectpicker search-fields" id="Type" name="type" onchange="changePropertyText(this.value)">
+                            <option value="" data-hidden="true" <% if(query.type == ''){ %>selected<% } %>>Property Types </option>
+                            <% for(var i=0; i < propertyType.length; i++){ %>
+                                <option value="<%= propertyType[i].Type %>" <% if(query.type == propertyType[i].Type){ %>selected<% } %>><%= propertyType[i].Type %> </option>
+                            <% } %>
+                            
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-group form-group"> <input class="input-text" placeholder="Area" value="<% if(query.area){ %><%= query.area %><% } %>" name="area" id="myInput" autocomplete="off"> </div>
+                </li>
+                <li>
+                    <div class="dropdown search-fields">
+                        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Budget
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="input-text" name="budget_min" value="<% if(query.area){ %><%= query.budget_min %><% } %>" placeholder="Min">
+                            </div>
+                            <div class="dash">&nbsp;</div>
+                          </li>
+                          <li class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="input-text" name="budget_max" value="<% if(query.area){ %><%= query.budget_max %><% } %>" placeholder="Max">
+                            </div>
+                          </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-group">
+                        <select class="selectpicker search-fields" id="category" name="category">
+                            <option value="Property Types" data-hidden="true">Property Type Child </option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-group">
+                        <select class="selectpicker search-fields" id="ResaleProperty" name="ResaleProperty">
+                            <option value="" data-hidden="true">Property State</option>
+                            <option value="true" <% if(query.ResaleProperty == true){ %>selected<% } %>>New</option>
+                            <option value="false" <% if(query.ResaleProperty == false){ %>selected<% } %>>Second Resale</option>
+                        </select>
+                    </div>
+                </li>
+                <li>
+                    <span class="input-group-btn" style="width:0px"> <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button> </span>
+                </li>
+            </ul>
+        </form>
+    </div>
+ </div>
+</section>
+
+<!-- Properties section body start -->
+<div class="properties-section property-big content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Option bar start -->
+                <div class="option-bar">
+                    <div class="row">
+                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-2">
+                           <h4>
+                                <span class="heading-icon">
+                                    <i class="fa fa-th-list"></i>
+                                </span>
+                                <span class="hidden-xs">Properties List</span>
+                            </h4>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-10 col-pad">
+                            <div class="sorting-options">
+                                <select class="sorting">
+                                   <option>New To Old</option>
+                                   <option>Old To New</option>
+                                   <option>Properties (High To Low)</option>
+                                   <option>Properties (Low To High)</option>
+                                </select>
+                                <a href="properties-list-fullwidth.html" class="change-view-btn active-view-btn"><i class="fa fa-th-list"></i></a>
+                                <a href="properties-grid-fullwidth.html" class="change-view-btn"><i class="fa fa-th-large"></i></a>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+                <!-- Option bar end -->
+                <div class="clearfix"></div>
+
+                <!-- property start -->
+                <% for(var i=0; i < propertyResult.length; i++){ 
+                    var ImageGallery = propertyResult[i].ImageGallery.split(',');
+                %>
+                <div class="property property-hp clearfix wow fadeInUp delay-03s">
+                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 col-pad">
+                        <!-- Property img -->
+                        <div class="property-img">
+                            <div class="property-tag button alt featured">Featured</div>
+                            <div class="property-tag button sale">For Sale</div>
+                            <div class="property-price">₹<%= propertyResult[i].AskingPrice %></div>
+                            
+                            <img src="<%= ImageGallery[0] %>" alt="fp-list" class="img-responsive">
+                            <div class="property-overlay">
+                                <a href="properties-details.html" class="overlay-link">
+                                    <i class="fa fa-link"></i>
+                                </a>
+                                <a class="overlay-link property-video" title="Lexus GS F">
+                                    <i class="fa fa-video-camera"></i>
+                                </a>
+                                <div class="property-magnify-gallery">
+                                    <% for(var j=0; j < ImageGallery.length; j++){ 
+                                        if(j == 0){
+                                    %>
+                                    <a href="<%= ImageGallery[i] %>" class="overlay-link">
+                                        <i class="fa fa-expand"></i>
+                                    </a>
+                                    <% }else{ %>
+                                    <a href="<%= ImageGallery[i] %>" class="hidden"></a>
+                                    
+                                    <%} } %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 property-content ">
+                        <!-- title -->
+                        <h1 class="title">
+                            <a href="properties-details.html"><%= propertyResult[i].Title %></a>
+                        </h1>
+                        <!-- Property address -->
+                        <h3 class="property-address">
+                            <a href="properties-details.html">
+                                <i class="fa fa-map-marker"></i><%= propertyResult[i].Area %>,<%= propertyResult[i].city %>
+                            </a>
+                        </h3>
+                        <p><%= propertyResult[i].PropertyDescription %></p>
+                        <!-- Facilities List -->
+                        <ul class="facilities-list clearfix">
+                            <li>
+                                <i class="flaticon-square-layouting-with-black-square-in-east-area"></i>
+                                <span><%= propertyResult[i].SearchPrice %> sq ft</span>
+                            </li>
+                            <li>
+                                <i class="flaticon-bed"></i>
+                                <span>3 Beds</span>
+                            </li>
+                            <li>
+                                <i class="flaticon-monitor"></i>
+                                <span>TV </span>
+                            </li>
+                            <li>
+                                <i class="flaticon-holidays"></i>
+                                <span> 2 Baths</span>
+                            </li>
+                            <li>
+                                <i class="flaticon-vehicle"></i>
+                                <span>1 Garage</span>
+                            </li>
+                            <li>
+                                <i class="flaticon-building"></i>
+                                <span> 3 Balcony</span>
+                            </li>
+                        </ul>
+                        <!-- Property footer -->
+                        <div class="property-footer">
+                            <span class="left">
+                                <a href="#"><i class="fa fa-user"></i><%= propertyResult[i].Name %></a>
+                            </span>
+                            <%
+                                function timeSince(date) {
+                                    var seconds = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+                                    var interval = Math.floor(seconds / 31536000);
+                                    if (interval >= 1) {
+                                        return interval + " years ago";
+                                    }
+                                    interval = Math.floor(seconds / 2592000);
+                                    if (interval >= 1) {
+                                        return interval + " months ago";
+                                    }
+                                    interval = Math.floor(seconds / 86400);
+                                    if (interval >= 1) {
+                                        return interval + " days ago"; 
+                                    } 
+                                    interval = Math.floor(seconds / 3600); 
+                                    if (interval >= 1) 
+                                    { 
+                                        return interval + " hours ago"; 
+                                    } 
+                                    interval = Math.floor(seconds / 60); 
+                                    if (interval >= 1) 
+                                    { 
+                                        return interval + " minutes ago"; 
+                                    } 
+                                    return Math.floor(seconds) + " seconds ago"; 
+                                }
+                            %>
+
+                            <span class="right">
+                                <i class="fa fa-calendar"></i><%= timeSince(propertyResult[i].CreatedDate); %>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+                <!-- property end -->
+
+                <!-- Page navigation start -->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="properties-list-rightside.html" aria-label="Previous">
+                                <span aria-hidden="true">«</span>
+                            </a>
+                        </li>
+                        <li><a href="properties-list-rightside.html">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="properties-list-leftside.html">2</a></li>
+                        <li class="active"><a href="properties-list-fullwidth.html">3</a></li>
+                        <li>
+                            <a href="properties-list-fullwidth.html" aria-label="Next">
+                                <span aria-hidden="true">»</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Page navigation end-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Properties section body end -->
+<!-- Car Video Modal start-->
+<div class="modal property-modal fade" id="propertyModal" tabindex="-1" role="dialog" aria-labelledby="carModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="carModalLabel">
+                    Find Your Dream House
+                </h5>
+                <p>
+                    123 Kathal St. Tampa City,
+                </p>
+                <span class="ratings">
+                    <i class="fa fa-star s1 active" data-score="1"></i>
+                    <i class="fa fa-star s2 active" data-score="2"></i>
+                    <i class="fa fa-star s3 active" data-score="3"></i>
+                    <i class="fa fa-star s4 active" data-score="4"></i>
+                    <i class="fa fa-star s5 active" data-score="5"></i>
+                </span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row modal-raw">
+                    <div class="col-lg-5 modal-left">
+                        <div class="modal-left-content">
+                            <div class="bs-example" data-example-id="carousel-with-captions">
+                                <div class="carousel slide" id="properties-carousel" data-ride="carousel">
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="item">
+                                            <img src="http://placehold.it/450x300 " alt="best-properties">
+                                        </div>
+                                        <div class="item">
+                                            <img src="http://placehold.it/450x300 " alt="best-properties">
+                                        </div>
+                                        <div class="item active">
+                                            <iframe class="modalIframe" src="https://www.youtube.com/embed/5e0LxrLSzok" allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+
+                                    <a class="control control-prev" href="#properties-carousel" role="button" data-slide="prev">
+                                        <i class="fa fa-angle-left"></i>
+                                    </a>
+                                    <a class="control control-next" href="#properties-carousel" role="button" data-slide="next">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="description">
+                                <h3>Description</h3>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.But also the leap into electronic typesetting, remaining,</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 modal-right">
+                        <div class="modal-right-content bg-white">
+                            <strong class="price">
+                                $178,000
+                            </strong>
+                            <section>
+                                <h3>Features</h3>
+                                <div class="features">
+                                    <ul class="bullets">
+                                        <li><i class="flaticon-air-conditioner"></i>Air conditioning</li>
+                                        <li><i class="flaticon-wifi"></i>Wifi</li>
+                                        <li><i class="flaticon-transport"></i>Parking</li>
+                                        <li><i class="flaticon-people-2"></i>Pool</li>
+                                        <li><i class="flaticon-weightlifting"></i>Gym</li>
+                                        <li><i class="flaticon-building"></i>Alarm</li>
+                                        <li><i class="flaticon-old-telephone-ringing"></i>Balcony</li>
+                                        <li><i class="flaticon-monitor"></i>TV</li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <section>
+                                <h3>Overview</h3>
+                                <dl>
+                                    <dt>Model</dt>
+                                    <dd>Maxima</dd>
+                                    <dt>Condition</dt>
+                                    <dd>Brand New</dd>
+                                    <dt>Year</dt>
+                                    <dd>2018</dd>
+                                    <dt>Price</dt>
+                                    <dd>$178,000</dd>
+                                </dl>
+                            </section>
+                            <section>
+                                <h3>Last Review</h3>
+                                <div class="ratings" data-rating="5">
+                                    <span>
+                                        <i class="fa fa-star s1 active" data-score="1"></i>
+                                        <i class="fa fa-star s2 active" data-score="2"></i>
+                                        <i class="fa fa-star s3 active" data-score="3"></i>
+                                        <i class="fa fa-star s4 active" data-score="4"></i>
+                                        <i class="fa fa-star s5 active" data-score="5"></i>
+                                    </span>
+                                </div>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
+                            </section>
+                            <a href="properties-details.html" class="btn button-sm button-theme">Show Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Car Video Modal end-->
+<% include script %>
+<% include footer %>
+
+
+

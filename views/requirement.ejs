@@ -1,0 +1,182 @@
+<% include header %>
+<% include banner %>
+<%- locals.flash %>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<div id="myModal" class="modal fade" role="dialog" style="z-index: 9999;">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                
+                <div class="text-center">
+                    <h4 class="modal-title">Requirement</h4>
+                </div>
+                <ul id="messageBox" style="margin-left:16px">
+                
+                </ul>
+                <!-- Submit Property start -->
+                <div class="submit-address">
+                    <form action="/requirement/save" method="POST" id="requirement">   
+                        <div class="search-contents-sidebar mb-30">
+                            <div class="col-sm-12 mb-30">
+                                <!-- Property Type and Category -->    
+                                <div class="form-group">
+                                    <label>Type of Property</label>
+                                    <select class="selectpicker search-fields propertyType" id="Type" name="PropertyTypeID" onchange="changePropertyType(this.value)">
+                                        <option value="">Select</option>
+                                        <% var propertyTypeData = [];
+                                            for(var i=0; i< propertyType.length; i++ ){ 
+                                            propertyTypeData[propertyType[i].ID] = propertyType[i].Type; 
+                                        %>
+                                            <option value="<%= propertyType[i].ID %>"><%= propertyType[i].Type %></option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    
+                                    <label>Property Sale Type</label>
+                                    <select class="selectpicker search-fields PropertySaleTypeID" name="PropertySaleTypeID" id="category" >
+                                        <option value="">Select</option>
+                                        <% for(var i = 0; i<saleType.length; i++){ %>
+                                        <option value="<%= saleType[i].ID %>"><%= saleType[i].SaleType %></option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <!--<input type="text" class="input-text" name="CityID" placeholder="City">-->
+                                    <select class="selectpicker search-fields city" name="CityID" id="city" onchange="changeCity(this.value)">
+                                        <option value="">Select</option>
+                                        <% for(var i=0; i< cities.length; i++ ){ 
+                                        %>
+                                            <option value="<%= cities[i].ID %>"><%= cities[i].Name %></option>
+                                        <% } %>
+                                    </select>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label>Area</label>
+                                    <!--<input type="text" class="input-text" name="AreaID" placeholder="Area">-->
+                                    <select class="selectpicker search-fields areaId" name="AreaID" id="areaId">
+                                        <option value="">Select</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Locality</label>
+                                    <input type="text" class="input-text" name="Locality"  placeholder="Locality">
+                                </div>
+                                <div class="form-group">
+                                    <label>Extent</label>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input type="text" class="input-text MinExtent" name="MinExtent"  placeholder="Extent Min">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="input-text MaxExtent" name="MaxExtent"  placeholder="Extent Max">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Price:</label>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input type="text" class="input-text MinPrice" name="MinPrice"  placeholder="Price Min">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="input-text MaxPrice" name="MaxPrice"  placeholder="Price Max">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Transaction Type</label>
+                                            <select class="selectpicker search-fields" name="TransactionType">
+                                                <option value="white">White</option>
+                                                <option value="black">Black</option>
+                                                <option value="mixed">Mixed (%)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Remarks</label>
+                                            <input type="text" class="input-text" name="Remarks" placeholder="Remarks">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Apartment Projects Individual-->
+                                
+                                <div class="form-group Apartment Projects Individual propertyCategory" style="display: none;">
+                                    <label>No. of Bedrooms:</label>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <input type="text" class="input-text MinBedrooms" name="MinBedrooms"  placeholder="Bedrooms">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="input-text MaxBedrooms" name="MaxBedrooms"  placeholder="Bedrooms">
+                                        </div>
+                                    </div>
+                                </div>    
+                                    
+                                <div class="row Apartment Projects Individual propertyCategory" style="display: none;">
+                                    <div class="col-sm-6">
+                                        <div class="radio-btn">
+                                            <label class="radio-btn">
+                                                Balcony
+                                            </label>
+                                            <label>Yes</label> <input class="radio" type="radio" name="NeedBalconys" value="true">
+                                            <label>No</label> <input class="radio" type="radio" name="NeedBalconys" value="false">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="radio-btn">
+                                            <label class="radio-btn">
+                                                Cupboards
+                                            </label>
+                                            <label>Yes</label> <input class="radio" type="radio" name="CupboardsDone" value="true">
+                                            <label>No</label> <input class="radio" type="radio" name="CupboardsDone" value="false">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Abutting Road Width</label>
+                                            <input type="text" class="input-text abuttingRoadWidth" name="AbuttingRoadWidth" placeholder="Abutting Road Width">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <button type="submit" class="button-sm button-theme" type="button">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            <!-- Submit Property end -->
+            </div>
+        </div>
+    </div>
+</div>
+<% include script %>
+<% include footer %>
+
+<script>
+    $('#requirement').validate(
+        {errorLabelContainer: "#messageBox",
+         wrapper: "li",
+         errorClass: "error"
+    });
+</script>

@@ -1,0 +1,80 @@
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </a>
+        </div>
+        <div class="modal-body">
+            <div class="row modal-raw">
+                <div class="col-lg-12 modal-left">
+                    <div class="modal-left-content">
+                        <div class="bs-example" data-example-id="carousel-with-captions">
+                            <div class="carousel slide" id="properties-carousel" data-ride="carousel">
+                                <div class="carousel-inner" role="listbox">
+                                    <% if(VideoURL.length > 0 || VideoGallery.length > 0|| ImageGallery) { %>
+                                        <% if(ImageGallery.length && mode == 'Images') {
+                                            var active = "";
+                                            %>
+                                            <% for(j=0; j< ImageGallery.length; j++){ 
+                                                    active = ""
+                                                    if(j == index){
+                                                    active = "active";
+                                                }
+                                            %>
+                                            <div class = "item <%= active %>" style="background-image: url= (<%= ImageGallery[j] %>);">
+                                                <!-- <img src="<%= ImageGallery[j] %>"> -->
+                                            </div>  
+                                            <% } } %>
+                                    
+                                        <% if( VideoURL.length > 0){ 
+                                            var active = "";
+                                        %>
+                                        <% for(i=0; i< VideoURL.length; i++){
+                                            active = "";
+                                            if(i == 0 && mode != 'Images' ){ 
+                                                active = "active";
+                                            }    
+                                        %>
+                                        <div class="item <%= active %>">        
+                                            <iframe class="modalIframe" src="https://www.youtube.com/embed/<%= YouTubeGetID(VideoURL[i]) %>?rel=0" allowfullscreen height="300"></iframe>
+                                        </div>
+                                        <% } } %>
+                                        <% if(VideoGallery.length) { %>   
+                                        <%for(i=0; i< VideoGallery.length; i++){
+                                            active = "";
+                                            if(i == 0 && active == ''){ 
+                                                active = "active";
+                                            } 
+                                        %>
+                                        <div class="item inactive">
+                                        
+                                            <video  height="300" controls>
+                                                <source src="<%= VideoGallery[i] %>" type="video/mp4">
+                                                Your browser does not
+                                                support the video tag.
+                                            </video> 
+                                    
+                                        </div> 
+                                        <% } } %>
+                                    <% if(ImageGallery.length && mode == 'Video') { %>
+                                        <% for(i=0; i< ImageGallery.length; i++){ %>
+                                        <div class = "item inactive">
+                                            <img src="<%= ImageGallery[i] %>">
+                                        </div>
+                                    <% } } } %>
+                                </div>
+                                <a class="control control-prev" href="#properties-carousel" role="button" data-slide="prev">
+                                    <i class="fa fa-angle-left"></i>
+                                </a>
+                                <a class="control control-next" href="#properties-carousel" role="button" data-slide="next">
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
